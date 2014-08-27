@@ -6,3 +6,13 @@ body {
 .footer {
     margin-top: 25px;
 }
+
+.btn-primary {
+    background-color: #ff2244;
+    border-color: #cc1122;
+}
+
+.btn-primary:hover {
+    background-color: #e61d35;
+    border-color: #cc1122;
+}

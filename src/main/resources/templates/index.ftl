@@ -13,49 +13,32 @@
             <div class="container">
                 <span class="pull-left col-sm-8">
                     <img class="img-responsive logo" src="/static/img/logo.png"/>
-                    <p class="text-muted">Custom engineered software solutions built specifically for you.</p>
                 </span>
-                <span class="pull-left">
-                    The decision between bespoke or off-the-shelf software is quickly taking priority in
-                    todays fast paced business environment.  The need to have better tools, to complete work
-                    more efficiently, to avoid possible errors or pitfalls and ultimatly to outperform your
-                    competion are what enable your business to succeed.
+                <span class="text-center col-xs-4">
+                    Our goal for these Fan the Flame Dates is <br/>
+                    to help you and your spouse “fan the flame” <br/>
+                    of your marriage!  We’ll give you the tools <br/>
+                    and encouragement you need to re-kindle those <br/>
+                    feelings of commitment and passion! <br/><br/>
+
+                    <a href="#" class="btn btn-primary">Take the Challange</a>
                 </span>
             </div>
         </div>
+
         <div class="container">
-            <div class="col-sm-4 text-center">
-                <h4><i class="fa fa-code fa-5x"></i></h4><br/>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p>
-                            The real challange in developing bespoke software is to combine the 'instant turnaround' you get
-                            with an off-the-shelf solution with the obvious tailored nature that custom software offers.
+            <div class="col-sm-12">
+                <div class="well well-md">
+                        <p class="text-center">
+                            Building and maintaining a love relationship is a lot like starting and feeding
+                            a fire. You sparked a friendship, added some kindling through flirting, and as
+                            you invested more time and energy through dating, you placed larger pieces of
+                            wood onto the flames making them burn brighter! Soon, you had built a roaring
+                            fire and got married believing that those fiery feelings of commitment and love
+                            would never die down. But then reality hits and you realize that if that fire
+                            isn’t tended, those flames will falter. <span style="color:#ff2244;">We want to
+                            help you “Fan the Flames” of your marriage and turn it into a roaring blaze!</span>
                         </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center">
-                <h4><i class="fa fa-cogs fa-5x"></i></h4><br/>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p>
-                            Most off-the-shelf software simply echos a successful bespoke design pattern in mass quantity.
-                            The only way to accomplish this is to generalize the solution in order for it to 'fit' a wider range
-                            of users.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center">
-                <h4><i class="fa fa-check-circle-o fa-5x"></i></h4><br/>
-                <div class="panel panel-default">
-                	<div class="panel-body">
-                        <p>
-                            Taking a pre-existing software design and generalizing it to fit a wider userbase comes with the same
-                            interesting caveat as a 'one size fits all' glove has.  The question is does it really fit?
-                        </p>
-                	</div>
                 </div>
             </div>
         </div>
