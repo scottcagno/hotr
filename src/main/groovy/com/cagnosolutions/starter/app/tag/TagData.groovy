@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.videometadata
+package com.cagnosolutions.starter.app.tag
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,25 +15,25 @@ import org.springframework.stereotype.Service
  */
 
 @CompileStatic
-@Service(value = "videoMetadataService")
-class VideoMetadataService {
+@Service(value = "tagService")
+class TagService {
 
     @Autowired
-    VideoMetadataRepository repo
+    TagRepository repo
 
-    List<VideoMetadata> findAll() {
+    List<Tag> findAll() {
         repo.findAll()
     }
 
-    Page<VideoMetadata> findAll(int page, int size, String... fields) {
+    Page<Tag> findAll(int page, int size, String... fields) {
         repo.findAll(new PageRequest(page, size, Sort.Direction.ASC, fields))
     }
 
-    VideoMetadata findOne(Long id) {
+    Tag findOne(Long id) {
         repo.findOne id
     }
 
-    VideoMetadata save(VideoMetadata video) {
+    Tag save(Tag video) {
         repo.save video
     }
 
@@ -45,6 +45,6 @@ class VideoMetadataService {
 
 @CompileStatic
 @Repository
-interface VideoMetadataRepository extends JpaRepository<VideoMetadata, Long> {
+interface TagRepository extends JpaRepository<Tag, Long> {
 
 }

@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.videometadata
+package com.cagnosolutions.starter.app.tag
 
 import groovy.transform.CompileStatic
 
@@ -11,10 +11,10 @@ import javax.persistence.*
 
 @CompileStatic
 @Entity
-@Table(name = "videoMetadata")
-class VideoMetadata {
+@Table(name = "tag")
+class Tag {
 
     @Id
     String id
-    String data
+    String tag
 }

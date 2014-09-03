@@ -7,14 +7,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><i class="fa fa-home"></i> Home</a>
+            <a class="navbar-brand" href="/"> Home</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <#if authenticated??>
+                    <li><a href="/about"><i class="fa fa-home"></i> About</a></li>
+                    <li><a href="/videos"><i class="fa fa-vimeo-square"></i> Videos</a></li>
+                    <li><a href="/account"><i class="fa fa-user"></i> Account</a></li>
                     <li><a href="/logout"><i class="fa fa-unlock"></i> Logout (${authenticated})</a></li>
+
                 <#else>
-                    <li><a href="/secure/login?forward=user"><i class="fa fa-user"></i> Login</a></li>
+                    <li><a href="/about"><i class="fa fa-home"></i> About</a></li>
+                    <li><a href="/videos"><i class="fa fa-vimeo-square"></i> Videos</a></li>
+                    <li><a href="/register"><i class="fa fa-user"></i> Register</a></li>
+                    <li><a href="/secure/login?forward=user"><i class="fa fa-lock"></i> Login</a></li>
                 </#if>
             </ul>
         </div>

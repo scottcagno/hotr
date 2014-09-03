@@ -22,8 +22,8 @@
                             <div class="form-group">
                                 <input type="text" id="description" name="description" value="${(video.description)!}" class="form-control" placeholder="Description" required="true"/>
                             </div>
-                            <textarea name="metadata" id="metadata" cols="30" rows="10">
-                                ${(video.metadata)!}
+                            <textarea name="tags" id="metadata" cols="30" rows="10">
+                                ${(video.tags)!}
                             </textarea>
                             <input type="hidden" name="id" value="${(video.id)!}"/>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

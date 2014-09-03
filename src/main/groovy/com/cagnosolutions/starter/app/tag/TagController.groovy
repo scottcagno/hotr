@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.videometadata
+package com.cagnosolutions.starter.app.tag
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,36 +15,36 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  */
 
 @CompileStatic
-@Controller(value = "videoMetadataController")
-@RequestMapping(value = "/secure/video/metadata")
-class VideoMetadataController {
+@Controller(value = "tagController")
+@RequestMapping(value = "/secure/video/tag")
+class TagController {
 
     @Autowired
-    VideoMetadataService metaDataService
+    TagService tagService
 
     @RequestMapping(method = RequestMethod.GET)
     String viewAll(Model model) {
-        model.addAttribute "videos", metaDataService.findAll()
-        "video/metadata"
+        model.addAttribute "tags", tagService.findAll()
+        "video/tag"
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    String addOrEdit(VideoMetadata metaData, RedirectAttributes attr) {
+    String addOrEdit(Tag metaData, RedirectAttributes attr) {
         // TODO: implement add or edit
-        "redirect:/secure/metadata"
+        "redirect:/secure/tag"
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model) {
-        def video = metaDataService.findOne id
-        model.addAllAttributes([video: video, videos: metaDataService.findAll()])
-        "video/metadata"
+        def video = tagService.findOne id
+        model.addAllAttributes([video: video, videos: tagService.findAll()])
+        "video/tag"
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     String delete(@PathVariable Long id) {
-        metaDataService.delete id
-        "redirect:/secure/metadata"
+        tagService.delete id
+        "redirect:/secure/tag"
     }
 
 }
