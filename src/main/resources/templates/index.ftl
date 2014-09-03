@@ -21,7 +21,7 @@
                     and encouragement you need to re-kindle those <br/>
                     feelings of commitment and passion! <br/><br/>
 
-                    <a href="#" class="btn btn-primary">Take the Challange</a>
+                    <a href="#" class="btn btn-primary hot">Take the Challange</a>
                 </span>
             </div>
         </div>
@@ -36,7 +36,7 @@
                             wood onto the flames making them burn brighter! Soon, you had built a roaring
                             fire and got married believing that those fiery feelings of commitment and love
                             would never die down. But then reality hits and you realize that if that fire
-                            isn’t tended, those flames will falter. <span style="color:#ff2244;">We want to
+                            isn’t tended, those flames will falter. <span class="text-hot">We want to
                             help you “Fan the Flames” of your marriage and turn it into a roaring blaze!</span>
                         </p>
                 </div>
