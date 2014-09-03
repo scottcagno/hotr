@@ -1,5 +1,5 @@
 <div class="container">
-    <footer>
+	<footer>
         <span class="pull-left">
             <i class="fa fa-copyright"></i> 2014 Fan The Flame
         </span>
@@ -9,5 +9,5 @@
             <a href="#events">Events</a> |
             <a href="#donate">Donate</a>
         </span>
-    </footer>
+	</footer>
 </div>
