@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Landing Page</title>
+		<title>Welcome</title>
         <#include "stubs/header.ftl">
 	</head>
 	<body id="body">
@@ -21,7 +21,7 @@
                     and encouragement you need to re-kindle those <br/>
                     feelings of commitment and passion! <br/><br/>
 
-                    <a href="#" class="btn btn-primary hot">Take the Challange</a>
+                    <a href="#" class="btn btn-hot">Take the Challange</a>
                 </span>
             </div>
         </div>

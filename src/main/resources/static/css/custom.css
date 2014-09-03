@@ -18,11 +18,13 @@ a:hover, a:focus {
 .btn-hot {
     background-color: #ff2244;
     border-color: #cc1122;
+    color: #fff;
 }
 
 .btn-hot:hover {
     background-color: #e61d35;
     border-color: #cc1122;
+    color: #eee;
 }
 
 .text-hot {

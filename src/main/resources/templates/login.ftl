@@ -27,7 +27,7 @@
                             <input type="password" name="password" class="form-control" placeholder="Password" required="true"/>
                         </div>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <button class="btn btn-md btn-block btn-primary" type="submit">Login</button>
+                        <button class="btn btn-md btn-block btn-hot" type="submit">Login</button>
                     </form>
                 </span>
             </div>
