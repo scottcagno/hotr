@@ -3,6 +3,7 @@ package com.cagnosolutions.starter.app.video
 import com.cagnosolutions.starter.app.tag.Tag
 
 import javax.persistence.*
+
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -12,12 +13,13 @@ import javax.persistence.*
 @Table(name = "video")
 class Video {
 
-    @Id
-    String id
-    String name, description, thumburi, videouri
+	@Id
+	@GeneratedValue
+	Long id
+    String name, description, thumb, uri
 
     @OneToMany
     @JoinColumn(name="video_fk")
-    List<Tag> tags
+    List<Tag> metadata
 
 }

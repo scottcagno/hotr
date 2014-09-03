@@ -40,14 +40,14 @@ class VideoController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    String view(@PathVariable String id, Model model) {
+    String view(@PathVariable Long id, Model model) {
         def video = videoService.findOne id
         model.addAllAttributes([video: video, videos: videoService.findAll()])
         "video/video"
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    String delete(@PathVariable String id) {
+    String delete(@PathVariable Long id) {
         videoService.delete id
         "redirect:/secure/video"
     }

@@ -1,16 +1,12 @@
 package com.cagnosolutions.starter.app.video
-
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
-import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
-
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -31,7 +27,7 @@ class VideoService {
         repo.findAll(new PageRequest(page, size, Sort.Direction.ASC, fields))
     }
 
-    Video findOne(String id) {
+    Video findOne(Long id) {
         repo.findOne id
     }
 
@@ -39,7 +35,7 @@ class VideoService {
         repo.save video
     }
 
-    def delete(String id) {
+    def delete(Long id) {
         repo.delete id
     }
 
@@ -47,8 +43,5 @@ class VideoService {
 
 @CompileStatic
 @Repository
-interface VideoRepository extends JpaRepository<Video, String> {
-
-    @Query("SELECT v FROM Video v WHERE v.id=:id")
-    Video findOne(@Param("id") String id)
+interface VideoRepository extends JpaRepository<Video, Long> {
 }

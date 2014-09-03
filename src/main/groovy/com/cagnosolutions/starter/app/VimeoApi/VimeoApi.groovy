@@ -42,7 +42,7 @@ class VimeoAPI {
 		return mapper.readValue(makeApiCall("POST", url, params).getInputStream(),Map.class);
 	}
 
-	def addEmbedPreset(String preset, String videoUrl) throws Exception {
+	def addEmbedPreset(String videoUrl) throws Exception {
 		makeApiCall("PUT", "https://api.vimeo.com" + videoUrl + "/presets/451008");
 	}
 

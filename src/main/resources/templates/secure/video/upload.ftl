@@ -3,13 +3,13 @@
 	<head id="head">
 		<title>Login</title>
 
-		<#include "../../stubs/header.html"/>
+		<#include "../../stubs/header.ftl"/>
 
 		<style>input.uploader{position:absolute;left:-9999px;}label.uploader{cursor:pointer;}</style>
 	</head>
 	<body id="body">
 
-		<#include "../../stubs/navbar.html"/>
+		<#include "../../stubs/navbar.ftl"/>
 
 		<!-- content -->
 		<div class="container">
@@ -33,7 +33,7 @@
 		<!-- scripts -->
 		<div id="scripts">
 
-			<#include "../../stubs/scripts.html"/>
+			<#include "../../stubs/scripts.ftl"/>
 
 			<script>
 				function updateFileInfo() {
