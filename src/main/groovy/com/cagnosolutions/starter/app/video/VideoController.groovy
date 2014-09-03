@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.video
+
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -7,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
-
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @CompileStatic
 @Controller(value = "videoController")
-@RequestMapping(value = "/secure/video")
+@RequestMapping(value = "/video")
 class VideoController {
 
     @Autowired
@@ -51,5 +51,4 @@ class VideoController {
         videoService.delete id
         "redirect:/secure/video"
     }
-
 }
