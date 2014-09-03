@@ -36,8 +36,8 @@
                             wood onto the flames making them burn brighter! Soon, you had built a roaring
                             fire and got married believing that those fiery feelings of commitment and love
                             would never die down. But then reality hits and you realize that if that fire
-                            isn’t tended, those flames will falter. <span class="text-hot">We want to
-                            help you “Fan the Flames” of your marriage and turn it into a roaring blaze!</span>
+                            isn’t tended, those flames will falter. We want to help you “Fan the Flames” of
+                            your marriage and turn it into a roaring blaze!
                         </p>
                 </div>
             </div>
