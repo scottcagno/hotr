@@ -15,6 +15,8 @@ import javax.persistence.*
 class Tag {
 
     @Id
-    String id
+	@GeneratedValue
+    Long id
     String tag
+	Long video_fk
 }

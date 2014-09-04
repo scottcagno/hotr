@@ -32,13 +32,13 @@
 										<td>${video.name}</td>
 										<td>${video.description}</td>
 										<td>${video.thumb}</td>
-										<td>${video.uri}</td>
+										<td>${video.vimeoId}</td>
 										<td>
 											<form role="form" method="post" action="/secure/video/delete/${video.id}">
 												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-												<input type="hidden" name="uri" value="${video.uri}"/>
-												<button type="submit">
-													<i class="fa fa-trash"></i>
+												<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
+												<button type="submit" class="btn btn-danger btn-xs">
+													<i class="fa fa-trash-o"></i>
 												</button>
 											</form>
 										</td>

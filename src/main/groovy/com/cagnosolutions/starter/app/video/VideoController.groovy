@@ -51,4 +51,10 @@ class VideoController {
         videoService.delete id
         "redirect:/secure/video"
     }
+
+	@RequestMapping(value = "/view/{id}")
+	String viewVid(@PathVariable Long id, Model model) {
+		model.addAttribute("video", videoService.findOne(id))
+		"video/view"
+	}
 }

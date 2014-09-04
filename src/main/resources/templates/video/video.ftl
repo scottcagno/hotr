@@ -2,11 +2,11 @@
 <html lang="en">
 <head id="head">
     <title>Videos</title>
-    <#include "../stubs/header.ftl">
+    <#include "../stubs/header.ftl"/>
 </head>
     <body id="body">
 
-        <#include "../stubs/navbar.ftl">
+        <#include "../stubs/navbar.ftl"/>
 
         <!-- content -->
         <div id="content" class="container">
@@ -101,9 +101,9 @@
 
         <!-- content -->
 
-        <#include "../stubs/footer.ftl">
+        <#include "../stubs/footer.ftl"/>
 
-        <#include "../stubs/scripts.ftl">
+        <#include "../stubs/scripts.ftl"/>
 
         <script>
             $(document).ready(function() {

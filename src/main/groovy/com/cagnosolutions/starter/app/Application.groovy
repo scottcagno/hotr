@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app
-
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
@@ -15,8 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
-import javax.sql.DataSource
 
+import javax.sql.DataSource
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.

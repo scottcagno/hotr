@@ -1,6 +1,7 @@
 package com.cagnosolutions.starter.app.admin
 
 import com.cagnosolutions.starter.app.VimeoApi.VimeoAPI
+import com.cagnosolutions.starter.app.tag.TagService
 import com.cagnosolutions.starter.app.video.Video
 import com.cagnosolutions.starter.app.video.VideoService
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,6 +27,9 @@ class VideoController {
 	@Autowired
 	VimeoAPI vimeoAPI
 
+	@Autowired
+	TagService tagService
+
 	// GET view all
 	@RequestMapping(method = RequestMethod.GET)
 	String all(Model model) {
@@ -35,25 +39,38 @@ class VideoController {
 
 	// GET add
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	String add(@RequestParam String video_uri, Model model) {
-		try {
-			model.addAttribute("vimeo", VimeoAPI.getInfo( "https://api.vimeo.com" + video_uri))
-		} catch (Exception e) {
-
-			e.printStackTrace()
-		}
+	String add() {
 		"secure/video/add"
+	}
+
+	// GET edit
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	String edit(@PathVariable Long id, Model model) {
+		model.addAttribute("video", videoService.findOne(id))
+		model.addAttribute("tags", tagService.findAllByVideo(id))
+		"secure/video/edit"
 	}
 
 	// POST add edit
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	String update(Video video, RedirectAttributes attr) {
+	String update(Video video, RedirectAttributes attr, @RequestParam String tags) {
 		if (video.id == null) {
-			vimeoAPI.addEmbedPreset(video.uri);
+			// new video
+			try {
+				vimeoAPI.addEmbedPreset(video.vimeoId)
+				vimeoAPI.addPrivacy(video.vimeoId)
+				video = videoService.save(video)
+				vimeoAPI.getThumb(video.id, video.vimeoId)
+			} catch (all) {
+				all.printStackTrace()
+			}
+		} else {
+			// existing video
+			videoService.save(video)
 		}
-		videoService.save(video)
+		// add/remove tags
+		tagService.videoTags(tags, video.id)
 		attr.addFlashAttribute("alertSuccess", "Successfully updated video")
-		// TODO: change redirect
 		"redirect:/secure/video"
 	}
 
@@ -70,8 +87,8 @@ class VideoController {
 
 	// POST delete
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-	String delete(@PathVariable Long id, @RequestParam String uri, RedirectAttributes attr) {
-		vimeoAPI.deleteVideo(uri)
+	String delete(@PathVariable Long id, @RequestParam String vimeoId, RedirectAttributes attr) {
+		vimeoAPI.deleteVideo(vimeoId)
 		videoService.delete(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted video")
 		"redirect:/secure/video"
