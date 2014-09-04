@@ -90,6 +90,7 @@ class VideoController {
 	String delete(@PathVariable Long id, @RequestParam String vimeoId, RedirectAttributes attr) {
 		vimeoAPI.deleteVideo(vimeoId)
 		videoService.delete(id)
+		tagService.deleteAllByVideo(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted video")
 		"redirect:/secure/video"
 	}

@@ -37,6 +37,10 @@ class TagService {
 		repo.videoTags(video_fk)
 	}
 
+	def deleteAllByVideo(Long video_fk) {
+		repo.deleteVideoTag(video_fk)
+	}
+
     Tag findOne(Long id) {
         repo.findOne id
     }
@@ -99,4 +103,9 @@ interface TagRepository extends JpaRepository<Tag, Long> {
 	@Query("DELETE FROM Tag t WHERE t.tag=:tagString AND t.video_fk=:video_fk")
 	@Transactional
 	void deleteTag(@Param("tagString") String tag, @Param("video_fk") Long video_fk)
+
+	@Modifying
+	@Query("DELETE FROM Tag t WHERE t.video_fk=:video_fk")
+	@Transactional
+	void deleteVideoTag(@Param("video_fk") Long video_fk)
 }
