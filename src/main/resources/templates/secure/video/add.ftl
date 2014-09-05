@@ -27,8 +27,6 @@
 								<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 										  style="resize:none;"></textarea>
 							</div>
-
-							<input type="hidden" name="thumb" value="${(vimeo.pictures.sizes?last.link)!}"/>
 							<input type="hidden" name="vimeoId" value="${(RequestParameters.video_uri?split('/')[2])!}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-primary btn-block" type="submit">Add</button>

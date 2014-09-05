@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app.admin
-
 import com.cagnosolutions.starter.app.VimeoApi.VimeoAPI
 import com.cagnosolutions.starter.app.tag.TagService
 import com.cagnosolutions.starter.app.video.Video
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
-
 /**
  * Created by greg on 9/3/14.
  */
@@ -95,5 +93,4 @@ class VideoController {
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted video")
 		"redirect:/secure/video"
 	}
-
 }

@@ -73,21 +73,6 @@ class TagService {
 		}
 	}
 
-	def testTags(String tags, Long video_fk) {
-		def oldTags = repo.testTags(video_fk)
-		def newTags = []
-		tags.split(",").each { String tag ->
-			newTags << new Tag([tag : tag.trim(), video_fk : video_fk])
-		}
-		List<Tag> delTags = new ArrayList<>(oldTags)
-		List<Tag> addTags = new ArrayList<>(newTags)
-
-		delTags.removeAll(newTags)
-		addTags.removeAll(oldTags)
-		repo.save(addTags)
-		repo.delete(delTags)
-	}
-
 }
 
 @CompileStatic
@@ -95,9 +80,6 @@ class TagService {
 interface TagRepository extends JpaRepository<Tag, Long> {
 	@Query("SELECT t.tag FROM Tag t WHERE t.video_fk=:video_fk")
 	List<String> videoTags(@Param("video_fk") Long video_fk);
-
-	@Query("SELECT t FROM Tag t WHERE t.video_fk=:video_fk")
-	List<Tag> testTags(@Param("video_fk") Long video_fk);
 
 	@Modifying
 	@Query("DELETE FROM Tag t WHERE t.tag=:tagString AND t.video_fk=:video_fk")
@@ -108,4 +90,5 @@ interface TagRepository extends JpaRepository<Tag, Long> {
 	@Query("DELETE FROM Tag t WHERE t.video_fk=:video_fk")
 	@Transactional
 	void deleteVideoTag(@Param("video_fk") Long video_fk)
+
 }

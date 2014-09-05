@@ -24,7 +24,7 @@
 									<th>Name</th>
 									<th>Description</th>
 									<th>Thumbnail Uri</th>
-									<th>Video Uri</th>
+									<th>Vimeo Id</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -34,7 +34,7 @@
 										<td>${video.id}</td>
 										<td>${video.name}</td>
 										<td>${video.description}</td>
-										<td>${video.thumb}</td>
+										<td>${(video.thumb)!}</td>
 										<td>${video.vimeoId}</td>
 										<td>
 											<a href="/secure/video/${video.id}" class="btn btn-xs btn-primary">

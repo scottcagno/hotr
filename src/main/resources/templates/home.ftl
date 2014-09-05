@@ -23,7 +23,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
                         <li><a href="#account">Account</a></li>
-                        <li><a href="#videos">Videos</a></li>
+                        <li><a href="/video">Videos</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
