@@ -5,8 +5,28 @@ body {
     color: #5a5a5a;
 }
 
+.navbar-margin {
+    margin-top: 50px;
+}
+
 h2 {
     font-size: 40px;
+    padding-bottom: 5px;
+}
+
+blockquote {
+
+    background-color: #ccc;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    color: #fff;
+
+}
+
+.panel-heading {
+    font-size: 18px;
 }
 
 .divider {
@@ -23,6 +43,10 @@ h2 {
 
 /* MOBILE */
 @media (max-width: 970px) {
+
+    blockquote {
+        margin-top: 50px;
+    }
     .divider {
         margin: 10px 0;
     }
