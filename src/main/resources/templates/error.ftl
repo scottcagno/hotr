@@ -6,7 +6,7 @@
 	</head>
 	<body id="body">
 
-        <#include "stubs/navbar.ftl">
+        <!--<#include "stubs/navbar.ftl">-->
 
         <!-- content -->
         <div id="content" class="container">

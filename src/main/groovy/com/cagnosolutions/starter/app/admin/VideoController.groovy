@@ -44,15 +44,15 @@ class VideoController {
 	}
 
 	// GET edit
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("video", videoService.findOne(id))
 		model.addAttribute("tags", tagService.findAllByVideo(id))
 		"secure/video/edit"
 	}
 
-	// POST add edit
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	// POST add/edit
+	@RequestMapping(method = RequestMethod.POST)
 	String update(Video video, RedirectAttributes attr, @RequestParam String tags) {
 		if (video.id == null) {
 			// new video
@@ -78,6 +78,7 @@ class VideoController {
 	@RequestMapping(value="/upload", method = RequestMethod.GET)
 	String upload(Model model) {
 		try {
+			// TODO: change redirect_url when live
 			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", "redirect_url=localhost:8080/secure/video/add"))
 		} catch (all) {
 			all.printStackTrace()
@@ -86,7 +87,7 @@ class VideoController {
 	}
 
 	// POST delete
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, @RequestParam String vimeoId, RedirectAttributes attr) {
 		vimeoAPI.deleteVideo(vimeoId)
 		videoService.delete(id)

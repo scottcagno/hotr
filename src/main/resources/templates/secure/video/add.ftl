@@ -6,7 +6,7 @@
 	</head>
 	<body id="body">
 
-		<#include "../../stubs/navbar.ftl"/>
+		<!--<#include "../../stubs/navbar.ftl"/>-->
 
 		<!-- content -->
 		<div class="container">
@@ -14,7 +14,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Add Video</div>
 					<div class="panel-body">
-						<form id="" role="form" method="post" action="/secure/video/add">
+						<form id="" role="form" method="post" action="/secure/video">
 							<div class="form-group">
 								<input type="text" id="name" name="name" class="form-control"
 									   placeholder="Name" required="true" />
@@ -39,9 +39,13 @@
 		</div>
 		<!-- content -->
 
+
+
 		<#include "../../stubs/footer.ftl"/>
 
 		<#include "../../stubs/scripts.ftl"/>
+
+
 
 	</body>
 </html>

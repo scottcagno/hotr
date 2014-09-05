@@ -77,7 +77,7 @@ class VimeoAPI {
 
 	// add embed presets to vimeo video
 	def addEmbedPreset(String vimeoId) throws Exception {
-		makeApiCall("PUT", "https://api.vimeo.com/videos/${vimeoId}/presets/451008")
+		makeApiCall("PUT", "https://api.vimeo.com/videos/${vimeoId}/presets/465827")
 	}
 
 	// add privacy settings to vimeo video
