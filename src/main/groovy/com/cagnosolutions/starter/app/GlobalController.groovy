@@ -25,6 +25,11 @@ class IndexController {
     String index() {
         "index"
     }
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    String home() {
+        "home"
+    }
 }
 
 @CompileStatic

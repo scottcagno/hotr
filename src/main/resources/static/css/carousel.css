@@ -1,0 +1,27 @@
+.carousel {
+    margin-bottom: 50px;
+}
+
+.carousel-caption {
+    line-height: 1.5;
+}
+
+.carousel-caption h1 {
+    font-size: 28px;
+}
+
+/* MOBILE */
+@media (max-width: 970px) {
+    .carousel {
+        margin-bottom: 20px;
+    }
+    .carousel-caption {
+        margin-bottom: 0;
+    }
+    .carousel-caption h1 {
+        font-size: 18px;
+    }
+    .carousel-caption p {
+        font-size: 12px;
+    }
+}
