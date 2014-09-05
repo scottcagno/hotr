@@ -18,7 +18,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"></a>
+            <span class="navbar-brand">Welcome</span>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -61,6 +61,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="/static/js/custom.js"></script>
+<scrip>
+    $('.nav li a').on('click', function(){
+        $('.nav-collapse').collapse('hide');
+    })
+</scrip>
 <!-- javascript -->
 
 </body>

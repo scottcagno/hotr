@@ -1,4 +1,4 @@
-<div id="about" class="container information about">
+<div id="about" class="container information">
     <blockquote class="blockquote-reverse">
         <h2 class="custom-heading">About Us</h2>
     </blockquote>
@@ -21,7 +21,7 @@
     <hr class="divider">
     <div class="row">
         <div class="col-lg-4 col-sm-4">
-            <h2 class="custom-heading">
+            <h2 class="">
                 You had built a roaring fire <span class="text-muted">and got married</span>
             </h2>
         </div>

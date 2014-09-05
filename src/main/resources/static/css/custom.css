@@ -5,6 +5,10 @@ body {
     color: #5a5a5a;
 }
 
+h2 {
+    font-size: 40px;
+}
+
 .divider {
     margin: 50px 0;
 }
