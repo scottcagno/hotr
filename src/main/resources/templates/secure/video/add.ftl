@@ -6,10 +6,10 @@
 	</head>
 	<body id="body">
 
-		<!--<#include "../../stubs/navbar.ftl"/>-->
+		<#include "../../stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div class="container">
+		<div class="container navbar-margin">
 			<div class="col-sm-offset-4 col-sm-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">Add Video</div>
