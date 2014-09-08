@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.admin
 import com.cagnosolutions.starter.app.VimeoApi.VimeoAPI
+import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.tag.TagService
 import com.cagnosolutions.starter.app.video.Video
 import com.cagnosolutions.starter.app.video.VideoService
@@ -27,6 +28,9 @@ class VideoController {
 
 	@Autowired
 	TagService tagService
+
+	@Autowired
+	EmailService emailService
 
 	// GET view all
 	@RequestMapping(method = RequestMethod.GET)
