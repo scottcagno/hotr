@@ -16,7 +16,6 @@
 						<li><a href="/video"><i class="fa fa-vimeo-square"></i> Videos</a></li>
 						<li><a href="/account"><i class="fa fa-user"></i> Account</a></li>
 						<li><a href="/logout"><i class="fa fa-unlock"></i> Logout (${authenticated})</a></li>
-
 					<#else/>
 						<li><a href="#about"><i class="fa fa-home"></i> About</a></li>
 						<li><a href="/video"><i class="fa fa-vimeo-square"></i> Videos</a></li>
