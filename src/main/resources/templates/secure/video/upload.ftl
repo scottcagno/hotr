@@ -12,7 +12,7 @@
 		<#include "../../stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div class="container">
+		<div class="container navbar-margin">
 			<div class="col-sm-offset-4 col-sm-4">
 				<div id="uploadVideoPanel" class="panel panel-default">
 					<div class="panel-heading">Upload Video</div>

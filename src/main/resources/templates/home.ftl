@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Welcome</title>
+		<title>Home</title>
 		<#include "stubs/header.ftl"/>
 	</head>
 	<body id="top">
 
 		<!-- navbar -->
-		<!--<#include "stubs/navbar.ftl"/>-->
-
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -18,21 +16,19 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="#top" class="navbar-brand">Welcome</a>
+					<a href="#top" class="navbar-brand">Home</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-                        <li><a href="#account">Account</a></li>
-                        <li><a href="/video">Videos</a></li>
-						<li><a href="#about">About</a></li>
+                        <li><a href="#about">About</a></li>
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
-						<li><a href="#donate">Donate</a></li>
-					</ul>
+                        <li><a href="/video">Videos</a></li>
+                        <li><a href="/account">Account</a></li>
+                    </ul>
 				</div>
 			</div>
 		</nav>
-
 		<!-- navbar -->
 
 		<!-- carousel -->
@@ -51,23 +47,12 @@
 		<#include "stubs/contact.ftl"/>
 		<!-- contact -->
 
-		<!-- donate -->
-		<#include "stubs/donate.ftl"/>
-		<!-- donate -->
-
 		<!-- footer -->
 		<#include "stubs/footer.ftl"/>
 		<!-- footer -->
 
 		<!-- javascript -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		<script src="/static/js/custom.js"></script>
-		<script>
-			$('.nav li a').on('click', function(){
-				$('.navbar-collapse').collapse('hide');
-			})
-		</script>
+		<#include "stubs/scripts.ftl"/>
 		<!-- javascript -->
 
 	</body>

@@ -5,15 +5,15 @@
     <#include "../stubs/header.ftl">
 </head>
     <body id="body">
-
-        <#include "../stubs/navbar.ftl">
-
+    <#include "../stubs/navbar.ftl">
         <!-- content -->
-        <div id="content" class="container">
+        <div id="content" class="container navbar-margin">
             <!-- add/edit -->
             <div class="col-sm-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Add or Update User <span class="pull-right"><a href="/secure/user">Add New</a></span></div>
+                    <div class="panel-heading">
+                        Add/Edit User <span class="pull-right"><a href="/secure/user">Clear</a></span>
+                    </div>
                     <div class="panel-body">
                         <form role="form" method="post" action="/secure/user">
                             <#if user??>
@@ -51,7 +51,7 @@
             <!-- view all -->
             <div class="col-sm-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Current Users</div>
+                    <div class="panel-heading">All Users</div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-striped">

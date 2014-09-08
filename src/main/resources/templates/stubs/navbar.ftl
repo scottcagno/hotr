@@ -1,4 +1,3 @@
-<div class="navbar-wrapper">
 	<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -8,26 +7,27 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+                <a href="/home" class="navbar-brand">Home</a>
 			</div>
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<#if authenticated??>
-						<li><a href="#about"><i class="fa fa-home"></i> About</a></li>
-						<li><a href="/video"><i class="fa fa-vimeo-square"></i> Videos</a></li>
-						<li><a href="/account"><i class="fa fa-user"></i> Account</a></li>
-						<li><a href="/logout"><i class="fa fa-unlock"></i> Logout (${authenticated})</a></li>
-
-					<#else/>
-						<li><a href="#about"><i class="fa fa-home"></i> About</a></li>
-						<li><a href="/video"><i class="fa fa-vimeo-square"></i> Videos</a></li>
-						<li><a href="/register"><i class="fa fa-user"></i> Register</a></li>
-						<li><a href="/secure/login?forward=user"><i class="fa fa-lock"></i> Login</a></li>
-					</#if>
+                    <li><a href="/video"> Videos</a></li>
+                    <li><a href="/account"> Account</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/home#about">About</a></li>
+                            <li><a href="/home#events">Events</a></li>
+                            <li><a href="/home#contact">Contact</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/site">Site Map</a></li>
+                            <li><a href="/donate">Donate</a></li>
+                        </ul>
+                    </li>
 				</ul>
 			</div>
 		</div>
 	</div>
-</div>
 
 <span class="top-navigator">
     <a href="#top" class="btn btn-sm btn-default"><i class="fa fa-chevron-up"></i></a>

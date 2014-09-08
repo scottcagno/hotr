@@ -1,12 +1,12 @@
 <div id="events" class="container information">
     <blockquote><h2>Events</h2></blockquote>
     <div class="row">
-        <div class="col-lg-2 hidden-xs">
+        <div class="col-lg-2 hidden-xs hidden-sm">
             <img src="/static/img/home/brucekaren.jpg" class="img-responsive">
         </div>
         <div class="col-lg-10">
             <h2>Dr. Bruce McCracken <span class="text-muted">and his wife Karen</span></h2>
-            <div class="col-xs-6 visible-xs-block">
+            <div class="col-xs-6 visible-xs-block visible-sm-block">
                 <img src="/static/img/home/brucekaren.jpg" class="img-responsive">
             </div>
             <p class="lead">

@@ -7,7 +7,7 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="item active">
-			<img src="/static/img/carousel/r.png" width="1500">
+			<img src="/static/img/colors/r.png" width="1500">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>It's Easy</h1>
@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="/static/img/carousel/g.png" width="1500">
+			<img src="/static/img/colors/g.png" width="1500">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>Connect With Your Spouse</h1>
@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="/static/img/carousel/b.png" width="1500">
+			<img src="/static/img/colors/b.png" width="1500">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>Rekinding Romance</h1>
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="/static/img/carousel/o.png" width="1500">
+			<img src="/static/img/colors/o.png" width="1500">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>Monthly Marriage Enrichment Program</h1>

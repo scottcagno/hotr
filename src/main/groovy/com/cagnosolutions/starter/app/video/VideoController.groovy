@@ -33,7 +33,7 @@ class VideoController {
 		} else {
 			model.addAttribute("videos", videoService.findAllByTag(tag))
 		}
-        "video/video"
+        "video/videos"
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -41,6 +41,6 @@ class VideoController {
         def video = videoService.findOne id
 		def tags = tagService.findAllByVideo(id)
         model.addAllAttributes([video: video, tags : tags])
-        "video/view"
+        "video/video"
     }
 }
