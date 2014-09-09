@@ -61,8 +61,9 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/secure/**").hasAnyRole("ADMIN", "USER")
-        http.formLogin().loginPage("/login")
+        http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN")
+		http.authorizeRequests().antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+		http.formLogin().loginPage("/login")
         http.logout().logoutSuccessUrl("/").logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
     }
 }

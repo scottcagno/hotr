@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.video
 
+import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.tag.TagService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
+
+import java.security.Principal
 
 /**
  * Created by Scott Cagno.
@@ -26,6 +29,9 @@ class VideoController {
 	@Autowired
 	TagService tagService
 
+	@Autowired
+	QuestionService questionService
+
     @RequestMapping(method = RequestMethod.GET)
     String viewAll(@RequestParam(required = false) String tag, Model model) {
 		if (tag == null) {
@@ -37,10 +43,12 @@ class VideoController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    String view(@PathVariable Long id, Model model) {
-        def video = videoService.findOne id
-		def tags = tagService.findAllByVideo(id)
-        model.addAllAttributes([video: video, tags : tags])
-        "video/video"
+    String view(@PathVariable Long id, Model model, Principal principal) {
+        model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])
+		if (principal == null) {
+			return "video/video"
+		}
+		model.addAttribute("questions", questionService.findAllByVideo(id))
+		"video/video_q"
     }
 }

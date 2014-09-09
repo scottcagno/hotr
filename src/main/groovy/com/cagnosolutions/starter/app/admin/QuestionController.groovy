@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  */
 
 @Controller(value = "adminQuestionController")
-@RequestMapping(value = "/secure/question")
+@RequestMapping(value = "/admin/question")
 class QuestionController {
 
 	@Autowired
@@ -26,26 +26,26 @@ class QuestionController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	String add(@RequestParam Long videoId, Model model) {
 		model.addAttribute("videoId", videoId)
-		"secure/question/add"
+		"admin/question/add"
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
  	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("question", questionService.findOne(id))
-		"secure/question/edit"
+		"admin/question/edit"
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	String save(Question question, RedirectAttributes attr) {
 		questionService.save(question)
 		attr.addFlashAttribute("alertSuccess", "Successfully saved question")
-		"redirect:/secure/video/${question.video_fk}"
+		"redirect:/admin/video/${question.video_fk}"
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, @RequestParam Long videoId, RedirectAttributes attr) {
 		questionService.delete(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted question")
-		"redirect:/secure/video/${videoId}"
+		"redirect:/admin/video/${videoId}"
 	}
 }

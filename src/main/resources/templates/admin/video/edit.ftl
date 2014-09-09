@@ -14,7 +14,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Edit Video</div>
 					<div class="panel-body">
-						<form id="" role="form" method="post" action="/secure/video">
+						<form id="" role="form" method="post" action="/admin/video">
 							<div class="form-group">
 								<input type="text" id="name" name="name" class="form-control"
 									   placeholder="Name" required="true" value="${video.name}"/>
@@ -40,7 +40,7 @@
 				<div id="" class="panel panel-default">
 					<div class="panel-heading col-sm-12">
 						Questions
-						<a href="/secure/question/add?videoId=${video.id}" class="btn btn-default btn-xs pull-right">Add question</a>
+						<a href="/admin/question/add?videoId=${video.id}" class="btn btn-default btn-xs pull-right">Add question</a>
 					</div>
 					<div class="panel-body">
 						<div id="" class="table-responsive">
@@ -60,7 +60,7 @@
 											<td>${question.inputType?cap_first}</td>
 											<td>${(question.options?size > 0)?string(question.options?join(', '), 'None')}</td>
 											<td>
-												<a href="/secure/question/${question.id}" class="btn btn-xs btn-primary">
+												<a href="/admin/question/${question.id}" class="btn btn-xs btn-primary">
 													<i class="fa fa-pencil"></i>
 												</a>
 												<a href="" class="btn btn-danger btn-xs" data-id="${question.id}"
@@ -94,7 +94,7 @@
 						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel
 						</button>
 						<span id="questionDelete">
-							<form role="form" method="post" action="/secure/question/{id}">
+							<form role="form" method="post" action="/admin/question/{id}">
 								<input type="hidden" name="videoId" value="${video.id?c}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<button type="submit" class="btn btn-primary btn-md">Yes, Remove Question</button>

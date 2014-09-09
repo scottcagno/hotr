@@ -12,7 +12,7 @@
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav navbar-right">
                     <li><a href="/video"> Videos</a></li>
-                    <li><a href="/account"> Account</a></li>
+                    <li><a href="/user"> Account</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">

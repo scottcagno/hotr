@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  */
 
 @Controller(value = "adminVideoController")
-@RequestMapping(value = "/secure/video")
+@RequestMapping(value = "/admin/video")
 class VideoController {
 
 	@Autowired
@@ -36,13 +36,13 @@ class VideoController {
 	@RequestMapping(method = RequestMethod.GET)
 	String all(Model model) {
 		model.addAttribute("videos", videoService.findAll())
-		"secure/video/list"
+		"admin/video/list"
 	}
 
 	// GET add
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	String add() {
-		"secure/video/add"
+		"admin/video/add"
 	}
 
 	// GET edit
@@ -51,7 +51,7 @@ class VideoController {
 		model.addAttribute("video", videoService.findOne(id))
 		model.addAttribute("tags", tagService.findAllByVideo(id))
 		model.addAttribute("questions", questionService.findAllByVideo(id))
-		"secure/video/edit"
+		"admin/video/edit"
 	}
 
 	// POST add/edit
@@ -74,7 +74,7 @@ class VideoController {
 		// add/remove tags
 		tagService.videoTags(tags, video.id)
 		attr.addFlashAttribute("alertSuccess", "Successfully updated video")
-		"redirect:/secure/video"
+		"redirect:/admin/video"
 	}
 
 	// GET upload
@@ -82,11 +82,11 @@ class VideoController {
 	String upload(Model model) {
 		try {
 			// TODO: change redirect_url when live
-			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", "redirect_url=localhost:8080/secure/video/add"))
+			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", "redirect_url=localhost:8080/admin/video/add"))
 		} catch (all) {
 			all.printStackTrace()
 		}
-		"secure/video/upload"
+		"admin/video/upload"
 	}
 
 	// POST delete
@@ -97,6 +97,6 @@ class VideoController {
 		tagService.deleteAllByVideo(id)
 		questionService.deleteAllByVideo(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted video")
-		"redirect:/secure/video"
+		"redirect:/admin/video"
 	}
 }

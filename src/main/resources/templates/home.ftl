@@ -24,7 +24,7 @@
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
                         <li><a href="/video">Videos</a></li>
-                        <li><a href="/account">Account</a></li>
+                        <li><a href="/user">Account</a></li>
                     </ul>
 				</div>
 			</div>

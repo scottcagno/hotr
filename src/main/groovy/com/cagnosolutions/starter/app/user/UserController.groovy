@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app.user
-
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
+import java.security.Principal
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -18,15 +18,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @CompileStatic
 @Controller(value = "userController")
-@RequestMapping(value = "/secure/user")
+@RequestMapping(value = "/user")
 class UserController {
 
     @Autowired
     UserService userService
 
     @RequestMapping(method = RequestMethod.GET)
-    String viewAll(Model model) {
-        model.addAttribute "users", userService.findAll()
+    String viewAll(Model model, Principal principal) {
+        model.addAttribute "user", userService.findOne(principal.name)
         "user/user"
     }
 
@@ -37,10 +37,10 @@ class UserController {
                 user.password = new BCryptPasswordEncoder().encode(user.password)
             userService.save user
             attr.addFlashAttribute "alertSuccess", "Successfully saved user ${user.name}"
-            return "redirect:/secure/user/${user.id}"
+            return "redirect:/user"
         }
         attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
-        "redirect:/secure/user"
+        "redirect:/user"
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -55,9 +55,10 @@ class UserController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    String delete(@PathVariable Long id) {
+    String delete(@PathVariable Long id, RedirectAttributes attr) {
         userService.delete id
-        "redirect:/secure/user"
+		attr.addFlashAttribute("alertSuccess", "Successfully deleted your account")
+        "redirect:/home"
     }
 
 }

@@ -13,7 +13,7 @@
 			<div id="videoTableDiv" class="panel panel-default">
 				<div class="panel-heading col-sm-12">
 					Videos
-					<a href="/secure/video/upload" id="" class="btn btn-default btn-xs pull-right"><i class="fa fa-upload"></i> Upload Video</a>
+					<a href="/admin/video/upload" id="" class="btn btn-default btn-xs pull-right"><i class="fa fa-upload"></i> Upload Video</a>
 				</div>
 				<div class="panel-body">
 					<div id="videoTable" class="table-responsive">
@@ -37,7 +37,7 @@
 										<td>${(video.thumb)!}</td>
 										<td>${video.vimeoId}</td>
 										<td>
-											<a href="/secure/video/${video.id}" class="btn btn-xs btn-primary">
+											<a href="/admin/video/${video.id}" class="btn btn-xs btn-primary">
 												<i class="fa fa-pencil"></i>
 											</a>
 											<a href="" class="btn btn-danger btn-xs" data-id="${(video.id)!}" data-vimeo="${(video.vimeoId)!}"
@@ -70,7 +70,7 @@
 						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel
 						</button>
 						<span id="videoDelete">
-							<form role="form" method="post" action="/secure/video/{id}">
+							<form role="form" method="post" action="/admin/video/{id}">
 								<input type="hidden" name="vimeoId" id="deleteVimeoId"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<button type="submit" class="btn btn-primary btn-md">Yes, Remove Video</button>

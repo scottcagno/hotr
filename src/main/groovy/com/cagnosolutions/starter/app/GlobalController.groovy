@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app
-
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import groovy.transform.CompileStatic
@@ -10,14 +9,9 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
-import javax.servlet.http.HttpSession
-import java.security.Principal
-
 import static org.springframework.web.bind.annotation.RequestMethod.GET
-
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -32,9 +26,9 @@ class HomeController {
         "home"
     }
 
-    @RequestMapping(value = "/account", method = GET)
-    String account() {
-        "account"
+    @RequestMapping(value = "/login", method = GET)
+    String login() {
+        "login"
     }
 
     @RequestMapping(value = "/terms", method = GET)
@@ -62,21 +56,10 @@ class Authentication {
                 user.password = new BCryptPasswordEncoder().encode(user.password)
             userService.save user
             attr.addFlashAttribute "alertSuccess", "${user.name} has successfully been regestered, please login"
-            return "redirect:/account"
+            return "redirect:/login"
         }
         attr.addFlashAttribute "alertError", "Unable to register, ${user.username} may already be taken"
-        "redirect:/account"
-    }
-
-    @RequestMapping(value = "/secure/login", method = GET)
-    String secureLogin(@RequestParam String forward, HttpSession session, Principal principal) {
-        if(principal.name != "admin") {
-            def user = userService.findOne principal.name
-            user.lastSeen = System.currentTimeMillis()
-            userService.save user
-        }
-        session.setAttribute "authenticated", principal.name
-        "redirect:/secure/$forward"
+        "redirect:/login"
     }
 }
 
