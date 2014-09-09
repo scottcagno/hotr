@@ -40,7 +40,7 @@
 											<a href="/secure/video/${video.id}" class="btn btn-xs btn-primary">
 												<i class="fa fa-pencil"></i>
 											</a>
-											<a href="#" class="btn btn-danger btn-xs" data-id="${(video.id)!}" data-vimeo="${(video.vimeoId)!}"
+											<a href="" class="btn btn-danger btn-xs" data-id="${(video.id)!}" data-vimeo="${(video.vimeoId)!}"
 											   data-toggle="modal" data-target="#videoDeleteCheck">
 												<i class="fa fa-trash-o"></i>
 											</a>

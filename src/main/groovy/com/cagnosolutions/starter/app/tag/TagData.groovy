@@ -45,8 +45,8 @@ class TagService {
         repo.findOne id
     }
 
-    Tag save(Tag video) {
-        repo.save video
+    Tag save(Tag tag) {
+        repo.save tag
     }
 
     def delete(Long id) {

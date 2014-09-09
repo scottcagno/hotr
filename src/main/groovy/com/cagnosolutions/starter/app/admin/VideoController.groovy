@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app.admin
 import com.cagnosolutions.starter.app.VimeoApi.VimeoAPI
-import com.cagnosolutions.starter.app.email.EmailService
+import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.tag.TagService
 import com.cagnosolutions.starter.app.video.Video
 import com.cagnosolutions.starter.app.video.VideoService
@@ -30,7 +30,7 @@ class VideoController {
 	TagService tagService
 
 	@Autowired
-	EmailService emailService
+	QuestionService questionService
 
 	// GET view all
 	@RequestMapping(method = RequestMethod.GET)
@@ -50,6 +50,7 @@ class VideoController {
 	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("video", videoService.findOne(id))
 		model.addAttribute("tags", tagService.findAllByVideo(id))
+		model.addAttribute("questions", questionService.findAllByVideo(id))
 		"secure/video/edit"
 	}
 
@@ -94,6 +95,7 @@ class VideoController {
 		vimeoAPI.deleteVideo(vimeoId)
 		videoService.delete(id)
 		tagService.deleteAllByVideo(id)
+		questionService.deleteAllByVideo(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted video")
 		"redirect:/secure/video"
 	}
