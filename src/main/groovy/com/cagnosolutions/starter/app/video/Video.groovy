@@ -18,4 +18,10 @@ class Video {
 	@GeneratedValue
 	Long id
     String name, description, thumb, vimeoId
+
+	String toString() {
+		if (name.length() > 20)
+			return name.substring(0, 19) + "..."
+		name
+	}
 }

@@ -98,7 +98,7 @@ class VimeoAPI {
 			def map = getInfo("https://api.vimeo.com/videos/${vimeoId}/pictures")
 			if (map.data != null) {
 				def video = videoService.findOne(videoId)
-				video.thumb = map.data[0].sizes[0].link as String
+				video.thumb = map.data[0].sizes[-1].link as String
 				videoService.save(video)
 			}
 		}

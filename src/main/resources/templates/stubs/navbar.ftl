@@ -29,26 +29,22 @@
 		</div>
 	</div>
 
-<span class="top-navigator">
-    <a href="#top" class="btn btn-sm btn-default"><i class="fa fa-chevron-up"></i></a>
-</span>
-
 <#if alert??>
-	<div id="alert" class="col-sm-10 col-sm-offset-1">
+	<div id="alert" class="container navbar-margin">
 		<div class="alert alert-info alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			${alert}
 		</div>
 	</div>
 <#elseif alertError??/>
-	<div id="alert" class="col-sm-10 col-sm-offset-1">
+	<div id="alert" class="container navbar-margin">
 		<div class="alert alert-danger alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			${alertError}
 		</div>
 	</div>
 <#elseif alertSuccess??/>
-	<div id="alert" class="col-sm-10 col-sm-offset-1">
+	<div id="alert" class="container navbar-margin">
 		<div class="alert alert-success alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			${alertSuccess}

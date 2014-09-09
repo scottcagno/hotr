@@ -23,8 +23,7 @@
 									<th>Id</th>
 									<th>Name</th>
 									<th>Description</th>
-									<th>Thumbnail Uri</th>
-									<th>Vimeo Id</th>
+									<th>Thumbnail</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -34,8 +33,7 @@
 										<td>${video.id}</td>
 										<td>${video.name}</td>
 										<td>${video.description}</td>
-										<td>${(video.thumb)!}</td>
-										<td>${video.vimeoId}</td>
+										<td><a href="${(video.thumb)!}" target="_blank">View</a></td>
 										<td>
 											<a href="/admin/video/${video.id}" class="btn btn-xs btn-primary">
 												<i class="fa fa-pencil"></i>

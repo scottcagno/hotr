@@ -32,7 +32,7 @@
                        required="true"/>
             </div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <button class="btn btn-md btn-block btn-hot" type="submit">Register Account</button>
+            <button class="btn btn-md btn-block btn-primary" type="submit">Register Account</button>
         </form>
     </span>
     <span class="col-lg-2 col-md-2 col-sm-2 text-center">
@@ -50,7 +50,7 @@
                        required="true"/>
             </div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <button class="btn btn-md btn-block btn-hot" type="submit">Login</button>
+            <button class="btn btn-md btn-block btn-primary" type="submit">Login</button>
         </form>
     </span>
     </div>

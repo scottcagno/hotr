@@ -13,6 +13,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						My Account
+						<a href="/logout" class="btn btn-default btn-xs pull-right">Logout</a>
 					</div>
 					<div class="panel-body">
 						<form role="form" method="post" action="/user">

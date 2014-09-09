@@ -11,11 +11,11 @@
         <!-- content -->
         <div id="content" class="container navbar-margin">
 			<#list videos as video>
-				<div class="col-xs-6 col-sm-3 col-md-2 text-center">
-					<a href="/video/${video.id}" class="thumbnail">
+				<div class="col-sm-4 col-md-3 text-center video-margin">
+					<a href="/video/${video.id}">
 						<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 					</a>
-					<p><strong>${video.name}</strong></p>
+					<p><strong>${video}</strong></p>
 				</div>
 			</#list>
         </div>
