@@ -61,3 +61,7 @@ vr {
 .video-margin {
 	margin-bottom: 2em;
 }
+
+.video-title {
+	margin-top: 5px;
+}

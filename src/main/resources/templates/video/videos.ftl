@@ -15,7 +15,7 @@
 					<a href="/video/${video.id}">
 						<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 					</a>
-					<p><strong>${video}</strong></p>
+					<p class="video-title"><strong>${video}</strong></p>
 				</div>
 			</#list>
         </div>
