@@ -16,9 +16,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6">
-						<p>
-							<h1>6 Ways to Spend Time Together as Couples</h1>
-						</p>
+						<h1>6 Ways to Spend Time Together as Couples</h1>
 					</div>
 					<div class="col-lg-6">
 						<br/>
