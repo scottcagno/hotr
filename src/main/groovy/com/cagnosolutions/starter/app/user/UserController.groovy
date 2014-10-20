@@ -30,18 +30,27 @@ class UserController {
         "user/user"
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    String addOrEdit(User user, RedirectAttributes attr) {
-        if(userService.canUpdate(user.id, user.username)) {
-            if(user.id == null || user.password[0] != '$')
-                user.password = new BCryptPasswordEncoder().encode(user.password)
-            userService.save user
-            attr.addFlashAttribute "alertSuccess", "Successfully saved user ${user.name}"
-            return "redirect:/user"
-        }
-        attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
-        "redirect:/user"
-    }
+	// POST update
+	@RequestMapping(method = RequestMethod.POST)
+	String update(User user, String confirm, RedirectAttributes attr) {
+		if(userService.canUpdate(user.id, user.username)) {
+			if (user.password == confirm) {
+				User existingUser = userService.findOne(user.id)
+				userService.mergeProperties(user, existingUser)
+				if (existingUser.password[0] != '$') {
+					existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)\
+				}
+				userService.save existingUser
+				attr.addFlashAttribute("alertSuccess", "Updated Successfully")
+				return "redirect:/user"
+			}
+			// pass and confirm do not match
+			attr.addFlashAttribute "alertError", "Password and confirm do not match"
+		} else {
+			attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
+		}
+		return "redirect:/user"
+	}
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model, @RequestParam(required = false) Boolean active) {

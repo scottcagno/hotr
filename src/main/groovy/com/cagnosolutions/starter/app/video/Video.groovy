@@ -17,7 +17,7 @@ class Video {
 	@Id
 	@GeneratedValue
 	Long id
-    String name, description, thumb, vimeoId
+    String name, description, thumb, vimeoId, category
 
 	String toString() {
 		if (name.length() > 20)

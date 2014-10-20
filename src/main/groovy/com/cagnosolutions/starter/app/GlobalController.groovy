@@ -27,7 +27,8 @@ class HomeController {
     }
 
     @RequestMapping(value = "/login", method = GET)
-    String login() {
+    String login(Model model) {
+		model.addAttribute "login", true
         "login"
     }
 

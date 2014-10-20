@@ -27,6 +27,10 @@
 								<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 										  style="resize:none;">${tags?join(", ")}</textarea>
 							</div>
+							<div class="form-group">
+								<input type="text" id="category" name="category" class="form-control"
+								       placeholder="Category" required="true" />
+							</div>
 							<input type="hidden" name="id" value="${video.id}"/>
 							<input type="hidden" name="thumb" value="${video.thumb}"/>
 							<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>

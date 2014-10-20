@@ -10,6 +10,49 @@
 		<div id="content" class="container navbar-margin">
 			<!-- add/edit -->
 			<div class="col-sm-4">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						My Account
+						<a href="/logout" class="btn btn-default btn-xs pull-right">Logout</a>
+					</div>
+					<div class="panel-body">
+						<form id="accountForm" role="form" method="post" action="/user">
+							<div class="form-group">
+								<input type="text" id="name" name="name" class="form-control"
+								       placeholder="Name" required="true" value="${user.name!}"/>
+							</div>
+							<div class="form-group">
+								<input type="text" id="username" name="username" class="form-control"
+								       placeholder="Email" required="true" value="${user.username}"/>
+							</div>
+							<div class="text-center">
+								<a data-toggle="collapse" data-parent="#accordion"
+								   href="#changePassword" class="text-primary">
+									Click to change password
+								</a>
+							</div>
+							<br/>
+							<div id="changePassword" class="panel-collapse collapse">
+								<div class="form-group">
+									<input type="password" id="password" name="password" class="form-control"
+									       placeholder="Password"/>
+								</div>
+								<div class="form-group">
+									<input type="password" id="confirm" name="confirm" class="form-control"
+									       placeholder="Confirm"/>
+								</div>
+							</div>
+							<input type="hidden" name="id" value="${user.id}"/>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
+						</form>
+					</div>
+				</div>
+
+
+
+				<!--
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						My Account
@@ -35,7 +78,9 @@
 							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 						</form>
 					</div>
-				</div>
+				</div>-->
+
+
 			</div>
 			<!-- add/edit -->
 			<div class="col-sm-4">

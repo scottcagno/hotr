@@ -33,7 +33,18 @@ class VideoController {
 	QuestionService questionService
 
     @RequestMapping(method = RequestMethod.GET)
-    String viewAll(@RequestParam(required = false) String tag, Model model) {
+    String viewAll(@RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
+		switch (filter) {
+			case "popular":
+				model.addAttribute "videos", videoService.findAll()
+				break
+			case "recent":
+				model.addAttribute "videos", videoService.findAll()
+				break
+			case "category":
+				model.addAttribute "videos", videoService.findAll()
+				break
+		}
 		if (tag == null) {
 	        model.addAttribute "videos", videoService.findAll()
 		} else {

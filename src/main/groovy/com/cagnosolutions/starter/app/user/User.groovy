@@ -16,10 +16,10 @@ import javax.persistence.Table
 @Table(name = "user")
 class User {
 
-    @Id
-    @GeneratedValue
-    Long id
-    String name, email, username, password, role = "ROLE_USER"
-    Long creation, lastSeen
-    short active = 1
+	@Id
+	@GeneratedValue
+	Long id
+	String name, username, password, role = "ROLE_USER"
+	Long creation, lastSeen
+	short active = 1
 }

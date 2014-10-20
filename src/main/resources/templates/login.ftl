@@ -1,63 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head id="head">
-    <title>Account</title>
-<#include "stubs/header.ftl">
-</head>
-<body id="body">
-<#include "stubs/navbar.ftl">
-<!-- content -->
-<div class="container navbar-margin">
-    <div class="container text-center">
-        ${(error)!}
-    </div>
-    <div class="container">
-    <span class="col-lg-5 col-md-5 col-sm-5">
-        <legend>Register</legend>
-        <form role="form" method="post" action="/register">
-            <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Full Name" autofocus="true"
-                       required="true"/>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" class="form-control" placeholder="Email" autofocus="true"
-                       required="true"/>
-            </div>
-            <div class="form-group">
-                <input type="text" name="username" class="form-control" placeholder="Username"
-                       autofocus="true" required="true"/>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Password"
-                       required="true"/>
-            </div>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <button class="btn btn-md btn-block btn-primary" type="submit">Register Account</button>
-        </form>
-    </span>
-    <span class="col-lg-2 col-md-2 col-sm-2 text-center">
-        <vr/>
-    </span>
-    <span class="col-lg-5 col-md-5 col-sm-5">
-        <legend>Login</legend>
-        <form role="form" method="post" action="/login">
-            <div class="form-group">
-                <input type="text" name="username" class="form-control" placeholder="Username"
-                       autofocus="true" required="true"/>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Password"
-                       required="true"/>
-            </div>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <button class="btn btn-md btn-block btn-primary" type="submit">Login</button>
-        </form>
-    </span>
-    </div>
-</div>
-<!-- content -->
+	<head id="head">
+		<title>Account</title>
+		<#include "stubs/header.ftl"/>
+	</head>
+	<body id="body">
+		<#include "stubs/navbar.ftl"/>
 
-<#include "stubs/footer.ftl">
+		<!-- content -->
+		<section class="wow fadeIn">
+			<div class="container navbar-margin">
+				<div class="row" id="faqs-row">
+					<div class="col-lg-offset-4 col-lg-4 col-sm-offset-3 col-sm-6">
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading text-center">
+									<a data-toggle="collapse" data-parent="#accordion" href="#login">
+										Login to your account
+									</a>
+								</div>
+								<div id="login" class="panel-collapse collapse ${(login??)?string("in", "")}">
+									<div class="panel-body">
+										<form role="form" method="post" action="/login">
+											<div class="form-group">
+												<input type="text" name="username" class="form-control" placeholder="Email"
+												${(username??)?string('', 'autofocus="true"')} required="true" value="${username!}"/>
+											</div>
+											<div class="form-group">
+												<input type="password" name="password" class="form-control" placeholder="Password"
+												${(username??)?string('autofocus="true"', '')} required="true"/>
+											</div>
+											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+											<button class="btn btn-md btn-success btn-block" type="submit">Login</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading text-center text-primary">
+								<a data-toggle="collapse" data-parent="#accordion" href="#register">
+									Create a new account
+								</a>
+							</div>
+							<div id="register" class="panel-collapse collapse ${(register??)?string("in", "")}">
+								<div class="panel-body">
+									<form role="form" method="post" action="/register">
+										<div class="form-group">
+											<input type="text" id="name" name="name" class="form-control"
+											       placeholder="Name" required="true" />
+										</div>
+										<div class="form-group">
+											<input type="email" id="username" name="username" class="form-control"
+											       placeholder="Email" required="true" />
+										</div>
+										<div class="form-group">
+											<input type="password" id="password" name="password" class="form-control"
+											       placeholder="Password" required="true" />
+										</div>
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+										<button class="btn btn-md btn-success btn-block" type="submit">Create</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-</body>
+		<#include "stubs/footer.ftl"/>
+
+		<#include "stubs/scripts.ftl"/>
+
+	</body>
 </html>

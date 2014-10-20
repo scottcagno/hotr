@@ -29,6 +29,16 @@
 		</div>
 	</div>
 
+<!-- login error -->
+<#if RequestParameters.error??>
+	<div id="alert" class="container navbar-margin">
+		<div class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			Invalid username or password. Please try again.
+		</div>
+	</div>
+</#if>
+
 <#if alert??>
 	<div id="alert" class="container navbar-margin">
 		<div class="alert alert-info alert-dismissable">

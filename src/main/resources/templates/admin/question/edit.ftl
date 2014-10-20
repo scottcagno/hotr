@@ -128,7 +128,7 @@
 				// run add option on type select add add option button after input || remove all options on type select
 				$(type).change(function() {
 					$('div[id="allOptions"]').html($('div[id="nextOptionDiv"]').html());
-					if ($(type).val() == 'radio' || $(type).val() == 'checkbox') {
+					if ($(type).val() == 'select one' || $(type).val() == 'select many') {
 						$('div[id="allOptions"]').html($('div[id="nextOptionDiv"]').html());
 						addOption();
 						$(addOptionDiv).after($('div[id="nextOptionButton"]').html());
@@ -140,7 +140,7 @@
 
 				// create option list and submit form
 				$('button[id="addQuestionButton"]').click(function() {
-					if ($(type).val() == 'radio' || $(type).val() == 'checkbox') {
+					if ($(type).val() == 'select one' || $(type).val() == 'select many') {
 						var option = []
 						inputs = $('div[id="allOptions"] input[name="option"]');
 						for (i = 0; i < inputs.length; i++) {

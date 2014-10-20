@@ -27,6 +27,10 @@
 								<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 										  style="resize:none;"></textarea>
 							</div>
+							<div class="form-group">
+								<input type="text" id="category" name="category" class="form-control"
+								       placeholder="Category" required="true" />
+							</div>
 							<input type="hidden" name="vimeoId" value="${(RequestParameters.video_uri?split('/')[2])!}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-primary btn-block" type="submit">Add</button>
