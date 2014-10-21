@@ -1,11 +1,10 @@
 package com.cagnosolutions.starter.app.user
-
 import groovy.transform.CompileStatic
+
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.Table
-
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -21,5 +20,7 @@ class User {
 	Long id
 	String name, username, password, role = "ROLE_USER"
 	Long creation, lastSeen
+	Boolean challenge
+	ArrayList<Long> progress
 	short active = 1
 }

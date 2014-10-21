@@ -50,11 +50,19 @@ class VideoService {
         repo.delete id
     }
 
+	Integer numberOfVIdeos() {
+		repo.numberOfVideos()
+	}
+
 }
 
 @CompileStatic
 @Repository
 interface VideoRepository extends JpaRepository<Video, Long> {
+
 	@Query(nativeQuery = true, value = "select * from hotr.video where hotr.video.id in (select hotr.tag.video_fk from hotr.tag where hotr.tag.tag=:tag)")
-	List<Video> findAllVideoByTag(@Param("tag") String tag);
+	List<Video> findAllVideoByTag(@Param("tag") String tag)
+
+	@Query("SELECT COUNT(v.id) FROM Video v")
+	Integer numberOfVideos()
 }

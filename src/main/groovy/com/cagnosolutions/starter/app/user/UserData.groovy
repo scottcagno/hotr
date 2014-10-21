@@ -53,6 +53,15 @@ class UserService {
 		repo.delete id
 	}
 
+	Integer numberOfUsers() {
+		repo.numberOfUsers()
+	}
+
+	Integer numberOrChallenge() {
+		repo.numberOfChallenge()
+	}
+
+
 	// helper method
 	def mergeProperties(source, target) {
 		source.properties.each { key, value ->
@@ -72,4 +81,10 @@ interface UserRepository extends JpaRepository<User, Long> {
 
 	@Query("SELECT u FROM User u WHERE u.username=:username")
 	User findOne(@Param("username") String username)
+
+	@Query("SELECT COUNT(u.id) FROM User u")
+	Integer numberOfUsers()
+
+	@Query("SELECT COUNT(u.id) FROM User u WHERE u.challenge=true")
+	Integer numberOfChallenge()
 }

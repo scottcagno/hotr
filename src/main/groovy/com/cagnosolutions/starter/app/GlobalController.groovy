@@ -55,8 +55,11 @@ class Authentication {
         if(userService.canUpdate(user.id, user.username)) {
             if(user.id == null || user.password[0] != '$')
                 user.password = new BCryptPasswordEncoder().encode(user.password)
+			user.challenge = false
+			user.progress = new ArrayList<Long>()
             userService.save user
             attr.addFlashAttribute "alertSuccess", "${user.name} has successfully been regestered, please login"
+			attr.addFlashAttribute("username", user.username)
             return "redirect:/login"
         }
         attr.addFlashAttribute "alertError", "Unable to register, ${user.username} may already be taken"

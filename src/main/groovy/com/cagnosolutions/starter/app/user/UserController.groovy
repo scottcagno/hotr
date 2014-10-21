@@ -52,6 +52,15 @@ class UserController {
 		return "redirect:/user"
 	}
 
+	//
+	@RequestMapping(value = "/challenge", method = RequestMethod.POST)
+	String startChallenge(Long userId) {
+		User user = userService.findOne userId
+		user.challenge = true
+		userService.save user
+		"redirect:/user"
+	}
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model, @RequestParam(required = false) Boolean active) {
         def user = userService.findOne id

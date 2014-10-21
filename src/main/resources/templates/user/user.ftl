@@ -3,14 +3,39 @@
 	<head id="head">
 		<title>Users</title>
 		<#include "../stubs/header.ftl"/>
+		<link href="/static/css/wizard.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body id="body">
 		<#include "../stubs/navbar.ftl"/>
 		<!-- content -->
 		<div id="content" class="container navbar-margin">
+			<div class="col-lg-12">
+				<#if !user.challenge>
+					<form id="challengeForm" role="form" method="post" action="/user/challenge">
+						<input type="hidden" name="userId" value="${user.id}"/>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						<button class="btn btn-md btn-default btn-block" type="submit">Begin Challenge</button>
+					</form>
+				<#else/>
+					<div class="wizard">
+						<a class="current"> 1  </a>
+						<a class="current"> 2  </a>
+						<a class="current"> 3  </a>
+						<a class="disabled"> 4  </a>
+						<a class="disabled"> 5  </a>
+						<a class="disabled"> 6  </a>
+						<a class="disabled"> 7  </a>
+						<a class="disabled"> 8  </a>
+						<a class="disabled"> 9  </a>
+						<a class="disabled"> 10  </a>
+						<a class="disabled"> 11  </a>
+						<a class="disabled"> 12  </a>
+					</div>
+				</#if>
+				<br/>
+			</div>
 			<!-- add/edit -->
 			<div class="col-sm-4">
-
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						My Account
