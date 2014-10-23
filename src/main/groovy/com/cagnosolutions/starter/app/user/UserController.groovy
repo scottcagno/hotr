@@ -1,4 +1,6 @@
 package com.cagnosolutions.starter.app.user
+
+import com.cagnosolutions.starter.app.worksheet.WorksheetService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -24,9 +26,14 @@ class UserController {
     @Autowired
     UserService userService
 
+	@Autowired
+	WorksheetService worksheetService
+
     @RequestMapping(method = RequestMethod.GET)
     String viewAll(Model model, Principal principal) {
-        model.addAttribute "user", userService.findOne(principal.name)
+		User user = userService.findOne(principal.name)
+		def worksheets = worksheetService.findAllByUserId user.id
+        model.addAllAttributes([user : user, worksheets : worksheets])
         "user/user"
     }
 

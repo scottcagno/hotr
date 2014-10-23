@@ -2,6 +2,8 @@ package com.cagnosolutions.starter.app.video
 
 import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.tag.TagService
+import com.cagnosolutions.starter.app.user.User
+import com.cagnosolutions.starter.app.user.UserService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -32,6 +34,9 @@ class VideoController {
 	@Autowired
 	QuestionService questionService
 
+	@Autowired
+	UserService userService
+
     @RequestMapping(method = RequestMethod.GET)
     String viewAll(@RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
 		switch (filter) {
@@ -59,7 +64,13 @@ class VideoController {
 		if (principal == null) {
 			return "video/video"
 		}
-		model.addAttribute("questions", questionService.findAllByVideo(id))
+		User user = userService.findOne(principal.name)
+		if (id in user.progress) {
+			model.addAttribute("alertWarning", "You have already watched this video. You can watch it " +
+					"again but it will not count towards your challenge progress")
+		}
+
+		model.addAllAttributes([questions : questionService.findAllByVideo(id), user : user])
 		"video/video_q"
     }
 }

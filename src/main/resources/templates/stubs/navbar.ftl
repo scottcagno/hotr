@@ -60,4 +60,11 @@
 			${alertSuccess}
 		</div>
 	</div>
+<#elseif alertWarning??/>
+	<div id="alert" class="container navbar-margin">
+		<div class="alert alert-warning alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			${alertWarning}
+		</div>
+	</div>
 </#if>

@@ -42,71 +42,75 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">Worksheet</div>
 							<div class="panel-body">
-								<#assign i = 0 />
-								<form id="worksheet">
-									<#list questions as question>
-										<#switch question.inputType>
-											<#case "select one">
-												<label id="question_${i}">${question.question}?</label>
-												<#list question.options as option>
-													<div class="radio">
-														<label>
-															<input id="question_${i}" type="radio" name="${question.question}" id="optionsRadios1" value="${option}">
-															${option}
-														</label>
+								<#if worksheet??>
+									${worksheet.htmlData}
+								<#else/>
+									<#assign i = 0 />
+									<form id="worksheet">
+										<#list questions as question>
+											<#switch question.inputType>
+												<#case "select one">
+													<label id="question_${i}">${question.question}?</label>
+													<#list question.options as option>
+														<div class="radio">
+															<label>
+																<input id="question_${i}" type="radio" name="${question.question}" id="optionsRadios1" value="${option}">
+																${option}
+															</label>
+														</div>
+													</#list>
+													<#break/>
+												<#case "select many">
+													<label id="question_${i}">${question.question} (Select all that apply)</label>
+													<#list question.options as option>
+														<div class="checkbox">
+															<label>
+																<input name="${question.question}" id="question_${i}" type="checkbox" value="${option}">
+																${option}
+															</label>
+														</div>
+													</#list>
+													<#break/>
+												<#case "text box">
+													<label id="question_${i}">${question.question}</label>
+													<div class="form-group">
+														<textarea name="${question.question}" id="question_${i}" class="form-control" rows="5" style="resize:none;"></textarea>
 													</div>
-												</#list>
-												<#break/>
-											<#case "select many">
-												<label id="question_${i}">${question.question} (Select all that apply)</label>
-												<#list question.options as option>
-													<div class="checkbox">
-														<label>
-															<input name="${question.question}" id="question_${i}" type="checkbox" value="${option}">
-															${option}
-														</label>
+													<#break/>
+												<#default>
+													<label id="question_${i}">${question.question}?</label>
+													<div class="form-group">
+														<input name="${question.question}" id="question_${i}" type="${question.inputType}" class="form-control" required="true"/>
 													</div>
-												</#list>
-												<#break/>
-											<#case "text box">
-												<label id="question_${i}">${question.question}</label>
-												<div class="form-group">
-													<textarea name="${question.question}" id="question_${i}" class="form-control" rows="5" style="resize:none;"></textarea>
-												</div>
-												<#break/>
-											<#default>
-												<label id="question_${i}">${question.question}?</label>
-												<div class="form-group">
-													<input name="${question.question}" id="question_${i}" type="${question.inputType}" class="form-control" required="true"/>
-												</div>
-										</#switch>
-										<#assign i = i +1 />
-									</#list>
-									<br>
-								</form>
-
-								<form id="submitForm" action="/worksheet" role="form" method="post">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="save" value="true"> Save completed workbook in my profile.
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="email" value="true"> Email completed workbook to me.
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="send" value="true"> Anonymously submit my completed workbook to Fan the Flame Dates.
-										</label>
-									</div>
-									<input type="hidden" name="videoId" value="${video.id}">
-									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-									<input id="answers" type="hidden" name="answers">
-								</form>
-								<button id="submitWorksheet" class="btn btn-md btn-default btn-block">Submit</button>
-
+											</#switch>
+											<#assign i = i +1 />
+										</#list>
+										<br>
+									</form>
+									<form id="submitForm" action="/worksheet" role="form" method="post">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" name="save" value="true"> Save completed workbook in my profile.
+											</label>
+										</div>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" name="email" value="true"> Email completed workbook to me.
+											</label>
+										</div>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" name="send" value="true"> Anonymously submit my completed workbook to Fan the Flame Dates.
+											</label>
+										</div>
+										<input type="hidden" name="videoId" value="${video.id}">
+										<input type="hidden" name="userId" value="${user.id}">
+										<input type="hidden" name="videoName" value="${video.name}">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+										<input type="hidden" name="answers" id="answers">
+									</form>
+									<button id="submitWorksheet" class="btn btn-md btn-default btn-block">Submit</button>
+								</#if>
 							</div>
 						</div>
 					</div>
@@ -141,8 +145,8 @@
 
 				$('button[id="submitWorksheet"]').click(function() {
 					obj = formToObject($('form[id="worksheet"]'));
-					//j = JSON.stringify(obj);
-					$('input[id="answers"]').val(obj);
+					j = JSON.stringify(obj);
+					$('input[id="answers"]').val(j);
 					$('form[id="submitForm"]').submit();
 				});
 

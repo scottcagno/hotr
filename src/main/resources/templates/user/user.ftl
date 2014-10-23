@@ -18,18 +18,18 @@
 					</form>
 				<#else/>
 					<div class="wizard">
-						<a class="current"> 1  </a>
-						<a class="current"> 2  </a>
-						<a class="current"> 3  </a>
-						<a class="disabled"> 4  </a>
-						<a class="disabled"> 5  </a>
-						<a class="disabled"> 6  </a>
-						<a class="disabled"> 7  </a>
-						<a class="disabled"> 8  </a>
-						<a class="disabled"> 9  </a>
-						<a class="disabled"> 10  </a>
-						<a class="disabled"> 11  </a>
-						<a class="disabled"> 12  </a>
+						<a class="${(user.progress?size >= 1)?string('current', 'disabled')}"> 1</a>
+						<a class="${(user.progress?size >= 2)?string('current', 'disabled')}"> 2</a>
+						<a class="${(user.progress?size >= 3)?string('current', 'disabled')}"> 3</a>
+						<a class="${(user.progress?size >= 4)?string('current', 'disabled')}"> 4</a>
+						<a class="${(user.progress?size >= 5)?string('current', 'disabled')}"> 5</a>
+						<a class="${(user.progress?size >= 6)?string('current', 'disabled')}"> 6</a>
+						<a class="${(user.progress?size >= 7)?string('current', 'disabled')}"> 7</a>
+						<a class="${(user.progress?size >= 8)?string('current', 'disabled')}"> 8</a>
+						<a class="${(user.progress?size >= 9)?string('current', 'disabled')}"> 9</a>
+						<a class="${(user.progress?size >= 10)?string('current', 'disabled')}"> 10</a>
+						<a class="${(user.progress?size >= 11)?string('current', 'disabled')}"> 11</a>
+						<a class="${(user.progress?size >= 12)?string('current', 'disabled')}"> 12</a>
 					</div>
 				</#if>
 				<br/>
@@ -74,41 +74,9 @@
 						</form>
 					</div>
 				</div>
-
-
-
-				<!--
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						My Account
-						<a href="/logout" class="btn btn-default btn-xs pull-right">Logout</a>
-					</div>
-					<div class="panel-body">
-						<form role="form" method="post" action="/user">
-							<div class="form-group">
-								<input type="text" id="name" name="name" value="${(user.name)!}" class="form-control" placeholder="Name" required="true" autofocus="true"/>
-							</div>
-							<div class="form-group">
-								<input type="email" id="email" name="email" value="${(user.email)!}" class="form-control" placeholder="Email" required="true"/>
-							</div>
-							<div class="form-group">
-								<input type="text" id="username" name="username" value="${(user.username)!}" class="form-control" placeholder="Username" required="true"/>
-							</div>
-							<div class="form-group">
-								<input type="password" id="password" name="password" value="${(user.password)!}" class="form-control" placeholder="Password" required="true"/>
-							</div>
-							<input type="hidden" name="id" value="${(user.id)!}"/>
-							<input type="hidden" name="creation" value="${(user.creation?c)!}"/>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
-						</form>
-					</div>
-				</div>-->
-
-
 			</div>
 			<!-- add/edit -->
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<div id="" class="panel panel-default">
 					<div class="panel-heading">Recently Watched Videos</div>
 					<div class="panel-body">
@@ -116,10 +84,13 @@
 				</div>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-5">
 				<div id="" class="panel panel-default">
 					<div class="panel-heading">Saved Worksheets</div>
 					<div class="panel-body">
+						<#list worksheets as worksheet>
+							Worksheet for: <strong>${worksheet.videoName}</strong><a href=""> View</a><br/>
+						</#list>
 					</div>
 				</div>
 			</div>
