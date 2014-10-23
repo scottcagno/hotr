@@ -27,7 +27,7 @@ class AdminController {
 		model.addAllAttributes([
 				users : userService.numberOfUsers(),
 				challenge : userService.numberOrChallenge(),
-				videos : videoService.numberOfVIdeos()
+				videos : videoService.numberOfVideos()
 		])
 		"admin/landing"
 	}

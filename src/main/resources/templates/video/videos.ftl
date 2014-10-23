@@ -9,7 +9,7 @@
 		<#include "../stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div id="content" class="container navbar-margin">
+		<div id="content" class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<ul class="nav nav-tabs" role="tablist">

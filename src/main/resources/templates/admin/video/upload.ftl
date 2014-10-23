@@ -12,19 +12,21 @@
 		<#include "../../stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div class="container navbar-margin">
-			<div class="col-sm-offset-4 col-sm-4">
-				<div id="uploadVideoPanel" class="panel panel-default">
-					<div class="panel-heading">Upload Video</div>
-					<div class="panel-body">
-						<form id="uploader" role="form" method="post" action="${upload.upload_link_secure}" enctype="multipart/form-data">
-							<div class="form-group">
-								<label class="btn btn-default btn-block uploader" for="file_data">Select Video</label>
-								<input type="file" id="file_data" name="file_data" class="uploader" required="true"/>
-							</div>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<button id="uploader" class="btn btn-md btn-primary btn-block" type="submit" disabled="true">Upload</button>
-						</form>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-offset-4 col-sm-4">
+					<div id="uploadVideoPanel" class="panel panel-default">
+						<div class="panel-heading">Upload Video</div>
+						<div class="panel-body">
+							<form id="uploader" role="form" method="post" action="${upload.upload_link_secure}" enctype="multipart/form-data">
+								<div class="form-group">
+									<label class="btn btn-default btn-block uploader" for="file_data">Select Video</label>
+									<input type="file" id="file_data" name="file_data" class="uploader" required="true"/>
+								</div>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+								<button id="uploader" class="btn btn-md btn-primary btn-block" type="submit" disabled="true">Upload</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

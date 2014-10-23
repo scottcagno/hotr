@@ -1,5 +1,7 @@
 package com.cagnosolutions.starter.app.user
 
+import com.cagnosolutions.starter.app.video.Video
+import com.cagnosolutions.starter.app.video.VideoService
 import com.cagnosolutions.starter.app.worksheet.WorksheetService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -29,11 +31,21 @@ class UserController {
 	@Autowired
 	WorksheetService worksheetService
 
+	@Autowired
+	VideoService videoService
+
     @RequestMapping(method = RequestMethod.GET)
-    String viewAll(Model model, Principal principal) {
+    String view(Model model, Principal principal) {
 		User user = userService.findOne(principal.name)
 		def worksheets = worksheetService.findAllByUserId user.id
-        model.addAllAttributes([user : user, worksheets : worksheets])
+		List<Video> recent
+		if (user.progress.size() >= 5) {
+			def ids = user.progress.subList((user.progress.size() - 5), user.progress.size())
+			recent = videoService.findAll(ids)
+		} else {
+			recent = videoService.findAll(user.progress)
+		}
+        model.addAllAttributes([user : user, worksheets : worksheets, recent : recent])
         "user/user"
     }
 

@@ -9,44 +9,46 @@
 		<#include "../../stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div class="container navbar-margin">
-			<div id="videoTableDiv" class="panel panel-default">
-				<div class="panel-heading col-sm-12">
-					Videos
-					<a href="/admin/video/upload" id="" class="btn btn-default btn-xs pull-right"><i class="fa fa-upload"></i> Upload Video</a>
-				</div>
-				<div class="panel-body">
-					<div id="videoTable" class="table-responsive">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>Id</th>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Thumbnail</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<#list videos as video>
+		<div class="container">
+			<div class="row">
+				<div id="videoTableDiv" class="panel panel-default">
+					<div class="panel-heading col-sm-12">
+						Videos
+						<a href="/admin/video/upload" id="" class="btn btn-default btn-xs pull-right"><i class="fa fa-upload"></i> Upload Video</a>
+					</div>
+					<div class="panel-body">
+						<div id="videoTable" class="table-responsive">
+							<table class="table table-striped">
+								<thead>
 									<tr>
-										<td>${video.id}</td>
-										<td>${video.name}</td>
-										<td>${video.description}</td>
-										<td><a href="${(video.thumb)!}" target="_blank">View</a></td>
-										<td>
-											<a href="/admin/video/${video.id}" class="btn btn-xs btn-primary">
-												<i class="fa fa-pencil"></i>
-											</a>
-											<a href="" class="btn btn-danger btn-xs" data-id="${(video.id)!}" data-vimeo="${(video.vimeoId)!}"
-											   data-toggle="modal" data-target="#videoDeleteCheck">
-												<i class="fa fa-trash-o"></i>
-											</a>
-										</td>
+										<th>Id</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Thumbnail</th>
+										<th></th>
 									</tr>
-								</#list>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+									<#list videos as video>
+										<tr>
+											<td>${video.id}</td>
+											<td>${video.name}</td>
+											<td>${video.description}</td>
+											<td><a href="${(video.thumb)!}" target="_blank">View</a></td>
+											<td>
+												<a href="/admin/video/${video.id}" class="btn btn-xs btn-primary">
+													<i class="fa fa-pencil"></i>
+												</a>
+												<a href="" class="btn btn-danger btn-xs" data-id="${(video.id)!}" data-vimeo="${(video.vimeoId)!}"
+												   data-toggle="modal" data-target="#videoDeleteCheck">
+													<i class="fa fa-trash-o"></i>
+												</a>
+											</td>
+										</tr>
+									</#list>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

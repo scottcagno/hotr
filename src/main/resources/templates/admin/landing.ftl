@@ -8,22 +8,24 @@
 		<#include "../stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div class="container navbar-margin">
-			<div class="col-lg-4">
-				<div id="" class="panel panel-default">
-					<div class="panel-heading">Users</div>
-					<div class="panel-body">
-						<p>Registered Users: ${users}</p>
-						<p>Users Taking Challenge: ${challenge}</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div id="" class="panel panel-default">
+						<div class="panel-heading"><a href="/admin/user">Users</a></div>
+						<div class="panel-body">
+							<p>Registered Users: ${users}</p>
+							<p>Users Taking Challenge: ${challenge}</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-4">
-				<div id="" class="panel panel-default">
-					<div class="panel-heading">Videos</div>
-					<div class="panel-body">
-						<p>Number Of Videos: ${videos}</p>
-						<p>Videos Watched: </p>
+				<div class="col-lg-4">
+					<div id="" class="panel panel-default">
+						<div class="panel-heading"><a href="/admin/video">Videos</a></div>
+						<div class="panel-body">
+							<p>Number Of Videos: ${videos}</p>
+							<p>Videos Watched: </p>
+						</div>
 					</div>
 				</div>
 			</div>

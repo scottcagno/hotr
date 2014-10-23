@@ -8,7 +8,7 @@
 <#include "stubs/navbar.ftl">
 
 <!-- content -->
-<div class="container navbar-margin">
+<div class="container">
     <h1>Terms and Conditions</h1>
     <p class="lead">Credit</p>
     <p>

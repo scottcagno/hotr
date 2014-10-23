@@ -10,7 +10,7 @@
 
 		<#include "../../stubs/navbar.ftl"/>
 
-		<div class="container navbar-margin">
+		<div class="container">
 			<div class="col-sm-6 col-sm-offset-3" >
 				<div class="panel panel-default">
 					<div class="panel-heading">Edit Question</div>

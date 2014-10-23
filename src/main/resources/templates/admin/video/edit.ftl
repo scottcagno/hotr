@@ -9,73 +9,75 @@
 		<#include "../../stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div class="container navbar-margin">
-			<div class="col-sm-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">Edit Video</div>
-					<div class="panel-body">
-						<form id="" role="form" method="post" action="/admin/video">
-							<div class="form-group">
-								<input type="text" id="name" name="name" class="form-control"
-									   placeholder="Name" required="true" value="${video.name}"/>
-							</div>
-							<div class="form-group">
-								<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
-										  style="resize:none;">${video.description}</textarea>
-							</div>
-							<div class="form-group">
-								<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
-										  style="resize:none;">${tags?join(", ")}</textarea>
-							</div>
-							<div class="form-group">
-								<input type="text" id="category" name="category" class="form-control"
-								       placeholder="Category" required="true" />
-							</div>
-							<input type="hidden" name="id" value="${video.id}"/>
-							<input type="hidden" name="thumb" value="${video.thumb}"/>
-							<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
-						</form>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">Edit Video</div>
+						<div class="panel-body">
+							<form id="" role="form" method="post" action="/admin/video">
+								<div class="form-group">
+									<input type="text" id="name" name="name" class="form-control"
+										   placeholder="Name" required="true" value="${video.name}"/>
+								</div>
+								<div class="form-group">
+									<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
+											  style="resize:none;">${video.description}</textarea>
+								</div>
+								<div class="form-group">
+									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
+											  style="resize:none;">${tags?join(", ")}</textarea>
+								</div>
+								<div class="form-group">
+									<input type="text" id="category" name="category" class="form-control"
+									       placeholder="Category" required="true" />
+								</div>
+								<input type="hidden" name="id" value="${video.id}"/>
+								<input type="hidden" name="thumb" value="${video.thumb}"/>
+								<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div id="" class="col-sm-8" >
-				<div id="" class="panel panel-default">
-					<div class="panel-heading col-sm-12">
-						Questions
-						<a href="/admin/question/add?videoId=${video.id}" class="btn btn-default btn-xs pull-right">Add question</a>
-					</div>
-					<div class="panel-body">
-						<div id="" class="table-responsive">
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>Question</th>
-										<th>Type</th>
-										<th>Options</th>
-										<th></th>
-									</tr>
-								</thead>
-								<tbody>
-									<#list questions as question>
+				<div id="" class="col-sm-8" >
+					<div id="" class="panel panel-default">
+						<div class="panel-heading col-sm-12">
+							Questions
+							<a href="/admin/question/add?videoId=${video.id}" class="btn btn-default btn-xs pull-right">Add question</a>
+						</div>
+						<div class="panel-body">
+							<div id="" class="table-responsive">
+								<table class="table table-striped">
+									<thead>
 										<tr>
-											<td>${question.question}</td>
-											<td>${question.inputType?cap_first}</td>
-											<td>${(question.options?size > 0)?string(question.options?join(', '), 'None')}</td>
-											<td>
-												<a href="/admin/question/${question.id}" class="btn btn-xs btn-primary">
-													<i class="fa fa-pencil"></i>
-												</a>
-												<a href="" class="btn btn-danger btn-xs" data-id="${question.id}"
-													data-toggle="modal" data-target="#questionDeleteCheck">
-													<i class="fa fa-trash-o"></i>
-												</a>
-											</td>
+											<th>Question</th>
+											<th>Type</th>
+											<th>Options</th>
+											<th></th>
 										</tr>
-									</#list>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+										<#list questions as question>
+											<tr>
+												<td>${question.question}</td>
+												<td>${question.inputType?cap_first}</td>
+												<td>${(question.options?size > 0)?string(question.options?join(', '), 'None')}</td>
+												<td>
+													<a href="/admin/question/${question.id}" class="btn btn-xs btn-primary">
+														<i class="fa fa-pencil"></i>
+													</a>
+													<a href="" class="btn btn-danger btn-xs" data-id="${question.id}"
+														data-toggle="modal" data-target="#questionDeleteCheck">
+														<i class="fa fa-trash-o"></i>
+													</a>
+												</td>
+											</tr>
+										</#list>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>

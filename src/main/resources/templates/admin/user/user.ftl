@@ -7,7 +7,7 @@
 	<body id="body">
 		<#include "../../stubs/navbar.ftl"/>
 		<!-- content -->
-		<div id="content" class="container navbar-margin">
+		<div id="content" class="container">
 			<!-- add/edit -->
 			<div class="col-sm-4">
 				<div class="panel panel-default">

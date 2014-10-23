@@ -30,6 +30,10 @@ class VideoService {
         repo.findAll()
     }
 
+	List<Video> findAll(List<Long> ids) {
+		repo.findAll(ids)
+	}
+
 	List<Video> findAllByTag(String tag) {
 		repo.findAllVideoByTag(tag)
 	}
@@ -50,7 +54,7 @@ class VideoService {
         repo.delete id
     }
 
-	Integer numberOfVIdeos() {
+	Integer numberOfVideos() {
 		repo.numberOfVideos()
 	}
 

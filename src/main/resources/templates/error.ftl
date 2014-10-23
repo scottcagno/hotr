@@ -2,7 +2,7 @@
 <html lang="en">
 	<head id="head">
 		<title>Error Page</title>
-        <#include "stubs/header.ftl">
+        <#include "stubs/header.ftl"/>
 	</head>
 	<body id="body">
 
@@ -15,7 +15,7 @@
         </div>
         <!-- content -->
 
-        <#include "stubs/footer.ftl">
+        <#include "stubs/footer.ftl"/>
 
 	</body>
 </html>

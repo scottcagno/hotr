@@ -8,7 +8,7 @@
 		<#include "stubs/navbar.ftl"/>
 
 		<!-- content -->
-		<div class="container navbar-margin">
+		<div class="container">
 			<div class="well well-lg text-center">
 				<h3>“Fan the Flame Dates” is funded through generous donations from supporters like you!</h3>
 				<br/>
