@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  */
 
 @Controller("worksheetController")
-@RequestMapping("/worksheet")
+@RequestMapping("/secure/{hash}/worksheet")
 class WorksheetController {
 
 	@Autowired
@@ -37,14 +37,14 @@ class WorksheetController {
 	EmailService emailService
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	String view(@PathVariable Long id, Model model) {
+	String view(@PathVariable Long id, @PathVariable String hash, Model model) {
 		Worksheet worksheet = worksheetService.findOne id
 		model.addAttribute("worksheet", worksheet)
 		"worksheet/worksheet"
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	String add(String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
+	String add(@PathVariable String hash, String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
 		User user = userService.findOne worksheet.userId
 		if (!(worksheet.videoId in user.progress && user.challenge)) {
 			ObjectMapper mapper = new ObjectMapper()
@@ -73,6 +73,6 @@ class WorksheetController {
 			}
 			attr.addFlashAttribute("worksheet", worksheet)
 		}
-		"redirect:/video/${worksheet.videoId}"
+		"redirect:/secure/video/${hash}/${worksheet.videoId}"
 	}
 }

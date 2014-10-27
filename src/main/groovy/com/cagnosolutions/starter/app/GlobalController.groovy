@@ -7,9 +7,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ExceptionHandler
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
+import java.security.Principal
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 /**
@@ -26,6 +29,11 @@ class HomeController {
         "home"
     }
 
+	@RequestMapping(value = "/secure/home/{hash}", method = GET)
+	String indexSecure(@PathVariable String hash) {
+		"home"
+	}
+
     @RequestMapping(value = "/login", method = GET)
     String login(Model model) {
 		model.addAttribute "login", true
@@ -37,10 +45,21 @@ class HomeController {
         "terms"
     }
 
+	@RequestMapping(value = "/secure/terms/{hash}", method = GET)
+	String termsSecure(@PathVariable String hash) {
+		"terms"
+	}
+
     @RequestMapping(value = "/donate", method = GET)
     String donate() {
         "donate"
     }
+
+	@RequestMapping(value = "/secure/donate/{hash}", method = GET)
+	String donateSecure(@PathVariable String hash) {
+		"donate"
+	}
+
 }
 
 @CompileStatic
@@ -65,6 +84,15 @@ class Authentication {
         attr.addFlashAttribute "alertError", "Unable to register, ${user.username} may already be taken"
         "redirect:/login"
     }
+
+	@RequestMapping(value = "/secure/{url}", method = RequestMethod.GET)
+	String secureLogin(@PathVariable String url, Principal principal, @RequestParam(required = false) Long videoId) {
+		User user = userService.findOne principal.name
+		user.lastSeen = new java.sql.Date(System.currentTimeMillis())
+		userService.save user
+		url = videoId == null ? url : "${url}/${videoId}"
+		"redirect:/secure/${userService.getHash(principal.name)}/${url}"
+	}
 }
 
 @CompileStatic

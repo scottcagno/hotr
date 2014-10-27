@@ -8,7 +8,38 @@
 	</head>
 	<body>
 
-		<#include "../stubs/navbar.ftl"/>
+		<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="/secure/home/${hash}" class="navbar-brand">Home</a>
+				</div>
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/secure/${hash}/video"> Videos</a></li>
+						<li><a href="/secure/${hash}/user"> Account</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="/secure/${hash}/home#about">About</a></li>
+								<li><a href="/secure/${hash}/home#events">Events</a></li>
+								<li><a href="/secure/${hash}/home#contact">Contact</a></li>
+								<li class="divider"></li>
+								<li><a href="/secure/${hash}/site">Site Map</a></li>
+								<li><a href="/secure/${hash}/donate">Donate</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<#include "../stubs/alert.ftl"/>
 
 		<div class="container">
 			<div class="row">
@@ -86,7 +117,7 @@
 									</#list>
 									<br>
 								</form>
-								<form id="submitForm" action="/worksheet" role="form" method="post">
+								<form id="submitForm" action="/secure/${hash}/worksheet" role="form" method="post">
 									<div class="checkbox">
 										<label>
 											<input type="checkbox" name="save" value="true"> Save completed workbook in my profile.

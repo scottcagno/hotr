@@ -21,9 +21,9 @@ import java.security.Principal
  */
 
 @CompileStatic
-@Controller(value = "videoController")
-@RequestMapping(value = "/video")
-class VideoController {
+@Controller(value = "secureVideoController")
+@RequestMapping(value = "/secure/{hash}/video")
+class SecureVideoController {
 
     @Autowired
     VideoService videoService
@@ -38,7 +38,7 @@ class VideoController {
 	UserService userService
 
     @RequestMapping(method = RequestMethod.GET)
-    String viewAll(@RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
+    String viewAll(@PathVariable String hash, @RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
 		switch (filter) {
 			case "popular":
 				model.addAttribute "videos", videoService.findAll()
@@ -59,8 +59,14 @@ class VideoController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    String view(@PathVariable Long id, Model model) {
+    String view(@PathVariable Long id, @PathVariable String hash, Model model) {
         model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])
-		return "video/video"
+		User user = userService.findOneByHashedUsername hash
+		if (id in user.progress) {
+			model.addAttribute("alertWarning", "You have already watched this video. You can watch it " +
+					"again but it will not count towards your challenge progress")
+		}
+		model.addAllAttributes([questions : questionService.findAllByVideo(id), user : user])
+		"video/video_q"
     }
 }

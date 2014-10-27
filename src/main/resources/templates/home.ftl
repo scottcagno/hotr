@@ -23,8 +23,8 @@
                         <li><a href="#about">About</a></li>
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
-                        <li><a href="/video">Videos</a></li>
-                        <li><a href="/user">Account</a></li>
+                        <li><a href="${(hash??)?string('/secure/video/${hash!}', '/video')}">Videos</a></li>
+                        <li><a href="${(hash??)?string('/secure/user/${hash!}', '/secure/home')}">${(hash??)?string('Account', 'Login')}</a></li>
                     </ul>
 				</div>
 			</div>

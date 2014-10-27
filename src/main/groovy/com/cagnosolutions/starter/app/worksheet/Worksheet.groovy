@@ -15,6 +15,7 @@ class Worksheet {
 	Long Id
 	Long userId, videoId
 	@Column(columnDefinition="VARCHAR(1000)")
-	String htmlData, videoName
+	String htmlData
+	String videoName
 
 }

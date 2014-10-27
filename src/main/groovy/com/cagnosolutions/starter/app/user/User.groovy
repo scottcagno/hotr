@@ -19,7 +19,7 @@ class User {
 	@GeneratedValue
 	Long id
 	String name, username, password, role = "ROLE_USER"
-	Long creation, lastSeen
+	Date creation, lastSeen
 	Boolean challenge
 	ArrayList<Long> progress
 	short active = 1

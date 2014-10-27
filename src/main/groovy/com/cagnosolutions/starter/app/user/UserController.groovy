@@ -22,7 +22,7 @@ import java.security.Principal
 
 @CompileStatic
 @Controller(value = "userController")
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/secure/{hash}/user")
 class UserController {
 
     @Autowired
@@ -35,8 +35,8 @@ class UserController {
 	VideoService videoService
 
     @RequestMapping(method = RequestMethod.GET)
-    String view(Model model, Principal principal) {
-		User user = userService.findOne(principal.name)
+    String view(Model model, @PathVariable String hash) {
+		User user = userService.findOneByHashedUsername hash
 		def worksheets = worksheetService.findAllByUserId user.id
 		List<Video> recent
 		if (user.progress.size() >= 5) {
@@ -51,7 +51,7 @@ class UserController {
 
 	// POST update
 	@RequestMapping(method = RequestMethod.POST)
-	String update(User user, String confirm, RedirectAttributes attr) {
+	String update(@PathVariable String hash, User user, String confirm, RedirectAttributes attr) {
 		if(userService.canUpdate(user.id, user.username)) {
 			if (user.password == confirm) {
 				User existingUser = userService.findOne(user.id)
@@ -61,41 +61,23 @@ class UserController {
 				}
 				userService.save existingUser
 				attr.addFlashAttribute("alertSuccess", "Updated Successfully")
-				return "redirect:/user"
+				return "redirect:/secure/user"
 			}
 			// pass and confirm do not match
 			attr.addFlashAttribute "alertError", "Password and confirm do not match"
 		} else {
 			attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
 		}
-		return "redirect:/user"
+		return "redirect:/secure/user/${hash}"
 	}
 
 	//
 	@RequestMapping(value = "/challenge", method = RequestMethod.POST)
-	String startChallenge(Long userId) {
+	String startChallenge(@PathVariable String hash, Long userId) {
 		User user = userService.findOne userId
 		user.challenge = true
 		userService.save user
-		"redirect:/user"
+		"redirect:/secure/user/${hash}"
 	}
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    String view(@PathVariable Long id, Model model, @RequestParam(required = false) Boolean active) {
-        def user = userService.findOne id
-        if(active != null) {
-            user.active = (active) ? 1 as short : 0 as short
-            userService.save user
-        }
-        model.addAllAttributes([user: user, users: userService.findAll()])
-        "user/user"
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    String delete(@PathVariable Long id, RedirectAttributes attr) {
-        userService.delete id
-		attr.addFlashAttribute("alertSuccess", "Successfully deleted your account")
-        "redirect:/home"
-    }
 
 }

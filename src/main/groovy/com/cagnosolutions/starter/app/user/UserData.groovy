@@ -43,9 +43,13 @@ class UserService {
 		repo.findOne username
 	}
 
+	User findOneByHashedUsername(String hash) {
+		repo.findOne new String(hash.decodeBase64())
+	}
+
 	User save(User user) {
 		if(user.id == null)
-			user.creation = System.currentTimeMillis()
+			user.creation = new java.sql.Date(System.currentTimeMillis())
 		repo.save user
 	}
 
@@ -61,6 +65,13 @@ class UserService {
 		repo.numberOfChallenge()
 	}
 
+	String getHash(String username) {
+		username.bytes.encodeBase64().toString()
+	}
+
+	String getUsername(String hash) {
+		new String(hash.decodeBase64())
+	}
 
 	// helper method
 	def mergeProperties(source, target) {
