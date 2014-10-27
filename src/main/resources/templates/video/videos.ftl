@@ -53,7 +53,7 @@
 				</div>
 				<#list videos as video>
 					<div class="col-sm-4 col-md-3 text-center video-margin">
-						<a href="${(hash??)?string('/secure/video/${hash!}/${video.id}', '/video/${video.id}')}">
+						<a href="${(hash??)?string('/secure/${hash!}/video/${video.id}', '/video/${video.id}')}">
 							<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 						</a>
 						<p class="video-title"><strong>${video}</strong></p>
