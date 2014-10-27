@@ -45,7 +45,7 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<#if !user.challenge>
-						<form id="challengeForm" role="form" method="post" action="/user/challenge">
+						<form id="challengeForm" role="form" method="post" action="/secure/${hash}/user/challenge">
 							<input type="hidden" name="userId" value="${user.id}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-default btn-block" type="submit">Begin Challenge</button>
@@ -78,7 +78,7 @@
 							<a href="/logout" class="btn btn-default btn-xs pull-right">Logout</a>
 						</div>
 						<div class="panel-body">
-							<form id="accountForm" role="form" method="post" action="/user">
+							<form id="accountForm" role="form" method="post" action="/secure/${hash}/user">
 								<div class="form-group">
 									<input type="text" id="name" name="name" class="form-control"
 									       placeholder="Name" required="true" value="${user.name!}"/>
@@ -118,7 +118,7 @@
 						<div class="panel-body">
 							<#list recent as video>
 								<div class="text-center video-margin">
-									<a href="/video/${video.id}">
+									<a href="/secure/${hash}/video/${video.id}">
 										<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 									</a>
 									<p class="video-title"><strong>${video}</strong></p>

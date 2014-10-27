@@ -46,33 +46,33 @@ class WorksheetController {
 	@RequestMapping(method = RequestMethod.POST)
 	String add(@PathVariable String hash, String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
 		User user = userService.findOne worksheet.userId
-		if (!(worksheet.videoId in user.progress && user.challenge)) {
-			ObjectMapper mapper = new ObjectMapper()
-			def answerMap = mapper.readValue(answers, Map.class)
-			Template temp = freeMarkerConfiguration.getTemplate("worksheet/htmlData.ftl")
-			Map<String, Object> map = new HashMap<>()
-			map.put("answerMap", answerMap)
-			worksheet.htmlData = FreeMarkerTemplateUtils.processTemplateIntoString(temp, map)
+		println user.challenge
+		if (!(worksheet.videoId in user.progress) && user.challenge) {
 			user.progress << worksheet.videoId
-			userService.save user
-			if (save) {
-				println "saving"
-				worksheetService.save worksheet
-			}
-			if (email) {
-				// email to user
-				map.put("name", user.name)
-				map.put("worksheet", worksheet)
-				Email mail = emailService.CreateEmail("email/email.ftl", map)
-				mail.setAll("noreply@fantheflamedates.com", "Worksheet for video ${worksheet.videoName}", user.username)
-				println mail.to
-				emailService.sendEmailThreaded(mail)
-			}
-			if (send) {
-				// email to ffd
-			}
-			attr.addFlashAttribute("worksheet", worksheet)
 		}
-		"redirect:/secure/video/${hash}/${worksheet.videoId}"
+		ObjectMapper mapper = new ObjectMapper()
+		def answerMap = mapper.readValue(answers, Map.class)
+		Template temp = freeMarkerConfiguration.getTemplate("worksheet/htmlData.ftl")
+		Map<String, Object> map = new HashMap<>()
+		map.put("answerMap", answerMap)
+		worksheet.htmlData = FreeMarkerTemplateUtils.processTemplateIntoString(temp, map)
+		userService.save user
+		if (save) {
+			worksheetService.save worksheet
+		}
+		if (email) {
+			// email to user
+			map.put("name", user.name)
+			map.put("worksheet", worksheet)
+			Email mail = emailService.CreateEmail("email/email.ftl", map)
+			mail.setAll("noreply@fantheflamedates.com", "Worksheet for video ${worksheet.videoName}", user.username)
+			println mail.to
+			emailService.sendEmailThreaded(mail)
+		}
+		if (send) {
+			// email to ffd
+		}
+		attr.addFlashAttribute("worksheet", worksheet)
+		"redirect:/secure/${hash}/video/${worksheet.videoId}"
 	}
 }

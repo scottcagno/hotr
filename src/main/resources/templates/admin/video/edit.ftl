@@ -33,7 +33,7 @@
 									       placeholder="Category" required="true" />
 								</div>
 								<input type="hidden" name="id" value="${video.id}"/>
-								<input type="hidden" name="thumb" value="${video.thumb}"/>
+								<input type="hidden" name="thumb" value="${video.thumb!}"/>
 								<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>

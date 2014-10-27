@@ -61,14 +61,14 @@ class UserController {
 				}
 				userService.save existingUser
 				attr.addFlashAttribute("alertSuccess", "Updated Successfully")
-				return "redirect:/secure/user"
+				return "redirect:/secure/${hash}/user"
 			}
 			// pass and confirm do not match
 			attr.addFlashAttribute "alertError", "Password and confirm do not match"
 		} else {
 			attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
 		}
-		return "redirect:/secure/user/${hash}"
+		return "redirect:/secure/${hash}/user"
 	}
 
 	//
@@ -77,7 +77,7 @@ class UserController {
 		User user = userService.findOne userId
 		user.challenge = true
 		userService.save user
-		"redirect:/secure/user/${hash}"
+		"redirect:/secure/${hash}/user"
 	}
 
 }
