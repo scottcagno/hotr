@@ -30,7 +30,7 @@
 								</div>
 								<div class="form-group">
 									<input type="text" id="category" name="category" class="form-control"
-									       placeholder="Category" required="true" />
+									       placeholder="Category"/>
 								</div>
 								<input type="hidden" name="id" value="${video.id}"/>
 								<input type="hidden" name="thumb" value="${video.thumb!}"/>

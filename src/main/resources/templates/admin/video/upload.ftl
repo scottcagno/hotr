@@ -32,6 +32,22 @@
 			</div>
 		</div>
 
+		<!-- wait modal -->
+		<div class="modal fade" id="wait" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+						<div class="well well-lg">
+							<h3>Processing, one moment please...<br/>
+								<small>Please do not close this window or refresh your browser</small></h3>
+							<small>This window will close when processing has completed</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- wait modal -->
+
 		<!-- scripts -->
 		<div id="scripts">
 
@@ -62,6 +78,10 @@
 
 				// add event listener on change of the file input
 				addEventListenerBySelector('input.uploader', 'change', updateFileInfo);
+
+				$('button[id="uploader"]').click(function() {
+					$('div[id="wait"]').modal();
+				});
 			</script>
 		</div>
 
