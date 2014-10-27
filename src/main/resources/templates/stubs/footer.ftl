@@ -5,8 +5,8 @@
             <i class="fa fa-copyright"></i> 2014 Fan The Flame
         </span>
         <span class="pull-right">
-            <a href="${(hash??)?string('/secure/donate/${hash!}', '/donate')}">Donate</a> |
-            <a href="${(hash??)?string('/secure/terms/${hash!}', '/terms')}">Terms</a>
+            <a href="${(hash??)?string('/secure/${hash!}/donate', '/donate')}">Donate</a> |
+            <a href="${(hash??)?string('/secure/${hash!}/terms', '/terms')}">Terms</a>
         </span>
 	</footer>
 </div>

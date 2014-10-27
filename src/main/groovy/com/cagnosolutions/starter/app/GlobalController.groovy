@@ -29,7 +29,7 @@ class HomeController {
         "home"
     }
 
-	@RequestMapping(value = "/secure/home/{hash}", method = GET)
+	@RequestMapping(value = "/secure/{hash}/home", method = GET)
 	String indexSecure(@PathVariable String hash) {
 		"home"
 	}
@@ -45,7 +45,7 @@ class HomeController {
         "terms"
     }
 
-	@RequestMapping(value = "/secure/terms/{hash}", method = GET)
+	@RequestMapping(value = "/secure/{hash}/terms", method = GET)
 	String termsSecure(@PathVariable String hash) {
 		"terms"
 	}
@@ -55,7 +55,7 @@ class HomeController {
         "donate"
     }
 
-	@RequestMapping(value = "/secure/donate/{hash}", method = GET)
+	@RequestMapping(value = "/secure/{hash}/donate", method = GET)
 	String donateSecure(@PathVariable String hash) {
 		"donate"
 	}
