@@ -15,19 +15,16 @@ apply plugin: 'groovy'
 apply plugin: 'spring-boot' 
 
 jar {
-    baseName = 'spring-starter'
-    version =  '1.0.0'
+    baseName = 'hotr'
+    version =  '1.0'
 }
 
 repositories {
     mavenCentral()
 }
 
-
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-remote-shell")
     compile("org.springframework.boot:spring-boot-starter-freemarker")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-web")
@@ -35,7 +32,6 @@ dependencies {
     compile("mysql:mysql-connector-java")
 	compile("org.apache.httpcomponents:httpclient:4.3.4")
 	compile("javax.mail:mail:1.4.7")
-    runtime("com.h2database:h2")
 }
 
 task wrapper(type: Wrapper) {
