@@ -88,7 +88,7 @@ class Authentication {
 	@RequestMapping(value = "/secure/{url}", method = RequestMethod.GET)
 	String secureLogin(@PathVariable String url, Principal principal, @RequestParam(required = false) Long videoId) {
 		User user = userService.findOne principal.name
-		user.lastSeen = new java.sql.Date(System.currentTimeMillis())
+		user.lastSeen = new Date()
 		userService.save user
 		url = videoId == null ? url : "${url}/${videoId}"
 		"redirect:/secure/${userService.getHash(principal.name)}/${url}"

@@ -40,19 +40,18 @@ class SecureVideoController {
 	// GET secure all videos
     @RequestMapping(method = RequestMethod.GET)
     String viewAll(@PathVariable String hash, @RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
-		switch (filter) {
-			case "popular":
-				model.addAttribute "videos", videoService.findAll()
-				break
-			case "recent":
-				model.addAttribute "videos", videoService.findAll()
-				break
-			case "category":
-				model.addAttribute "videos", videoService.findAll()
-				break
-		}
 		if (tag == null) {
-	        model.addAttribute "videos", videoService.findAll()
+			switch (filter) {
+				case "popular":
+					model.addAttribute "videos", videoService.findAll()
+					break
+				case "recent":
+					model.addAttribute "videos", videoService.findAllRecentlyAdded()
+					break
+				case "category":
+					model.addAttribute "videos", videoService.findAll()
+					break
+			}
 		} else {
 			model.addAttribute("videos", videoService.findAllByTag(tag))
 		}

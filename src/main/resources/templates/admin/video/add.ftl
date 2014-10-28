@@ -28,9 +28,21 @@
 									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 											  style="resize:none;"></textarea>
 								</div>
-								<div class="form-group">
-									<input type="text" id="category" name="category" class="form-control"
-									       placeholder="Category"/>
+								<div class="form-group row">
+									<div class="col-sm-7">
+										<select id="categorySelect" name="categorySelect" class="form-control">
+											<option value="cat">Select A Category</option>
+											<#list categories as category>
+												<option value="${category}">${category}</option>
+											</#list>
+										</select>
+									</div>
+									<div class="col-sm-5">
+										<a id="addCategory" class="btn btn-primary btn-block">Add Category</a>
+									</div>
+								</div>
+								<div id="categoryInput" class="form-group" hidden="hidden">
+									<input class="form-control" id="category" name="category" type="text" placeholder="Add Category" required="true"/>
 								</div>
 								<input type="hidden" name="vimeoId" value="${(RequestParameters.video_uri?split('/')[2])!}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -43,13 +55,21 @@
 		</div>
 		<!-- content -->
 
-
-
 		<#include "../../stubs/footer.ftl"/>
 
 		<#include "../../stubs/scripts.ftl"/>
 
+		<script>
+			$('select[id="categorySelect"]').change(function() {
+				if ($('select[id="categorySelect"]') != "cat") {
+					$('input[id="category"]').val($('select[id="categorySelect"]').val());
+					$('div[id="categoryInput"]').attr('hidden', 'hidden');
+				}
+			});
 
-
+			$('a[id="addCategory"]').click(function() {
+				$('div[id="categoryInput"]').removeAttr('hidden');
+			});
+		</script>
 	</body>
 </html>

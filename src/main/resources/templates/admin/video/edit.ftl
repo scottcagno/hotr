@@ -28,15 +28,31 @@
 									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 											  style="resize:none;">${tags?join(", ")}</textarea>
 								</div>
-								<div class="form-group">
-									<input type="text" id="category" name="category" class="form-control"
-									       placeholder="Category"/>
+
+								<div class="form-group row">
+									<div class="col-sm-7">
+										<select id="categorySelect" name="categorySelect" class="form-control">
+											<option value="">Select A Category</option>
+											<option value="">--------------------</option>
+											<hr/>
+											<#list categories as category>
+												<option value="${category}" ${(video.category == category)?string('selected', '')}>${category}</option>
+											</#list>
+										</select>
+									</div>
+									<div class="col-sm-5">
+										<a id="addCategory" class="btn btn-primary btn-block">Add Category</a>
+									</div>
+								</div>
+								<div id="categoryInput" class="form-group" hidden="hidden">
+									<input class="form-control" id="category" name="category" type="text"
+										   placeholder="Add Category" value="${video.category}"/>
 								</div>
 								<input type="hidden" name="id" value="${video.id}"/>
 								<input type="hidden" name="thumb" value="${video.thumb!}"/>
 								<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
+								<button id="save" class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 							</form>
 						</div>
 					</div>
@@ -122,6 +138,21 @@
 					var id = $(this).data('id');
 					var form = $('.modal #questionDelete');
 					form.html(form.html().replace('{id}',id));
+				});
+
+				$('select[id="categorySelect"]').change(function() {
+					$('input[id="category"]').val($('select[id="categorySelect"]').val());
+					$('div[id="categoryInput"]').attr('hidden', 'hidden');
+				});
+
+				$('a[id="addCategory"]').click(function() {
+					$('div[id="categoryInput"]').removeAttr('hidden');
+				});
+
+				$('button[id="save"]').click(function() {
+					if ($('input[id="category"]').val() == '') {
+						$('select[id="categorySelect"]').addClass('has-error');
+					}
 				});
 			});
 		</script>

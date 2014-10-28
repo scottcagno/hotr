@@ -23,6 +23,7 @@
 									<th>Id</th>
 									<th>Name</th>
 									<th>Description</th>
+									<th>Category</th>
 									<th>Thumbnail</th>
 									<th></th>
 								</tr>
@@ -33,6 +34,7 @@
 										<td>${video.id}</td>
 										<td>${video.name}</td>
 										<td>${video.description}</td>
+										<td>${video.category!}</td>
 										<td><a href="${(video.thumb)!}" target="_blank">View</a></td>
 										<td>
 											<a href="/admin/video/${video.id}" class="btn btn-xs btn-primary">

@@ -46,7 +46,7 @@
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="active"><a href="#">All Videos</a></li>
 						<li><a href="#">Popular</a></li>
-						<li><a href="#">Recently Added</a></li>
+						<li><a href="/video?filter=recent">Recently Added</a></li>
 						<li><a href="#">Categories</a></li>
 					</ul>
 					<br/>

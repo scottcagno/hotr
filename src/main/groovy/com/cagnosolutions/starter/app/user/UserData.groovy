@@ -49,7 +49,7 @@ class UserService {
 
 	User save(User user) {
 		if(user.id == null)
-			user.creation = new java.sql.Date(System.currentTimeMillis())
+			user.creation = new Date()
 		repo.save user
 	}
 

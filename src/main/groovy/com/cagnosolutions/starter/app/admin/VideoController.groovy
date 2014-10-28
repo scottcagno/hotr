@@ -41,7 +41,8 @@ class VideoController {
 
 	// GET add
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	String add() {
+	String add(Model model) {
+		model.addAttribute("categories", videoService.getCategories())
 		"admin/video/add"
 	}
 
@@ -50,6 +51,7 @@ class VideoController {
 	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("video", videoService.findOne(id))
 		model.addAttribute("tags", tagService.findAllByVideo(id))
+		model.addAttribute("categories", videoService.getCategories())
 		model.addAttribute("questions", questionService.findAllByVideo(id))
 		"admin/video/edit"
 	}
@@ -62,14 +64,14 @@ class VideoController {
 			try {
 				vimeoAPI.addEmbedPreset(video.vimeoId)
 				vimeoAPI.addPrivacy(video.vimeoId)
-				video = videoService.save(video)
+				video = videoService.save video
 				vimeoAPI.getThumb(video.id, video.vimeoId)
 			} catch (all) {
 				all.printStackTrace()
 			}
 		} else {
 			// existing video
-			videoService.save(video)
+			videoService.save video
 		}
 		// add/remove tags
 		tagService.videoTags(tags, video.id)

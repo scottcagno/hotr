@@ -46,7 +46,13 @@ class VideoService {
         repo.findOne id
     }
 
+	List<Video> findAllRecentlyAdded() {
+		repo.findRecentlyAdded()
+	}
+
     Video save(Video video) {
+	    if (video.id == null)
+		    video.added = new Date()
         repo.save video
     }
 
@@ -56,6 +62,15 @@ class VideoService {
 
 	Integer numberOfVideos() {
 		repo.numberOfVideos()
+	}
+
+	Set<String> getCategories() {
+		List<String> categories = new ArrayList<>();
+		List<Video> allVideos = repo.findAll();
+		for(Video video : allVideos) {
+			categories.add(video.category);
+		}
+		new HashSet<String>(categories);
 	}
 
 }
@@ -69,4 +84,7 @@ interface VideoRepository extends JpaRepository<Video, Long> {
 
 	@Query("SELECT COUNT(v.id) FROM Video v")
 	Integer numberOfVideos()
+
+	@Query("SELECT v From Video v ORDER BY v.id DESC")
+	List<Video> findRecentlyAdded()
 }
