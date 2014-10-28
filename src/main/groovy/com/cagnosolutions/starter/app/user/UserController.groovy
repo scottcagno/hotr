@@ -34,6 +34,7 @@ class UserController {
 	@Autowired
 	VideoService videoService
 
+	// GET user
     @RequestMapping(method = RequestMethod.GET)
     String view(Model model, @PathVariable String hash) {
 		User user = userService.findOneByHashedUsername hash
@@ -71,7 +72,7 @@ class UserController {
 		return "redirect:/secure/${hash}/user"
 	}
 
-	//
+	// POST begin challenge
 	@RequestMapping(value = "/challenge", method = RequestMethod.POST)
 	String startChallenge(@PathVariable String hash, Long userId) {
 		User user = userService.findOne userId

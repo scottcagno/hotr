@@ -3,11 +3,13 @@ package com.cagnosolutions.starter.app.admin
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 /**
@@ -20,24 +22,48 @@ class UserController {
 	@Autowired
 	UserService userService
 
+	// GET users
 	@RequestMapping(method = RequestMethod.GET)
 	String view(Model model) {
 		model.addAttribute("users", userService.findAll())
 		"admin/user/user"
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	String edit(@PathVariable Long id, Model model) {
-		model.addAllAttributes([users : userService.findAll(), user : userService.findOne(id)])
-		"admin/user"
-	}
-
+	// POST add/edit user
 	@RequestMapping(method = RequestMethod.POST)
-	String save(User user, RedirectAttributes attr) {
-		userService.save(user)
-		attr.addFlashAttribute("alertSuccess", "Successfully saved user")
+	String save(User user, String confirm, RedirectAttributes attr) {
+		if(userService.canUpdate(user.id, user.username)) {
+			if (user.password == confirm) {
+				User existingUser = userService.findOne(user.id)
+				userService.mergeProperties(user, existingUser)
+				if (existingUser.password[0] != '$') {
+					existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)\
+				}
+				userService.save existingUser
+				attr.addFlashAttribute("alertSuccess", "Updated Successfully")
+				return "redirect:/admin/user"
+			}
+			// pass and confirm do not match
+			attr.addFlashAttribute "alertError", "Password and confirm do not match"
+		} else {
+			attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
+		}
+		"redirect:/admin/user"
 	}
 
+	// GET one user and display all users
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	String edit(@PathVariable Long id, @RequestParam(required = false) Boolean active, Model model) {
+		def user = userService.findOne id
+		if(active != null) {
+			user.active = (active) ? 1 as short : 0 as short
+			userService.save user
+		}
+		model.addAllAttributes([users : userService.findAll(), user : userService.findOne(id)])
+		"admin/user/user"
+	}
+
+	// POST delete user
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, RedirectAttributes attr) {
 		userService.delete(id)

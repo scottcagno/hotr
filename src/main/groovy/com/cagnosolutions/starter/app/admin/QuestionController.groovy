@@ -22,19 +22,21 @@ class QuestionController {
 	@Autowired
 	QuestionService questionService
 
-
+	// GET add questing
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	String add(@RequestParam Long videoId, Model model) {
 		model.addAttribute("videoId", videoId)
 		"admin/question/add"
 	}
 
+	// GET edit question
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
  	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("question", questionService.findOne(id))
 		"admin/question/edit"
 	}
 
+	// POST save question
 	@RequestMapping(method = RequestMethod.POST)
 	String save(Question question, RedirectAttributes attr) {
 		questionService.save(question)
@@ -42,6 +44,7 @@ class QuestionController {
 		"redirect:/admin/video/${question.video_fk}"
 	}
 
+	// POST delete question
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, @RequestParam Long videoId, RedirectAttributes attr) {
 		questionService.delete(id)

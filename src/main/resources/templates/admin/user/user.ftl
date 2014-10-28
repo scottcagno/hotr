@@ -5,9 +5,10 @@
 		<#include "../../stubs/header.ftl"/>
 	</head>
 	<body id="body">
-		<#include "../../stubs/navbar.ftl"/>
+		<#include "../../stubs/admin_navbar.ftl"/>
 		<!-- content -->
 		<div id="content" class="container">
+
 			<!-- add/edit -->
 			<div class="col-sm-4">
 				<div class="panel panel-default">
@@ -15,32 +16,43 @@
 						Add/Edit User <span class="pull-right"><a href="/admin/user">Clear</a></span>
 					</div>
 					<div class="panel-body">
-						<form role="form" method="post" action="/admin/user">
+						<form id="accountForm" role="form" method="post" action="/admin/user">
 							<#if user??>
 								<div class="form-group">
-									<label>Created On:</label><span> ${(user.creation?number_to_datetime)!}</span> <br/>
-									<label>Last Seen:</label><span> ${(user.lastSeen?number_to_datetime)!}</span> <br/>
+									<label>Created On:</label><span> ${(user.creation?date)!}</span> <br/>
+									<label>Last Seen:</label><span> ${(user.lastSeen?date)!}</span> <br/>
 									<label>Account: </label>
-									<a href="/admin/user/${(user.id)!}
-                                        ${(user.active==1)?string('?active=false','?active=true')}">
+									<a href="/admin/user/${(user.id)!}${(user.active==1)?string('?active=false','?active=true')}">
 										${(user.active==1)?string('Enabled (click to disable)','Disabled (click to enable)')}
 									</a> <br/>
 								</div>
 							</#if>
 							<div class="form-group">
-								<input type="text" id="name" name="name" value="${(user.name)!}" class="form-control" placeholder="Name" required="true" autofocus="true"/>
+								<input type="text" id="name" name="name" class="form-control"
+									   placeholder="Name" required="true" value="${(user.name)!}"/>
 							</div>
 							<div class="form-group">
-								<input type="email" id="email" name="email" value="${(user.email)!}" class="form-control" placeholder="Email" required="true"/>
+								<input type="text" id="username" name="username" class="form-control"
+									   placeholder="Email" required="true" value="${(user.username)!}"/>
 							</div>
-							<div class="form-group">
-								<input type="text" id="username" name="username" value="${(user.username)!}" class="form-control" placeholder="Username" required="true"/>
+							<div class="text-center">
+								<a data-toggle="collapse" data-parent="#accordion"
+								   href="#changePassword" class="text-primary">
+									Click to change password
+								</a>
 							</div>
-							<div class="form-group">
-								<input type="password" id="password" name="password" value="${(user.password)!}" class="form-control" placeholder="Password" required="true"/>
+							<br/>
+							<div id="changePassword" class="panel-collapse collapse">
+								<div class="form-group">
+									<input type="password" id="password" name="password" class="form-control"
+										   placeholder="Password"/>
+								</div>
+								<div class="form-group">
+									<input type="password" id="confirm" name="confirm" class="form-control"
+										   placeholder="Confirm"/>
+								</div>
 							</div>
 							<input type="hidden" name="id" value="${(user.id)!}"/>
-							<input type="hidden" name="creation" value="${(user.creation?c)!}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 						</form>
@@ -48,6 +60,7 @@
 				</div>
 			</div>
 			<!-- add/edit -->
+
 			<!-- view all -->
 			<div class="col-sm-8">
 				<div class="panel panel-default">

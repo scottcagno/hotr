@@ -37,6 +37,7 @@ class SecureVideoController {
 	@Autowired
 	UserService userService
 
+	// GET secure all videos
     @RequestMapping(method = RequestMethod.GET)
     String viewAll(@PathVariable String hash, @RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
 		switch (filter) {
@@ -58,6 +59,7 @@ class SecureVideoController {
         "video/videos"
     }
 
+	// GET secure video
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, @PathVariable String hash, Model model) {
         model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])

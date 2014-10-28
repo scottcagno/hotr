@@ -36,6 +36,7 @@ class WorksheetController {
 	@Autowired
 	EmailService emailService
 
+	// GET worksheet
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String view(@PathVariable Long id, @PathVariable String hash, Model model) {
 		Worksheet worksheet = worksheetService.findOne id
@@ -43,6 +44,7 @@ class WorksheetController {
 		"worksheet/worksheet"
 	}
 
+	// POST process worksheet data
 	@RequestMapping(method = RequestMethod.POST)
 	String add(@PathVariable String hash, String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
 		User user = userService.findOne worksheet.userId

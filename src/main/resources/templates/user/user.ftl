@@ -130,11 +130,15 @@
 				<div class="col-sm-5">
 					<div id="" class="panel panel-default">
 						<div class="panel-heading">Saved Worksheets</div>
-						<div class="panel-body">
-							<#list worksheets as worksheet>
-								Worksheet for: <strong>${worksheet.videoName}</strong><a href="/secure/${hash}/worksheet/${worksheet.id}"> View</a><br/>
-							</#list>
-						</div>
+						<table class="table">
+							<tbody>
+								<#list worksheets as worksheet>
+									<tr>
+										<td><strong>${worksheet.videoName}: </strong><a href="/secure/${hash}/worksheet/${worksheet.id}"> View</a></td>
+									</tr>
+								</#list>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>

@@ -22,6 +22,7 @@ class AdminController {
 	@Autowired
 	VideoService videoService
 
+	// GET landing page
 	@RequestMapping(method = RequestMethod.GET)
 	String landing(Model model) {
 		model.addAllAttributes([

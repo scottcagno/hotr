@@ -8,7 +8,7 @@
 	</head>
 	<body>
 
-		<#include "../../stubs/navbar.ftl"/>
+		<#include "../../stubs/admin_navbar.ftl"/>
 
 		<div class="container">
 			<div class="col-sm-6 col-sm-offset-3" >
