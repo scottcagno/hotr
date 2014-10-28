@@ -19,8 +19,8 @@
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="${(hash??)?string('/secure/${hash!}/video', '/video')}"> Videos</a></li>
-						<li><a href="${(hash??)?string('/secure/${hash!}/user', '/secure/terms')}"> Account', 'Login')}</a></li>
+						<li><a href="${(hash??)?string('/secure/${hash!}/video', '/video')}">Videos</a></li>
+						<li><a href="${(hash??)?string('/secure/${hash!}/user', '/secure/terms')}">${(hash??)?string('Account', 'Login')}</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 
-		<#include "../stubs/alert.ftl"/>
+		<#include "stubs/alert.ftl"/>
 
 		<!-- content -->
 		<div class="container">
