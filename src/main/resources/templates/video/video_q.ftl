@@ -63,7 +63,7 @@
 						</p>
 						<p>
 							<#list tags as tag>
-								<a href="/secure/${hash}/video?tag=${tag}" class="btn btn-xs btn-primary">${tag}</a>
+								<a href="/secure/${hash}/video/all?tag=${tag}" class="btn btn-xs btn-primary">${tag}</a>
 							</#list>
 						</p>
 					</div>

@@ -38,6 +38,10 @@ class VideoService {
 		repo.findAllVideoByTag(tag)
 	}
 
+	List<Video> findAllByCategory(String category) {
+		repo.findAllByCategory(category)
+	}
+
     Page<Video> findAll(int page, int size, String... fields) {
         repo.findAll(new PageRequest(page, size, Sort.Direction.ASC, fields))
     }
@@ -64,7 +68,7 @@ class VideoService {
 		repo.numberOfVideos()
 	}
 
-	Set<String> getCategories() {
+	Set<String> findCategories() {
 		List<String> categories = new ArrayList<>();
 		List<Video> allVideos = repo.findAll();
 		for(Video video : allVideos) {
@@ -87,4 +91,7 @@ interface VideoRepository extends JpaRepository<Video, Long> {
 
 	@Query("SELECT v From Video v ORDER BY v.id DESC")
 	List<Video> findRecentlyAdded()
+
+	@Query("SELECT v FROM Video v WHERE v.category=:category")
+	List<Video> findAllByCategory(@Param("category") String category)
 }

@@ -60,7 +60,7 @@
 					</p>
 					<p>
 						<#list tags as tag>
-							<a href="/video?tag=${tag}" class="btn btn-xs btn-primary">${tag}</a>
+							<a href="/video/all?tag=${tag}" class="btn btn-xs btn-primary">${tag}</a>
 						</#list>
 					</p>
 				</div>

@@ -15,7 +15,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">Edit Video</div>
 						<div class="panel-body">
-							<form id="" role="form" method="post" action="/admin/video">
+							<form id="videoForm" role="form" method="post" action="/admin/video">
 								<div class="form-group">
 									<input type="text" id="name" name="name" class="form-control"
 										   placeholder="Name" required="true" value="${video.name}"/>
@@ -30,7 +30,7 @@
 								</div>
 
 								<div class="form-group row">
-									<div class="col-sm-7">
+									<div id="categorySelectDiv" class="col-sm-7">
 										<select id="categorySelect" name="categorySelect" class="form-control">
 											<option value="">Select A Category</option>
 											<option value="">--------------------</option>
@@ -52,8 +52,8 @@
 								<input type="hidden" name="thumb" value="${video.thumb!}"/>
 								<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button id="save" class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 							</form>
+							<button id="save" class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 						</div>
 					</div>
 				</div>
@@ -151,7 +151,10 @@
 
 				$('button[id="save"]').click(function() {
 					if ($('input[id="category"]').val() == '') {
-						$('select[id="categorySelect"]').addClass('has-error');
+						$('div[id="categorySelectDiv"]').addClass('has-error');
+						$('select[id="categorySelect"]').focus();
+					} else {
+						$('form[id="videoForm"]').submit();
 					}
 				});
 			});

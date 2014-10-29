@@ -49,7 +49,7 @@ class WorksheetController {
 	String add(@PathVariable String hash, String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
 		User user = userService.findOne worksheet.userId
 		println user.challenge
-		if (!(worksheet.videoId in user.progress) && user.challenge) {
+		if (!(worksheet.videoId in user.progress) && user.challenge && user.progress.size() <= 12) {
 			user.progress << worksheet.videoId
 		}
 		ObjectMapper mapper = new ObjectMapper()

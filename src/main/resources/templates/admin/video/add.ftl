@@ -15,7 +15,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">Add Video</div>
 						<div class="panel-body">
-							<form id="" role="form" method="post" action="/admin/video">
+							<form id="videoForm" role="form" method="post" action="/admin/video">
 								<div class="form-group">
 									<input type="text" id="name" name="name" class="form-control"
 										   placeholder="Name" required="true" />
@@ -29,7 +29,7 @@
 											  style="resize:none;"></textarea>
 								</div>
 								<div class="form-group row">
-									<div class="col-sm-7">
+									<div id="categorySelectDiv" class="col-sm-7">
 										<select id="categorySelect" name="categorySelect" class="form-control">
 											<option value="cat">Select A Category</option>
 											<#list categories as category>
@@ -46,8 +46,8 @@
 								</div>
 								<input type="hidden" name="vimeoId" value="${(RequestParameters.video_uri?split('/')[2])!}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button class="btn btn-md btn-primary btn-block" type="submit">Add</button>
 							</form>
+							<button class="btn btn-md btn-primary btn-block" type="submit">Add</button>
 						</div>
 					</div>
 				</div>
@@ -61,15 +61,22 @@
 
 		<script>
 			$('select[id="categorySelect"]').change(function() {
-				if ($('select[id="categorySelect"]') != "cat") {
 					$('input[id="category"]').val($('select[id="categorySelect"]').val());
 					$('div[id="categoryInput"]').attr('hidden', 'hidden');
-				}
-			});
+				});
 
-			$('a[id="addCategory"]').click(function() {
-				$('div[id="categoryInput"]').removeAttr('hidden');
-			});
+				$('a[id="addCategory"]').click(function() {
+					$('div[id="categoryInput"]').removeAttr('hidden');
+				});
+
+				$('button[id="save"]').click(function() {
+					if ($('input[id="category"]').val() == '') {
+						$('div[id="categorySelectDiv"]').addClass('has-error');
+						$('select[id="categorySelect"]').focus();
+					} else {
+						$('form[id="videoForm"]').submit();
+					}
+				});
 		</script>
 	</body>
 </html>

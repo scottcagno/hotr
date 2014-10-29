@@ -51,7 +51,7 @@ class VideoController {
 	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("video", videoService.findOne(id))
 		model.addAttribute("tags", tagService.findAllByVideo(id))
-		model.addAttribute("categories", videoService.getCategories())
+		model.addAttribute("categories", videoService.findCategories())
 		model.addAttribute("questions", questionService.findAllByVideo(id))
 		"admin/video/edit"
 	}

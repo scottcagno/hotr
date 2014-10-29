@@ -90,7 +90,7 @@ class Authentication {
 		User user = userService.findOne principal.name
 		user.lastSeen = new Date()
 		userService.save user
-		url = videoId == null ? url : "${url}/${videoId}"
+		url = videoId == null ? url : "${url}/id/${videoId}"
 		"redirect:/secure/${userService.getHash(principal.name)}/${url}"
 	}
 }

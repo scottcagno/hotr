@@ -37,19 +37,24 @@ class VideoController {
 	@Autowired
 	UserService userService
 
+
+
 	// GET all videos
-    @RequestMapping(method = RequestMethod.GET)
-    String viewAll(@RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
+    @RequestMapping(value = "/{filter}", method = RequestMethod.GET)
+    String viewAll(@RequestParam(required = false) String tag, @PathVariable String filter, Model model) {
 		if (tag == null) {
 			switch (filter) {
+				case "all":
+					model.addAttribute "videos", videoService.findAll()
+					break
 				case "popular":
 					model.addAttribute "videos", videoService.findAll()
 					break
 				case "recent":
 					model.addAttribute "videos", videoService.findAllRecentlyAdded()
 					break
-				case "category":
-					model.addAttribute "videos", videoService.findAll()
+				default:
+					model.addAttribute "videos", videoService.findAllByCategory(filter)
 					break
 			}
 		} else {
@@ -59,9 +64,15 @@ class VideoController {
     }
 
 	// GET video
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model) {
         model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])
 		return "video/video"
     }
+
+	@RequestMapping(value = "/category", method = RequestMethod.GET)
+	String category(Model model) {
+		model.addAttribute("categories", videoService.findCategories())
+		"video/category"
+	}
 }

@@ -37,19 +37,28 @@ class SecureVideoController {
 	@Autowired
 	UserService userService
 
+	@RequestMapping(method = RequestMethod.GET)
+	String video(@PathVariable String hash) {
+		"redirect:secure/${hash}/video/all"
+	}
+
 	// GET secure all videos
-    @RequestMapping(method = RequestMethod.GET)
-    String viewAll(@PathVariable String hash, @RequestParam(required = false) String tag, @RequestParam(required = false) String filter, Model model) {
+    @RequestMapping(value="/{filter}", method = RequestMethod.GET)
+    String viewAll(@PathVariable String hash, @RequestParam(required = false) String tag,
+                   @PathVariable String filter, Model model) {
 		if (tag == null) {
 			switch (filter) {
+				case "all":
+					model.addAttribute "videos", videoService.findAll()
+					break
 				case "popular":
 					model.addAttribute "videos", videoService.findAll()
 					break
 				case "recent":
 					model.addAttribute "videos", videoService.findAllRecentlyAdded()
 					break
-				case "category":
-					model.addAttribute "videos", videoService.findAll()
+				default:
+					model.addAttribute "videos", videoService.findAllByCategory(filter)
 					break
 			}
 		} else {
@@ -59,7 +68,7 @@ class SecureVideoController {
     }
 
 	// GET secure video
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, @PathVariable String hash, Model model) {
         model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])
 		User user = userService.findOneByHashedUsername hash
@@ -70,4 +79,10 @@ class SecureVideoController {
 		model.addAllAttributes([questions : questionService.findAllByVideo(id), user : user])
 		"video/video_q"
     }
+
+	@RequestMapping(value = "/category", method = RequestMethod.GET)
+	String category(@PathVariable String hash, Model model) {
+		model.addAttribute("categories", videoService.findCategories())
+		"video/category"
+	}
 }

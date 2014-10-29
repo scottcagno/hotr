@@ -6,6 +6,8 @@
 	</head>
 	<body id="top">
 
+		<#assign link = (hash??)?string('/secure/${hash!}', '')/>
+
 		<!-- navbar -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
@@ -23,7 +25,7 @@
                         <li><a href="#about">About</a></li>
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
-                        <li><a href="${(hash??)?string('/secure//${hash!}/video', '/video')}">Videos</a></li>
+                        <li><a href="${link}/video/all">Videos</a></li>
                         <li><a href="${(hash??)?string('/secure/${hash!}/user', '/secure/home')}">${(hash??)?string('Account', 'Login')}</a></li>
                     </ul>
 				</div>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Donate</title>
-		<#include "stubs/header.ftl"/>
+		<title>Videos</title>
+		<#include "../stubs/header.ftl"/>
 	</head>
 	<body id="body">
 
@@ -22,7 +22,7 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="${link}/video/all"> Videos</a></li>
-						<li><a href="${(hash??)?string('/secure/${hash!}/user', '/secure/donate')}">${(hash??)?string('Account', 'Login')}</a></li>
+						<li><a href="${(hash??)?string('/secure/${hash!}/user', '/secure/video')}">${(hash??)?string('Account', 'Login')}</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
@@ -39,32 +39,34 @@
 			</div>
 		</div>
 
-		<#include "stubs/alert.ftl"/>
+		<#include "../stubs/alert.ftl"/>
 
 		<!-- content -->
-		<div class="container">
-			<div class="well well-lg text-center">
-				<h3>“Fan the Flame Dates” is funded through generous donations from supporters like you!</h3>
-				<br/>
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-					<input name="cmd" type="hidden" value="_s-xclick" />
-					<input name="hosted_button_id" type="hidden" value="4AYV2BCD63B8U" />
-					<input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" type="image" />
-					<img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" width="1" height="1" border="0" />
-				</form>
+		<div id="content" class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="nav nav-tabs" role="tablist">
+						<li><a href="${link}/video/all">All Videos</a></li>
+						<li><a href="${link}/video/popular">Popular</a></li>
+						<li><a href="${link}/video/recent">Recently Added</a></li>
+						<li class="active"><a href="">Categories</a></li>
+					</ul>
+					<br/>
+				</div>
+				<#list categories as category>
+					<div class="col-sm-4 col-md-3 text-center video-margin">
+						<a href="${link}/video/${category}">
+							<img src="/static/img/video.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+						</a>
+						<p class="video-title"><strong>${category}</strong></p>
+					</div>
+				</#list>
 			</div>
 		</div>
-		<!-- content -->
 
-		<!-- footer -->
-		<#include "stubs/footer.ftl"/>
-		<!-- footer -->
+		<#include "../stubs/footer.ftl"/>
 
-		<!-- javascript -->
-		<#include "stubs/scripts.ftl"/>
-		<!-- javascript -->
+		<#include "../stubs/scripts.ftl"/>
 
 	</body>
 </html>
-
-
