@@ -42,7 +42,7 @@ class VideoController {
 	// GET add
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	String add(Model model) {
-		model.addAttribute("categories", videoService.getCategories())
+		model.addAttribute("categories", videoService.findCategories())
 		"admin/video/add"
 	}
 

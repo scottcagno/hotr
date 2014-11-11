@@ -17,5 +17,6 @@ class Worksheet {
 	@Column(columnDefinition="VARCHAR(1000)")
 	String htmlData
 	String videoName
+	Date completed
 
 }

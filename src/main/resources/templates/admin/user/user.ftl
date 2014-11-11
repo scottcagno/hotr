@@ -88,7 +88,7 @@
 												<a href="/admin/user/${(user.id)!}" class="btn btn-xs btn-primary">
 													<i class="fa fa-pencil"></i>
 												</a>
-												<a href="#" class="btn btn-danger btn-xs" data-id="${(user.id)!}" data-toggle="modal" data-target="#deleteCheck">
+												<a class="btn btn-danger btn-xs" data-id="${(user.id)!}" data-toggle="modal" data-target="#deleteCheck">
 													<i class="fa fa-trash-o"></i>
 												</a>
 											</td>

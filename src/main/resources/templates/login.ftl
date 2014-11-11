@@ -23,7 +23,7 @@
 						<li><a href="/home#about">About</a></li>
 						<li><a href="/home#events">Events</a></li>
 						<li><a href="/home#contact">Contact</a></li>
-						<li><a href="/video">Videos</a></li>
+						<li><a href="/video/all">Videos</a></li>
 					</ul>
 				</div>
 			</div>

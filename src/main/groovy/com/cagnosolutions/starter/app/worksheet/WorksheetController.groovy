@@ -44,6 +44,14 @@ class WorksheetController {
 		"worksheet/worksheet"
 	}
 
+	// POST delete worksheet
+	@RequestMapping(value =  "/{id}", method = RequestMethod.POST)
+	String delete(@PathVariable Long id, @PathVariable String hash, RedirectAttributes attr) {
+		worksheetService.delete id
+		attr.addFlashAttribute("alertSuccess", "Successfully deleted worksheet")
+		"redirect:/secure/${hash}/user"
+	}
+
 	// POST process worksheet data
 	@RequestMapping(method = RequestMethod.POST)
 	String add(@PathVariable String hash, String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
@@ -60,6 +68,7 @@ class WorksheetController {
 		worksheet.htmlData = FreeMarkerTemplateUtils.processTemplateIntoString(temp, map)
 		userService.save user
 		if (save) {
+			worksheet.completed = new Date()
 			worksheetService.save worksheet
 		}
 		if (email) {
@@ -75,6 +84,6 @@ class WorksheetController {
 			// email to ffd
 		}
 		attr.addFlashAttribute("worksheet", worksheet)
-		"redirect:/secure/${hash}/video/${worksheet.videoId}"
+		"redirect:/secure/${hash}/video/id/${worksheet.videoId}"
 	}
 }

@@ -30,7 +30,6 @@
 								<li><a href="${link}/home#events">Events</a></li>
 								<li><a href="${link}/home#contact">Contact</a></li>
 								<li class="divider"></li>
-								<li><a href="${link}/site">Site Map</a></li>
 								<li><a href="${link}/donate">Donate</a></li>
 							</ul>
 						</li>
@@ -46,13 +45,14 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<ul class="nav nav-tabs" role="tablist">
-						<li class="${(filter == 'all')?string('active', '')}"><a href="${link}/video/all">All Videos</a></li>
+						<li class="${(filter == 'all' && !RequestParameters.tag??)?string('active', '')}"><a href="${link}/video/all">All Videos</a></li>
 						<li class="${(filter == 'popular')?string('active', '')}"><a href="${link}/video/popular">Popular</a></li>
 						<li class="${(filter == 'recent')?string('active', '')}"><a href="${link}/video/recent">Recently Added</a></li>
-						<li class="${(filter != 'all' && filter != 'popular' && filter!= 'recent')?string('active', '')}">
+						<li class="${(filter == 'category')?string('active', '')}">
 							<a href="${link}/video/category">Categories</a>
 						</li>
 					</ul>
+					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'category')?string('<h4 class="text-center">${filter}</h4>', '')}
 					<br/>
 				</div>
 				<#list videos as video>

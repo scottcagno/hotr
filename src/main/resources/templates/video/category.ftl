@@ -30,7 +30,6 @@
 								<li><a href="${link}/home#events">Events</a></li>
 								<li><a href="${link}/home#contact">Contact</a></li>
 								<li class="divider"></li>
-								<li><a href="${link}/site">Site Map</a></li>
 								<li><a href="${link}/donate">Donate</a></li>
 							</ul>
 						</li>

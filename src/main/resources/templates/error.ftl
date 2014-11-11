@@ -6,8 +6,6 @@
 	</head>
 	<body id="body">
 
-        <#--<#include "stubs/navbar.ftl">-->
-
         <!-- content -->
         <div id="content" class="container">
             <legend>${(error)!} <span class="text-hot">${(message)!}</span></legend>

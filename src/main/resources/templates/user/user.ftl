@@ -3,11 +3,10 @@
 	<head id="head">
 		<title>Users</title>
 		<#include "../stubs/header.ftl"/>
-		<link href="/static/css/wizard.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body id="body">
 
-		<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,7 +15,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="/secure/home/${hash}" class="navbar-brand">Home</a>
+					<a href="/secure/${hash}/home" class="navbar-brand">Home</a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -29,7 +28,6 @@
 								<li><a href="/secure/${hash}/home#events">Events</a></li>
 								<li><a href="/secure/${hash}/home#contact">Contact</a></li>
 								<li class="divider"></li>
-								<li><a href="/secure/${hash}/site">Site Map</a></li>
 								<li><a href="/secure/${hash}/donate">Donate</a></li>
 							</ul>
 						</li>
@@ -111,7 +109,7 @@
 				</div>
 				<!-- add/edit -->
 				<div class="col-sm-3">
-					<div id="" class="panel panel-default">
+					<div class="panel panel-default">
 						<div class="panel-heading">Recently Watched Videos</div>
 						<div class="panel-body">
 							<#list recent as video>
@@ -129,10 +127,24 @@
 					<div id="" class="panel panel-default">
 						<div class="panel-heading">Saved Worksheets</div>
 						<table class="table">
+							<thead>
+								<tr>
+									<th>Video</th>
+									<th>Completed</th>
+									<th></th>
+								</tr>
+							</thead>
 							<tbody>
 								<#list worksheets as worksheet>
 									<tr>
 										<td><strong>${worksheet.videoName}: </strong><a href="/secure/${hash}/worksheet/${worksheet.id}"> View</a></td>
+										<td>${(worksheet.completed?date)!}</td>
+										<td>
+											<form role="form" method="post" action="/secure/${hash}/worksheet/${worksheet.id}">
+												<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+											</form>
+										</td>
 									</tr>
 								</#list>
 							</tbody>

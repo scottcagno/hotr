@@ -131,6 +131,8 @@
 
 		<#include "../../stubs/scripts.ftl"/>
 
+		<script src="/static/js/video.js"></script>
+
 		<script>
 			$(document).ready(function() {
 				// toggle safe delete modal popup
@@ -138,24 +140,6 @@
 					var id = $(this).data('id');
 					var form = $('.modal #questionDelete');
 					form.html(form.html().replace('{id}',id));
-				});
-
-				$('select[id="categorySelect"]').change(function() {
-					$('input[id="category"]').val($('select[id="categorySelect"]').val());
-					$('div[id="categoryInput"]').attr('hidden', 'hidden');
-				});
-
-				$('a[id="addCategory"]').click(function() {
-					$('div[id="categoryInput"]').removeAttr('hidden');
-				});
-
-				$('button[id="save"]').click(function() {
-					if ($('input[id="category"]').val() == '') {
-						$('div[id="categorySelectDiv"]').addClass('has-error');
-						$('select[id="categorySelect"]').focus();
-					} else {
-						$('form[id="videoForm"]').submit();
-					}
 				});
 			});
 		</script>

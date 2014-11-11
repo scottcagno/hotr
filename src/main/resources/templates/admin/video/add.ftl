@@ -31,7 +31,8 @@
 								<div class="form-group row">
 									<div id="categorySelectDiv" class="col-sm-7">
 										<select id="categorySelect" name="categorySelect" class="form-control">
-											<option value="cat">Select A Category</option>
+											<option value="">Select A Category</option>
+											<option value="">--------------------</option>
 											<#list categories as category>
 												<option value="${category}">${category}</option>
 											</#list>
@@ -47,7 +48,7 @@
 								<input type="hidden" name="vimeoId" value="${(RequestParameters.video_uri?split('/')[2])!}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							</form>
-							<button class="btn btn-md btn-primary btn-block" type="submit">Add</button>
+							<button id="save" class="btn btn-md btn-primary btn-block" type="submit">Add</button>
 						</div>
 					</div>
 				</div>
@@ -59,24 +60,6 @@
 
 		<#include "../../stubs/scripts.ftl"/>
 
-		<script>
-			$('select[id="categorySelect"]').change(function() {
-					$('input[id="category"]').val($('select[id="categorySelect"]').val());
-					$('div[id="categoryInput"]').attr('hidden', 'hidden');
-				});
-
-				$('a[id="addCategory"]').click(function() {
-					$('div[id="categoryInput"]').removeAttr('hidden');
-				});
-
-				$('button[id="save"]').click(function() {
-					if ($('input[id="category"]').val() == '') {
-						$('div[id="categorySelectDiv"]').addClass('has-error');
-						$('select[id="categorySelect"]').focus();
-					} else {
-						$('form[id="videoForm"]').submit();
-					}
-				});
-		</script>
+		<script src="/static/js/video.js"></script>
 	</body>
 </html>
