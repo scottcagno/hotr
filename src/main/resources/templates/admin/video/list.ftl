@@ -10,46 +10,42 @@
 
 		<!-- content -->
 		<div class="container">
-			<div class="row">
-				<div id="videoTableDiv" class="panel panel-default">
-					<div class="panel-heading col-sm-12">
-						Videos
-						<a href="/admin/video/upload" id="" class="btn btn-default btn-xs pull-right"><i class="fa fa-upload"></i> Upload Video</a>
-					</div>
-					<div id="videoTable" class="table-responsive">
-						<table class="table table-striped">
-							<thead>
+			<div id="videoTableDiv" class="panel panel-default">
+				<div class="panel-heading col-sm-12">
+					Videos
+					<a href="/admin/video/upload" id="" class="btn btn-default btn-xs pull-right"><i class="fa fa-upload"></i> Upload Video</a>
+				</div>
+				<div id="videoTable" class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Category</th>
+								<th class="hidden-xs hidden-sm">Thumbnail</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<#list videos as video>
 								<tr>
-									<th>Id</th>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Category</th>
-									<th>Thumbnail</th>
-									<th></th>
+									<td>${video.name}</td>
+									<td>${video.description}</td>
+									<td>${video.category!}</td>
+									<td class="hidden-xs hidden-sm"><a href="${(video.thumb)!}" target="_blank">View</a></td>
+									<td>
+										<a href="/admin/video/${video.id}" class="btn btn-xs btn-primary">
+											<i class="fa fa-pencil"></i>
+										</a>
+										<a href="" class="btn btn-danger btn-xs" data-id="${(video.id)!}" data-vimeo="${(video.vimeoId)!}"
+										   data-toggle="modal" data-target="#videoDeleteCheck">
+											<i class="fa fa-trash-o"></i>
+										</a>
+									</td>
 								</tr>
-							</thead>
-							<tbody>
-								<#list videos as video>
-									<tr>
-										<td>${video.id}</td>
-										<td>${video.name}</td>
-										<td>${video.description}</td>
-										<td>${video.category!}</td>
-										<td><a href="${(video.thumb)!}" target="_blank">View</a></td>
-										<td>
-											<a href="/admin/video/${video.id}" class="btn btn-xs btn-primary">
-												<i class="fa fa-pencil"></i>
-											</a>
-											<a href="" class="btn btn-danger btn-xs" data-id="${(video.id)!}" data-vimeo="${(video.vimeoId)!}"
-											   data-toggle="modal" data-target="#videoDeleteCheck">
-												<i class="fa fa-trash-o"></i>
-											</a>
-										</td>
-									</tr>
-								</#list>
-							</tbody>
-						</table>
-					</div>
+							</#list>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -85,17 +81,7 @@
 
 		<#include "../../stubs/scripts.ftl"/>
 
-		<script>
-			$(document).ready(function() {
-				// toggle safe delete modal popup
-				$('a[data-toggle="modal"]').click(function(){
-					var id = $(this).data('id');
-					var form = $('.modal #delete');
-					form.html(form.html().replace('{id}',id));
-					$('input[id="deleteVimeoId"]').val($(this).data('vimeo'));
-				});
-			});
-		</script>
+		<script src="/static/js/admin/all-video.js"></script>
 
 	</body>
 </html>

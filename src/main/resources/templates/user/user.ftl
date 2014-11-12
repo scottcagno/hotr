@@ -112,14 +112,18 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">Recently Watched Videos</div>
 						<div class="panel-body">
-							<#list recent as video>
-								<div class="text-center video-margin">
-									<a href="/secure/${hash}/video/id/${video.id}">
-										<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
-									</a>
-									<p class="video-title"><strong>${video}</strong></p>
-								</div>
-							</#list>
+							<#if recent?has_content>
+								<#list recent as video>
+									<div class="text-center video-margin">
+										<a href="/secure/${hash}/video/id/${video.id}">
+											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+										</a>
+										<p class="video-title"><strong>${video}</strong></p>
+									</div>
+								</#list>
+							<#else/>
+								<div class="text-center">You have no recently watched videos.</div>
+							</#if>
 						</div>
 					</div>
 				</div>
@@ -127,27 +131,30 @@
 					<div id="" class="panel panel-default">
 						<div class="panel-heading">Saved Worksheets</div>
 						<table class="table">
-							<thead>
-								<tr>
-									<th>Video</th>
-									<th>Completed</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<#list worksheets as worksheet>
+							<#if worksheets?has_content>
+								<thead>
 									<tr>
-										<td><strong>${worksheet.videoName}: </strong><a href="/secure/${hash}/worksheet/${worksheet.id}"> View</a></td>
-										<td>${(worksheet.completed?date)!}</td>
-										<td>
-											<form role="form" method="post" action="/secure/${hash}/worksheet/${worksheet.id}">
-												<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-											</form>
-										</td>
+										<th>Video</th>
+										<th>Completed</th>
+										<th></th>
 									</tr>
-								</#list>
-							</tbody>
+								</thead>
+								<tbody>
+									<#list worksheets as worksheet>
+										<tr>
+											<td><strong>${worksheet.videoName}: </strong><a href="/secure/${hash}/worksheet/${worksheet.id}"> View</a></td>
+											<td>${(worksheet.completed?date)!}</td>
+											<td>
+												<a class="btn btn-danger btn-xs" data-id="${(worksheet.id)!}" data-toggle="modal" data-target="#deleteCheck">
+													<i class="fa fa-trash-o"></i>
+												</a>
+											</td>
+										</tr>
+									</#list>
+								</tbody>
+							<#else/>
+								<div class="text-center">You have no saved worksheets.</div>
+							</#if>
 						</table>
 					</div>
 				</div>
@@ -155,6 +162,30 @@
 		</div>
 
 		<!-- content -->
+
+		<div class="modal fade" id="deleteCheck" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Are you sure?</h4>
+					</div>
+					<div class="modal-body">
+						Permanently remove worksheet? This action cannot be undone.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel</button>
+                        <span id="delete">
+                            <form role="form" method="post" action="/secure/${hash}/worksheet/{id}">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+								<button type="submit" class="btn btn-primary btn-md">Yes, Remove Worksheet</button>
+							</form>
+                        </span>
+
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<#include "../stubs/footer.ftl"/>
 

@@ -30,7 +30,7 @@
 								</div>
 
 								<div class="form-group row">
-									<div id="categorySelectDiv" class="col-sm-7">
+									<div id="categorySelectDiv" class="col-xs-6">
 										<select id="categorySelect" name="categorySelect" class="form-control">
 											<option value="">Select A Category</option>
 											<option value="">--------------------</option>
@@ -40,7 +40,7 @@
 											</#list>
 										</select>
 									</div>
-									<div class="col-sm-5">
+									<div class="col-xs-6">
 										<a id="addCategory" class="btn btn-primary btn-block">Add Category</a>
 									</div>
 								</div>

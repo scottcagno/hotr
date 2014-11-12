@@ -55,6 +55,8 @@
 
 		<!-- javascript -->
 		<#include "stubs/scripts.ftl"/>
+
+		<script src="/static/js/home.js"></script>
 		<!-- javascript -->
 
 	</body>

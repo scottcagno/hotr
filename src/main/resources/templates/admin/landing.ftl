@@ -24,7 +24,14 @@
 						<div class="panel-heading"><a href="/admin/video">Videos</a></div>
 						<div class="panel-body">
 							<p>Number Of Videos: ${videos}</p>
-							<p>Videos Watched: </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div id="" class="panel panel-default">
+						<div class="panel-heading">Worksheets</div>
+						<div class="panel-body">
+							<p>Number Of Worksheets Saved: ${worksheets}</p>
 						</div>
 					</div>
 				</div>

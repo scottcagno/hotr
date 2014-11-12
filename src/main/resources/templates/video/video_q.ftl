@@ -128,17 +128,17 @@
 							<form id="submitForm" action="/secure/${hash}/worksheet" role="form" method="post">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="save" value="true"> Save completed workbook in my profile.
+										<input type="checkbox" name="save" value="true"> Save completed worksheet in my profile.
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="email" value="true"> Email completed workbook to me.
+										<input type="checkbox" name="email" value="true"> Email completed worksheet to me.
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="send" value="true"> Anonymously submit my completed workbook to Fan the Flame Dates.
+										<input type="checkbox" name="send" value="true"> Anonymously submit my completed worksheet to Fan the Flame Dates.
 									</label>
 								</div>
 								<input type="hidden" name="videoId" value="${video.id}">

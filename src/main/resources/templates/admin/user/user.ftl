@@ -72,8 +72,7 @@
 									<tr>
 										<th>Name</th>
 										<th>Email</th>
-										<th>Username</th>
-										<th>Enabled</th>
+										<th class="hidden-xs hidden-sm">Enabled</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -81,14 +80,13 @@
 									<#list users as user>
 										<tr>
 											<td>${(user.name)!}</td>
-											<td>${(user.email)!}</td>
 											<td>${(user.username)!}</td>
-											<td>${(user.active == 1)?c}</td>
+											<td class="hidden-xs hidden-sm">${(user.active == 1)?c}</td>
 											<td>
-												<a href="/admin/user/${(user.id)!}" class="btn btn-xs btn-primary">
+												<a href="/admin/user/${(user.id)!}" class="btn btn-primary">
 													<i class="fa fa-pencil"></i>
 												</a>
-												<a class="btn btn-danger btn-xs" data-id="${(user.id)!}" data-toggle="modal" data-target="#deleteCheck">
+												<a class="btn btn-danger" data-id="${(user.id)!}" data-toggle="modal" data-target="#deleteCheck">
 													<i class="fa fa-trash-o"></i>
 												</a>
 											</td>

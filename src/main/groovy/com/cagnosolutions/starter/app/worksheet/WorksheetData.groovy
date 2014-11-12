@@ -46,6 +46,10 @@ class WorksheetService {
         repo.delete id
     }
 
+    int numberOfWorksheets() {
+        repo.numberOfWorksheets()
+    }
+
 }
 
 @CompileStatic
@@ -54,4 +58,7 @@ interface WorksheetRepository extends JpaRepository<Worksheet, Long> {
 
 	@Query("SELECT w FROM Worksheet w WHERE w.userId=:userId")
 	List<Worksheet> findAllByUserId(@Param("userId") Long userId)
+
+    @Query("SELECT COUNT(w.id) FROM Worksheet w")
+    int numberOfWorksheets()
 }

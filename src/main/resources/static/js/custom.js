@@ -1,16 +1,3 @@
-// smooth scroller
-$(document).ready(function(){
-    $('a[href^="#"]').on('click',function (e) {
-        e.preventDefault();
-        var target = this.hash, $target = $(target);
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        });
-    });
-});
-
 // auto collapse navbar for mobile devices
 if (window.outerWidth < 768) {
     $('.nav li a').on('click', function(){
@@ -18,3 +5,11 @@ if (window.outerWidth < 768) {
     });
 }
 
+ $(document).ready(function() {
+     // toggle safe delete modal popup
+     $('a[data-toggle="modal"]').click(function(){
+         var id = $(this).data('id');
+         var form = $('.modal #delete');
+         form.html(form.html().replace('{id}',id));
+     });
+ });
