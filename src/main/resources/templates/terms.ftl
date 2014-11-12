@@ -21,7 +21,7 @@
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="${link}/video">Videos</a></li>
+						<li><a href="${link}/video/all">Videos</a></li>
 						<li><a href="${(hash??)?string('/secure/${hash!}/user', '/secure/terms')}">${(hash??)?string('Account', 'Login')}</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>

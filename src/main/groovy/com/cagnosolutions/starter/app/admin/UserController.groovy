@@ -35,11 +35,15 @@ class UserController {
 		if(userService.canUpdate(user.id, user.username)) {
 			if (user.password == confirm) {
 				User existingUser = userService.findOne(user.id)
-				userService.mergeProperties(user, existingUser)
-				if (existingUser.password[0] != '$') {
-					existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)\
+				if (existingUser != null) {
+					userService.mergeProperties(user, existingUser)
+					if (existingUser.password[0] != '$') {
+						existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)\
+					}
+					userService.save existingUser
+				} else {
+					userService.save user
 				}
-				userService.save existingUser
 				attr.addFlashAttribute("alertSuccess", "Updated Successfully")
 				return "redirect:/admin/user"
 			}
