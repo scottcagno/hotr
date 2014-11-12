@@ -84,7 +84,7 @@ class VideoController {
 	String upload(Model model) {
 		try {
 			// TODO: change redirect_url when live
-			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", "redirect_url=localhost:8080/admin/video/add"))
+			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", "redirect_url=node2.cagnosolutions.com/admin/video/add"))
 		} catch (all) {
 			all.printStackTrace()
 		}
