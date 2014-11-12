@@ -60,6 +60,6 @@
 
 		<#include "../../stubs/scripts.ftl"/>
 
-		<script src="/static/js/video.js"></script>
+		<script src="/static/js/admin/video.js"></script>
 	</body>
 </html>

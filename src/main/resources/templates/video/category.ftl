@@ -44,12 +44,22 @@
 		<div id="content" class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<ul class="nav nav-tabs" role="tablist">
-						<li><a href="${link}/video/all">All Videos</a></li>
-						<li><a href="${link}/video/popular">Popular</a></li>
-						<li><a href="${link}/video/recent">Recently Added</a></li>
-						<li class="active"><a href="">Categories</a></li>
-					</ul>
+					<div class="hidden-xs hidden-sm">
+						<ul class="nav nav-tabs" role="tablist">
+							<li><a href="${link}/video/all">All Videos</a></li>
+							<li><a href="${link}/video/popular">Popular</a></li>
+							<li><a href="${link}/video/recent">Recently Added</a></li>
+							<li class="active"><a href="">Categories</a></li>
+						</ul>
+					</div>
+					<div class="visible-xs visible-sm">
+						<div class="list-group">
+							<a href="${link}/video/all" class="list-group-item">All Videos</a>
+							<a href="${link}/video/popular" class="list-group-item">Popular</a>
+							<a href="${link}/video/recent" class="list-group-item">Recently Added</a>
+							<a href="${link}/video/category" class="list-group-item active">Categories</a>
+						</div>
+					</div>
 					<br/>
 				</div>
 				<#list categories as category>

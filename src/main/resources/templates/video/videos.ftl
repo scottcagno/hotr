@@ -44,14 +44,28 @@
 		<div id="content" class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="${(filter == 'all' && !RequestParameters.tag??)?string('active', '')}"><a href="${link}/video/all">All Videos</a></li>
-						<li class="${(filter == 'popular')?string('active', '')}"><a href="${link}/video/popular">Popular</a></li>
-						<li class="${(filter == 'recent')?string('active', '')}"><a href="${link}/video/recent">Recently Added</a></li>
+					<ul class="nav nav-tabs hidden-xs hidden-sm" role="tablist">
+						<li class="${(filter == 'all' && !RequestParameters.tag??)?string('active', '')}">
+							<a href="${link}/video/all">All Videos</a>
+						</li>
+						<li class="${(filter == 'popular')?string('active', '')}">
+							<a href="${link}/video/popular">Popular</a>
+						</li>
+						<li class="${(filter == 'recent')?string('active', '')}">
+							<a href="${link}/video/recent">Recently Added</a>
+						</li>
 						<li class="${(filter == 'category')?string('active', '')}">
 							<a href="${link}/video/category">Categories</a>
 						</li>
 					</ul>
+					<div class="visible-xs visible-sm">
+						<div class="list-group">
+							<a href="${link}/video/all" class="list-group-item ${(filter == 'all' && !RequestParameters.tag??)?string('active', '')}">All Videos</a>
+							<a href="${link}/video/popular" class="list-group-item ${(filter == 'popular')?string('active', '')}">Popular</a>
+							<a href="${link}/video/recent" class="list-group-item ${(filter == 'recent')?string('active', '')}">Recently Added</a>
+							<a href="${link}/video/category" class="list-group-item ${(filter == 'category')?string('active', '')}">Categories</a>
+						</div>
+					</div>
 					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'category')?string('<h4 class="text-center">${filter}</h4>', '')}
 					<br/>
 				</div>

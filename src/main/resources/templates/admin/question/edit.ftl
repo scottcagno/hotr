@@ -90,67 +90,12 @@
 		<div id="scripts">
 
 			<#include "../../stubs/scripts.ftl"/>
-
 			<script>
-
-				// set delete action and add option button on load if exist
-				window.onload = function() {
-					if ($('a[name="removeOption"]')) {
-						$('a[name="removeOption"]').click(function() {
-							$('div[id="'+$(this).attr('id')+'"]').remove();
-						});
-					}
-					if ($('a[id="addOptionButton"]')) {
-						$('a[id="addOptionButton"]').click(function() {
-							addOption();
-						});
-					}
-				}
-
-				// set variables
+				// set js variable from freemarker
 				var i = ${i};
-				var type = 'select[id="inputType"]'
-				var addOptionDiv = 'div[id="allOptions"] div[id="addOption"]'
-
-				// add input with delete button add placeholder after input set delete action
-				function addOption() {
-					$(addOptionDiv).html($('div[id="nextOptionInput"]').html());
-					$(addOptionDiv).attr('id', 'option'+i);
-					$('div[id="option' + i + '"] input').attr('id', 'option'+i);
-					$('div[id="option' + i + '"] a').attr('id', 'option'+i);
-					$('div[id="option' + i + '"]').after($('div[id="nextOptionDiv"]').html());
-					$('a[id="option' + i + '"]').click(function() {
-						$('div[id="'+$(this).attr('id')+'"]').remove();
-					});
-					i++;
-				}
-
-				// run add option on type select add add option button after input || remove all options on type select
-				$(type).change(function() {
-					$('div[id="allOptions"]').html($('div[id="nextOptionDiv"]').html());
-					if ($(type).val() == 'select one' || $(type).val() == 'select many') {
-						$('div[id="allOptions"]').html($('div[id="nextOptionDiv"]').html());
-						addOption();
-						$(addOptionDiv).after($('div[id="nextOptionButton"]').html());
-						$('a[id="addOptionButton"]').click(function() {
-							addOption();
-						});
-					}
-				});
-
-				// create option list and submit form
-				$('button[id="addQuestionButton"]').click(function() {
-					if ($(type).val() == 'select one' || $(type).val() == 'select many') {
-						var option = []
-						inputs = $('div[id="allOptions"] input[name="option"]');
-						for (i = 0; i < inputs.length; i++) {
-							option.push(inputs[i].value.replace(',', ''));
-						}
-						$('form[id="addQuestion"] input[name="options"]').val(option);
-					}
-					$('form[id="addQuestion"]').submit();
-				});
 			</script>
+			<script src="/static/js/admin/question.js"></script>
+			<script src="/static/js/admin/edit-question.js"></script>
 		</div>
 	</body>
 </html>

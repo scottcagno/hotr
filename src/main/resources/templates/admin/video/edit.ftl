@@ -115,7 +115,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel
 						</button>
-						<span id="questionDelete">
+						<span id="delete">
 							<form role="form" method="post" action="/admin/question/{id}">
 								<input type="hidden" name="videoId" value="${video.id?c}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -131,18 +131,8 @@
 
 		<#include "../../stubs/scripts.ftl"/>
 
-		<script src="/static/js/video.js"></script>
-
-		<script>
-			$(document).ready(function() {
-				// toggle safe delete modal popup
-				$('a[data-toggle="modal"]').click(function(){
-					var id = $(this).data('id');
-					var form = $('.modal #questionDelete');
-					form.html(form.html().replace('{id}',id));
-				});
-			});
-		</script>
+		<script src="/static/js/admin/video.js"></script>
+		<script src="/static/js/admin/global.js"></script>
 
 	</body>
 </html>

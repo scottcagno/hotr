@@ -133,17 +133,7 @@
 
 		<#include "../../stubs/scripts.ftl"/>
 
-		<script>
-            $(document).ready(function() {
-
-                // toggle safe delete modal popup
-                $('a[data-toggle="modal"]').click(function(){
-                    var id = $(this).data('id');
-                    var form = $('.modal #delete');
-                    form.html(form.html().replace('{id}',id));
-                });
-            });
-        </script>
+		<script src="/static/js/admin/global.js"></script>
 
 	</body>
 </html>

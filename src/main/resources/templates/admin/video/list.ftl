@@ -69,7 +69,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel
 						</button>
-						<span id="videoDelete">
+						<span id="delete">
 							<form role="form" method="post" action="/admin/video/{id}">
 								<input type="hidden" name="vimeoId" id="deleteVimeoId"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -90,7 +90,7 @@
 				// toggle safe delete modal popup
 				$('a[data-toggle="modal"]').click(function(){
 					var id = $(this).data('id');
-					var form = $('.modal #videoDelete');
+					var form = $('.modal #delete');
 					form.html(form.html().replace('{id}',id));
 					$('input[id="deleteVimeoId"]').val($(this).data('vimeo'));
 				});
