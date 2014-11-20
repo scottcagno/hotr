@@ -4,6 +4,7 @@ import com.cagnosolutions.starter.app.email.Email
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
+import com.cagnosolutions.starter.app.user.UserSession
 import com.fasterxml.jackson.databind.ObjectMapper
 import freemarker.template.Configuration
 import freemarker.template.Template
@@ -21,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  */
 
 @Controller("worksheetController")
-@RequestMapping("/secure/{hash}/worksheet")
+@RequestMapping("/secure/worksheet")
 class WorksheetController {
 
 	@Autowired
@@ -36,9 +37,12 @@ class WorksheetController {
 	@Autowired
 	EmailService emailService
 
+	@Autowired
+	UserSession userSession
+
 	// GET worksheet
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	String view(@PathVariable Long id, @PathVariable String hash, Model model) {
+	String view(@PathVariable Long id, Model model) {
 		Worksheet worksheet = worksheetService.findOne id
 		model.addAttribute("worksheet", worksheet)
 		"worksheet/worksheet"
@@ -46,15 +50,15 @@ class WorksheetController {
 
 	// POST delete worksheet
 	@RequestMapping(value =  "/{id}", method = RequestMethod.POST)
-	String delete(@PathVariable Long id, @PathVariable String hash, RedirectAttributes attr) {
+	String delete(@PathVariable Long id, RedirectAttributes attr) {
 		worksheetService.delete id
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted worksheet")
-		"redirect:/secure/${hash}/user"
+		"redirect:/secure/user"
 	}
 
 	// POST process worksheet data
 	@RequestMapping(method = RequestMethod.POST)
-	String add(@PathVariable String hash, String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
+	String add(String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
 		User user = userService.findOne worksheet.userId
 		println user.challenge
 		if (!(worksheet.videoId in user.progress) && user.challenge && user.progress.size() <= 12) {
@@ -84,6 +88,6 @@ class WorksheetController {
 			// email to ffd
 		}
 		attr.addFlashAttribute("worksheet", worksheet)
-		"redirect:/secure/${hash}/video/id/${worksheet.videoId}"
+		"redirect:/secure/video/id/${worksheet.videoId}"
 	}
 }

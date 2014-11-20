@@ -15,20 +15,20 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="/secure/${hash}/home" class="navbar-brand">Home</a>
+					<a href="/secure/home" class="navbar-brand">Home</a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/secure/${hash}/video/all"> Videos</a></li>
-						<li><a href="/secure/${hash}/user"> Account</a></li>
+						<li><a href="/secure/video/all"> Videos</a></li>
+						<li><a href="/secure/user"> Account</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="/secure/${hash}/home#about">About</a></li>
-								<li><a href="/secure/${hash}/home#events">Events</a></li>
-								<li><a href="/secure/${hash}/home#contact">Contact</a></li>
+								<li><a href="/secure/home#about">About</a></li>
+								<li><a href="/secure/home#events">Events</a></li>
+								<li><a href="/secure/home#contact">Contact</a></li>
 								<li class="divider"></li>
-								<li><a href="/secure/${hash}/donate">Donate</a></li>
+								<li><a href="/secure/donate">Donate</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -43,7 +43,7 @@
 			<div class="row">
 				<div class="col-lg-7 text-center">
 					<#if !user.challenge>
-						<form id="challengeForm" role="form" method="post" action="/secure/${hash}/user/challenge">
+						<form id="challengeForm" role="form" method="post" action="/secure/user/challenge">
 							<input type="hidden" name="userId" value="${user.id}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-default btn-block" type="submit">Begin Challenge</button>
@@ -74,7 +74,7 @@
 							<a href="/logout" class="btn btn-default btn-xs pull-right">Logout</a>
 						</div>
 						<div class="panel-body">
-							<form id="accountForm" role="form" method="post" action="/secure/${hash}/user">
+							<form id="accountForm" role="form" method="post" action="/secure/user">
 								<div class="form-group">
 									<input type="text" id="name" name="name" class="form-control"
 									       placeholder="Name" required="true" value="${user.name!}"/>
@@ -115,7 +115,7 @@
 							<#if recent?has_content>
 								<#list recent as video>
 									<div class="text-center video-margin">
-										<a href="/secure/${hash}/video/id/${video.id}">
+										<a href="/secure/video/id/${video.id}">
 											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 										</a>
 										<p class="video-title"><strong>${video}</strong></p>
@@ -142,7 +142,7 @@
 								<tbody>
 									<#list worksheets as worksheet>
 										<tr>
-											<td><strong>${worksheet.videoName}: </strong><a href="/secure/${hash}/worksheet/${worksheet.id}"> View</a></td>
+											<td><strong>${worksheet.videoName}: </strong><a href="/secure/worksheet/${worksheet.id}"> View</a></td>
 											<td>${(worksheet.completed?date)!}</td>
 											<td>
 												<a class="btn btn-danger btn-xs" data-id="${(worksheet.id)!}" data-toggle="modal" data-target="#deleteCheck">
@@ -176,7 +176,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel</button>
                         <span id="delete">
-                            <form role="form" method="post" action="/secure/${hash}/worksheet/{id}">
+                            <form role="form" method="post" action="/secure/worksheet/{id}">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<button type="submit" class="btn btn-primary btn-md">Yes, Remove Worksheet</button>
 							</form>

@@ -1,9 +1,9 @@
 package com.cagnosolutions.starter.app.video
-
 import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.tag.TagService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
+import com.cagnosolutions.starter.app.user.UserSession
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
-
-import java.security.Principal
-
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -22,7 +19,7 @@ import java.security.Principal
 
 @CompileStatic
 @Controller(value = "secureVideoController")
-@RequestMapping(value = "/secure/{hash}/video")
+@RequestMapping(value = "/secure/video")
 class SecureVideoController {
 
     @Autowired
@@ -37,15 +34,19 @@ class SecureVideoController {
 	@Autowired
 	UserService userService
 
+	@Autowired
+	UserSession userSession
+
 	@RequestMapping(method = RequestMethod.GET)
-	String video(@PathVariable String hash) {
-		"redirect:secure/${hash}/video/all"
+	String video() {
+		"redirect:/secure/video/all"
 	}
 
 	// GET secure all videos
     @RequestMapping(value="/{filter}", method = RequestMethod.GET)
-    String viewAll(@PathVariable String hash, @RequestParam(required = false) String tag,
+    String viewAll(@RequestParam(required = false) String tag,
                    @PathVariable String filter, Model model) {
+		model.addAttribute("auth", true)
 		if (tag == null) {
 			switch (filter) {
 				case "all":
@@ -69,9 +70,9 @@ class SecureVideoController {
 
 	// GET secure video
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
-    String view(@PathVariable Long id, @PathVariable String hash, Model model) {
+    String view(@PathVariable Long id,Model model) {
         model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])
-		User user = userService.findOneByHashedUsername hash
+		User user = userService.findOne userSession.id
 		if (id in user.progress) {
 			model.addAttribute("alertWarning", "You have already watched this video. You can watch it " +
 					"again but it will not count towards your challenge progress")
@@ -81,8 +82,8 @@ class SecureVideoController {
     }
 
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	String category(@PathVariable String hash, Model model) {
-		model.addAttribute("categories", videoService.findCategories())
+	String category(Model model) {
+		model.addAllAttributes([categories: videoService.findCategories(), auth : true])
 		"video/category"
 	}
 }

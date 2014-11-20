@@ -1,17 +1,18 @@
 package com.cagnosolutions.starter.app
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
+import com.cagnosolutions.starter.app.user.UserSession
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ExceptionHandler
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
+
 import java.security.Principal
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET
@@ -25,38 +26,38 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET
 class HomeController {
 
     @RequestMapping(value = ["/", "/home"], method = GET)
-    String index() {
+    String index(Model model) {
+        model.addAttribute("auth", false)
         "home"
     }
 
-	@RequestMapping(value = "/secure/{hash}/home", method = GET)
-	String indexSecure(@PathVariable String hash) {
+	@RequestMapping(value = "/secure/home", method = GET)
+	String indexSecure(Model model) {
+        model.addAttribute("auth", true)
 		"home"
 	}
 
-    @RequestMapping(value = "/login", method = GET)
-    String login(Model model) {
-		model.addAttribute "login", true
-        "login"
-    }
-
     @RequestMapping(value = "/terms", method = GET)
-    String terms() {
+    String terms(Model model) {
+        model.addAttribute("auth", false)
         "terms"
     }
 
-	@RequestMapping(value = "/secure/{hash}/terms", method = GET)
-	String termsSecure(@PathVariable String hash) {
+	@RequestMapping(value = "/secure/terms", method = GET)
+	String termsSecure(Model model) {
+        model.addAttribute("auth", true)
 		"terms"
 	}
 
     @RequestMapping(value = "/donate", method = GET)
-    String donate() {
+    String donate(Model model) {
+        model.addAttribute("auth", false)
         "donate"
     }
 
-	@RequestMapping(value = "/secure/{hash}/donate", method = GET)
-	String donateSecure(@PathVariable String hash) {
+	@RequestMapping(value = "/secure/donate", method = GET)
+	String donateSecure(Model model) {
+        model.addAttribute("auth", true)
 		"donate"
 	}
 
@@ -68,6 +69,25 @@ class Authentication {
 
     @Autowired
     UserService userService
+
+    @Autowired
+    UserSession userSession
+
+
+    @RequestMapping(value = "/login/success", method = RequestMethod.GET)
+    String customLoginSuccessHandler(Principal principal, @RequestParam(value="redirect") String redirect) {
+        def user = userService.findOne principal.name
+        userSession.id = user.id
+        userSession.name = user.name
+        println redirect
+        "redirect:${redirect}"
+    }
+
+    @RequestMapping(value = "/login", method = GET)
+    String login(Model model) {
+        model.addAttribute "login", true
+        "login"
+    }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     String register(User user, RedirectAttributes attr) {
@@ -85,14 +105,14 @@ class Authentication {
         "redirect:/login"
     }
 
-	@RequestMapping(value = "/secure/{url}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/secure/{url}", method = RequestMethod.GET)
 	String secureLogin(@PathVariable String url, Principal principal, @RequestParam(required = false) Long videoId) {
 		User user = userService.findOne principal.name
 		user.lastSeen = new Date()
 		userService.save user
 		url = videoId == null ? url : "${url}/id/${videoId}"
 		"redirect:/secure/${userService.getHash(principal.name)}/${url}"
-	}
+	}*/
 }
 
 @CompileStatic

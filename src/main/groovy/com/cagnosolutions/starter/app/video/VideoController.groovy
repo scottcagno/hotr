@@ -46,6 +46,7 @@ class VideoController {
 		} else {
 			model.addAttribute("videos", videoService.findAllByTag(tag))
 		}
+		model.addAttribute("auth", false)
         "video/videos"
     }
 
@@ -58,7 +59,7 @@ class VideoController {
 
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
 	String category(Model model) {
-		model.addAttribute("categories", videoService.findCategories())
+		model.addAllAttributes([categories: videoService.findCategories(), auth : false])
 		"video/category"
 	}
 }

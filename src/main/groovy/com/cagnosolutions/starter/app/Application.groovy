@@ -62,18 +62,25 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery("SELECT username, role FROM user WHERE username=?")
     }
 
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN")
-		http.authorizeRequests().antMatchers("/secure/**").hasAnyRole("ADMIN", "USER")
-		http.formLogin().loginPage("/login")
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.antMatchers("/admin/**").hasAnyRole("ADMIN")
+				.antMatchers("/secure/**").hasAnyRole("ADMIN", "USER")
+		http.formLogin()
+				.loginPage("/login").defaultSuccessUrl("/secure")
+				.successHandler(new CustomAuthenticationSuccessHandler())
+		http.logout()
+				.invalidateHttpSession(true)
+				.logoutSuccessUrl("/")
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
 		http.sessionManagement()
-			.maximumSessions(1)
-			.expiredUrl("/login?expired")
-			.maxSessionsPreventsLogin(false)
-			.and()
-			.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-        http.logout().logoutSuccessUrl("/").logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-    }
+				.maximumSessions(1)
+				.expiredUrl("/login?expired")
+				.maxSessionsPreventsLogin(false)
+				.and()
+				//.invalidSessionUrl("/login?invalid")
+				.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+	}
 }
 
 @Configuration

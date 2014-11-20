@@ -6,7 +6,7 @@
 	</head>
 	<body id="body">
 
-		<#assign link = (hash??)?string('/secure/${hash!}', '')/>
+		<#assign link = (auth)?string('/secure', '')/>
 
 		<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
@@ -22,7 +22,7 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="${link}/video/all"> Videos</a></li>
-						<li><a href="${(hash??)?string('/secure/${hash!}/user', '/secure/video')}">${(hash??)?string('Account', 'Login')}</a></li>
+						<li><a href="${(auth)?string('/secure/user', '/secure/video/category')}">${(auth)?string('Account', 'Login')}</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
