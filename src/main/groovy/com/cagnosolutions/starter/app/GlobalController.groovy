@@ -10,7 +10,6 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 import java.security.Principal
@@ -75,11 +74,13 @@ class Authentication {
 
 
     @RequestMapping(value = "/login/success", method = RequestMethod.GET)
-    String customLoginSuccessHandler(Principal principal, @RequestParam(value="redirect") String redirect) {
+    String customLoginSuccessHandler(Principal principal, String redirect, String role) {
+        if (role == "admin") {
+           return  "redirect:${redirect}"
+        }
         def user = userService.findOne principal.name
         userSession.id = user.id
         userSession.name = user.name
-        println redirect
         "redirect:${redirect}"
     }
 

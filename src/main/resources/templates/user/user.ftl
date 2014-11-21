@@ -38,6 +38,27 @@
 
 		<#include "../stubs/alert.ftl"/>
 
+		<!-- delete item alert -->
+		<div class="container">
+			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
+				<form role="form" method="post" class="form-inline" action="">
+					<div class="form-group">
+						<button class="btn btn-sm btn-danger" type="submit">Yes, I'm sure</button>
+					</div>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<div class="form-group">
+						<button id="delete-item-confirm-cancel" type="button" class="btn btn-default">No, cancel</button>
+					</div>
+					<div class="form-group pull-right">
+						<p class="lead text-danger">
+							Are you sure you want to permanently remove this address?
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- delete item alert -->
+
 		<!-- content -->
 		<div id="content" class="container">
 			<div class="row">
@@ -91,14 +112,20 @@
 								</div>
 								<br/>
 								<div id="changePassword" class="panel-collapse collapse">
+									<!-- toggle show password input -->
 									<div class="form-group">
-										<input type="password" id="password" name="password" class="form-control"
-										       placeholder="Password"/>
+										<div class="input-group">
+											<input type="password" id="toggle-pass" name="password" class="form-control"
+												   placeholder="Password" />
+                                            <span class="input-group-btn">
+                                            	<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+														title="Click to show/hide your password">
+													<i class="fa fa-eye-slash"></i>
+												</button>
+                                            </span>
+										</div>
 									</div>
-									<div class="form-group">
-										<input type="password" id="confirm" name="confirm" class="form-control"
-										       placeholder="Confirm"/>
-									</div>
+									<!-- toggle show password input -->
 								</div>
 								<input type="hidden" name="id" value="${user.id}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -145,9 +172,12 @@
 											<td><strong>${worksheet.videoName}: </strong><a href="/secure/worksheet/${worksheet.id}"> View</a></td>
 											<td>${(worksheet.completed?date)!}</td>
 											<td>
-												<a class="btn btn-danger btn-xs" data-id="${(worksheet.id)!}" data-toggle="modal" data-target="#deleteCheck">
-													<i class="fa fa-trash-o"></i>
-												</a>
+												<!-- delete item trigger -->
+												<span id="delete-item" data-id="/secure/worksheet/del/${worksheet.id}"
+													  class="label label-danger" style="cursor:pointer;">
+													<i class="fa fa-trash-o"></i> Delete
+												</span>
+												<!-- delete item trigger -->
 											</td>
 										</tr>
 									</#list>
@@ -160,35 +190,14 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- content -->
-
-		<div class="modal fade" id="deleteCheck" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Are you sure?</h4>
-					</div>
-					<div class="modal-body">
-						Permanently remove worksheet? This action cannot be undone.
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel</button>
-                        <span id="delete">
-                            <form role="form" method="post" action="/secure/worksheet/{id}">
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button type="submit" class="btn btn-primary btn-md">Yes, Remove Worksheet</button>
-							</form>
-                        </span>
-
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<#include "../stubs/footer.ftl"/>
 
 		<#include "../stubs/scripts.ftl"/>
+
+		<script src="/static/js/password.js"></script>
+
+		<script src="/static/js/delete-item.js"></script>
 	</body>
 </html>

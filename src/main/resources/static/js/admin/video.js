@@ -21,4 +21,19 @@ $(document).ready(function() {
     		$('form[id="videoForm"]').submit();
     	}
     });
+
+    $(function(){
+    	// thumbnail request confirm logic
+    	$('a[id="thumb"]').on('click', function(){
+    		var deleteItemConfirm = $('div[id="thumb-request-confirm"]');
+    		deleteItemConfirm.removeClass('fadeOut').addClass('fadeIn');
+    		deleteItemConfirm.removeClass('hide');
+    	});
+    	// thumbnail request confirm cancel/close logic
+    	$('div form button[id="delete-item-confirm-cancel"]').on('click', function(){
+    		var deleteItemConfirm = $('div[id="thumb-request-confirm"]');
+    		deleteItemConfirm.removeClass('fadeIn').addClass('fadeOut');
+    		deleteItemConfirm.addClass('hide');
+    	});
+    });
 });

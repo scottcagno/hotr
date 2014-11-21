@@ -24,6 +24,7 @@
 						<div class="panel-heading"><a href="/admin/video">Videos</a></div>
 						<div class="panel-body">
 							<p>Number Of Videos: ${videos}</p>
+							<p>Number Of Videos Watched: ${(watched)!}</p>
 						</div>
 					</div>
 				</div>

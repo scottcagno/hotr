@@ -16,18 +16,22 @@
 						<div class="panel-heading">Add Video</div>
 						<div class="panel-body">
 							<form id="videoForm" role="form" method="post" action="/admin/video">
+								<label>Name</label>
 								<div class="form-group">
 									<input type="text" id="name" name="name" class="form-control"
 										   placeholder="Name" required="true" />
 								</div>
+								<label>Description</label>
 								<div class="form-group">
 									<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
 											  style="resize:none;"></textarea>
 								</div>
+								<label>Tags separated by space</label>
 								<div class="form-group">
 									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 											  style="resize:none;"></textarea>
 								</div>
+								<label>Category</label>
 								<div class="form-group row">
 									<div id="categorySelectDiv" class="col-sm-7">
 										<select id="categorySelect" name="categorySelect" class="form-control">

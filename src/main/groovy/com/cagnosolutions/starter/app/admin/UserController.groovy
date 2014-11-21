@@ -68,7 +68,7 @@ class UserController {
 	}
 
 	// POST delete user
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, RedirectAttributes attr) {
 		userService.delete(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted user")

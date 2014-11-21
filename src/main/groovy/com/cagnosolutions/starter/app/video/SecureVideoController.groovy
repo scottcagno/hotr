@@ -53,7 +53,7 @@ class SecureVideoController {
 					model.addAttribute "videos", videoService.findAll()
 					break
 				case "popular":
-					model.addAttribute "videos", videoService.findAll()
+					model.addAttribute "videos", videoService.findAllPopular()
 					break
 				case "recent":
 					model.addAttribute "videos", videoService.findAllRecentlyAdded()
@@ -71,13 +71,16 @@ class SecureVideoController {
 	// GET secure video
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id,Model model) {
-        model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])
 		User user = userService.findOne userSession.id
 		if (id in user.progress) {
 			model.addAttribute("alertWarning", "You have already watched this video. You can watch it " +
 					"again but it will not count towards your challenge progress")
 		}
-		model.addAllAttributes([questions : questionService.findAllByVideo(id), user : user])
+		def video = videoService.findOne id
+		video.watched++
+		video = videoService.save video
+        model.addAllAttributes([video: video, tags : tagService.findAllByVideo(id),
+								questions : questionService.findAllByVideo(id), user : user])
 		"video/video_q"
     }
 

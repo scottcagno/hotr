@@ -17,6 +17,7 @@
 					<div class="panel-body">
 						<form id="addQuestion" role="form" method="post" action="/admin/question">
 							<div class="form-group">
+								<label>Question</label>
 								<input type="text" id="question" name="question" class="form-control"
 									   placeholder="Question" required="true" value="${question.question}"/>
 							</div>
@@ -40,9 +41,9 @@
 								<div id="option${i}" class="form-group">
 									<div class="input-group" id="">
 										<input type="text" name="option" class="form-control" placeholder="Option #${i}" value="${option}"/>
-									<span class="input-group-btn">
-        								<a id="option${i}" class="btn btn-danger" name="removeOption"><i class="fa fa-times"></i></a>
-      								</span>
+										<span class="input-group-btn">
+        									<a id="option${i}" class="btn btn-danger" name="removeOption"><i class="fa fa-times"></i></a>
+      									</span>
 									</div>
 								</div>
 								<#assign i = i+1 />

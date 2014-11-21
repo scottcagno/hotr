@@ -69,14 +69,16 @@
 					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'category')?string('<h4 class="text-center">${filter}</h4>', '')}
 					<br/>
 				</div>
+
 				<#list videos as video>
-					<div class="col-sm-4 col-md-3 text-center video-margin">
+					<div class="col-sm-4 col-md-3 col-lg-3 text-center video-margin">
 						<a href="${link}/video/id/${video.id}">
 							<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 						</a>
 						<p class="video-title"><strong>${video}</strong></p>
 					</div>
 				</#list>
+
 			</div>
 		</div>
 

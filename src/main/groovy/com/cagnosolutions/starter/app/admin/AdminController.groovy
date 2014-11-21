@@ -31,6 +31,7 @@ class AdminController {
 				users : userService.numberOfUsers(),
 				challenge : userService.numberOrChallenge(),
 				videos : videoService.numberOfVideos(),
+				watched : videoService.numberOfVideosWatched(),
 				worksheets : worksheetService.numberOfWorksheets()
 		])
 		"admin/landing"

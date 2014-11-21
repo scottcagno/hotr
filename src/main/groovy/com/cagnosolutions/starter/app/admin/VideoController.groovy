@@ -64,6 +64,7 @@ class VideoController {
 			try {
 				vimeoAPI.addEmbedPreset(video.vimeoId)
 				vimeoAPI.addPrivacy(video.vimeoId)
+				video.watched = 0
 				video = videoService.save video
 				vimeoAPI.getThumb(video.id, video.vimeoId)
 			} catch (all) {
@@ -71,7 +72,9 @@ class VideoController {
 			}
 		} else {
 			// existing video
-			videoService.save video
+			def existingVideo = videoService.findOne video.id
+			videoService.mergeProperties(video, existingVideo)
+			videoService.save existingVideo
 		}
 		// add/remove tags
 		tagService.videoTags(tags, video.id)
@@ -82,9 +85,11 @@ class VideoController {
 	// GET upload
 	@RequestMapping(value="/upload", method = RequestMethod.GET)
 	String upload(Model model) {
+		//def redirect = "redirect_url=node2.cagnosolutions.com/admin/video/add"
+		def redirect = "redirect_url=localhost:8080/admin/video/add"
 		try {
 			// TODO: change redirect_url when live
-			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", "redirect_url=node2.cagnosolutions.com/admin/video/add"))
+			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", redirect))
 		} catch (all) {
 			all.printStackTrace()
 		}
@@ -92,13 +97,23 @@ class VideoController {
 	}
 
 	// POST delete
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	String delete(@PathVariable Long id, @RequestParam String vimeoId, RedirectAttributes attr) {
-		vimeoAPI.deleteVideo(vimeoId)
-		videoService.delete(id)
-		tagService.deleteAllByVideo(id)
-		questionService.deleteAllByVideo(id)
+	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
+	String delete(@PathVariable Long id, RedirectAttributes attr) {
+		def video = videoService.findOne id
+		vimeoAPI.deleteVideo video.vimeoId
+		videoService.delete video
+		tagService.deleteAllByVideo id
+		questionService.deleteAllByVideo id
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted video")
 		"redirect:/admin/video"
+	}
+
+	// GET thumbnail request
+	@RequestMapping(value = "/thumb/{id}", method = RequestMethod.POST)
+	String thumb(@PathVariable Long id, RedirectAttributes attr) {
+		def video = videoService.findOne id
+		vimeoAPI.getThumb(video.id, video.vimeoId)
+		attr.addFlashAttribute("alertSuccess", "Successfully sent thumbnail request. Please 5-10 for a thumbnail response")
+		"redirect:/admin/video/${id}"
 	}
 }

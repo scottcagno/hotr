@@ -6,9 +6,30 @@
 	</head>
 	<body id="body">
 		<#include "../../stubs/admin_navbar.ftl"/>
+
+		<!-- delete item alert -->
+		<div class="container">
+			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
+				<form role="form" method="post" class="form-inline" action="">
+					<div class="form-group">
+						<button class="btn btn-sm btn-danger" type="submit">Yes, I'm sure</button>
+					</div>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<div class="form-group">
+						<button id="delete-item-confirm-cancel" type="button" class="btn btn-default">No, cancel</button>
+					</div>
+					<div class="form-group pull-right">
+						<p class="lead text-danger">
+							Are you sure you want to permanently remove this user?
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- delete item alert -->
+
 		<!-- content -->
 		<div id="content" class="container">
-
 			<!-- add/edit -->
 			<div class="col-sm-4">
 				<div class="panel panel-default">
@@ -86,9 +107,12 @@
 												<a href="/admin/user/${(user.id)!}" class="btn btn-primary">
 													<i class="fa fa-pencil"></i>
 												</a>
-												<a class="btn btn-danger" data-id="${(user.id)!}" data-toggle="modal" data-target="#deleteCheck">
+												<!-- delete item trigger -->
+												<span id="delete-item" data-id="/admin/user/del/${user.id}"
+													  class="btn btn-danger">
 													<i class="fa fa-trash-o"></i>
-												</a>
+												</span>
+												<!-- delete item trigger -->
 											</td>
 										</tr>
 									</#list>
@@ -101,30 +125,6 @@
 			<!-- view all -->
 		</div>
 
-		<div class="modal fade" id="deleteCheck" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Are you sure?</h4>
-					</div>
-					<div class="modal-body">
-						Permanently remove user? This action cannot be undone.
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default btn-md pull-left" data-dismiss="modal">No, Cancel</button>
-                        <span id="delete">
-                            <form role="form" method="post" action="/admin/user/{id}">
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button type="submit" class="btn btn-primary btn-md">Yes, Remove User</button>
-							</form>
-                        </span>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<!-- content -->
 
 		<#include "../../stubs/footer.ftl"/>
@@ -132,6 +132,8 @@
 		<#include "../../stubs/scripts.ftl"/>
 
 		<script src="/static/js/admin/global.js"></script>
+
+		<script src="/static/js/delete-item.js"></script>
 
 	</body>
 </html>

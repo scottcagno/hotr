@@ -19,6 +19,7 @@ class Video {
 	Long id
     String name, description, thumb, vimeoId, category
 	Date added
+	Integer watched
 
 	String toString() {
 		if (name.length() > 20)

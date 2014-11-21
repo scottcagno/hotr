@@ -50,20 +50,17 @@ class UserController {
 
 	// POST update
 	@RequestMapping(method = RequestMethod.POST)
-	String update(User user, String confirm, RedirectAttributes attr) {
+	String update(User user, RedirectAttributes attr) {
 		if(userService.canUpdate(user.id, user.username)) {
-			if (user.password == confirm) {
-				User existingUser = userService.findOne(user.id)
-				userService.mergeProperties(user, existingUser)
-				if (existingUser.password[0] != '$') {
-					existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)\
-				}
-				userService.save existingUser
-				attr.addFlashAttribute("alertSuccess", "Updated Successfully")
-				return "redirect:/secure/user"
+			User existingUser = userService.findOne(user.id)
+			user.password = (user.password == "") ? null : user.password
+			userService.mergeProperties(user, existingUser)
+			if (existingUser.password[0] != '$') {
+				existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)
 			}
-			// pass and confirm do not match
-			attr.addFlashAttribute "alertError", "Password and confirm do not match"
+			userService.save existingUser
+			attr.addFlashAttribute("alertSuccess", "Updated Successfully")
+			return "redirect:/secure/user"
 		} else {
 			attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
 		}

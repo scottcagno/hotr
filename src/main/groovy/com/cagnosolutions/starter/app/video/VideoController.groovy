@@ -34,7 +34,7 @@ class VideoController {
 					model.addAttribute "videos", videoService.findAll()
 					break
 				case "popular":
-					model.addAttribute "videos", videoService.findAll()
+					model.addAttribute "videos", videoService.findAllPopular()
 					break
 				case "recent":
 					model.addAttribute "videos", videoService.findAllRecentlyAdded()
@@ -53,7 +53,10 @@ class VideoController {
 	// GET video
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model) {
-        model.addAllAttributes([video: videoService.findOne(id), tags : tagService.findAllByVideo(id)])
+		def video = videoService.findOne id
+		video.watched++
+		video = videoService.save video
+        model.addAllAttributes([video: video, tags : tagService.findAllByVideo(id)])
 		return "video/video"
     }
 

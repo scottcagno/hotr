@@ -20,7 +20,7 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/video/all"> Videos</a></li>
-						<li><a href="/secure/video?videoId=${video.id}">Login</a></li>
+						<li><a href="/secure/video/id/${id}">Login</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">

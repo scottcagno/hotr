@@ -17,6 +17,7 @@
 					<div class="panel-body">
 						<form id="addQuestion" role="form" method="post" action="/admin/question">
 							<div class="form-group">
+								<label>Question</label>
 								<input type="text" id="question" name="question" class="form-control"
 									   placeholder="Question" required="true"/>
 							</div>

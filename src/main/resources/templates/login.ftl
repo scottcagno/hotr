@@ -78,10 +78,20 @@
 										<input type="email" id="username" name="username" class="form-control"
 										       placeholder="Email" required="true" />
 									</div>
+									<!-- toggle show password input -->
 									<div class="form-group">
-										<input type="password" id="password" name="password" class="form-control"
-										       placeholder="Password" required="true" />
+										<div class="input-group">
+											<input type="password" id="toggle-pass" name="password" class="form-control"
+												   placeholder="Password" required="true" />
+                                            <span class="input-group-btn">
+                                            	<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+													title="Click to show/hide your password">
+													<i class="fa fa-eye-slash"></i>
+												</button>
+                                            </span>
+										</div>
 									</div>
+									<!-- toggle show password input -->
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 									<button class="btn btn-md btn-success btn-block" type="submit">Create</button>
 								</form>
@@ -95,6 +105,7 @@
 		<#include "stubs/footer.ftl"/>
 
 		<#include "stubs/scripts.ftl"/>
+		<script src="/static/js/password.js"></script>
 
 	</body>
 </html>

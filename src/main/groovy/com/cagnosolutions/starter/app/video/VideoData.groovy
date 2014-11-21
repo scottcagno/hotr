@@ -51,7 +51,11 @@ class VideoService {
     }
 
 	List<Video> findAllRecentlyAdded() {
-		repo.findRecentlyAdded()
+		repo.findAllRecentlyAdded()
+	}
+
+	List<Video> findAllPopular() {
+		repo.findAllPopular()
 	}
 
     Video save(Video video) {
@@ -64,8 +68,16 @@ class VideoService {
         repo.delete id
     }
 
-	Integer numberOfVideos() {
+	def delete(Video video) {
+		repo.delete video
+	}
+
+	int numberOfVideos() {
 		repo.numberOfVideos()
+	}
+
+	int numberOfVideosWatched() {
+		repo.numberOfVideosWatched()
 	}
 
 	Set<String> findCategories() {
@@ -75,6 +87,14 @@ class VideoService {
 			categories.add(video.category);
 		}
 		new HashSet<String>(categories);
+	}
+
+	// helper method
+	def mergeProperties(source, target) {
+		source.properties.each { key, value ->
+			if (target.hasProperty(key as String) && !(key in ['class', 'metaClass']) && value != null && value != "")
+				target[key as String] = value
+		}
 	}
 
 }
@@ -87,11 +107,17 @@ interface VideoRepository extends JpaRepository<Video, Long> {
 	List<Video> findAllVideoByTag(@Param("tag") String tag)
 
 	@Query("SELECT COUNT(v.id) FROM Video v")
-	Integer numberOfVideos()
+	int numberOfVideos()
 
-	@Query("SELECT v From Video v ORDER BY v.id DESC")
-	List<Video> findRecentlyAdded()
+	@Query("SELECT SUM(v.watched)FROM Video v WHERE v.watched > 0")
+	int numberOfVideosWatched()
+
+	@Query(nativeQuery = true, value = "SELECT * FROM hotr.video ORDER BY hotr.video.id DESC limit 10")
+	List<Video> findAllRecentlyAdded()
 
 	@Query("SELECT v FROM Video v WHERE v.category=:category")
 	List<Video> findAllByCategory(@Param("category") String category)
+
+	@Query(nativeQuery = true, value = "SELECT * FROM hotr.video ORDER BY hotr.video.watched DESC limit 10")
+	List<Video> findAllPopular()
 }

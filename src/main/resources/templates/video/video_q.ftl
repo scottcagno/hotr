@@ -153,7 +153,7 @@
 				</div>
 			</div>
 		</div>
-
+		<div id="regEx" hidden>(<(?:"[^"]*"['"]*|'[^']*\'['"]*|[^'">])+>)|((function)|\(|\)|\;|([a-z]\.[a-z])|\{|\})</div>
 		<#include "../stubs/footer.ftl"/>
 
 		<!-- scripts -->
@@ -162,6 +162,10 @@
 			<#include "../stubs/scripts.ftl"/>
 
 			<script src="/static/js/video_q.js"></script>
+
+			<script>
+
+			</script>
 		</div>
 	</body>
 </html>

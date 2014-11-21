@@ -49,7 +49,7 @@ class WorksheetController {
 	}
 
 	// POST delete worksheet
-	@RequestMapping(value =  "/{id}", method = RequestMethod.POST)
+	@RequestMapping(value =  "/del/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, RedirectAttributes attr) {
 		worksheetService.delete id
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted worksheet")

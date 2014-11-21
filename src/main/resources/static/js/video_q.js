@@ -21,4 +21,23 @@ $(document).ready(function() {
     	$('input[id="answers"]').val(j);
     	$('form[id="submitForm"]').submit();
     });
+
+
+
+
+
+    //var html = '<my answer>'
+    //alert(re.test(html));
 });
+    var re = new RegExp($('div[id="regEx"]').text())
+
+function validForm() {
+       var formArray = $('form[id="worksheet"]').serializeArray();
+       $.each(formArray, function() {
+           /*if (re.test(this.value)) {
+               return false;
+           }*/
+           //alert(this.value + ' ' + re.test(this.value))
+       });
+       return true;
+    }

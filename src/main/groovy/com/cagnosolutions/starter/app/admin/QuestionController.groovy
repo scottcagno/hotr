@@ -45,7 +45,7 @@ class QuestionController {
 	}
 
 	// POST delete question
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, @RequestParam Long videoId, RedirectAttributes attr) {
 		questionService.delete(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted question")
