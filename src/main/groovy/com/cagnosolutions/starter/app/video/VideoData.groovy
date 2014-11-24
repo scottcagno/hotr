@@ -38,8 +38,8 @@ class VideoService {
 		repo.findAllVideoByTag(tag)
 	}
 
-	List<Video> findAllByCategory(String category) {
-		repo.findAllByCategory(category)
+	List<Video> findAllBySeries(String series) {
+		repo.findAllBySeries(series)
 	}
 
     Page<Video> findAll(int page, int size, String... fields) {
@@ -80,19 +80,21 @@ class VideoService {
 		repo.numberOfVideosWatched()
 	}
 
-	Set<String> findCategories() {
-		List<String> categories = new ArrayList<>();
+	Set<String> findAllSeries() {
+		List<String> allSeries = new ArrayList<>();
 		List<Video> allVideos = repo.findAll();
 		for(Video video : allVideos) {
-			categories.add(video.category);
+			if (video.series != "" && video.series != null) {
+				allSeries.add(video.series);
+			}
 		}
-		new HashSet<String>(categories);
+		new HashSet<String>(allSeries);
 	}
 
 	// helper method
 	def mergeProperties(source, target) {
 		source.properties.each { key, value ->
-			if (target.hasProperty(key as String) && !(key in ['class', 'metaClass']) && value != null && value != "")
+			if (target.hasProperty(key as String) && !(key in ['class', 'metaClass']) && value != null)
 				target[key as String] = value
 		}
 	}
@@ -115,8 +117,8 @@ interface VideoRepository extends JpaRepository<Video, Long> {
 	@Query(nativeQuery = true, value = "SELECT * FROM hotr.video ORDER BY hotr.video.id DESC limit 10")
 	List<Video> findAllRecentlyAdded()
 
-	@Query("SELECT v FROM Video v WHERE v.category=:category")
-	List<Video> findAllByCategory(@Param("category") String category)
+	@Query("SELECT v FROM Video v WHERE v.series=:series")
+	List<Video> findAllBySeries(@Param("series") String series)
 
 	@Query(nativeQuery = true, value = "SELECT * FROM hotr.video ORDER BY hotr.video.watched DESC limit 10")
 	List<Video> findAllPopular()

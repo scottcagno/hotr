@@ -22,7 +22,7 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="${link}/video/all"> Videos</a></li>
-						<li><a href="${(auth)?string('/secure/user', '/secure/video/category')}">${(auth)?string('Account', 'Login')}</a></li>
+						<li><a href="${(auth)?string('/secure/user', '/secure/video/series')}">${(auth)?string('Account', 'Login')}</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
@@ -49,7 +49,7 @@
 							<li><a href="${link}/video/all">All Videos</a></li>
 							<li><a href="${link}/video/popular">Popular</a></li>
 							<li><a href="${link}/video/recent">Recently Added</a></li>
-							<li class="active"><a href="">Categories</a></li>
+							<li class="active"><a href="">Series</a></li>
 						</ul>
 					</div>
 					<div class="visible-xs visible-sm">
@@ -57,17 +57,17 @@
 							<a href="${link}/video/all" class="list-group-item">All Videos</a>
 							<a href="${link}/video/popular" class="list-group-item">Popular</a>
 							<a href="${link}/video/recent" class="list-group-item">Recently Added</a>
-							<a href="${link}/video/category" class="list-group-item active">Categories</a>
+							<a href="${link}/video/series" class="list-group-item active">Series</a>
 						</div>
 					</div>
 					<br/>
 				</div>
-				<#list categories as category>
+				<#list allSeries as series>
 					<div class="col-sm-4 col-md-3 text-center video-margin">
-						<a href="${link}/video/${category}">
+						<a href="${link}/video/${series}">
 							<img src="/static/img/video.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 						</a>
-						<p class="video-title"><strong>${category}</strong></p>
+						<p class="video-title"><strong>${series}</strong></p>
 					</div>
 				</#list>
 			</div>

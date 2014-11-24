@@ -59,7 +59,7 @@ class SecureVideoController {
 					model.addAttribute "videos", videoService.findAllRecentlyAdded()
 					break
 				default:
-					model.addAttribute "videos", videoService.findAllByCategory(filter)
+					model.addAttribute "videos", videoService.findAllBySeries(filter)
 					break
 			}
 		} else {
@@ -84,9 +84,9 @@ class SecureVideoController {
 		"video/video_q"
     }
 
-	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	String category(Model model) {
-		model.addAllAttributes([categories: videoService.findCategories(), auth : true])
-		"video/category"
+	@RequestMapping(value = "/series", method = RequestMethod.GET)
+	String series(Model model) {
+		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : true])
+		"video/series"
 	}
 }

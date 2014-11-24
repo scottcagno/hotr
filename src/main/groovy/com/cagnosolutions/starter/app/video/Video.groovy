@@ -17,7 +17,7 @@ class Video {
 	@Id
 	@GeneratedValue
 	Long id
-    String name, description, thumb, vimeoId, category
+    String name, description, thumb, vimeoId, series
 	Date added
 	Integer watched
 

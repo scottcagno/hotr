@@ -54,8 +54,8 @@
 						<li class="${(filter == 'recent')?string('active', '')}">
 							<a href="${link}/video/recent">Recently Added</a>
 						</li>
-						<li class="${(filter == 'category')?string('active', '')}">
-							<a href="${link}/video/category">Categories</a>
+						<li class="${(filter == 'series')?string('active', '')}">
+							<a href="${link}/video/series">Series</a>
 						</li>
 					</ul>
 					<div class="visible-xs visible-sm">
@@ -63,10 +63,10 @@
 							<a href="${link}/video/all" class="list-group-item ${(filter == 'all' && !RequestParameters.tag??)?string('active', '')}">All Videos</a>
 							<a href="${link}/video/popular" class="list-group-item ${(filter == 'popular')?string('active', '')}">Popular</a>
 							<a href="${link}/video/recent" class="list-group-item ${(filter == 'recent')?string('active', '')}">Recently Added</a>
-							<a href="${link}/video/category" class="list-group-item ${(filter == 'category')?string('active', '')}">Categories</a>
+							<a href="${link}/video/series" class="list-group-item ${(filter == 'series')?string('active', '')}">Series</a>
 						</div>
 					</div>
-					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'category')?string('<h4 class="text-center">${filter}</h4>', '')}
+					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">${filter}</h4>', '')}
 					<br/>
 				</div>
 

@@ -89,25 +89,27 @@
 									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 											  style="resize:none;">${tags?join(", ")}</textarea>
 								</div>
-								<label>Category</label>
+								<label>Series</label>
 								<div class="form-group row">
-									<div id="categorySelectDiv" class="col-xs-6">
-										<select id="categorySelect" name="categorySelect" class="form-control">
-											<option value="">Select A Category</option>
-											<option value="">--------------------</option>
+									<div id="seriesSelectDiv" class="col-xs-6">
+										<select id="seriesSelect" name="seriesSelect" class="form-control">
+											<option value="">Select A Series</option>
+											<option ${(video.series?? && video.series == '')?string('selected', '')} value="">None</option>
 											<hr/>
-											<#list categories as category>
-												<option value="${category}" ${(video.category == category)?string('selected', '')}>${category}</option>
-											</#list>
+											<#if allSeries?has_content>
+												<#list allSeries as series>
+													<option value="${series}" ${(video.series?? && video.series == series)?string('selected', '')}>${series}</option>
+												</#list>
+											</#if>
 										</select>
 									</div>
 									<div class="col-xs-6">
-										<a id="addCategory" class="btn btn-primary btn-block">Add Category</a>
+										<a id="addSeries" class="btn btn-primary btn-block">Add Series</a>
 									</div>
 								</div>
-								<div id="categoryInput" class="form-group" hidden="hidden">
-									<input class="form-control" id="category" name="category" type="text"
-										   placeholder="Add Category" value="${video.category}"/>
+								<div id="seriesInput" class="form-group" hidden="hidden">
+									<input class="form-control" id="series" name="series" type="text"
+										   placeholder="Add Series" value="${video.series}"/>
 								</div>
 								<input type="hidden" name="id" value="${video.id}"/>
 								<input type="hidden" name="thumb" value="${video.thumb!}"/>

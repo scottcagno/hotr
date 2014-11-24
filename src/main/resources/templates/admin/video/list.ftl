@@ -42,7 +42,7 @@
 							<tr>
 								<th>Name</th>
 								<th>Description</th>
-								<th>Category</th>
+								<th>Series</th>
 								<th class="hidden-xs hidden-sm">Thumbnail</th>
 								<th></th>
 							</tr>
@@ -52,7 +52,7 @@
 								<tr>
 									<td>${video.name}</td>
 									<td>${video.description}</td>
-									<td>${video.category!}</td>
+									<td>${(video.series?? && video.series == '')? string('None', video.series!)}</td>
 									<td class="hidden-xs hidden-sm">
 										<#if video.thumb??>
 											<a href="${(video.thumb)!}" target="_blank">View</a>

@@ -31,23 +31,23 @@
 									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
 											  style="resize:none;"></textarea>
 								</div>
-								<label>Category</label>
+								<label>Series</label>
 								<div class="form-group row">
-									<div id="categorySelectDiv" class="col-sm-7">
-										<select id="categorySelect" name="categorySelect" class="form-control">
-											<option value="">Select A Category</option>
-											<option value="">--------------------</option>
-											<#list categories as category>
-												<option value="${category}">${category}</option>
+									<div id="seriesSelectDiv" class="col-sm-7">
+										<select id="seriesSelect" name="seriesSelect" class="form-control">
+											<option value="">Select A Series</option>
+											<option value="">None</option>
+											<#list allSeries as series>
+												<option value="${series}">${series}</option>
 											</#list>
 										</select>
 									</div>
 									<div class="col-sm-5">
-										<a id="addCategory" class="btn btn-primary btn-block">Add Category</a>
+										<a id="addSeries" class="btn btn-primary btn-block">Add Series</a>
 									</div>
 								</div>
-								<div id="categoryInput" class="form-group" hidden="hidden">
-									<input class="form-control" id="category" name="category" type="text" placeholder="Add Category" required="true"/>
+								<div id="seriesInput" class="form-group" hidden="hidden">
+									<input class="form-control" id="series" name="series" type="text" placeholder="Add Series" required="true"/>
 								</div>
 								<input type="hidden" name="vimeoId" value="${(RequestParameters.video_uri?split('/')[2])!}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

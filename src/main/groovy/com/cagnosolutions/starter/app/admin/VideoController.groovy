@@ -42,7 +42,7 @@ class VideoController {
 	// GET add
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	String add(Model model) {
-		model.addAttribute("categories", videoService.findCategories())
+		model.addAttribute("series", videoService.findAllSeries())
 		"admin/video/add"
 	}
 
@@ -51,7 +51,7 @@ class VideoController {
 	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("video", videoService.findOne(id))
 		model.addAttribute("tags", tagService.findAllByVideo(id))
-		model.addAttribute("categories", videoService.findCategories())
+		model.addAttribute("series", videoService.findAllSeries())
 		model.addAttribute("questions", questionService.findAllByVideo(id))
 		"admin/video/edit"
 	}

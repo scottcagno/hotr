@@ -1,25 +1,17 @@
 $(document).ready(function() {
-    $('select[id="categorySelect"]').change(function() {
-    	$('input[id="category"]').val($('select[id="categorySelect"]').val());
-    	$('div[id="categoryInput"]').attr('hidden', 'hidden');
-    	if ($('select[id="categorySelect"]').val() != '') {
-    		$('div[id="categorySelectDiv"]').removeClass('has-error');
-    	}
+    $('select[id="seriesSelect"]').change(function() {
+    	$('input[id="series"]').val($('select[id="seriesSelect"]').val());
+    	$('div[id="seriesInput"]').attr('hidden', 'hidden');
     });
 
-    $('a[id="addCategory"]').click(function() {
-    	$('div[id="categoryInput"]').removeAttr('hidden');
-    	$('input[id="category"]').val('');
-    	$('select[id="categorySelect"]').val('');
+    $('a[id="addSeries"]').click(function() {
+    	$('div[id="seriesInput"]').removeAttr('hidden');
+    	$('input[id="series"]').val('');
+    	$('select[id="seriesSelect"]').val('');
     });
 
     $('button[id="save"]').click(function() {
-    	if ($('input[id="category"]').val() == '') {
-    		$('div[id="categorySelectDiv"]').addClass('has-error');
-    		$('select[id="categorySelect"]').focus();
-    	} else {
-    		$('form[id="videoForm"]').submit();
-    	}
+		$('form[id="videoForm"]').submit();
     });
 
     $(function(){
