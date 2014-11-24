@@ -39,9 +39,10 @@
 		</div>
 
 		<#include "../stubs/alert.ftl"/>
+
 		<#if alertWarning?? && (!(worksheet??))>
 			<div class="container">
-				<div id="alert" class="">
+				<div id="alert">
 					<div class="alert alert-warning alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 						${alertWarning}
@@ -162,10 +163,6 @@
 			<#include "../stubs/scripts.ftl"/>
 
 			<script src="/static/js/video_q.js"></script>
-
-			<script>
-
-			</script>
 		</div>
 	</body>
 </html>
