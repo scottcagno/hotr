@@ -71,6 +71,10 @@
 
 			<#include "../../stubs/scripts.ftl"/>
 
+			<script>
+				var i = 1;
+				var multi = false;
+			</script>
 			<script src="/static/js/admin/question.js"></script>
 		</div>
 	</body>

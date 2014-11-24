@@ -67,7 +67,7 @@
 						<form id="challengeForm" role="form" method="post" action="/secure/user/challenge">
 							<input type="hidden" name="userId" value="${user.id}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<button class="btn btn-md btn-default btn-block" type="submit">Begin Challenge</button>
+							<button class="btn btn-md btn-success btn-block" type="submit">Begin Challenge</button>
 						</form>
 					<#else/>
 						<#assign width = (user.progress?size / 12) * 100/>
@@ -83,7 +83,9 @@
 					<br/>
 				</div>
 				<div class="col-lg-5 text-center">
-					<strong>Member Since: ${user.creation?date}</strong>
+					<p>
+						<strong>Member Since: ${user.creation?date}</strong>
+					</p>
 				</div>
 			</div>
 			<div class="row">

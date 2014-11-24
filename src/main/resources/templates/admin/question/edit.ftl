@@ -94,6 +94,7 @@
 			<script>
 				// set js variable from freemarker
 				var i = ${i};
+				var multi = ${(question.inputType == "select many" || question.inputType == "select one") ? string('true', 'false')}
 			</script>
 			<script src="/static/js/admin/question.js"></script>
 			<script src="/static/js/admin/edit-question.js"></script>

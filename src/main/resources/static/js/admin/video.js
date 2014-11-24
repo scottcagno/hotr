@@ -25,15 +25,15 @@ $(document).ready(function() {
     $(function(){
     	// thumbnail request confirm logic
     	$('a[id="thumb"]').on('click', function(){
-    		var deleteItemConfirm = $('div[id="thumb-request-confirm"]');
-    		deleteItemConfirm.removeClass('fadeOut').addClass('fadeIn');
-    		deleteItemConfirm.removeClass('hide');
+    		var thumbRequestConfirm = $('div[id="thumb-request-confirm"]');
+    		thumbRequestConfirm.removeClass('fadeOut').addClass('fadeIn');
+    		thumbRequestConfirm.removeClass('hide');
     	});
     	// thumbnail request confirm cancel/close logic
-    	$('div form button[id="delete-item-confirm-cancel"]').on('click', function(){
-    		var deleteItemConfirm = $('div[id="thumb-request-confirm"]');
-    		deleteItemConfirm.removeClass('fadeIn').addClass('fadeOut');
-    		deleteItemConfirm.addClass('hide');
+    	$('div form button[id="thumb-request-confirm-cancel"]').on('click', function(){
+    		var thumbRequestConfirm = $('div[id="thumb-request-confirm"]');
+    		thumbRequestConfirm.removeClass('fadeIn').addClass('fadeOut');
+    		thumbRequestConfirm.addClass('hide');
     	});
     });
 });

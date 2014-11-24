@@ -1,22 +1,21 @@
+
+ var addOptionDiv = 'div[id="allOptions"] div[id="addOption"]';
+// add input with delete button add placeholder after input set delete action
+function addOption() {
+	$(addOptionDiv).html($('div[id="nextOptionInput"]').html());
+	$(addOptionDiv).attr('id', 'option'+i);
+	$('div[id="option' + i + '"] input').attr('id', 'option'+i);
+	$('div[id="option' + i + '"] a').attr('id', 'option'+i);
+	$('div[id="option' + i + '"]').after($('div[id="nextOptionDiv"]').html());
+	$('a[id="option' + i + '"]').click(function() {
+		$('div[id="'+$(this).attr('id')+'"]').remove();
+	});
+	i++;
+}
+
 $(document).ready(function() {
     // set variables
-    var i = 1;
     var type = 'select[id="inputType"]';
-    var addOptionDiv = 'div[id="allOptions"] div[id="addOption"]';
-    var multi = false;
-
-    // add input with delete button add placeholder after input set delete action
-    function addOption() {
-    	$(addOptionDiv).html($('div[id="nextOptionInput"]').html());
-    	$(addOptionDiv).attr('id', 'option'+i);
-    	$('div[id="option' + i + '"] input').attr('id', 'option'+i);
-    	$('div[id="option' + i + '"] a').attr('id', 'option'+i);
-    	$('div[id="option' + i + '"]').after($('div[id="nextOptionDiv"]').html());
-    	$('a[id="option' + i + '"]').click(function() {
-    		$('div[id="'+$(this).attr('id')+'"]').remove();
-    	});
-    	i++;
-    }
 
     // run add option on type select add add option button after input || remove all options on type select
     $(type).change(function() {

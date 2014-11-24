@@ -60,6 +60,18 @@ class HomeController {
 		"donate"
 	}
 
+    @RequestMapping(value = ["/promo"], method = GET)
+    String promo(Model model) {
+        model.addAttribute("auth", false)
+        "promo"
+    }
+
+    @RequestMapping(value = "/secure/promo", method = GET)
+    String promoSecure(Model model) {
+        model.addAttribute("auth", true)
+        "promo"
+    }
+
 }
 
 @CompileStatic

@@ -7,7 +7,7 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="item active">
-			<img src="/static/img/colors/r.png" width="1500">
+			<img src="/static/img/photos/blackcouple-computer.jpg" width="1500">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>It's Easy</h1>

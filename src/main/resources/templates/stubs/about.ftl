@@ -65,8 +65,8 @@
 		<div class="col-lg-12 col-sm-12">
 			<p class="lead text-muted">
 				If you would like more information about how you can get involved and promote Fan the Flame
-				Dates at your church you <a href="#promotion">click here</a> to get started with some of our
-				<a href="#promotion">promotional content.</a> We would love to serve at your church!
+				Dates at your church you <a href="${(auth?? && auth)?string('/secure/promo', '/promo')}">click here</a> to get started with some of our
+				<a href="${(auth?? && auth)?string('/secure/promo', '/promo')}">promotional content.</a> We would love to serve at your church!
 			</p>
 		</div>
 	</div>

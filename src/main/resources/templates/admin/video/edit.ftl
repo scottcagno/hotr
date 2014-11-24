@@ -169,7 +169,6 @@
 		<#include "../../stubs/scripts.ftl"/>
 
 		<script src="/static/js/admin/video.js"></script>
-		<script src="/static/js/admin/global.js"></script>
 		<script src="/static/js/delete-item.js"></script>
 
 	</body>
