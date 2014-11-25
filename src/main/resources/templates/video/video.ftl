@@ -38,6 +38,24 @@
 
 		<#include "../stubs/alert.ftl"/>
 
+		<div class="container">
+			<div id="alert">
+				<div class="alert alert-info alert-dismissable text-right">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<div class="form-inline">
+						<div class="form-group pull-left">
+							<p class="lead">
+								Something about taking the challenge
+							</p>
+						</div>
+						<div class="form-group">
+							<a href="/secure/user" class="btn btn-info" type="submit">Sign Up!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- content -->
 		<div class="container">
 			<div class="col-lg-offset-1 col-lg-10">

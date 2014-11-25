@@ -7,5 +7,5 @@ import org.springframework.stereotype.Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 class UserSession {
 	long id
-	String name
+	String firstName, lastName, spouseName
 }

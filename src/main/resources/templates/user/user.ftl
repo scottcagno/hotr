@@ -51,7 +51,7 @@
 					</div>
 					<div class="form-group pull-right">
 						<p class="lead text-danger">
-							Are you sure you want to permanently remove this address?
+							Are you sure you want to permanently remove this worksheet?
 						</p>
 					</div>
 				</form>
@@ -99,12 +99,29 @@
 						<div class="panel-body">
 							<form id="accountForm" role="form" method="post" action="/secure/user">
 								<div class="form-group">
-									<input type="text" id="name" name="name" class="form-control"
-									       placeholder="Name" required="true" value="${user.name!}"/>
+									<label>First Name</label>
+									<input type="text" id="firstName" name="firstName" class="form-control"
+									       placeholder="First Name" required="true" value="${user.firstName!}"/>
 								</div>
 								<div class="form-group">
+									<label>Spouse's Name (Optional)</label>
+									<input type="text" id="spouseName" name="spouseName" class="form-control"
+										   placeholder="Spouse's Name" value="${user.spouseName!}"/>
+								</div>
+								<div class="form-group">
+									<label>Last Name</label>
+									<input type="text" id="lastName" name="lastName" class="form-control"
+										   placeholder="Last Name" required="true" value="${user.lastName!}"/>
+								</div>
+								<div class="form-group">
+									<label>Email</label>
 									<input type="text" id="username" name="username" class="form-control"
 									       placeholder="Email" required="true" value="${user.username}"/>
+								</div>
+								<div class="form-group">
+									<label>Spouse's Email (Optional)</label>
+									<input type="text" id="spouseEmail" name="spouseEmail" class="form-control"
+										   placeholder="Spouse's Email" value="${user.spouseEmail!}"/>
 								</div>
 								<div class="text-center">
 									<a data-toggle="collapse" data-parent="#accordion"

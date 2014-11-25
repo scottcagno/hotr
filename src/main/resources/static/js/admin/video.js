@@ -1,14 +1,21 @@
 $(document).ready(function() {
+
     $('select[id="seriesSelect"]').change(function() {
-    	$('input[id="series"]').val($('select[id="seriesSelect"]').val());
-    	$('div[id="seriesInput"]').attr('hidden', 'hidden');
+    	if ($('select[id=seriesSelect]').val() == 'add') {
+    		$('div[id="seriesInput"]').removeAttr('hidden');
+			$('input[id="series"]').val('');
+			$('select[id="seriesSelect"]').val('add');
+    	} else {
+    		$('input[id="series"]').val($('select[id="seriesSelect"]').val());
+    		$('div[id="seriesInput"]').attr('hidden', 'hidden');
+    	}
     });
 
-    $('a[id="addSeries"]').click(function() {
+   /* $('a[id="addSeries"]').click(function() {
     	$('div[id="seriesInput"]').removeAttr('hidden');
     	$('input[id="series"]').val('');
-    	$('select[id="seriesSelect"]').val('');
-    });
+    	$('select[id="seriesSelect"]').val('add');
+    });*/
 
     $('button[id="save"]').click(function() {
 		$('form[id="videoForm"]').submit();

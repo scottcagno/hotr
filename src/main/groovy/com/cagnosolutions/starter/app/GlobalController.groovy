@@ -74,7 +74,6 @@ class HomeController {
 
 }
 
-@CompileStatic
 @Controller(value = "authController")
 class Authentication {
 
@@ -86,13 +85,18 @@ class Authentication {
 
 
     @RequestMapping(value = "/login/success", method = RequestMethod.GET)
-    String customLoginSuccessHandler(Principal principal, String redirect, String role) {
+    String customLoginSuccessHandler(Principal principal, String redirect, String role, RedirectAttributes attr) {
         if (role == "admin") {
            return  "redirect:${redirect}"
         }
         def user = userService.findOne principal.name
         userSession.id = user.id
-        userSession.name = user.name
+        userSession.firstName = user.firstName
+        userSession.lastName = user.lastName
+        userSession.spouseName = (user.spouseName == null) ? "" : user.spouseName
+        user.lastSeen = new Date()
+        userService.save user
+        attr.addFlashAttribute("alert", "Welcome ${user.firstName} ${(user.spouseName == null || user.spouseName == "") ? "" : "and ${user.spouseName} "}${user.lastName}")
         "redirect:${redirect}"
     }
 
@@ -110,22 +114,13 @@ class Authentication {
 			user.challenge = false
 			user.progress = new ArrayList<Long>()
             userService.save user
-            attr.addFlashAttribute "alertSuccess", "${user.name} has successfully been regestered, please login"
+            attr.addFlashAttribute "alertSuccess", "${user.firstName} ${user.lastName} has successfully been regestered, please login"
 			attr.addFlashAttribute("username", user.username)
             return "redirect:/login"
         }
         attr.addFlashAttribute "alertError", "Unable to register, ${user.username} may already be taken"
         "redirect:/login"
     }
-
-	/*@RequestMapping(value = "/secure/{url}", method = RequestMethod.GET)
-	String secureLogin(@PathVariable String url, Principal principal, @RequestParam(required = false) Long videoId) {
-		User user = userService.findOne principal.name
-		user.lastSeen = new Date()
-		userService.save user
-		url = videoId == null ? url : "${url}/id/${videoId}"
-		"redirect:/secure/${userService.getHash(principal.name)}/${url}"
-	}*/
 }
 
 @CompileStatic

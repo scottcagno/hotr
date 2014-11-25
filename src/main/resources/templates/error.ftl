@@ -31,7 +31,7 @@
         <!-- navbar -->
 
         <!-- content -->
-        <div id="content" class="container">
+        <div id="content" class="container navbar-margin">
             <legend>${(error)!} <span class="text-hot">${(message)!}</span></legend>
             <pre>${(exception)!'An unknown error has occoured. That really sucks.'}</pre>
         </div>

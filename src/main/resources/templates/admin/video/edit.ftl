@@ -91,10 +91,10 @@
 								</div>
 								<label>Series</label>
 								<div class="form-group row">
-									<div id="seriesSelectDiv" class="col-xs-6">
+									<div id="seriesSelectDiv" class="col-xs-12">
 										<select id="seriesSelect" name="seriesSelect" class="form-control">
-											<option value="">Select A Series</option>
 											<option ${(video.series?? && video.series == '')?string('selected', '')} value="">None</option>
+											<option value="add">Add Series</option>
 											<hr/>
 											<#if allSeries?has_content>
 												<#list allSeries as series>
@@ -103,9 +103,9 @@
 											</#if>
 										</select>
 									</div>
-									<div class="col-xs-6">
+									<!--<div class="col-xs-6">
 										<a id="addSeries" class="btn btn-primary btn-block">Add Series</a>
-									</div>
+									</div>-->
 								</div>
 								<div id="seriesInput" class="form-group" hidden="hidden">
 									<input class="form-control" id="series" name="series" type="text"

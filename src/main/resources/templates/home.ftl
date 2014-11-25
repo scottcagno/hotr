@@ -33,6 +33,8 @@
 		</div>
 		<!-- navbar -->
 
+		<#include "stubs/alert.ftl"/>
+
 		<!-- carousel -->
 		<#include "stubs/carousel.ftl"/>
 		<!-- carousel -->

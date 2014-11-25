@@ -72,11 +72,11 @@ class VideoService {
 		repo.delete video
 	}
 
-	int numberOfVideos() {
+	Integer numberOfVideos() {
 		repo.numberOfVideos()
 	}
 
-	int numberOfVideosWatched() {
+	Integer numberOfVideosWatched() {
 		repo.numberOfVideosWatched()
 	}
 
@@ -109,10 +109,10 @@ interface VideoRepository extends JpaRepository<Video, Long> {
 	List<Video> findAllVideoByTag(@Param("tag") String tag)
 
 	@Query("SELECT COUNT(v.id) FROM Video v")
-	int numberOfVideos()
+	Integer numberOfVideos()
 
 	@Query("SELECT SUM(v.watched)FROM Video v WHERE v.watched > 0")
-	int numberOfVideosWatched()
+	Integer numberOfVideosWatched()
 
 	@Query(nativeQuery = true, value = "SELECT * FROM hotr.video ORDER BY hotr.video.id DESC limit 10")
 	List<Video> findAllRecentlyAdded()

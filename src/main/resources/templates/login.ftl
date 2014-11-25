@@ -43,7 +43,7 @@
 									Login to your account
 								</a>
 							</div>
-							<div id="login" class="panel-collapse collapse ${(login??)?string("in", "")}">
+							<div id="login" class="panel-collapse collapse ${(login??)?string('in','')}">
 								<div class="panel-body">
 									<form role="form" method="post" action="/login">
 										<div class="form-group">
@@ -67,12 +67,16 @@
 								Create a new account
 							</a>
 						</div>
-						<div id="register" class="panel-collapse collapse ${(register??)?string("in", "")}">
+						<div id="register" class="panel-collapse collapse ${(register??)?string('in', '')}">
 							<div class="panel-body">
 								<form role="form" method="post" action="/register">
 									<div class="form-group">
-										<input type="text" id="name" name="name" class="form-control"
-										       placeholder="Name" required="true" />
+										<input type="text" id="firstName" name="firstName" class="form-control"
+										       placeholder="First Name" required="true" />
+									</div>
+									<div class="form-group">
+										<input type="text" id="lastName" name="lastName" class="form-control"
+											   placeholder="Last Name" required="true" />
 									</div>
 									<div class="form-group">
 										<input type="email" id="username" name="username" class="form-control"

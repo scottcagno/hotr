@@ -20,14 +20,6 @@
         </div>
         <img src="/static/img/home/bruce.png" class="container visible-xs-inline img-responsive"/>
         <div class="col-lg-2 col-sm-4">
-            <h4><strong>Rich Wilson</strong></h4>
-            <p>
-                VP of Development <br/>
-                <a href="mailto:rich@hotrfm.org">rich@hotrfm.org</a>
-            </p>
-        </div>
-        <img src="/static/img/home/rich.png" class="container visible-xs-inline img-responsive"/>
-        <div class="col-lg-2 col-sm-4">
             <h4><strong>Jeff Kime</strong></h4>
             <p>
                 Executive Producer <br/>
@@ -35,14 +27,6 @@
             </p>
         </div>
         <img src="/static/img/home/jeff.png" class="container visible-xs-inline img-responsive"/>
-        <div class="col-lg-2 col-sm-4">
-            <h4><strong>Scott Phillips</strong></h4>
-            <p>
-                Speaker <br/>
-                <a href="mailto:scott@hotrfm.org">scott@hotrfm.org</a>
-            </p>
-        </div>
-        <img src="/static/img/home/scott.png" class="container visible-xs-inline img-responsive"/>
     </div>
     <div class="row hidden-xs hidden-sm">
         <div class="col-lg-4 col-sm-4">
@@ -52,13 +36,7 @@
             <img src="/static/img/home/bruce.png" class="img-responsive"/>
         </div>
         <div class="col-lg-2 col-sm-4">
-            <img src="/static/img/home/rich.png" class="img-responsive"/>
-        </div>
-        <div class="col-lg-2 col-sm-4">
             <img src="/static/img/home/jeff.png" class="img-responsive"/>
-        </div>
-        <div class="col-lg-2 col-sm-4">
-            <img src="/static/img/home/scott.png" class="img-responsive"/>
         </div>
     </div>
     <hr/>

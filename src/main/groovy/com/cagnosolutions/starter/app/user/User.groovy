@@ -18,7 +18,7 @@ class User {
 	@Id
 	@GeneratedValue
 	Long id
-	String name, username, password, role = "ROLE_USER"
+	String firstName, lastName, spouseName, spouseEmail, username, password, role = "ROLE_USER"
 	Date creation, lastSeen
 	Boolean challenge
 	ArrayList<Long> progress

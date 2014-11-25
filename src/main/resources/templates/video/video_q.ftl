@@ -40,6 +40,26 @@
 
 		<#include "../stubs/alert.ftl"/>
 
+		<#if notChallenge??>
+			<div class="container">
+				<div id="alert">
+					<div class="alert alert-info alert-dismissable text-right">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<div class="form-inline">
+							<div class="form-group pull-left">
+								<p class="lead">
+									Something about taking the challenge
+								</p>
+							</div>
+							<div class="form-group">
+								<a href="/secure/user" class="btn btn-info" type="submit">Start Now!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</#if>
+
 		<#if alertWarning?? && (!(worksheet??))>
 			<div class="container">
 				<div id="alert">
@@ -50,6 +70,31 @@
 				</div>
 			</div>
 		</#if>
+
+			<div class="container">
+				<div id="alert">
+					<div class="alert alert-info alert-dismissable text-right">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<div class="form-inline">
+							<div class="form-group pull-left">
+								<p class="lead">
+									Congratulations on completing the next step in the one year challenge!
+								</p>
+							</div>
+							Click to share
+							<div class="form-group">
+								<a href="" type="submit"><i class="fa fa-2x fa-facebook-square"></i></a>
+							</div>
+							<div class="form-group">
+								<a href="" type="submit"><i class="fa fa-2x fa-google-plus-square"></i></a>
+							</div>
+							<div class="form-group">
+								<a href="" type="submit"><i class="fa fa-2x fa-twitter-square"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 		<div class="container">
 			<br/>

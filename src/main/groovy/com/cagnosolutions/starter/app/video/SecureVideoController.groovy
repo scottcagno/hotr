@@ -79,6 +79,9 @@ class SecureVideoController {
 		def video = videoService.findOne id
 		video.watched++
 		video = videoService.save video
+		if (!user.challenge) {
+			model.addAttribute("notChallenge", true)
+		}
         model.addAllAttributes([video: video, tags : tagService.findAllByVideo(id),
 								questions : questionService.findAllByVideo(id), user : user])
 		"video/video_q"

@@ -31,26 +31,22 @@ class UserController {
 
 	// POST add/edit user
 	@RequestMapping(method = RequestMethod.POST)
-	String save(User user, String confirm, RedirectAttributes attr) {
+	String save(User user, RedirectAttributes attr) {
 		if(userService.canUpdate(user.id, user.username)) {
-			if (user.password == confirm) {
-				User existingUser = userService.findOne(user.id)
-				if (existingUser != null) {
-					userService.mergeProperties(user, existingUser)
-					if (existingUser.password[0] != '$') {
-						existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)\
-					}
-					userService.save existingUser
-				} else {
-					userService.save user
+			User existingUser = userService.findOne(user.id)
+			if (existingUser != null) {
+				user.password = (user.password == '') ? null : user.password
+				userService.mergeProperties(user, existingUser)
+				if (existingUser.password[0] != '$') {
+					existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)
 				}
-				attr.addFlashAttribute("alertSuccess", "Updated Successfully")
-				return "redirect:/admin/user"
+				userService.save existingUser
+			} else {
+				userService.save user
 			}
-			// pass and confirm do not match
-			attr.addFlashAttribute "alertError", "Password and confirm do not match"
+			attr.addFlashAttribute("alertSuccess", "Updated Successfully")
 		} else {
-			attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
+			attr.addFlashAttribute "alertError", "Unable to save user ${user.firstName} ${user.lastName}"
 		}
 		"redirect:/admin/user"
 	}

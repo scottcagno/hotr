@@ -62,7 +62,7 @@ class UserController {
 			attr.addFlashAttribute("alertSuccess", "Updated Successfully")
 			return "redirect:/secure/user"
 		} else {
-			attr.addFlashAttribute "alertError", "Unable to save user ${user.name}"
+			attr.addFlashAttribute "alertError", "Unable to save user ${user.firstName} ${user.lastName}"
 		}
 		return "redirect:/secure/user"
 	}
