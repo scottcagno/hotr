@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+		<meta property="og:url" content="node2.cagnosolutions.com/video/id/${video.id}" />
+		<meta property="og:title" content="Challenge Completed" />
+		<meta property="og:description" content="I just completed the next step in the Fan the Flame Dates one year challenge!" />
+		<meta property="og:image" content="${video.thumb!}" />
 		<title>Template</title>
 		<#include "../stubs/header.ftl"/>
 	</head>

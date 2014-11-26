@@ -103,9 +103,6 @@
 											</#if>
 										</select>
 									</div>
-									<!--<div class="col-xs-6">
-										<a id="addSeries" class="btn btn-primary btn-block">Add Series</a>
-									</div>-->
 								</div>
 								<div id="seriesInput" class="form-group" hidden="hidden">
 									<input class="form-control" id="series" name="series" type="text"

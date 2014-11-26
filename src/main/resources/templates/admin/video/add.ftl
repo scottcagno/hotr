@@ -44,12 +44,9 @@
 											</#if>
 										</select>
 									</div>
-									<!--<div class="col-sm-5">
-										<a id="addSeries" class="btn btn-primary btn-block">Add Series</a>
-									</div>-->
 								</div>
 								<div id="seriesInput" class="form-group" hidden="hidden">
-									<input class="form-control" id="series" name="series" type="text" placeholder="Add Series" required="true"/>
+									<input class="form-control" id="series" name="series" type="text" placeholder="Add Series"/>
 								</div>
 								<input type="hidden" name="vimeoId" value="${(RequestParameters.video_uri?split('/')[2])!}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

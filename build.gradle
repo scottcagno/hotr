@@ -32,6 +32,7 @@ dependencies {
     compile("mysql:mysql-connector-java")
 	compile("org.apache.httpcomponents:httpclient:4.3.4")
 	compile("javax.mail:mail:1.4.7")
+    compile('org.springframework.social:spring-social-facebook')
 }
 
 task wrapper(type: Wrapper) {

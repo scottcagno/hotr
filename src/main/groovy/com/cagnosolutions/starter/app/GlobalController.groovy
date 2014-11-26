@@ -72,6 +72,11 @@ class HomeController {
         "promo"
     }
 
+    @RequestMapping(value = "/social", method = GET)
+    String social() {
+        "social"
+    }
+
 }
 
 @Controller(value = "authController")
