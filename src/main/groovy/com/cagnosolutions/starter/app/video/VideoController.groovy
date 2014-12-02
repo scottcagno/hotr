@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app.video
 
-import com.cagnosolutions.starter.app.tag.TagService
+import com.cagnosolutions.starter.app.topic.TopicService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -23,7 +23,7 @@ class VideoController {
     VideoService videoService
 
 	@Autowired
-	TagService tagService
+	TopicService tagService
 
 	// GET all videos
     @RequestMapping(value = "/{filter}", method = RequestMethod.GET)
@@ -54,8 +54,6 @@ class VideoController {
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model) {
 		def video = videoService.findOne id
-		video.watched++
-		video = videoService.save video
         model.addAllAttributes([video: video, tags : tagService.findAllByVideo(id)])
 		return "video/video"
     }

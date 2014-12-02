@@ -1,10 +1,8 @@
 package com.cagnosolutions.starter.app.worksheet
-
 import com.cagnosolutions.starter.app.email.Email
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
-import com.cagnosolutions.starter.app.user.UserSession
 import com.fasterxml.jackson.databind.ObjectMapper
 import freemarker.template.Configuration
 import freemarker.template.Template
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
-
 /**
  * Created by greg on 10/22/14.
  */
@@ -37,8 +34,6 @@ class WorksheetController {
 	@Autowired
 	EmailService emailService
 
-	@Autowired
-	UserSession userSession
 
 	// GET worksheet
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

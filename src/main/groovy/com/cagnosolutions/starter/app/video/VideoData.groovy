@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app.video
 
-import com.cagnosolutions.starter.app.tag.TagService
+import com.cagnosolutions.starter.app.topic.TopicService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
@@ -24,7 +24,7 @@ class VideoService {
     VideoRepository repo
 
 	@Autowired
-	TagService tagService
+	TopicService tagService
 
     List<Video> findAll() {
         repo.findAll()
@@ -91,6 +91,12 @@ class VideoService {
 		new HashSet<String>(allSeries);
 	}
 
+	def videoWatched(Long videoId) {
+		def video = repo.findOne videoId
+		video.watched++
+		repo.save video
+	}
+
 	// helper method
 	def mergeProperties(source, target) {
 		source.properties.each { key, value ->
@@ -105,8 +111,8 @@ class VideoService {
 @Repository
 interface VideoRepository extends JpaRepository<Video, Long> {
 
-	@Query(nativeQuery = true, value = "select * from hotr.video where hotr.video.id in (select hotr.tag.video_fk from hotr.tag where hotr.tag.tag=:tag)")
-	List<Video> findAllVideoByTag(@Param("tag") String tag)
+	@Query(nativeQuery = true, value = "select * from hotr.video where hotr.video.id in (select hotr.topic.video_fk from hotr.topic where hotr.topic.topic=:topic)")
+	List<Video> findAllVideoByTag(@Param("topic") String tag)
 
 	@Query("SELECT COUNT(v.id) FROM Video v")
 	Integer numberOfVideos()

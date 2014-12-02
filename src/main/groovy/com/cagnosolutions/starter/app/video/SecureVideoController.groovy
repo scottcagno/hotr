@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app.video
 import com.cagnosolutions.starter.app.question.QuestionService
-import com.cagnosolutions.starter.app.tag.TagService
+import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
@@ -26,7 +26,7 @@ class SecureVideoController {
     VideoService videoService
 
 	@Autowired
-	TagService tagService
+	TopicService tagService
 
 	@Autowired
 	QuestionService questionService

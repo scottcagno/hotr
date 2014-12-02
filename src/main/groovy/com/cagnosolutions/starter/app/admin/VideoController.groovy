@@ -1,7 +1,7 @@
 package com.cagnosolutions.starter.app.admin
 import com.cagnosolutions.starter.app.VimeoApi.VimeoAPI
 import com.cagnosolutions.starter.app.question.QuestionService
-import com.cagnosolutions.starter.app.tag.TagService
+import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.video.Video
 import com.cagnosolutions.starter.app.video.VideoService
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,7 +27,7 @@ class VideoController {
 	VimeoAPI vimeoAPI
 
 	@Autowired
-	TagService tagService
+	TopicService topicService
 
 	@Autowired
 	QuestionService questionService
@@ -50,7 +50,7 @@ class VideoController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("video", videoService.findOne(id))
-		model.addAttribute("tags", tagService.findAllByVideo(id))
+		model.addAttribute("topics", topicService.findAllByVideo(id))
 		model.addAttribute("allSeries", videoService.findAllSeries())
 		model.addAttribute("questions", questionService.findAllByVideo(id))
 		"admin/video/edit"
@@ -58,7 +58,7 @@ class VideoController {
 
 	// POST add/edit
 	@RequestMapping(method = RequestMethod.POST)
-	String update(Video video, RedirectAttributes attr, @RequestParam String tags) {
+	String update(Video video, RedirectAttributes attr, @RequestParam String topics) {
 		if (video.id == null) {
 			// new video
 			try {
@@ -76,8 +76,8 @@ class VideoController {
 			videoService.mergeProperties(video, existingVideo)
 			videoService.save existingVideo
 		}
-		// add/remove tags
-		tagService.videoTags(tags, video.id)
+		// add/remove topics
+		topicService.videoTopics(topics, video.id)
 		attr.addFlashAttribute("alertSuccess", "Successfully updated video")
 		"redirect:/admin/video"
 	}
@@ -102,7 +102,7 @@ class VideoController {
 		def video = videoService.findOne id
 		vimeoAPI.deleteVideo video.vimeoId
 		videoService.delete video
-		tagService.deleteAllByVideo id
+		topicService.deleteAllByVideo id
 		questionService.deleteAllByVideo id
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted video")
 		"redirect:/admin/video"

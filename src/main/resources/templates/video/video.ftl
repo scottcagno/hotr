@@ -63,8 +63,8 @@
 		<!-- content -->
 		<div class="container">
 			<div class="col-lg-offset-1 col-lg-10">
-				<div class="embed-responsive embed-responsive-16by9">
-					<iframe src="//player.vimeo.com/video/${video.vimeoId}?portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;autoplay=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<div id="videoDiv" class="embed-responsive embed-responsive-16by9">
+					<img id="video" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive " alt="Video Thumbnail">
 				</div>
 				<div class="row">
 					<div class="col-lg-6">
@@ -92,6 +92,14 @@
 		<#include "../stubs/footer.ftl"/>
 
 		<#include "../stubs/scripts.ftl"/>
+
+		<script>
+			var iframe = '<iframe id="iFrame" src="//player.vimeo.com/video/${video.vimeoId}?portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+			$('img[id="video"]').click(function() {
+				console.log('Video Started');
+				$('div[id="videoDiv"]').html(iframe);
+			});
+		</script>
 
 	</body>
 </html>

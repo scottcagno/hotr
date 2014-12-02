@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.tag
+package com.cagnosolutions.starter.app.topic
 
 import groovy.transform.CompileStatic
 
@@ -11,12 +11,12 @@ import javax.persistence.*
 
 @CompileStatic
 @Entity
-@Table(name = "tag")
-class Tag {
+@Table(name = "topic")
+class Topic {
 
     @Id
 	@GeneratedValue
     Long id
-    String tag
+    String topic
 	Long video_fk
 }

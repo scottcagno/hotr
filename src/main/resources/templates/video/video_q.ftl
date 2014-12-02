@@ -8,22 +8,7 @@
 	</head>
 	<body>
 
-		<script>
-			window.fbAsyncInit = function() {
-				FB.init({
-					appId      : '1376717522621067',
-					xfbml      : true,
-					version    : 'v2.2'
-				});
-			};
-			(function(d, s, id){
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) {return;}
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_US/sdk.js";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+		<script src="/static/js/facebook_conf.js"></script>
 
 		<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
@@ -88,6 +73,9 @@
 			</div>
 		</#if>
 
+		<#if worksheet??>
+			<#assign message = 'I just completed the next step in my Fan The Flame Dates one year challenge!'/>
+			<#assign shareLink = 'http://node2.cagnosolutions.com/video/id/${video.id}'/>
 			<div class="container">
 				<div id="alert">
 					<div class="alert alert-info alert-dismissable text-right">
@@ -106,19 +94,19 @@
 								<a href="#">
 									<span
 										class="g-interactivepost"
-										data-contenturl="http://node2.cagnosolutions.com/video/id/1"
-										data-clientid="845141024587-90pjhir2j6oler2l82nckthksjm804d6.apps.googleusercontent.com"
+										data-contenturl="${shareLink}"
+										data-clientid="268327735010-6t55rdr44med018rtbbmd0cbbp88b0ga.apps.googleusercontent.com"
 										data-cookiepolicy="single_host_origin"
 										data-prefilltext="I just completed the next step in my Fan The Flame Dates one year challenge!"
 										data-calltoactionlabel="VISIT"
-										data-calltoactionurl="http://node2.cagnosolutions.com/video/id/1"
+										data-calltoactionurl="${shareLink}"
 										data-calltoactiondeeplinkid="/pages/create">
 										<i class="fa fa-google-plus-square fa-2x"></i>
 									</span>
 								</a>
 							</div>
 							<div class="form-group">
-								<a href="https://twitter.com/share?url=node2.cagnosolutions.com/video/${video.id}&text=I%20just%20completed%20the%20next%20step%20in%20my%20Fan%20The%20Flame%20Dates%20one%20year%20challenge!&count=none"
+								<a href="https://twitter.com/share?url=${shareLink}&text=${message}&count=none"
 								   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;"	>
 									<i class="fa fa-twitter-square fa-2x"></i>
 								</a>
@@ -127,7 +115,7 @@
 					</div>
 				</div>
 			</div>
-
+		</#if>
 		<div class="container">
 			<br/>
 			<div class="col-sm-7">
@@ -240,27 +228,12 @@
 			<#include "../stubs/scripts.ftl"/>
 
 			<script src="/static/js/video_q.js"></script>
-
-
-
-
 			<script>
-				function fbShare() {
-					FB.ui({
-						method: 'feed',
-						link: 'http://node2.cagnosolutions.com/video/id/${video.id}',
-						picture: '${video.thumb!}',
-						name: 'Fan The Flame Dates',
-						caption: 'Challenge Accepted',
-						description: 'I just completed the next step in my Fan The Flame Dates one year challenge!'
-					});
-				}
-
-				window.___gcfg = {
-					lang: 'en-US',
-					parsetags: 'onload'
-				};
+				var shareLink = '${shareLink}';
+				var thumb = '${video.thumb!}';
+				var message = '${message}'
 			</script>
+			<script src="/static/js/social.js"></script>
 			<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 		</div>
 	</body>
