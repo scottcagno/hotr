@@ -26,9 +26,9 @@
 									<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
 											  style="resize:none;"></textarea>
 								</div>
-								<label>Tags separated by space</label>
+								<label>Topics separated by space</label>
 								<div class="form-group">
-									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
+									<textarea id="topics" name="topics" class="form-control" rows="5" placeholder="Topics"
 											  style="resize:none;"></textarea>
 								</div>
 								<label>Series</label>

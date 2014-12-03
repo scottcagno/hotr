@@ -24,7 +24,7 @@ class VideoService {
     VideoRepository repo
 
 	@Autowired
-	TopicService tagService
+	TopicService topicService
 
     List<Video> findAll() {
         repo.findAll()
@@ -34,8 +34,8 @@ class VideoService {
 		repo.findAll(ids)
 	}
 
-	List<Video> findAllByTag(String tag) {
-		repo.findAllVideoByTag(tag)
+	List<Video> findAllByTopic(String topic) {
+		repo.findAllVideoByTopic(topic)
 	}
 
 	List<Video> findAllBySeries(String series) {
@@ -112,7 +112,7 @@ class VideoService {
 interface VideoRepository extends JpaRepository<Video, Long> {
 
 	@Query(nativeQuery = true, value = "select * from hotr.video where hotr.video.id in (select hotr.topic.video_fk from hotr.topic where hotr.topic.topic=:topic)")
-	List<Video> findAllVideoByTag(@Param("topic") String tag)
+	List<Video> findAllVideoByTopic(@Param("topic") String topic)
 
 	@Query("SELECT COUNT(v.id) FROM Video v")
 	Integer numberOfVideos()

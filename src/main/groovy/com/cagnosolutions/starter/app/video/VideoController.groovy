@@ -23,12 +23,14 @@ class VideoController {
     VideoService videoService
 
 	@Autowired
-	TopicService tagService
+	TopicService topicService
 
 	// GET all videos
     @RequestMapping(value = "/{filter}", method = RequestMethod.GET)
-    String viewAll(@RequestParam(required = false) String tag, @PathVariable String filter, Model model) {
-		if (tag == null) {
+    String viewAll(@RequestParam(required = false) String topic, @PathVariable String filter, Model model) {
+		model.addAttribute("auth", false)
+		model.addAttribute("topics", topicService.popTopics())
+		if (topic == null) {
 			switch (filter) {
 				case "all":
 					model.addAttribute "videos", videoService.findAll()
@@ -44,9 +46,8 @@ class VideoController {
 					break
 			}
 		} else {
-			model.addAttribute("videos", videoService.findAllByTag(tag))
+			model.addAttribute("videos", videoService.findAllByTopic(topic))
 		}
-		model.addAttribute("auth", false)
         "video/videos"
     }
 
@@ -54,7 +55,7 @@ class VideoController {
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model) {
 		def video = videoService.findOne id
-        model.addAllAttributes([video: video, tags : tagService.findAllByVideo(id)])
+        model.addAllAttributes([video: video, topics : topicService.findAllByVideo(id)])
 		return "video/video"
     }
 

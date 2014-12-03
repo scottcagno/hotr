@@ -26,7 +26,7 @@ class SecureVideoController {
     VideoService videoService
 
 	@Autowired
-	TopicService tagService
+	TopicService topicService
 
 	@Autowired
 	QuestionService questionService
@@ -44,10 +44,11 @@ class SecureVideoController {
 
 	// GET secure all videos
     @RequestMapping(value="/{filter}", method = RequestMethod.GET)
-    String viewAll(@RequestParam(required = false) String tag,
+    String viewAll(@RequestParam(required = false) String topic,
                    @PathVariable String filter, Model model) {
 		model.addAttribute("auth", true)
-		if (tag == null) {
+		model.addAttribute("topics", topicService.popTopics())
+		if (topic == null) {
 			switch (filter) {
 				case "all":
 					model.addAttribute "videos", videoService.findAll()
@@ -63,7 +64,7 @@ class SecureVideoController {
 					break
 			}
 		} else {
-			model.addAttribute("videos", videoService.findAllByTag(tag))
+			model.addAttribute("videos", videoService.findAllByTopic(topic))
 		}
         "video/videos"
     }
@@ -82,7 +83,7 @@ class SecureVideoController {
 		if (!user.challenge) {
 			model.addAttribute("notChallenge", true)
 		}
-        model.addAllAttributes([video: video, tags : tagService.findAllByVideo(id),
+        model.addAllAttributes([video: video, topics : topicService.findAllByVideo(id),
 								questions : questionService.findAllByVideo(id), user : user])
 		"video/video_q"
     }

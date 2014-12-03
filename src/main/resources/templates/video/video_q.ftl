@@ -73,9 +73,9 @@
 			</div>
 		</#if>
 
+		<#assign message = 'I just completed the next step in my Fan The Flame Dates one year challenge!'/>
+		<#assign shareLink = 'http://node2.cagnosolutions.com/video/id/${video.id}'/>
 		<#if worksheet??>
-			<#assign message = 'I just completed the next step in my Fan The Flame Dates one year challenge!'/>
-			<#assign shareLink = 'http://node2.cagnosolutions.com/video/id/${video.id}'/>
 			<div class="container">
 				<div id="alert">
 					<div class="alert alert-info alert-dismissable text-right">
@@ -119,8 +119,8 @@
 		<div class="container">
 			<br/>
 			<div class="col-sm-7">
-				<div class="embed-responsive embed-responsive-16by9">
-					<iframe src="//player.vimeo.com/video/${video.vimeoId}?portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;autoplay=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<div id="videoDiv" class="embed-responsive embed-responsive-16by9">
+					<img id="video" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive " alt="Video Thumbnail">
 				</div>
 				<div class="row">
 					<div class="col-lg-6">
@@ -136,8 +136,8 @@
 						Check out related videos
 					</p>
 					<p>
-						<#list tags as tag>
-							<a href="/secure/video/all?tag=${tag}" class="btn btn-xs btn-primary">${tag}</a>
+						<#list topics as topic>
+							<a href="/secure/video/all?topic=${topic}" class="btn btn-xs btn-primary">${topic}</a>
 						</#list>
 					</p>
 				</div>
@@ -219,20 +219,29 @@
 				</div>
 			</div>
 		</div>
+
 		<div id="regEx" hidden>(<(?:"[^"]*"['"]*|'[^']*\'['"]*|[^'">])+>)|((function)|\(|\)|\;|([a-z]\.[a-z])|\{|\})</div>
+
+		<form id="watched" hidden>
+			<input type="text" name="topicIds" value="${topics?join(',')}"/>
+			<input type="text" name="videoId" value="${video.id}"/>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		</form>
+		
 		<#include "../stubs/footer.ftl"/>
 
 		<!-- scripts -->
 		<div id="scripts">
 
 			<#include "../stubs/scripts.ftl"/>
-
-			<script src="/static/js/video_q.js"></script>
 			<script>
-				var shareLink = '${shareLink}';
 				var thumb = '${video.thumb!}';
-				var message = '${message}'
+				var iframe = '<iframe id="iFrame" src="//player.vimeo.com/video/${video.vimeoId}?portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+				var message = '${message}';
+				var shareLink = '${shareLink}';
 			</script>
+			<script src="/static/js/video_q.js"></script>
+			<script src="/static/js/video.js"></script>
 			<script src="/static/js/social.js"></script>
 			<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 		</div>

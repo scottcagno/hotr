@@ -80,14 +80,19 @@
 						Check out related videos
 					</p>
 					<p>
-						<#list tags as tag>
-							<a href="/video/all?tag=${tag}" class="btn btn-xs btn-primary">${tag}</a>
+						<#list topics as topic>
+							<a href="/video/all?topic=${topic}" class="btn btn-xs btn-primary">${topic}</a>
 						</#list>
 					</p>
 				</div>
 			</div>
 		</div>
 		<!-- content -->
+		<form id="watched" hidden>
+			<input type="text" name="topicIds" value="${topics?join(',')}"/>
+			<input type="text" name="videoId" value="${video.id}"/>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		</form>
 
 		<#include "../stubs/footer.ftl"/>
 
@@ -95,11 +100,8 @@
 
 		<script>
 			var iframe = '<iframe id="iFrame" src="//player.vimeo.com/video/${video.vimeoId}?portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
-			$('img[id="video"]').click(function() {
-				console.log('Video Started');
-				$('div[id="videoDiv"]').html(iframe);
-			});
 		</script>
+		<script src="/static/js/video.js"></script>
 
 	</body>
 </html>

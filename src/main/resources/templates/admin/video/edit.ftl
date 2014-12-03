@@ -84,10 +84,10 @@
 									<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
 											  style="resize:none;">${video.description}</textarea>
 								</div>
-								<label>Tags separated by commas</label>
+								<label>Topics separated by commas</label>
 								<div class="form-group">
-									<textarea id="tags" name="tags" class="form-control" rows="5" placeholder="Tags"
-											  style="resize:none;">${tags?join(", ")}</textarea>
+									<textarea id="topics" name="topics" class="form-control" rows="5" placeholder="Topics"
+											  style="resize:none;">${topics?join(", ")}</textarea>
 								</div>
 								<label>Series</label>
 								<div class="form-group row">

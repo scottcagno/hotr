@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseBody
+
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam
 
 @CompileStatic
 @Controller(value = "topicController")
-@RequestMapping(value = "/secure/video/topic")
+@RequestMapping(value = "/topic")
 class TopicController {
 
     @Autowired
@@ -31,9 +33,11 @@ class TopicController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    String topicWatched(Topic topic, @RequestParam(value = "topicIds") List<String> topicIds, Long videoId) {
+    @ResponseBody
+    String topicWatched(@RequestParam(value = "topicIds") List<String> topicIds, Long videoId) {
         topicService.topicWatched(topicIds)
         videoService.videoWatched(videoId)
+        "DONE"
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

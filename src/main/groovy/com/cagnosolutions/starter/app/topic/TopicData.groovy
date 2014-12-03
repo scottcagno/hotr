@@ -84,8 +84,14 @@ class TopicService {
 
 	def topicWatched(List<String> topicIds) {
 		def topics = watchedRepo.findAll(topicIds)
-		topics*.watched++
+		topics.each {
+			it.watched++
+		}
 		watchedRepo.save(topics)
+	}
+
+	List<TopicWatched> popTopics() {
+		watchedRepo.popTopic()
 	}
 
 }
@@ -114,5 +120,6 @@ interface TopicRepository extends JpaRepository<Topic, Long> {
 @CompileStatic
 @Repository
 interface TopicWatchedRepository extends JpaRepository<TopicWatched, String> {
-
+	@Query(nativeQuery = true, value = "select * from hotr.topic_watched order by hotr.topic_watched.watched desc limit 10;")
+	List<TopicWatched> popTopic()
 }

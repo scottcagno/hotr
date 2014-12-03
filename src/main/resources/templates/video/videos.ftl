@@ -43,9 +43,9 @@
 		<!-- content -->
 		<div id="content" class="container">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-9">
 					<ul class="nav nav-tabs hidden-xs hidden-sm" role="tablist">
-						<li class="${(filter == 'all' && !RequestParameters.tag??)?string('active', '')}">
+						<li class="${(filter == 'all' && !RequestParameters.topic??)?string('active', '')}">
 							<a href="${link}/video/all">All Videos</a>
 						</li>
 						<li class="${(filter == 'popular')?string('active', '')}">
@@ -60,24 +60,40 @@
 					</ul>
 					<div class="visible-xs visible-sm">
 						<div class="list-group">
-							<a href="${link}/video/all" class="list-group-item ${(filter == 'all' && !RequestParameters.tag??)?string('active', '')}">All Videos</a>
+							<a href="${link}/video/all" class="list-group-item ${(filter == 'all' && !RequestParameters.topic??)?string('active', '')}">All Videos</a>
 							<a href="${link}/video/popular" class="list-group-item ${(filter == 'popular')?string('active', '')}">Popular</a>
 							<a href="${link}/video/recent" class="list-group-item ${(filter == 'recent')?string('active', '')}">Recently Added</a>
 							<a href="${link}/video/series" class="list-group-item ${(filter == 'series')?string('active', '')}">Series</a>
 						</div>
 					</div>
-					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">${filter}</h4>', '')}
+					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">Series ${filter}</h4>', '')}
+					${(RequestParameters.topic??)?string('<h4 class="text-center">Topic ${RequestParameters.topic!}</h4>', '')}
 					<br/>
-				</div>
 
 				<#list videos as video>
-					<div class="col-sm-4 col-md-3 col-lg-3 text-center video-margin">
+					<div class="col-sm-4 col-md-4 col-lg-4 text-center video-margin">
 						<a href="${link}/video/id/${video.id}">
 							<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 						</a>
 						<p class="video-title"><strong>${video}</strong></p>
 					</div>
 				</#list>
+				</div>
+
+				<div class="col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Hot Topics
+						</div>
+						<div class="panel-body">
+							<#list topics as topic>
+								<a href="/video/all?topic=${topic.topic}" class="btn btn-block btn-primary">
+									${topic.topic} <span class="badge pull-right">${topic.watched}</span>
+								</a>
+							</#list>
+						</div>
+					</div>
+				</div>
 
 			</div>
 		</div>
