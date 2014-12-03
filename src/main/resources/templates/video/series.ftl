@@ -43,7 +43,7 @@
 		<!-- content -->
 		<div id="content" class="container">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-9">
 					<div class="hidden-xs hidden-sm">
 						<ul class="nav nav-tabs" role="tablist">
 							<li><a href="${link}/video/all">All Videos</a></li>
@@ -61,15 +61,30 @@
 						</div>
 					</div>
 					<br/>
+					<#list allSeries as series>
+						<div class="col-sm-4 col-md-4 col-lg-4 text-center video-margin">
+							<a href="${link}/video/${series}">
+								<img src="/static/img/video.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+							</a>
+							<p class="video-title"><strong>${series}</strong></p>
+						</div>
+					</#list>
 				</div>
-				<#list allSeries as series>
-					<div class="col-sm-4 col-md-3 text-center video-margin">
-						<a href="${link}/video/${series}">
-							<img src="/static/img/video.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
-						</a>
-						<p class="video-title"><strong>${series}</strong></p>
+
+				<div class="col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Hot Topics
+						</div>
+						<div class="panel-body">
+							<#list topics as topic>
+								<a href="/video/all?topic=${topic.topic}" class="btn btn-block btn-primary">
+									${topic.topic} <span class="badge pull-right">${topic.watched}</span>
+								</a>
+							</#list>
+						</div>
 					</div>
-				</#list>
+				</div>
 			</div>
 		</div>
 

@@ -70,14 +70,14 @@
 					${(RequestParameters.topic??)?string('<h4 class="text-center">Topic ${RequestParameters.topic!}</h4>', '')}
 					<br/>
 
-				<#list videos as video>
-					<div class="col-sm-4 col-md-4 col-lg-4 text-center video-margin">
-						<a href="${link}/video/id/${video.id}">
-							<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
-						</a>
-						<p class="video-title"><strong>${video}</strong></p>
-					</div>
-				</#list>
+					<#list videos as video>
+						<div class="col-sm-4 col-md-4 col-lg-4 text-center video-margin">
+							<a href="${link}/video/id/${video.id}">
+								<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+							</a>
+							<p class="video-title"><strong>${video}</strong></p>
+						</div>
+					</#list>
 				</div>
 
 				<div class="col-lg-3">

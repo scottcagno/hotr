@@ -28,8 +28,7 @@ class VideoController {
 	// GET all videos
     @RequestMapping(value = "/{filter}", method = RequestMethod.GET)
     String viewAll(@RequestParam(required = false) String topic, @PathVariable String filter, Model model) {
-		model.addAttribute("auth", false)
-		model.addAttribute("topics", topicService.popTopics())
+		model.addAllAttributes([auth: false, topics: topicService.popTopics()])
 		if (topic == null) {
 			switch (filter) {
 				case "all":
@@ -61,7 +60,7 @@ class VideoController {
 
 	@RequestMapping(value = "/series", method = RequestMethod.GET)
 	String series(Model model) {
-		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : false])
+		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : false, topics: topicService.popTopics()])
 		"video/series"
 	}
 }
