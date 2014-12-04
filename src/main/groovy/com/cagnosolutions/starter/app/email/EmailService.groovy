@@ -6,6 +6,7 @@ import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
+import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils
 
@@ -35,27 +36,26 @@ class EmailService {
 		new Email([body : body])
 	}
 
+	@Async
 	def sendEmailThreaded(Email email) {
-		Thread.start {
-			MimeMessage mimeEmail = mailSender.createMimeMessage()
-			MimeMessageHelper helper = new MimeMessageHelper(mimeEmail, true)
-			helper.setTo(email.to)
-			helper.setFrom(email.from)
-			helper.setReplyTo(email.from)
-			helper.setSubject(email.subject)
-			helper.setText(email.body, true)
-			mailSender.send(mimeEmail)
-		}
+		MimeMessage mimeEmail = mailSender.createMimeMessage()
+		MimeMessageHelper helper = new MimeMessageHelper(mimeEmail, true)
+		helper.setTo(email.to)
+		helper.setFrom(email.from)
+		helper.setReplyTo(email.from)
+		helper.setSubject(email.subject)
+		helper.setText(email.body, true)
+		mailSender.send(mimeEmail)
 	}
 
 	def sendEmail(Email email) {
-			MimeMessage mimeEmail = mailSender.createMimeMessage()
-			MimeMessageHelper helper = new MimeMessageHelper(mimeEmail, true)
-			helper.setTo(email.to)
-			helper.setFrom(email.from)
-			helper.setReplyTo(email.from)
-			helper.setSubject(email.subject)
-			helper.setText(email.body, true)
-			mailSender.send(mimeEmail)
+		MimeMessage mimeEmail = mailSender.createMimeMessage()
+		MimeMessageHelper helper = new MimeMessageHelper(mimeEmail, true)
+		helper.setTo(email.to)
+		helper.setFrom(email.from)
+		helper.setReplyTo(email.from)
+		helper.setSubject(email.subject)
+		helper.setText(email.body, true)
+		mailSender.send(mimeEmail)
 	}
 }

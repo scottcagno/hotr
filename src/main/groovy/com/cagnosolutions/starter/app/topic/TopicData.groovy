@@ -94,6 +94,13 @@ class TopicService {
 		watchedRepo.popTopic()
 	}
 
+	List<Long> videoIdsByTopics(List<String> topics) {
+		def videoIds = []
+		topics.each { topic ->
+			videoIds.addAll(repo.videoIdsByTopic(topic))
+		}
+		videoIds
+	}
 }
 
 @CompileStatic
@@ -115,6 +122,8 @@ interface TopicRepository extends JpaRepository<Topic, Long> {
 	@Query("SELECT COUNT(t.id) FROM Topic t WHERE t.topic=:topic")
 	int hasTopic(@Param("topic") String topic)
 
+	@Query("SELECT t.video_fk FROM Topic t WHERE t.topic=:topic")
+	List<Long> videoIdsByTopic(@Param("topic") String topic)
 }
 
 @CompileStatic

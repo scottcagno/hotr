@@ -72,7 +72,7 @@ class WorksheetController {
 		}
 		if (email) {
 			// email to user
-			map.put("name", user.name)
+			map.put("name", user.firstName)
 			map.put("worksheet", worksheet)
 			Email mail = emailService.CreateEmail("email/email.ftl", map)
 			mail.setAll("noreply@fantheflamedates.com", "Worksheet for video ${worksheet.videoName}", user.username)
@@ -83,6 +83,6 @@ class WorksheetController {
 			// email to ffd
 		}
 		attr.addFlashAttribute("worksheet", worksheet)
-		"redirect:/secure/video/id/${worksheet.videoId}"
+		"redirect:/secure/video/relatedto/${worksheet.videoId}"
 	}
 }

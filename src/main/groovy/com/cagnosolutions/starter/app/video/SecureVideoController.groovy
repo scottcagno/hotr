@@ -4,7 +4,6 @@ import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
-import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam
  * Copyright Cagno Solutions. All rights reserved.
  */
 
-@CompileStatic
 @Controller(value = "secureVideoController")
 @RequestMapping(value = "/secure/video")
 class SecureVideoController {
@@ -91,5 +89,22 @@ class SecureVideoController {
 	String series(Model model) {
 		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : true, topics: topicService.popTopics()])
 		"video/series"
+	}
+
+	@RequestMapping(value = "/relatedto/{id}", method = RequestMethod.GET)
+	String relatedTo(@PathVariable Long id, Model model) {
+		def topics = topicService.findAllByVideo id
+		def videoIds = topicService.videoIdsByTopics(topics)
+		def m = [:]
+		videoIds.each { vidId ->
+			m[vidId] = (m[vidId] == null)? 1 : m[vidId]+1
+		}
+		m.remove id
+		m = m.sort { -it.value }
+		videoIds = null
+		videoIds = m.keySet() as ArrayList
+		videoIds = (videoIds.size() > 13)? videoIds.subList(0, 10) : videoIds
+		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics])
+		"video/related"
 	}
 }
