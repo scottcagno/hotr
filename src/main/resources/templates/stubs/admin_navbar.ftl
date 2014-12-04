@@ -1,3 +1,5 @@
+<#import "global.ftl" as glob/>
+
 <div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">

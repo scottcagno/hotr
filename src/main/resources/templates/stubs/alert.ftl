@@ -1,3 +1,5 @@
+<#import "global.ftl" as glob/>
+
 <div class="container navbar-margin">
 	<!-- login error -->
 	<#if RequestParameters.error??>

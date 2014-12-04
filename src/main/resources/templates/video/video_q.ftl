@@ -74,7 +74,7 @@
 		</#if>
 
 		<#assign message = 'I just completed the next step in my Fan The Flame Dates one year challenge!'/>
-		<#assign shareLink = 'http://node2.cagnosolutions.com/video/id/${video.id}'/>
+		<#assign shareLink = '${glob.host}/video/id/${video.id}'/>
 		<#if worksheet??>
 			<div class="container">
 				<div id="alert">

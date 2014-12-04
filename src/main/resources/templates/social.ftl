@@ -87,7 +87,7 @@
 				</script>
 
 
-				<a href="#" onclick="fbShare()"><i class="fa fa-facebook-square fa-2x"></i></a>
+				<a href="#" onclick="vidShare()"><i class="fa fa-facebook-square fa-2x"></i></a>
 				<script>
 					function fbShare() {
 					  FB.ui({
@@ -98,7 +98,19 @@
 					    caption: 'Challenge Accepted',
 					    description: 'I just completed the next step in my Fan The Flame Dates one year challenge!'
 					  });
-					}
+					};
+
+					function vidShare() {
+						FB.ui({
+							method: 'feed',
+							picture: '${video.thumb}',
+							link: 'http://vimeo.com/${video.vimeoId}',
+							source: 'http://vimeo.com/moogaloop.swf?clip_id=${video.vimeoId}&autoplay=1',
+							name: '${video.name}',
+							caption: 'We uploaded a new video!',
+							description: '${video.description}'
+						});
+					};
 				</script>
 
 				<script>

@@ -8,6 +8,8 @@
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
+		<script src="/static/js/facebook_conf.js"></script>
+
 		<!-- delete item alert -->
 		<div class="container">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -45,6 +47,7 @@
 								<th>Series</th>
 								<th class="hidden-xs hidden-sm">Thumbnail</th>
 								<th></th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -59,6 +62,12 @@
 										<#else/>
 											Not Ready
 										</#if>
+									</td>
+									<td>
+										<a href="" id="facebook"   data-name="${video.name}"
+												data-desc="${video.description}" data-thumb="${video.thumb!}" data-id="${video.id}" data-vimeoId="${video.vimeoId}">
+											<i class="fa fa-facebook-square fa-2x"></i>
+										</a>
 									</td>
 									<td>
 										<a href="/admin/video/${video.id}" class="btn btn-primary">
@@ -88,6 +97,34 @@
 		<script src="/static/js/admin/all-video.js"></script>
 
 		<script src="/static/js/delete-item.js"></script>
+
+		<script>
+
+			var link = '${glob.host}/video/id/'
+
+			function vidShare(thumb, vimeoId, id, name, desc) {
+				FB.ui({
+					method: 'feed',
+					picture: thumb,
+					link: 'http://vimeo.com/' + vimeoId,
+					source: 'http://vimeo.com/moogaloop.swf?clip_id=' + vimeoId + '&autoplay=1',
+					name: name,
+					description: desc,
+					caption: 'We uploaded a new video!',
+					actions: [
+						{
+							name: 'Click to watch on our site',
+							link: link + id
+						}
+					]
+				});
+			};
+
+			$('button[id="facebook"]').click(function() {
+				vidShare(this.getAttribute('data-thumb'), this.getAttribute('data-vimeoId'), this.getAttribute('data-id'), this.getAttribute('data-name'), this.getAttribute('data-desc'))
+			});
+
+		</script>
 
 	</body>
 </html>
