@@ -55,8 +55,8 @@ class WorksheetController {
 	@RequestMapping(method = RequestMethod.POST)
 	String add(String answers, Worksheet worksheet, RedirectAttributes attr, Boolean save, Boolean email, Boolean send) {
 		User user = userService.findOne worksheet.userId
-		println user.challenge
 		if (!(worksheet.videoId in user.progress) && user.challenge && user.progress.size() <= 12) {
+			attr.addFlashAttribute("isChallenged", true)
 			user.progress << worksheet.videoId
 		}
 		ObjectMapper mapper = new ObjectMapper()

@@ -42,8 +42,8 @@
 
 		<!-- content -->
 		<div id="content" class="container">
-			<div class="row">
-				<div class="col-lg-9">
+			<div class="">
+				<div class="col-lg-9 col-md-9 col-sm-12">
 					<ul class="nav nav-tabs hidden-xs hidden-sm" role="tablist">
 						<li class="${(filter == 'all' && !RequestParameters.topic??)?string('active', '')}">
 							<a href="${link}/video/all">All Videos</a>
@@ -69,9 +69,8 @@
 					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">Series ${filter}</h4>', '')}
 					${(RequestParameters.topic??)?string('<h4 class="text-center">Topic ${RequestParameters.topic!}</h4>', '')}
 					<br/>
-
 					<#list videos as video>
-						<div class="col-sm-4 col-md-4 col-lg-4 text-center video-margin">
+						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
 							<a href="${link}/video/id/${video.id}">
 								<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 							</a>
@@ -80,7 +79,7 @@
 					</#list>
 				</div>
 
-				<div class="col-lg-3">
+				<div class="col-md-3 col-lg-3 col-sm-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							Hot Topics

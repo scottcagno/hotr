@@ -20,7 +20,7 @@
             </em>
         </div>
     </div>
-    <div class="row container">
+    <!--<div class="row container">
         <h1>Marriage Retreats</h1>
         <ul class="list-group">
             <li class="list-group-item">
@@ -56,7 +56,7 @@
                 <p class="text-success">8 Spots open</p>
             </li>
         </ul>
-    </div>
+    </div>-->
     <div class="row container">
         <h1>Marriage Intensives</h1>
         <ul class="list-group">

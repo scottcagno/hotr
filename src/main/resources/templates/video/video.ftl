@@ -48,12 +48,12 @@
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 					<div class="form-inline">
 						<div class="form-group pull-left">
-							<p class="lead">
-								Something about taking the challenge
+							<p>
+								Sign up for the one-year marriage challenge to grow intimacy and protect your marriage!
 							</p>
 						</div>
 						<div class="form-group">
-							<a href="/secure/user" class="btn btn-info" type="submit">Sign Up!</a>
+							<a href="/challenge" class="btn btn-info btn-xs" type="submit">Learn More</a>
 						</div>
 					</div>
 				</div>

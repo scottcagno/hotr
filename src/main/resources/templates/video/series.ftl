@@ -43,7 +43,7 @@
 		<!-- content -->
 		<div id="content" class="container">
 			<div class="row">
-				<div class="col-lg-9">
+				<div class="col-lg-9 col-md-9 col-sm-12">
 					<div class="hidden-xs hidden-sm">
 						<ul class="nav nav-tabs" role="tablist">
 							<li><a href="${link}/video/all">All Videos</a></li>
@@ -62,7 +62,7 @@
 					</div>
 					<br/>
 					<#list allSeries as series>
-						<div class="col-sm-4 col-md-4 col-lg-4 text-center video-margin">
+						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
 							<a href="${link}/video/${series}">
 								<img src="/static/img/video.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 							</a>
@@ -71,7 +71,7 @@
 					</#list>
 				</div>
 
-				<div class="col-lg-3">
+				<div class="col-lg-3 col-md-3 col-sm-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							Hot Topics

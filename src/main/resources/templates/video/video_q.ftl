@@ -8,8 +8,6 @@
 	</head>
 	<body>
 
-		<script src="/static/js/facebook_conf.js"></script>
-
 		<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -49,12 +47,12 @@
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 						<div class="form-inline">
 							<div class="form-group pull-left">
-								<p class="lead">
-									Something about taking the challenge
+								<p>
+									Begin the one-year marriage challenge to grow intimacy and protect your marriage!
 								</p>
 							</div>
 							<div class="form-group">
-								<a href="/secure/user" class="btn btn-info" type="submit">Start Now!</a>
+								<a href="/secure/challenge" class="btn btn-info btn-xs" type="submit">Learn More!</a>
 							</div>
 						</div>
 					</div>
@@ -62,7 +60,7 @@
 			</div>
 		</#if>
 
-		<#if alertWarning?? && (!(worksheet??))>
+		<#if alertWarning??>
 			<div class="container">
 				<div id="alert">
 					<div class="alert alert-warning alert-dismissable">
@@ -73,49 +71,6 @@
 			</div>
 		</#if>
 
-		<#assign message = 'I just completed the next step in my Fan The Flame Dates one year challenge!'/>
-		<#assign shareLink = '${glob.host}/video/id/${video.id}'/>
-		<#if worksheet??>
-			<div class="container">
-				<div id="alert">
-					<div class="alert alert-info alert-dismissable text-right">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<div class="form-inline">
-							<div class="form-group pull-left">
-								<p class="lead">
-									Congratulations on completing the next step in the one year challenge!
-								</p>
-							</div>
-							Click to share
-							<div class="form-group">
-								<a href="#" onclick="fbShare()"><i class="fa fa-facebook-square fa-2x"></i></a>
-							</div>
-							<div class="form-group">
-								<a href="#">
-									<span
-										class="g-interactivepost"
-										data-contenturl="${shareLink}"
-										data-clientid="268327735010-6t55rdr44med018rtbbmd0cbbp88b0ga.apps.googleusercontent.com"
-										data-cookiepolicy="single_host_origin"
-										data-prefilltext="I just completed the next step in my Fan The Flame Dates one year challenge!"
-										data-calltoactionlabel="VISIT"
-										data-calltoactionurl="${shareLink}"
-										data-calltoactiondeeplinkid="/pages/create">
-										<i class="fa fa-google-plus-square fa-2x"></i>
-									</span>
-								</a>
-							</div>
-							<div class="form-group">
-								<a href="https://twitter.com/share?url=${shareLink}&text=${message}&count=none"
-								   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;"	>
-									<i class="fa fa-twitter-square fa-2x"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</#if>
 		<div class="container">
 			<br/>
 			<div class="col-sm-7">
@@ -146,75 +101,71 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Worksheet</div>
 					<div class="panel-body">
-						<#if worksheet??>
-							${worksheet.htmlData}
-						<#else/>
-							<#assign i = 0 />
-							<form id="worksheet">
-								<#list questions as question>
-									<#switch question.inputType>
-										<#case "select one">
-											<label id="question_${i}">${question.question}</label>
-											<#list question.options as option>
-												<div class="radio">
-													<label>
-														<input id="question_${i}" type="radio" name="${question.question}" id="optionsRadios1" value="${option}">
-														${option}
-													</label>
-												</div>
-											</#list>
-											<#break/>
-										<#case "select many">
-											<label id="question_${i}">${question.question}</label>
-											<#list question.options as option>
-												<div class="checkbox">
-													<label>
-														<input name="${question.question}" id="question_${i}" type="checkbox" value="${option}">
-														${option}
-													</label>
-												</div>
-											</#list>
-											<#break/>
-										<#case "text box">
-											<label id="question_${i}">${question.question}</label>
-											<div class="form-group">
-												<textarea name="${question.question}" id="question_${i}" class="form-control" rows="5" style="resize:none;"></textarea>
+						<#assign i = 0 />
+						<form id="worksheet">
+							<#list questions as question>
+								<#switch question.inputType>
+									<#case "select one">
+										<label id="question_${i}">${question.question}</label>
+										<#list question.options as option>
+											<div class="radio">
+												<label>
+													<input id="question_${i}" type="radio" name="${question.question}" id="optionsRadios1" value="${option}">
+													${option}
+												</label>
 											</div>
-											<#break/>
-										<#default>
-											<label id="question_${i}">${question.question}</label>
-											<div class="form-group">
-												<input name="${question.question}" id="question_${i}" type="${question.inputType}" class="form-control" required="true"/>
+										</#list>
+										<#break/>
+									<#case "select many">
+										<label id="question_${i}">${question.question}</label>
+										<#list question.options as option>
+											<div class="checkbox">
+												<label>
+													<input name="${question.question}" id="question_${i}" type="checkbox" value="${option}">
+													${option}
+												</label>
 											</div>
-									</#switch>
-									<#assign i = i +1 />
-								</#list>
-								<br>
-							</form>
-							<form id="submitForm" action="/secure/worksheet" role="form" method="post">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="save" value="true"> Save completed worksheet in my profile.
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="email" value="true"> Email completed worksheet to me.
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="send" value="true"> Anonymously submit my completed worksheet to Fan the Flame Dates.
-									</label>
-								</div>
-								<input type="hidden" name="videoId" value="${video.id}">
-								<input type="hidden" name="userId" value="${user.id}">
-								<input type="hidden" name="videoName" value="${video.name}">
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<input type="hidden" name="answers" id="answers">
-							</form>
-							<button id="submitWorksheet" class="btn btn-md btn-default btn-block">Submit</button>
-						</#if>
+										</#list>
+										<#break/>
+									<#case "text box">
+										<label id="question_${i}">${question.question}</label>
+										<div class="form-group">
+											<textarea name="${question.question}" id="question_${i}" class="form-control" rows="5" style="resize:none;"></textarea>
+										</div>
+										<#break/>
+									<#default>
+										<label id="question_${i}">${question.question}</label>
+										<div class="form-group">
+											<input name="${question.question}" id="question_${i}" type="${question.inputType}" class="form-control" required="true"/>
+										</div>
+								</#switch>
+								<#assign i = i +1 />
+							</#list>
+							<br>
+						</form>
+						<form id="submitForm" action="/secure/worksheet" role="form" method="post">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="save" value="true"> Save completed worksheet in my profile.
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="email" value="true"> Email completed worksheet to me.
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="send" value="true"> Anonymously submit my completed worksheet to Fan the Flame Dates.
+								</label>
+							</div>
+							<input type="hidden" name="videoId" value="${video.id}">
+							<input type="hidden" name="userId" value="${user.id}">
+							<input type="hidden" name="videoName" value="${video.name}">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<input type="hidden" name="answers" id="answers">
+						</form>
+						<button id="submitWorksheet" class="btn btn-md btn-success btn-block">Submit</button>
 					</div>
 				</div>
 			</div>
@@ -235,14 +186,11 @@
 
 			<#include "../stubs/scripts.ftl"/>
 			<script>
-				var thumb = '${video.thumb!}';
 				var iframe = '<iframe id="iFrame" src="//player.vimeo.com/video/${video.vimeoId}?portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-				var message = '${message}';
-				var shareLink = '${shareLink}';
 			</script>
 			<script src="/static/js/video_q.js"></script>
 			<script src="/static/js/video.js"></script>
-			<script src="/static/js/social.js"></script>
+
 			<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 		</div>
 	</body>

@@ -40,7 +40,7 @@ class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler
 
 		if (response.committed)
 			return
-
-		redirectStrategy.sendRedirect request, response, "${successUrl}&redirect=${savedRequest.redirectUrl}"
+		def redirect = (savedRequest == null) ? "/secure/user" : savedRequest.redirectUrl
+		redirectStrategy.sendRedirect request, response, "${successUrl}&redirect=${redirect}"
 	}
 }

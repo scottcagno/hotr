@@ -56,7 +56,7 @@
 							<div class="form-group">
 								<label>Spouse's Name (Optional)</label>
 								<input type="text" id="spouseName" name="spouseName" class="form-control"
-									   placeholder="Spouse's Name" required="true" value="${(user.spouseName)!}"/>
+									   placeholder="Spouse's Name" value="${(user.spouseName)!}"/>
 							</div>
 							<div class="form-group">
 								<label>Last Name</label>
@@ -71,31 +71,48 @@
 							<div class="form-group">
 								<label>Spouse's Email (Optional)</label>
 								<input type="text" id="spouseEmail" name="spouseEmail" class="form-control"
-									   placeholder="Spouse's Email" required="true" value="${(user.spouseEmail)!}"/>
+									   placeholder="Spouse's Email" value="${(user.spouseEmail)!}"/>
 							</div>
-							<div class="text-center">
-								<a data-toggle="collapse" data-parent="#accordion"
-								   href="#changePassword" class="text-primary">
-									Click to change password
-								</a>
-							</div>
-							<br/>
-							<div id="changePassword" class="panel-collapse collapse">
+							<#if user??>
+								<div class="text-center">
+									<a data-toggle="collapse" data-parent="#accordion"
+									   href="#changePassword" class="text-primary">
+										Click to change password
+									</a>
+								</div>
+								<br/>
+								<div id="changePassword" class="panel-collapse collapse">
+									<!-- toggle show password input -->
+									<div class="form-group">
+										<div class="input-group">
+											<input type="password" id="toggle-pass" name="password" class="form-control"
+												   placeholder="Password" />
+                            	            <span class="input-group-btn">
+												<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+														title="Click to show/hide your password">
+													<i class="fa fa-eye-slash"></i>
+												</button>
+                            	            </span>
+										</div>
+									</div>
+									<!-- toggle show password input -->
+								</div>
+							<#else/>
 								<!-- toggle show password input -->
 								<div class="form-group">
 									<div class="input-group">
 										<input type="password" id="toggle-pass" name="password" class="form-control"
-											   placeholder="Password" />
-                                        <span class="input-group-btn">
-											<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
-													title="Click to show/hide your password">
-												<i class="fa fa-eye-slash"></i>
-											</button>
-                                        </span>
+											   placeholder="Password" required="true"/>
+                            	            <span class="input-group-btn">
+												<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+														title="Click to show/hide your password">
+													<i class="fa fa-eye-slash"></i>
+												</button>
+                            	            </span>
 									</div>
 								</div>
 								<!-- toggle show password input -->
-							</div>
+							</#if>
 							<input type="hidden" name="id" value="${(user.id)!}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>

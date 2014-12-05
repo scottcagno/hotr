@@ -65,7 +65,7 @@ class HomeController {
 		"donate"
 	}
 
-    @RequestMapping(value = ["/promo"], method = GET)
+    @RequestMapping(value = "/promo", method = GET)
     String promo(Model model) {
         model.addAttribute("auth", false)
         "promo"
@@ -75,6 +75,18 @@ class HomeController {
     String promoSecure(Model model) {
         model.addAttribute("auth", true)
         "promo"
+    }
+
+    @RequestMapping(value = "/challenge", method = GET)
+    String challenge(Model model) {
+        model.addAttribute("auth", false)
+        "challenge"
+    }
+
+    @RequestMapping(value = "/secure/challenge", method = GET)
+    String challengeSecure(Model model) {
+        model.addAttribute("auth", true)
+        "challenge"
     }
 
     @RequestMapping(value = "/social/{id}", method = GET)
@@ -114,6 +126,12 @@ class Authentication {
     @RequestMapping(value = "/login", method = GET)
     String login(Model model) {
         model.addAttribute "login", true
+        "login"
+    }
+
+    @RequestMapping(value = "/register", method = GET)
+    String register(Model model) {
+        model.addAttribute "register", true
         "login"
     }
 

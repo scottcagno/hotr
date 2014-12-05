@@ -1,3 +1,3 @@
 <!-- *** beg global attributes declaration *** -->
-<#assign host = "http://localhost:8080"/>
+<#assign host = "http://node2.cagnosolutions.com"/>
 <!-- *** end global attributes declaration *** -->

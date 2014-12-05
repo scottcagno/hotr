@@ -4,8 +4,6 @@ $(document).ready(function() {
 			type: "post",
 			url: "/topic",
 			data: $('form[id="watched"]').serializeArray(),
-		}).done(function() {
-			alert('The deed is done');
 		});
 	};
 

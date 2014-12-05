@@ -104,7 +104,7 @@ class SecureVideoController {
 		videoIds = null
 		videoIds = m.keySet() as ArrayList
 		videoIds = (videoIds.size() > 13)? videoIds.subList(0, 10) : videoIds
-		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics])
+		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics, video : videoService.findOne(id)])
 		"video/related"
 	}
 }

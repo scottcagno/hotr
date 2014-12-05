@@ -26,20 +26,29 @@
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
                         <li><a href="${link}/video/all">Videos</a></li>
-                        <li><a href="${(auth)?string('/secure/user', '/secure/home')}">${(auth)?string('Account', 'Login')}</a></li>
+                        <li><a href="${(auth)?string('/secure/user', '/secure/home#about')}">${(auth)?string('Account', 'Login')}</a></li>
                     </ul>
 				</div>
 			</div>
 		</div>
 		<!-- navbar -->
 
-		<#include "stubs/alert.ftl"/>
 
 		<!-- carousel -->
 		<#include "stubs/carousel.ftl"/>
 		<!-- carousel -->
 
+		<#if alert??>
+			<div id="alert">
+				<div class="alert alert-info alert-dismissable">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					${alert}
+				</div>
+			</div>
+		</#if>
+
 		<!-- about -->
+
 		<#include "stubs/about.ftl"/>
 		<!-- about -->
 

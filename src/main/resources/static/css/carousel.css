@@ -6,6 +6,15 @@
     font-size: 28px;
 }
 
+.carousel {
+    margin-top: 50px;
+}
+
+.carousel-img {
+    width: 1500px;
+    height: 725px;
+}
+
 /* MOBILE */
 @media (max-width: 970px) {
     .carousel {
