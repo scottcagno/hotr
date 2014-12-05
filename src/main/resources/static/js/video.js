@@ -4,6 +4,8 @@ $(document).ready(function() {
 			type: "post",
 			url: "/topic",
 			data: $('form[id="watched"]').serializeArray(),
+		}).done(function() {
+			console.log('POST Sent');
 		});
 	};
 
