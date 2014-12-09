@@ -61,24 +61,27 @@ class VideoController {
 	String update(Video video, RedirectAttributes attr, @RequestParam String topics) {
 		if (video.id == null) {
 			// new video
+			video = videoService.save video
+			vimeoAPI.getThumb(video.id, video.vimeoId)
 			try {
 				vimeoAPI.addEmbedPreset(video.vimeoId)
 				vimeoAPI.addPrivacy(video.vimeoId)
 				video.watched = 0
-				video = videoService.save video
-				vimeoAPI.getThumb(video.id, video.vimeoId)
+				attr.addFlashAttribute("alertSuccess", "Successfully updated video")
 			} catch (all) {
 				all.printStackTrace()
+				attr.addFlashAttribute("alertError", "Video information was saved successfully but we received a bad response when" +
+						"contacting Vimeo. Please check the video on Vimeo in 30-60 minutes to ensure proper upload.")
 			}
 		} else {
 			// existing video
 			def existingVideo = videoService.findOne video.id
 			videoService.mergeProperties(video, existingVideo)
 			videoService.save existingVideo
+			attr.addFlashAttribute("alertSuccess", "Successfully updated video")
 		}
 		// add/remove topics
 		topicService.videoTopics(topics, video.id)
-		attr.addFlashAttribute("alertSuccess", "Successfully updated video")
 		"redirect:/admin/video"
 	}
 
