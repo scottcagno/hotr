@@ -83,19 +83,3 @@ class UserService {
 
 }
 
-@CompileStatic
-@Repository
-interface UserRepository extends JpaRepository<User, Long> {
-
-	@Query("SELECT COUNT(u.id) FROM User u WHERE u.id<>:id AND u.username=:username")
-	int canUpdate(@Param("id") Long id, @Param("username") String username)
-
-	@Query("SELECT u FROM User u WHERE u.username=:username")
-	User findOne(@Param("username") String username)
-
-	@Query("SELECT COUNT(u.id) FROM User u")
-	Integer numberOfUsers()
-
-	@Query("SELECT COUNT(u.id) FROM User u WHERE u.challenge=true")
-	Integer numberOfChallenge()
-}

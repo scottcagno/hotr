@@ -1,11 +1,11 @@
 package com.cagnosolutions.starter.app.worksheet
-import com.cagnosolutions.starter.app.email.Email
-import com.cagnosolutions.starter.app.email.EmailService
+
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.fasterxml.jackson.databind.ObjectMapper
 import freemarker.template.Configuration
 import freemarker.template.Template
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
  * Created by greg on 10/22/14.
  */
 
+@CompileStatic
 @Controller("worksheetController")
 @RequestMapping("/secure/worksheet")
 class WorksheetController {
@@ -30,10 +31,6 @@ class WorksheetController {
 
 	@Autowired
 	WorksheetService worksheetService
-
-	@Autowired
-	EmailService emailService
-
 
 	// GET worksheet
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -72,12 +69,6 @@ class WorksheetController {
 		}
 		if (email) {
 			// email to user
-			map.put("name", user.firstName)
-			map.put("worksheet", worksheet)
-			Email mail = emailService.CreateEmail("email/email.ftl", map)
-			mail.setAll("noreply@fantheflamedates.com", "Worksheet for video ${worksheet.videoName}", user.username)
-			println mail.to
-			emailService.sendEmailThreaded(mail)
 		}
 		if (send) {
 			// email to ffd

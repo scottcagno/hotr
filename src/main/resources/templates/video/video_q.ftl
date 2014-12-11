@@ -74,8 +74,11 @@
 		<div class="container">
 			<br/>
 			<div class="col-sm-7">
-				<div id="videoDiv" class="embed-responsive embed-responsive-16by9">
+				<div id="videoDiv" class="embed-responsive embed-responsive-16by9 play">
 					<img id="video" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive " alt="Video Thumbnail">
+					<a id="video" href="#">
+						<span class="fa fa-play-circle fa-5x"></span>
+					</a>
 				</div>
 				<div class="row">
 					<div class="col-lg-6">

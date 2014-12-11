@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<meta property="og:url" content="node2.cagnosolutions.com/video/id/${video.id}" />
-		<meta property="og:title" content="Challenge Completed" />
-		<meta property="og:description" content="I just completed the next step in the Fan the Flame Dates one year challenge!" />
-		<meta property="og:image" content="${video.thumb!}" />
 		<title>Watch</title>
 		<#include "../stubs/header.ftl"/>
 	</head>
@@ -63,8 +59,11 @@
 		<!-- content -->
 		<div class="container">
 			<div class="col-lg-offset-1 col-lg-10">
-				<div id="videoDiv" class="embed-responsive embed-responsive-16by9">
+				<div id="videoDiv" class="embed-responsive embed-responsive-16by9 play">
 					<img id="video" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive " alt="Video Thumbnail">
+					<a id="video" href="#">
+						<span class="fa fa-play-circle fa-5x"></span>
+					</a>
 				</div>
 				<div class="row">
 					<div class="col-lg-6">

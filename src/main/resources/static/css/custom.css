@@ -65,3 +65,36 @@ vr {
 .video-title {
 	margin-top: 5px;
 }
+
+
+.play {
+    position: relative;
+    display: inline-block; /* added */
+    overflow: hidden; /* added */
+}
+
+.play a {
+    opacity: 1; /* added */
+    top: 0; /* added */
+    z-index: 500;
+    color: inherit;
+}
+/* added */
+.play span {
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+/* added */
+/*.play a {
+    display: block;
+    position: absolute;
+    top: -100%;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}*/
