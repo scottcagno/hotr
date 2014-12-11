@@ -64,6 +64,12 @@ class VideoService {
         repo.save video
     }
 
+	Video saveAndFlush(Video video) {
+		if (video.id == null)
+			video.added = new Date()
+		repo.saveAndFlush video
+	}
+
     def delete(Long id) {
         repo.delete id
     }

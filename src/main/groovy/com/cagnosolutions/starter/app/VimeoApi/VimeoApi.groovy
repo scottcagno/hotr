@@ -92,9 +92,11 @@ class VimeoAPI {
 		makeApiCall("DELETE", "https://api.vimeo.com/videos/${vimeoId}")
 	}
 
-	def getThumb(Long videoId, String vimeoId) {
+	def settings(Long videoId, String vimeoId) {
 		Thread.start {
 			sleep(60000)
+			addEmbedPreset(vimeoId)
+			addPrivacy(vimeoId)
 			def map = getInfo("https://api.vimeo.com/videos/${vimeoId}/pictures")
 			if (map.data != null) {
 				def video = videoService.findOne(videoId)
