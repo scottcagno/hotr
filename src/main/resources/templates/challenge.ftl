@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Home</title>
 		<#include "stubs/header.ftl"/>
+		<title>Challenge</title>
 	</head>
 	<body id="top">
 

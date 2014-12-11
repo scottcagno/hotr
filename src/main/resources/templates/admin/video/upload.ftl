@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Login</title>
 
 		<#include "../../stubs/header.ftl"/>
+		<title>Upload Video</title>
 
 		<style>input.uploader{position:absolute;left:-9999px;}label.uploader{cursor:pointer;}</style>
 	</head>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Template</title>
 		<#include "../../stubs/header.ftl"/>
+		<title>Videos</title>
 	</head>
 	<body id="body">
 

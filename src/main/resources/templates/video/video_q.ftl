@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>spring-boot-base|view</title>
 
 		<#include "../stubs/header.ftl"/>
 
+		<title>Watch</title>
 	</head>
 	<body>
 

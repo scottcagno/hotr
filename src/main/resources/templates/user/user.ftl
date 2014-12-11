@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Users</title>
+		<title>Account</title>
 		<#include "../stubs/header.ftl"/>
 	</head>
 	<body id="body">

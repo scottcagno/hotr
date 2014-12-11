@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Account</title>
 		<#include "stubs/header.ftl"/>
+		<title>Login</title>
 	</head>
 	<body id="body">
 

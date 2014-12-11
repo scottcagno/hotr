@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Videos</title>
+		<title>Video Series</title>
 		<#include "../stubs/header.ftl"/>
 	</head>
 	<body id="body">

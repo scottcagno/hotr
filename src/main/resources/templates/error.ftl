@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Error Page</title>
         <#include "stubs/header.ftl"/>
+		<title>Error Page</title>
 	</head>
 	<body id="body">
 

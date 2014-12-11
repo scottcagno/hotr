@@ -5,7 +5,7 @@
 		<meta property="og:title" content="All Videos Page" />
 		<meta property="og:description" content="These are all of the videos we have to offer" />
 		<meta property="og:image" content="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/851565_496755187057665_544240989_n.jpg" />
-		<title>Donate</title>
+		<title>Social Test Page</title>
 		<#include "stubs/header.ftl"/>
 	</head>
 	<body id="body">

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Terms</title>
 		<#include "stubs/header.ftl"/>
+		<title>Terms and Conditions</title>
 	</head>
 	<body id="body">
 

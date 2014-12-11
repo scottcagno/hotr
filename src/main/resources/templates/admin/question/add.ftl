@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>spring-boot-base|add</title>
 
 		<#include "../../stubs/header.ftl"/>
+		<title>Add Question</title>
 
 	</head>
 	<body>

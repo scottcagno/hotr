@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Donate</title>
 		<#include "stubs/header.ftl"/>
+		<title>Donate</title>
 	</head>
 	<body id="body">
 
