@@ -78,7 +78,7 @@
 						</div>
 						<div class="panel-body">
 							<#list topics as topic>
-								<a href="/video/all?topic=${topic.topic}" class="btn btn-block btn-primary">
+								<a href="${link}/video/all?topic=${topic.topic}" class="btn btn-block btn-primary">
 									${topic.topic} <span class="badge pull-right">${topic.watched}</span>
 								</a>
 							</#list>
