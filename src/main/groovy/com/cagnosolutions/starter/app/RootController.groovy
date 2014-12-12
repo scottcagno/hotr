@@ -1,4 +1,6 @@
 package com.cagnosolutions.starter.app
+
+import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -6,6 +8,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 /**
@@ -20,9 +23,12 @@ class RootController {
     @Autowired
     VideoService videoService
 
+    @Autowired
+    EventbriteAPI eventbriteApiService
+
     @RequestMapping(value = ["/", "/home"], method = GET)
     String index(Model model) {
-        model.addAttribute("auth", false)
+        model.addAllAttributes([auth : false, events : eventbriteApiService.findEvents()])
         "home"
     }
 
@@ -84,6 +90,12 @@ class RootController {
     String social(Model model, @PathVariable Long id) {
         model.addAttribute("video", videoService.findOne(id))
         "social"
+    }
+
+    @RequestMapping(value = "/test", method = GET)
+    @ResponseBody
+    Object eventbrite() {
+        eventbriteApiService.findEvents()
     }
 
 }

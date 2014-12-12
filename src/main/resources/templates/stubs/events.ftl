@@ -20,43 +20,27 @@
             </em>
         </div>
     </div>
-    <!--<div class="row container">
+    <div class="row container">
         <h1>Marriage Retreats</h1>
         <ul class="list-group">
-            <li class="list-group-item">
-                <h4>
-                    <strong>Seasons of Marriage</strong><br/>
-                    Cape May, NJ<br/>
-                    Sept. 12-14, 2014
-                </h4>
-                <p class="text-danger">Sold Out</p>
-            </li>
-            <li class="list-group-item">
-                <h4>
-                    <strong>Making Deposits into your Marriage</strong><br/>
-                    Cape May, NJ<br/>
-                    Oct. 3-5, 2014
-                </h4>
-                <p class="text-success">3 Spots Open</p>
-            </li>
-            <li class="list-group-item">
-                <h4>
-                    <strong>Back to Naked</strong><br/>
-                    Cape May, NJ<br/>
-                    Oct. 17-19, 2014
-                </h4>
-                <p class="text-success">2 Spots Open</p>
-            </li>
-            <li class="list-group-item">
-                <h4>
-                    <strong>What is Your State of the Union</strong><br/>
-                    Cape May, NJ<br/>
-                    Nov. 14-16, 2014
-                </h4>
-                <p class="text-success">8 Spots open</p>
-            </li>
+            <#setting datetime_format="iso"/>
+            <#list events as event>
+                <li class="list-group-item">
+                    <h4>
+                        <strong>${event.name.text}</strong><br/>
+                        ${event.venue.address.city}, ${event.venue.address.region}<br/>
+                        ${(event.start.local?datetime)?date} - ${(event.end.local?datetime)?date}
+                    </h4>
+                    <#if event.capacity gt 0>
+                        <p class="text-success">${event.capacity} Spots Open</p>
+                        <p><a href="${event.url}" target="_blank">Sign Up</a></p>
+                    <#else/>
+                            <p class="text-danger">Sold Out</p>
+                    </#if>
+                </li>
+            </#list>
         </ul>
-    </div>-->
+    </div>
     <div class="row container">
         <h1>Marriage Intensives</h1>
         <ul class="list-group">

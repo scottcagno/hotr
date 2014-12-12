@@ -1,5 +1,5 @@
 package com.cagnosolutions.starter.app.admin
-import com.cagnosolutions.starter.app.VimeoApi.VimeoAPI
+import com.cagnosolutions.starter.app.VimeoAPI.VimeoAPI
 import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.video.Video
