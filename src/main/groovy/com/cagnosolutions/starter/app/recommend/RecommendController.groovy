@@ -46,7 +46,7 @@ class RecommendController {
 				"${user.firstName} and ${user.spouseName} have" :
 				"${user.firstName} has"
 		map.put("first", first)
-		emailService.send("noreply@fantheflamedates.com", emails, "Try Fan the Flame Dates", "Try Fan The Flame Dates", "email/recommend.ftl", map)
+		emailService.send("noreply@fantheflamedates.com", user.username, emails, "Try Fan the Flame Dates", "Try Fan The Flame Dates", "email/recommend.ftl", map)
 		attr.addFlashAttribute("alertSuccess", "Thanks for recommending us!")
 		"redirect:/secure/home"
 	}

@@ -31,12 +31,13 @@ class EmailService {
 		resource.type(MediaType.APPLICATION_FORM_URLENCODED).post(data)
 	}
 
-	ClientResponse send(String from, List<String> bcc, String subject, String text, String html) {
+	ClientResponse send(String from, String to, List<String> bcc, String subject, String text, String html) {
 		def client = Client.create()
 		def resource = client.resource BASE_URI + "/messages"
 		def data = new MultivaluedMapImpl()
 		client.addFilter new HTTPBasicAuthFilter("api", AUTH_KEY)
 		data.add "from", from
+		data.add "to", to
 		bcc.each {data.add "bcc", it}
 		data.add "subject", subject
 		data.add "text", text
@@ -58,9 +59,9 @@ class EmailService {
 		send from, to, subject, text, body
 	}
 
-	ClientResponse send(String from, List<String> bcc, String subject, String text, String template, Map data) {
+	ClientResponse send(String from, String to, List<String> bcc, String subject, String text, String template, Map data) {
 		def body = FreeMarkerTemplateUtils.processTemplateIntoString config.getTemplate(template), data
-		send from, bcc, subject, text, body
+		send from, to, bcc, subject, text, body
 	}
 
 	/** FREEMARKER TEMPLATE SUPPORT **/
