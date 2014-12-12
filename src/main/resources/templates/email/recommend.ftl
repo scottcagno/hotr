@@ -8,17 +8,9 @@
 			<div style="width: 600px;margin: 0px auto;background-color: #f5f6f5;border:1px solid #dddddd;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
 				<div style="padding-left: 27px;padding-right: 27px; padding-bottom: 27px;">
 					<br/>
-					<p>Hello ${name},</p><br/>
-					<p>Here is a copy of the worksheet you completed for video ${worksheet.videoName}</p><br/>
-					<div style="padding:5px;border:1px solid #5a5a5a;">
-						<p>
-							${worksheet.htmlData}
-						</p>
-					</div>
-					<p>
-						<em>**If you received this email in error, please delete it;
-						we apologize for the inconvenience.</em>
-					</p>
+					<p>Hello ${name} would like to invite you to use <a href="localhost:8080">Fan The Flame Dates.</a></p><br/>
+					<p>${first} been using it for 6 month to encourage relationship growth.</p><br/>
+					<p>We would like to do the same for you. Please visit us</p>
 				</div>
 			</div>
 		</div>

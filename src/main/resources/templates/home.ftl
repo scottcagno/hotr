@@ -6,7 +6,7 @@
 	</head>
 	<body id="top">
 
-		<#assign link = (auth)?string('/secure/', '')/>
+		<#assign link = (auth)?string('/secure', '')/>
 
 		<!-- navbar -->
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">

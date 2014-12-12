@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app
 
+import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 import java.security.Principal
-
 /**
  * Created by greg on 12/11/14.
  */
@@ -25,6 +25,8 @@ class AuthController {
 	@Autowired
 	UserSession userSession
 
+	@Autowired
+	EmailService emailService
 
 	@RequestMapping(value = "/login/success", method = RequestMethod.GET)
 	String customLoginSuccessHandler(Principal principal, String redirect, String role, RedirectAttributes attr) {
@@ -62,6 +64,9 @@ class AuthController {
 			user.challenge = false
 			user.progress = new ArrayList<Long>()
 			userService.save user
+			def map = [:]
+			map.put("name", "${user.firstName} ${user.lastName}")
+			emailService.send("noreply@fantheflamedates.com", user.username, "Registration", "Registration", "email/registration.ftl", map)
 			attr.addFlashAttribute "alertSuccess", "${user.firstName} ${user.lastName} has successfully been regestered, please login"
 			attr.addFlashAttribute("username", user.username)
 			return "redirect:/login"

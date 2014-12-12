@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app
-
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
@@ -34,7 +33,7 @@ class RootController {
 
 	@RequestMapping(value = "/secure/home", method = GET)
 	String indexSecure(Model model) {
-        model.addAttribute("auth", true)
+        model.addAllAttributes([auth : true, events : eventbriteApiService.findEvents()])
 		"home"
 	}
 

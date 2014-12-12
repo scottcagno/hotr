@@ -9,12 +9,7 @@
 				<div style="padding-left: 27px;padding-right: 27px; padding-bottom: 27px;">
 					<br/>
 					<p>Hello ${name},</p><br/>
-					<p>Here is a copy of the worksheet you completed for video ${worksheet.videoName}</p><br/>
-					<div style="padding:5px;border:1px solid #5a5a5a;">
-						<p>
-							${worksheet.htmlData}
-						</p>
-					</div>
+					<p>Thank you for registering with Fame the Flame Dates.</p><br/>
 					<p>
 						<em>**If you received this email in error, please delete it;
 						we apologize for the inconvenience.</em>

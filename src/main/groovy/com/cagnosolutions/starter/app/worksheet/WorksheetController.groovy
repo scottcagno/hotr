@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.worksheet
 
+import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
+
 /**
  * Created by greg on 10/22/14.
  */
@@ -28,6 +30,9 @@ class WorksheetController {
 
 	@Autowired
 	UserService userService
+
+	@Autowired
+	EmailService emailService
 
 	@Autowired
 	WorksheetService worksheetService
@@ -69,6 +74,13 @@ class WorksheetController {
 		}
 		if (email) {
 			// email to user
+
+			def name = (user.spouseName != null || user.spouseName != "") ?
+					"${user.firstName} and ${user.spouseName} ${user.lastName}" :
+					"${user.firstName} ${user.lastName}"
+			map.put("name", name)
+			map.put("worksheet", worksheet)
+			emailService.send("noreply@fantheflamedates.com", user.username ,"Worksheet", "Worksheet", "email/worksheet.ftl", map)
 		}
 		if (send) {
 			// email to ffd
