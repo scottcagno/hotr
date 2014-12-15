@@ -39,14 +39,27 @@
 		<!-- carousel -->
 
 		<#if alert??>
-			<div id="alert">
-				<div class="alert alert-info alert-dismissable">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					${alert}
+			<br/>
+			<div class="container">
+				<div id="alert">
+					<div class="alert alert-info alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						${alert}
+					</div>
 				</div>
 			</div>
 		</#if>
-
+		<#if userSession?? && userSession.progress == 6>
+			<br/>
+			<div class="container">
+				<div class="alert alert-info alert-dismissable">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					You have hit the half way mark in your challenge.
+					If you can think of anyone who could benefit from Fan the Flame Dates please take the time to
+					<a href="/secure/recommend">recommend</a> us.
+				</div>
+			</div>
+		</#if>
 		<!-- about -->
 
 		<#include "stubs/about.ftl"/>

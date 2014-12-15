@@ -8,4 +8,5 @@ import org.springframework.stereotype.Component
 class UserSession {
 	long id
 	String firstName, lastName, spouseName
+	int progress
 }

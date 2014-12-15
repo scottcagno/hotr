@@ -40,6 +40,7 @@ class AuthController {
 		userSession.spouseName = (user.spouseName == null) ? "" : user.spouseName
 		user.lastSeen = new Date()
 		userService.save user
+		userSession.progress = user.progress.size()
 		attr.addFlashAttribute("alert", "Welcome ${user.firstName} ${(user.spouseName == null || user.spouseName == "") ? "" : "and ${user.spouseName} "}${user.lastName}")
 		"redirect:${redirect}"
 	}

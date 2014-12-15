@@ -31,6 +31,15 @@
 		</div>
 	</#if>
 
+	<#if userSession?? && userSession.progress == 6>
+		<div class="alert alert-info alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			You have hit the half way mark in your challenge.
+			If you can think of anyone who could benefit from Fan the Flame Dates please take the time to
+			<a href="/secure/recommend">recommend</a> us.
+		</div>
+	</#if>
+
 	<#if alert??>
 		<div id="alert">
 			<div class="alert alert-info alert-dismissable">

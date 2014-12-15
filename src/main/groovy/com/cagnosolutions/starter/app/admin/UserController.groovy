@@ -42,6 +42,7 @@ class UserController {
 				}
 				userService.save existingUser
 			} else {
+				user.progress = new ArrayList<>()
 				userService.save user
 			}
 			attr.addFlashAttribute("alertSuccess", "Updated Successfully")

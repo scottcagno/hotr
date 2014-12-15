@@ -44,7 +44,8 @@ class SecureVideoController {
     @RequestMapping(value="/{filter}", method = RequestMethod.GET)
     String viewAll(@RequestParam(required = false) String topic,
                    @PathVariable String filter, Model model) {
-		model.addAllAttributes([auth: true, topics: topicService.popTopics()])
+		model.addAllAttributes([auth: true, topics: topicService.popTopics(),
+								userSession : userSession])
 		if (topic == null) {
 			switch (filter) {
 				case "all":
@@ -81,13 +82,15 @@ class SecureVideoController {
 			model.addAttribute("notChallenge", true)
 		}
         model.addAllAttributes([video: video, topics : topicService.findAllByVideo(id),
-								questions : questionService.findAllByVideo(id), user : user])
+								questions : questionService.findAllByVideo(id),
+								user : user, userSession : userSession])
 		"video/video_q"
     }
 
 	@RequestMapping(value = "/series", method = RequestMethod.GET)
 	String series(Model model) {
-		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : true, topics: topicService.popTopics()])
+		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : true,
+								topics: topicService.popTopics(), userSession : userSession])
 		"video/series"
 	}
 
@@ -104,7 +107,8 @@ class SecureVideoController {
 		videoIds = null
 		videoIds = m.keySet() as ArrayList
 		videoIds = (videoIds.size() > 13)? videoIds.subList(0, 10) : videoIds
-		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics, video : videoService.findOne(id)])
+		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics,
+								video : videoService.findOne(id), userSession : userSession])
 		"video/related"
 	}
 }

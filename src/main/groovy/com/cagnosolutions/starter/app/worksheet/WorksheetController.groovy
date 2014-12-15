@@ -3,6 +3,7 @@ package com.cagnosolutions.starter.app.worksheet
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
+import com.cagnosolutions.starter.app.user.UserSession
 import com.fasterxml.jackson.databind.ObjectMapper
 import freemarker.template.Configuration
 import freemarker.template.Template
@@ -37,11 +38,14 @@ class WorksheetController {
 	@Autowired
 	WorksheetService worksheetService
 
+	@Autowired
+	UserSession userSession
+
 	// GET worksheet
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String view(@PathVariable Long id, Model model) {
 		Worksheet worksheet = worksheetService.findOne id
-		model.addAttribute("worksheet", worksheet)
+		model.addAllAttributes([worksheet : worksheet, userSession : userSession])
 		"worksheet/worksheet"
 	}
 
@@ -60,6 +64,7 @@ class WorksheetController {
 		if (!(worksheet.videoId in user.progress) && user.challenge && user.progress.size() <= 12) {
 			attr.addFlashAttribute("isChallenged", true)
 			user.progress << worksheet.videoId
+			userSession.progress = user.progress.size()
 		}
 		ObjectMapper mapper = new ObjectMapper()
 		def answerMap = mapper.readValue(answers, Map.class)

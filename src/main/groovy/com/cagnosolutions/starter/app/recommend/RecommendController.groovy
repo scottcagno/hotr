@@ -38,11 +38,11 @@ class RecommendController {
 	String sendRecommend(@RequestParam(value = "emails") List<String> emails, RedirectAttributes attr) {
 		def user = userService.findOne(userSession.id)
 		def map = [:]
-		def name = (user.spouseName != null || user.spouseName != "") ?
+		def name = (user.spouseName != null && user.spouseName != "") ?
 				"${user.firstName} and ${user.spouseName} ${user.lastName}" :
 				"${user.firstName} ${user.lastName}"
 		map.put("name", name)
-		def first = (user.spouseName != null || user.spouseName != "") ?
+		def first = (user.spouseName != null && user.spouseName != "") ?
 				"${user.firstName} and ${user.spouseName} have" :
 				"${user.firstName} has"
 		map.put("first", first)

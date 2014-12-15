@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
+import com.cagnosolutions.starter.app.user.UserSession
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -25,6 +26,9 @@ class RootController {
     @Autowired
     EventbriteAPI eventbriteApiService
 
+    @Autowired
+    UserSession userSession
+
     @RequestMapping(value = ["/", "/home"], method = GET)
     String index(Model model) {
         model.addAllAttributes([auth : false, events : eventbriteApiService.findEvents()])
@@ -33,7 +37,7 @@ class RootController {
 
 	@RequestMapping(value = "/secure/home", method = GET)
 	String indexSecure(Model model) {
-        model.addAllAttributes([auth : true, events : eventbriteApiService.findEvents()])
+        model.addAllAttributes([auth : true, events : eventbriteApiService.findEvents(), userSession : userSession])
 		"home"
 	}
 
@@ -45,7 +49,7 @@ class RootController {
 
 	@RequestMapping(value = "/secure/terms", method = GET)
 	String termsSecure(Model model) {
-        model.addAttribute("auth", true)
+        model.addAllAttributes([auth : true, userSession : userSession])
 		"terms"
 	}
 
@@ -57,7 +61,7 @@ class RootController {
 
 	@RequestMapping(value = "/secure/donate", method = GET)
 	String donateSecure(Model model) {
-        model.addAttribute("auth", true)
+        model.addAllAttributes([auth : true, userSession : userSession])
 		"donate"
 	}
 
@@ -69,7 +73,7 @@ class RootController {
 
     @RequestMapping(value = "/secure/promo", method = GET)
     String promoSecure(Model model) {
-        model.addAttribute("auth", true)
+        model.addAllAttributes([auth : true, userSession : userSession])
         "promo"
     }
 
@@ -81,7 +85,7 @@ class RootController {
 
     @RequestMapping(value = "/secure/challenge", method = GET)
     String challengeSecure(Model model) {
-        model.addAttribute("auth", true)
+        model.addAllAttributes([auth : true, userSession : userSession])
         "challenge"
     }
 
