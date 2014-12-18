@@ -7,7 +7,7 @@
 	</ol>-->
 	<div class="carousel-inner">
 		<div class="item active">
-			<img src="/static/img/banner/1.png">
+			<img src="/static/img/banner/1.jpg">
 			<div class="container">
 				<!--<div class="carousel-caption">
 					<h1>It's Easy</h1>
@@ -16,7 +16,9 @@
 			</div>
 		</div>
 		<div class="item">
-			<a href="${(auth?? && auth)?string('/secure/challenge', '/challenge')}"><img src="/static/img/banner/2.png"></a>
+			<a href="${(auth?? && auth)?string('/secure/challenge', '/challenge')}">
+				<img src="/static/img/banner/2.jpg">
+			</a>
 			<!--<div class="container">
 				<div class="carousel-caption">
 					<h1>Connect With Your Spouse</h1>
@@ -25,7 +27,9 @@
 			</div>-->
 		</div>
 		<div class="item">
-			<img src="/static/img/banner/3.png">
+			<a href="${(auth?? && auth)?string('/secure/video/all', '/video/all')}">
+				<img src="/static/img/banner/3.jpg">
+			</a>
 			<!--<div class="container">
 				<div class="carousel-caption">
 					<h1>Rekinding Romance</h1>
