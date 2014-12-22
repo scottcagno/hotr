@@ -63,6 +63,7 @@ class AuthController {
 			if (user.id == null || user.password[0] != '$')
 				user.password = new BCryptPasswordEncoder().encode(user.password)
 			user.challenge = false
+			user.monthly = false
 			user.progress = new ArrayList<Long>()
 			userService.save user
 			def map = [:]

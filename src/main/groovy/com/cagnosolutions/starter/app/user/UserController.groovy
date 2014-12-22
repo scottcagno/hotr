@@ -54,6 +54,7 @@ class UserController {
 		if(userService.canUpdate(user.id, user.username)) {
 			User existingUser = userService.findOne(user.id)
 			user.password = (user.password == "") ? null : user.password
+			user.monthly = (user.monthly == null) ? false : user.monthly
 			userService.mergeProperties(user, existingUser)
 			if (existingUser.password[0] != '$') {
 				existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)
@@ -69,9 +70,11 @@ class UserController {
 
 	// POST begin challenge
 	@RequestMapping(value = "/challenge", method = RequestMethod.POST)
-	String startChallenge(Long userId) {
+	String startChallenge(Long userId, Boolean monthly) {
 		User user = userService.findOne userId
 		user.challenge = true
+		if (monthly)
+			user.monthly = true
 		userService.save user
 		"redirect:/secure/user"
 	}

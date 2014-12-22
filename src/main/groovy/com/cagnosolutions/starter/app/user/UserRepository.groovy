@@ -24,4 +24,7 @@ interface UserRepository extends JpaRepository<User, Long> {
 
 	@Query("SELECT COUNT(u.id) FROM User u WHERE u.challenge=true")
 	Integer numberOfChallenge()
+
+	@Query("SELECT u FROM User u WHERE u.monthly=true")
+	List<User> findAllByMonthly()
 }

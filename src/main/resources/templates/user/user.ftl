@@ -64,11 +64,9 @@
 			<div class="row">
 				<div class="col-lg-7 text-center">
 					<#if !user.challenge>
-						<form id="challengeForm" role="form" method="post" action="/secure/user/challenge">
-							<input type="hidden" name="userId" value="${user.id}"/>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<button class="btn btn-md btn-success btn-block" type="submit">Begin Challenge</button>
-						</form>
+						<div>
+							<a href="/secure/challenge" class="btn btn-md btn-success btn-block">Begin Challenge</a>
+						</div>
 					<#else/>
 						<#assign width = (user.progress?size / 12) * 100/>
 						<p>
@@ -98,6 +96,11 @@
 						</div>
 						<div class="panel-body">
 							<form id="accountForm" role="form" method="post" action="/secure/user">
+								<div class="checkbox">
+									<label>
+										<input name="monthly" type="checkbox" value="true" ${(user.monthly)?string('checked', '')}> Email me monthly challenge reminders
+									</label>
+								</div>
 								<div class="form-group">
 									<label>First Name</label>
 									<input type="text" id="firstName" name="firstName" class="form-control"

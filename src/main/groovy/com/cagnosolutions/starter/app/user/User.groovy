@@ -20,7 +20,7 @@ class User {
 	Long id
 	String firstName, lastName, spouseName, spouseEmail, username, password, role = "ROLE_USER"
 	Date creation, lastSeen
-	Boolean challenge
+	Boolean challenge, monthly
 	ArrayList<Long> progress
 	short active = 1
 }

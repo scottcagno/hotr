@@ -25,8 +25,9 @@ class Video {
 	Integer watched
 
 	String toString() {
-		if (name.length() > 20)
-			return name.substring(0, 19) + "..."
-		name
+		if (name.length() > 45)
+			return name.substring(0, 44) + "..."
+		//String.format("%-45s", name)
+		name + "                                   "
 	}
 }
