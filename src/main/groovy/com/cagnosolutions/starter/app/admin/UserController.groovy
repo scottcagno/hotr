@@ -36,6 +36,7 @@ class UserController {
 			User existingUser = userService.findOne(user.id)
 			if (existingUser != null) {
 				user.password = (user.password == '') ? null : user.password
+				user.monthly = (user.monthly == null) ? false : user.monthly
 				userService.mergeProperties(user, existingUser)
 				if (existingUser.password[0] != '$') {
 					existingUser.password = new BCryptPasswordEncoder().encode(existingUser.password)

@@ -48,6 +48,11 @@
 									</a> <br/>
 								</div>
 							</#if>
+							<div class="checkbox">
+								<label>
+									<input name="monthly" type="checkbox" value="true" ${(user?? && user.monthly?? && user.monthly)?string('checked', '')}> Email me monthly challenge reminders
+								</label>
+							</div>
 							<div class="form-group">
 								<label>First Name</label>
 								<input type="text" id="firstName" name="firstName" class="form-control"

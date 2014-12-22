@@ -79,7 +79,7 @@ class UserService {
 		new String(hash.decodeBase64())
 	}
 
-	@Scheduled(cron = "0 * * * * *")
+	@Scheduled(cron = "0 0 12 1 * *")
 	void monthlyReminder() {
 		def users = findAllByMonthly()
 		users.each { user ->
