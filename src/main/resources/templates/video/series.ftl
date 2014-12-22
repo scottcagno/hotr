@@ -64,7 +64,7 @@
 					<#list allSeries as series>
 						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
 							<a href="${link}/video/${series}">
-								<img src="/static/img/video.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+								<img src="/static/img/video2.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 							</a>
 							<p class="video-title"><strong>${series}</strong></p>
 						</div>

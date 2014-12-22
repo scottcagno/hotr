@@ -71,7 +71,11 @@
 					<br/>
 					<#list videos as video>
 						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
-							<a href="${link}/video/id/${video.id}">
+							<a href="${link}/video/id/${video.id}" data-toggle="popover"
+								data-trigger="hover"
+								title="${video.name}"
+								data-content="${video.description}"
+								data-placement="bottom">
 								<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 							</a>
 							<p class="video-title"><strong>${video}</strong></p>
@@ -100,6 +104,14 @@
 		<#include "../stubs/footer.ftl"/>
 
 		<#include "../stubs/scripts.ftl"/>
+
+		<script>
+			$(document).ready(function() {
+				$(function () {
+				  $('[data-toggle="popover"]').popover()
+				})
+			});
+		</script>
 
 	</body>
 </html>

@@ -25,9 +25,16 @@ class Video {
 	Integer watched
 
 	String toString() {
-		if (name.length() > 45)
-			return name.substring(0, 44) + "..."
-		//String.format("%-45s", name)
-		name + "                                   "
+		if (name.length() > 15)
+			return name.substring(0, 14) + "..."
+		// &nbsp; HTML space
+
+		//def dif = 45 - name.length()
+		//def  spaces = new ArrayList(Collections.nCopies((dif -1), "&#160;"))
+		//spaces.add(0, name)
+		//spaces.add("X")
+
+		//return spaces.join("")
+		name
 	}
 }
