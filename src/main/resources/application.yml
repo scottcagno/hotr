@@ -19,6 +19,10 @@ spring:
     testWhileIdle: true
   jpa:
     generateDdl: true
+  social:
+    facebook:
+      appId: 1376717522621067
+      appSecret: 71ee47d2c1b4ac76e20af645c336f7ed
 
 server:
   port: 8080
@@ -30,17 +34,4 @@ security:
     name: admin
     password: admin
   enableCsrf: true
-  
-endpoints:
-  shutdown:
-    enabled: true
 
-http:
-  mappers:
-    jsonPrettyPrint: true
-
-mail:
-  host: smtp.mandrillapp.com
-  port: 587
-  user: scottiecagno@gmail.com
-  pass: AyRsB5cI5H4bcrbheDKfzQ

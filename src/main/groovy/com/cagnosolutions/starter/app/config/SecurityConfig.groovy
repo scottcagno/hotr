@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app.config
-
 import com.cagnosolutions.starter.app.CustomAuthenticationSuccessHandler
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,6 +10,7 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
+import org.springframework.social.security.SpringSocialConfigurer
 
 import javax.sql.DataSource
 
@@ -48,5 +48,11 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 		//.invalidSessionUrl("/login?invalid")
 				.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+		http.apply(new SpringSocialConfigurer())
 	}
+
+	/*@Bean
+	SocialUserDetailsService socialUsersDetailService() {
+		new SimpleSocialUsersDetailService(userDetailsService());
+	}*/
 }

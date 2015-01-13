@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.2.0.RELEASE'
+        springBootVersion = '1.2.1.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -31,11 +31,19 @@ dependencies {
     compile("org.codehaus.groovy:groovy-all")
     compile("mysql:mysql-connector-java")
 	compile("org.apache.httpcomponents:httpclient:4.3.4")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
 
     // emailer dependencies
     compile "com.sun.jersey:jersey-core:1.18.3"
     compile "com.sun.jersey:jersey-client:1.18.3"
     compile "com.sun.jersey.contribs:jersey-multipart:1.18.3"
+
+    // social
+    compile ("org.springframework.social:spring-social-core")
+    compile ("org.springframework.social:spring-social-web")
+    compile ("org.springframework.social:spring-social-security")
+    compile ("org.springframework.social:spring-social-config")
+    compile ("org.springframework.social:spring-social-facebook")
 }
 
 task wrapper(type: Wrapper) {
