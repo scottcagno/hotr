@@ -1,17 +1,24 @@
 package com.cagnosolutions.starter.app.config
+
 import com.cagnosolutions.starter.app.CustomAuthenticationSuccessHandler
+import com.cagnosolutions.starter.app.RepositoryUserDetailsService
+import com.cagnosolutions.starter.app.SimpleSocialUserDetailsService
+import com.cagnosolutions.starter.app.user.UserService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.annotation.SecurityConfigurerAdapter
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
+import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
+import org.springframework.social.security.SocialUserDetailsService
 import org.springframework.social.security.SpringSocialConfigurer
-
 import javax.sql.DataSource
 
 @CompileStatic
@@ -20,7 +27,10 @@ import javax.sql.DataSource
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	DataSource dataSource;
+	DataSource dataSource
+
+	@Autowired
+	UserService userService
 
 	@Autowired
 	void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
@@ -30,7 +40,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authoritiesByUsernameQuery("SELECT username, role FROM user WHERE username=?")
 	}
 
-	protected void configure(HttpSecurity http) throws Exception {
+	void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/admin/**").hasAnyRole("ADMIN")
 				.antMatchers("/secure/**").hasAnyRole("ADMIN", "USER")
@@ -48,11 +58,23 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 		//.invalidSessionUrl("/login?invalid")
 				.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-		http.apply(new SpringSocialConfigurer())
+		http.apply(new SpringSocialConfigurer() as SecurityConfigurerAdapter)
 	}
 
-	/*@Bean
-	SocialUserDetailsService socialUsersDetailService() {
-		new SimpleSocialUsersDetailService(userDetailsService());
-	}*/
+	void configure(AuthenticationManagerBuilder auth) {
+		auth
+			.userDetailsService(userDetailsService())
+				.passwordEncoder(new BCryptPasswordEncoder(10))
+	}
+
+	@Bean
+	public UserDetailsService userDetailsService() {
+		new RepositoryUserDetailsService(userService: userService)
+	}
+
+	@Bean
+	public SocialUserDetailsService socialUserDetailsService() {
+		new SimpleSocialUserDetailsService(userDetailsService())
+	}
+
 }
