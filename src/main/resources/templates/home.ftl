@@ -63,7 +63,6 @@
 		<!-- about -->
 
 		<#include "stubs/about.ftl"/>
-		<a href="/auth/facebook">Sign in with facebook</a>
 		<!-- about -->
 
 		<!-- events -->
