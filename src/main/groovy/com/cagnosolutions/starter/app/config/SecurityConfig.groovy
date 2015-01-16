@@ -1,7 +1,6 @@
 package com.cagnosolutions.starter.app.config
 import com.cagnosolutions.starter.app.CustomAuthenticationSuccessHandler
-import com.cagnosolutions.starter.app.RepositoryUserDetailsService
-import com.cagnosolutions.starter.app.SimpleSocialUserDetailsService
+import com.cagnosolutions.starter.app.SimpleSocialUsersDetailService
 import com.cagnosolutions.starter.app.user.UserService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -12,7 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
-import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 import org.springframework.social.security.SocialUserDetailsService
@@ -57,23 +55,16 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 		//.invalidSessionUrl("/login?invalid")
 				.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-		http.apply(new SpringSocialConfigurer())
+		http.apply(new SpringSocialConfigurer().postLoginUrl("/login/success").alwaysUsePostLoginUrl(true))
 	}
 
-	/*void configure(AuthenticationManagerBuilder auth) {
-		auth
-			.userDetailsService(userDetailsService())
-				.passwordEncoder(new BCryptPasswordEncoder(10))
-	}*/
+	/*@Bean
+	SpringSocialSecurityAthenticationFilter*/
+
 
 	@Bean
-	public UserDetailsService userDetailsService() {
-		new RepositoryUserDetailsService(userService: userService)
-	}
-
-	@Bean
-	public SocialUserDetailsService socialUserDetailsService() {
-		new SimpleSocialUserDetailsService(userDetailsService())
+	SocialUserDetailsService socialUsersDetailService() {
+		new SimpleSocialUsersDetailService(userDetailsService());
 	}
 
 }

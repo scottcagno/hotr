@@ -43,7 +43,7 @@ class AuthController {
 		userService.save user
 		userSession.progress = user.progress.size()
 		attr.addFlashAttribute("alert", "Welcome ${user.firstName} ${(user.spouseName == null || user.spouseName == "") ? "" : "and ${user.spouseName} "}${user.lastName}")
-		"redirect:${redirect}"
+		"redirect:${(redirect == null || redirect == "") ? "/secure/user" : redirect}"
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

@@ -1,23 +1,25 @@
 package com.cagnosolutions.starter.app
 
-import groovy.transform.CompileStatic
 import org.springframework.dao.DataAccessException
+import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
+import org.springframework.social.security.SocialUser
 import org.springframework.social.security.SocialUserDetails
 import org.springframework.social.security.SocialUserDetailsService
 
-@CompileStatic
-public class SimpleSocialUserDetailsService implements SocialUserDetailsService {
+class SimpleSocialUsersDetailService implements SocialUserDetailsService {
 
 	UserDetailsService userDetailsService
 
-	SimpleSocialUserDetailsService(UserDetailsService userDetailsService) {
+	SimpleSocialUsersDetailService(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService
 	}
 
+	@Override
 	SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException, DataAccessException {
-		def userDetails = userDetailsService.loadUserByUsername(userId);
-		userDetails as SocialUserDetails
+		UserDetails userDetails = userDetailsService.loadUserByUsername userId
+		new SocialUser(userDetails.username, userDetails.password, userDetails.authorities)
 	}
+
 }
