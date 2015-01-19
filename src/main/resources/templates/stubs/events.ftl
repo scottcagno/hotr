@@ -31,8 +31,12 @@
                         ${event.venue.address.city}, ${event.venue.address.region}<br/>
                         ${(event.start.local?datetime)?date} - ${(event.end.local?datetime)?date}
                     </h4>
-                    <#if event.capacity gt 0>
-                        <p class="text-success">${event.capacity} Spots Open</p>
+                    <#assign sold = 0>
+                    <#list event.ticket_classes as ticket>
+                        <#assign sold = sold + ticket.quantity_sold/>
+                    </#list>
+                    <#if event.capacity gt sold>
+                        <p class="text-success">${event.capacity - sold} Spots Open</p>
                         <p><a href="${event.url}" target="_blank">Sign Up</a></p>
                     <#else/>
                             <p class="text-danger">Sold Out</p>

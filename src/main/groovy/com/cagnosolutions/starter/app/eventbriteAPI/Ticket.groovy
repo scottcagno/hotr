@@ -7,14 +7,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Event {
+class Ticket {
 
-	Map<String, String> name
-	Map <String, Object> venue
-	Map<String, String> start
-	Map<String, String> end
-	List<Ticket> ticket_classes
-	int capacity
-	String url
+	int quantity_total
+	int quantity_sold
+
 
 }
