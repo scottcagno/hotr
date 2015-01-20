@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app.user
-
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.validators.AdminAddUserValidator
 import com.cagnosolutions.starter.app.validators.AdminEditUserValidator
@@ -12,8 +11,6 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.social.connect.UserProfile
 import org.springframework.stereotype.Service
 /**
  * Created by Scott Cagno.
@@ -131,18 +128,6 @@ class UserService {
 		}
 	}
 
-	User createUserFromSocial(UserProfile profile) {
-		def user = new User()
-		user.password = new BCryptPasswordEncoder().encode("social")
-		user.firstName = profile.firstName
-		user.lastName = profile.lastName
-		user.username = profile.email
-		user.challenge = false
-		user.monthly = false
-		user.creation = new Date()
-		user.progress = new ArrayList<Long>()
-		repo.save user
-	}
 
 }
 
