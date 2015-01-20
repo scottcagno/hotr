@@ -21,6 +21,7 @@ jar {
 
 repositories {
     mavenCentral()
+    maven { url "http://repo.opensourceagility.com/snapshots" }
 }
 
 dependencies {
@@ -43,6 +44,7 @@ dependencies {
     compile ("org.springframework.social:spring-social-web")
     compile ("org.springframework.social:spring-social-security")
     compile ("org.springframework.social:spring-social-facebook")
+    compile ("org.springframework.social:spring-social-spring-data-jpa:1.1.0-SNAPSHOT")
 }
 
 task wrapper(type: Wrapper) {
