@@ -2,6 +2,7 @@ package com.cagnosolutions.starter.app.VimeoAPI
 
 import com.cagnosolutions.starter.app.video.VideoService
 import com.fasterxml.jackson.databind.ObjectMapper
+import groovy.transform.CompileStatic
 import org.apache.http.HttpResponse
 import org.apache.http.client.entity.UrlEncodedFormEntity
 import org.apache.http.client.methods.HttpPatch
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service
  * Created by greg on 9/3/14.
  */
 
+@CompileStatic
 @Service(value = "vimeoApiService")
 class VimeoAPI {
 
@@ -55,9 +57,9 @@ class VimeoAPI {
 		patch.addHeader("Accept", "application/vnd.vimeo.*+json;version=3.2")
 		List<NameValuePair> urlParameters = new ArrayList<>()
 		for (String paramKey : params.keySet()) {
-			urlParameters.add(new BasicNameValuePair(paramKey, params.get(paramKey)))
+			urlParameters.add(new BasicNameValuePair(paramKey, params.get(paramKey)) as NameValuePair)
 		}
-		patch.setEntity(new UrlEncodedFormEntity(urlParameters))
+		patch.setEntity(new UrlEncodedFormEntity(urlParameters as Iterable<? extends org.apache.http.NameValuePair>))
 		HttpResponse response = client.execute(patch)
 		ObjectMapper mapper = new ObjectMapper()
 		mapper.readValue(response.getEntity().getContent(), Map.class)
@@ -100,7 +102,7 @@ class VimeoAPI {
 			def map = getInfo("https://api.vimeo.com/videos/${vimeoId}/pictures")
 			if (map.data != null) {
 				def video = videoService.findOne(videoId)
-				video.thumb = map.data[0].sizes[-1].link as String
+				video.thumb = ((((map.data as List<Object>)[0] as Map<String, Object>).sizes as List<Object>)[-1] as Map<String, Object>).link as String
 				videoService.save(video)
 			}
 		}

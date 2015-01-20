@@ -33,6 +33,12 @@ class TopicService {
 
 	def deleteAllByVideo(Long video_fk) {
 		repo.deleteAllByVideo(video_fk)
+		def topics = repo.videoTopics(video_fk)
+		topics.each { topic ->
+			if (repo.hasTopic(topic) < 1) {
+				watchedRepo.delete(topic)
+			}
+		}
 	}
 
     Topic findOne(Long id) {

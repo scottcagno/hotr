@@ -106,7 +106,7 @@ class VideoController {
 	@RequestMapping(value = "/thumb/{id}", method = RequestMethod.POST)
 	String thumb(@PathVariable Long id, RedirectAttributes attr) {
 		def video = videoService.findOne id
-		vimeoAPI.getThumb(video.id, video.vimeoId)
+		vimeoAPI.settings(video.id, video.vimeoId)
 		attr.addFlashAttribute("alertSuccess", "Successfully sent thumbnail request. Please 5-10 for a thumbnail response")
 		"redirect:/admin/video/${id}"
 	}

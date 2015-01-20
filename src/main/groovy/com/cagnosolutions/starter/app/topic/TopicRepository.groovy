@@ -33,4 +33,5 @@ interface TopicRepository extends JpaRepository<Topic, Long> {
 
 	@Query("SELECT t.video_fk FROM Topic t WHERE t.topic=:topic")
 	List<Long> videoIdsByTopic(@Param("topic") String topic)
+
 }
