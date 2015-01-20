@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.user
+
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.validators.AdminAddUserValidator
 import com.cagnosolutions.starter.app.validators.AdminEditUserValidator
@@ -11,11 +12,8 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
+import org.springframework.social.connect.UserProfile
 import org.springframework.stereotype.Service
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
 
 @EnableScheduling
 @CompileStatic
@@ -127,7 +125,22 @@ class UserService {
 				target[key as String] = value
 		}
 	}
-
-
+	
+	String createUserFromSocial(UserProfile profile) {
+		def user = new User(
+			firstName: profile.firstName,
+			lastName: profile.lastName,
+			username: profile.email,
+			password: UUID.randomUUID().toString(),
+			creation: new Date(),
+			challenge: false,
+			monthly: false,
+			progress: new ArrayList<Long>(),
+			active: 1 as short,
+			role: "ROLE_USER",
+		)
+		repo.saveAndFlush user
+		user.username
+	}
 }
 

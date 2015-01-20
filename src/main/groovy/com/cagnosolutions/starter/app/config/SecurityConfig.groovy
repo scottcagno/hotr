@@ -1,8 +1,10 @@
 package com.cagnosolutions.starter.app.config
 import com.cagnosolutions.starter.app.CustomAuthenticationSuccessHandler
+import com.cagnosolutions.starter.app.social.SimpleSocialUsersDetailService
 import com.cagnosolutions.starter.app.user.UserService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -11,6 +13,8 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
+import org.springframework.social.security.SocialUserDetailsService
+import org.springframework.social.security.SpringSocialConfigurer
 
 import javax.sql.DataSource
 
@@ -50,7 +54,14 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.maxSessionsPreventsLogin(false)
 				.and()
 				.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+		http.apply(new SpringSocialConfigurer()
+				.postLoginUrl("/login/success")
+				.alwaysUsePostLoginUrl(true))
 	}
 
+	@Bean
+	SocialUserDetailsService socialUserDetailsService() {
+		new SimpleSocialUsersDetailService(userDetailsService())
+	}
 
 }
