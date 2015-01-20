@@ -103,6 +103,7 @@
 								</div>
 								<div class="form-group">
 									<label>First Name</label>
+									<span class="text-error">${(errors.firstName)!}</span>
 									<input type="text" id="firstName" name="firstName" class="form-control"
 									       placeholder="First Name" required="true" value="${user.firstName!}"/>
 								</div>
@@ -113,11 +114,13 @@
 								</div>
 								<div class="form-group">
 									<label>Last Name</label>
+									<span class="text-error">${(errors.lastName)!}</span>
 									<input type="text" id="lastName" name="lastName" class="form-control"
 										   placeholder="Last Name" required="true" value="${user.lastName!}"/>
 								</div>
 								<div class="form-group">
 									<label>Email</label>
+									<span class="text-error">${(errors.username)!}</span>
 									<input type="text" id="username" name="username" class="form-control"
 									       placeholder="Email" required="true" value="${user.username}"/>
 								</div>

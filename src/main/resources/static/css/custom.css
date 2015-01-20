@@ -98,3 +98,9 @@ vr {
     bottom: 0;
     right: 0;
 }*/
+
+.text-error {
+    color: #a94442;
+    font-weight: 400;
+    font-size: 14px;
+}

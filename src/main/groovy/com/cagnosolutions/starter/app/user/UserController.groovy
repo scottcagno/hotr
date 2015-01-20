@@ -1,4 +1,7 @@
 package com.cagnosolutions.starter.app.user
+
+import com.cagnosolutions.starter.app.validators.UserAccountValidator
+import com.cagnosolutions.starter.app.validators.ValidationWrapper
 import com.cagnosolutions.starter.app.video.Video
 import com.cagnosolutions.starter.app.video.VideoService
 import com.cagnosolutions.starter.app.worksheet.WorksheetService
@@ -7,9 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
+
+import javax.validation.Valid
+
 /**
  * Created by Scott Cagno.
  * Copyright Cagno Solutions. All rights reserved.
@@ -32,6 +39,9 @@ class UserController {
 	@Autowired
 	UserSession userSession
 
+	@Autowired
+	ValidationWrapper validationWrapper
+
 	// GET user
     @RequestMapping(method = RequestMethod.GET)
     String view(Model model) {
@@ -44,13 +54,19 @@ class UserController {
 		} else {
 			recent = videoService.findAll(user.progress)
 		}
-        model.addAllAttributes([user : user, worksheets : worksheets, recent : recent, userSession : userSession])
+        model.addAllAttributes([user: user, worksheets : worksheets, recent : recent, userSession : userSession])
         "user/user"
     }
 
 	// POST update
 	@RequestMapping(method = RequestMethod.POST)
-	String update(User user, RedirectAttributes attr) {
+	String update(@Valid UserAccountValidator userAccountValidator, BindingResult bindingResult, RedirectAttributes attr) {
+		if (bindingResult.hasErrors()) {
+			attr.addFlashAttribute("alertError", "Error in the settings form")
+			attr.addFlashAttribute "errors", validationWrapper.bindErrors(bindingResult)
+			return "redirect:/secure/user"
+		}
+		def user = userService.generateFromValidator userAccountValidator
 		if(userService.canUpdate(user.id, user.username)) {
 			User existingUser = userService.findOne(user.id)
 			user.password = (user.password == "") ? null : user.password

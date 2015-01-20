@@ -37,7 +37,7 @@
 						Add/Edit User <span class="pull-right"><a href="/admin/user">Clear</a></span>
 					</div>
 					<div class="panel-body">
-						<form id="accountForm" role="form" method="post" action="/admin/user">
+						<form id="accountForm" role="form" method="post" action="/admin/user/${(user??)?string('edit','add')}" novalidate>
 							<#if user??>
 								<div class="form-group">
 									<label>Created On:</label><span> ${(user.creation?date)!}</span> <br/>
@@ -50,11 +50,13 @@
 							</#if>
 							<div class="checkbox">
 								<label>
-									<input name="monthly" type="checkbox" value="true" ${(user?? && user.monthly?? && user.monthly)?string('checked', '')}> Email me monthly challenge reminders
+									<input name="monthly" type="checkbox" value="true" ${(user?? && user.monthly?? && user.monthly)?string('checked', '')}>
+									Email monthly challenge reminders
 								</label>
 							</div>
 							<div class="form-group">
 								<label>First Name</label>
+								<span class="text-error">${(errors.firstName)!}</span>
 								<input type="text" id="firstName" name="firstName" class="form-control"
 									   placeholder="First Name" required="true" value="${(user.firstName)!}"/>
 							</div>
@@ -65,11 +67,13 @@
 							</div>
 							<div class="form-group">
 								<label>Last Name</label>
+								<span class="text-error">${(errors.lastName)!}</span>
 								<input type="text" id="lastName" name="lastName" class="form-control"
 									   placeholder="Last Name" required="true" value="${(user.lastName)!}"/>
 							</div>
 							<div class="form-group">
 								<label>Email</label>
+								<span class="text-error">${(errors.username)!}</span>
 								<input type="text" id="username" name="username" class="form-control"
 									   placeholder="Email" required="true" value="${(user.username)!}"/>
 							</div>
@@ -105,15 +109,16 @@
 							<#else/>
 								<!-- toggle show password input -->
 								<div class="form-group">
+									<span class="text-error">${(errors.lastName)!}</span>
 									<div class="input-group">
 										<input type="password" id="toggle-pass" name="password" class="form-control"
 											   placeholder="Password" required="true"/>
-                            	            <span class="input-group-btn">
-												<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
-														title="Click to show/hide your password">
-													<i class="fa fa-eye-slash"></i>
-												</button>
-                            	            </span>
+                            	        <span class="input-group-btn">
+											<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+													title="Click to show/hide your password">
+												<i class="fa fa-eye-slash"></i>
+											</button>
+                            	        </span>
 									</div>
 								</div>
 								<!-- toggle show password input -->

@@ -1,22 +1,28 @@
 package com.cagnosolutions.starter.app
-
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
+import com.cagnosolutions.starter.app.validators.UserRegistrationValidator
+import com.cagnosolutions.starter.app.validators.ValidationWrapper
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
+import javax.validation.Valid
 import java.security.Principal
 /**
  * Created by greg on 12/11/14.
  */
+
+@CompileStatic
 @Controller(value = "authController")
 class AuthController {
 
@@ -28,6 +34,9 @@ class AuthController {
 
 	@Autowired
 	EmailService emailService
+
+	@Autowired
+	ValidationWrapper validationWrapper
 
 	@RequestMapping(value = "/login/success", method = RequestMethod.GET)
 	String customLoginSuccessHandler(Principal principal, String redirect, String role, RedirectAttributes attr) {
@@ -59,7 +68,14 @@ class AuthController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	String register(User user, RedirectAttributes attr) {
+	String register(@Valid UserRegistrationValidator userRegistrationValidator, BindingResult bindingResult, RedirectAttributes attr) {
+		if (bindingResult.hasErrors()) {
+			attr.addFlashAttribute("alertError", "Error in the registration form")
+			attr.addFlashAttribute "errors", validationWrapper.bindErrors(bindingResult)
+			attr.addFlashAttribute "user", userRegistrationValidator
+			return "redirect:/register"
+		}
+		def user = userService.generateFromValidator userRegistrationValidator
 		if (userService.canUpdate(user.id, user.username)) {
 			if (user.id == null || user.password[0] != '$')
 				user.password = new BCryptPasswordEncoder().encode(user.password)

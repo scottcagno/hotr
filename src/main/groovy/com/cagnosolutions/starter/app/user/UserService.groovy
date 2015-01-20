@@ -1,6 +1,10 @@
 package com.cagnosolutions.starter.app.user
 
 import com.cagnosolutions.starter.app.email.EmailService
+import com.cagnosolutions.starter.app.validators.AdminAddUserValidator
+import com.cagnosolutions.starter.app.validators.AdminEditUserValidator
+import com.cagnosolutions.starter.app.validators.UserAccountValidator
+import com.cagnosolutions.starter.app.validators.UserRegistrationValidator
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
@@ -95,6 +99,29 @@ class UserService {
 		}
 	}
 
+	User generateFromValidator(UserRegistrationValidator userRegistrationValidator) {
+		def user = new User()
+		mergeProperties userRegistrationValidator, user
+		user
+	}
+
+	User generateFromValidator(UserAccountValidator userSettingsValidator) {
+		def user = new User()
+		mergeProperties userSettingsValidator, user
+		user
+	}
+
+	User generateFromValidator(AdminAddUserValidator adminAddUserValidator) {
+		def user = new User()
+		mergeProperties adminAddUserValidator, user
+		user
+	}
+
+	User generateFromValidator(AdminEditUserValidator adminEditUserValidator) {
+		def user = new User()
+		mergeProperties adminEditUserValidator, user
+		user
+	}
 
 	// helper method
 	def mergeProperties(source, target) {

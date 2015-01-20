@@ -74,22 +74,26 @@
 							<div class="panel-body">
 								<form role="form" method="post" action="/register">
 									<div class="form-group">
+										<span class="text-error">${(errors.firstName)!}</span>
 										<input type="text" id="firstName" name="firstName" class="form-control"
-										       placeholder="First Name" required="true" />
+										       placeholder="First Name" required="true" value="${(user.firstName)!}"/>
 									</div>
 									<div class="form-group">
+										<span class="text-error">${(errors.lastName)!}</span>
 										<input type="text" id="lastName" name="lastName" class="form-control"
-											   placeholder="Last Name" required="true" />
+											   placeholder="Last Name" required="true" value="${(user.lastName)!}"/>
 									</div>
 									<div class="form-group">
+										<span class="text-error">${(errors.username)!}</span>
 										<input type="email" id="username" name="username" class="form-control"
-										       placeholder="Email" required="true" />
+										       placeholder="Email" required="true" value="${(user.username)!}"/>
 									</div>
 									<!-- toggle show password input -->
 									<div class="form-group">
 										<div class="input-group">
+											<span class="text-error">${(errors.password)!}</span>
 											<input type="password" id="toggle-pass" name="password" class="form-control"
-												   placeholder="Password" required="true" />
+												   placeholder="Password" required="true" value="${(user.password)!}"/>
                                             <span class="input-group-btn">
                                             	<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
 													title="Click to show/hide your password">
