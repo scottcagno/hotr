@@ -6,12 +6,11 @@ import org.springframework.social.connect.ConnectionKey
 import org.springframework.social.connect.ConnectionRepository
 import org.springframework.util.MultiValueMap
 
-/**
- * Created by greg on 1/20/15.
- */
-
 @CompileStatic
-class SocialUserConnectionRepository implements ConnectionRepository{
+class SocialUserConnectionRepository implements ConnectionRepository {
+
+
+
 	@Override
 	MultiValueMap<String, Connection<?>> findAllConnections() {
 		return null
