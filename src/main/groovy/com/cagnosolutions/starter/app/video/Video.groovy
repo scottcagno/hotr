@@ -1,18 +1,13 @@
 package com.cagnosolutions.starter.app.video
+import groovy.transform.CompileStatic
 
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-import javax.persistence.Table
 
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
-
+@CompileStatic
 @Entity
-@Table(name = "video")
 class Video {
 
 	@Id

@@ -6,9 +6,6 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
-/**
- * Created by greg on 12/11/14.
- */
 @CompileStatic
 @Repository
 interface VideoRepository extends JpaRepository<Video, Long> {

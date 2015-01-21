@@ -36,6 +36,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-offset-4 col-lg-4 col-sm-offset-3 col-sm-6">
+					<form action="/auth/facebook" method="post">
+						<button class="btn btn-primary btn-block">Sign in with Facebook
+							<i class="fa fa-facebook-square fa-lg"></i>
+						</button>
+						<input type="hidden" name="scope" value="email"/>
+						<input type="hidden" name="scope" value="public_profile"/>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					</form>
+					<br/>
 					<div class="panel-group" id="accordion">
 						<div class="panel panel-default">
 							<div class="panel-heading text-center">

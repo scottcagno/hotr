@@ -5,7 +5,8 @@
 	<#if RequestParameters.error??>
 		<div class="alert alert-danger alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			Invalid username or password. Please try again.
+			Invalid username or password. Please try again. If you logged in with
+			Facebook you must continue to log in with Facebook.
 		</div>
 	</#if>
 

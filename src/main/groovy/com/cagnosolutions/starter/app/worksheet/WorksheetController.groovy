@@ -17,12 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
-/**
- * Created by greg on 10/22/14.
- */
-
 @CompileStatic
-@Controller("worksheetController")
+@Controller
 @RequestMapping("/secure/worksheet")
 class WorksheetController {
 

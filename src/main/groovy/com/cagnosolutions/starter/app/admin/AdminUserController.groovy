@@ -19,14 +19,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 import javax.validation.Valid
 
-/**
- * Created by greg on 9/9/14.
- */
-
 @CompileStatic
-@Controller(value = "adminUserController")
+@Controller
 @RequestMapping(value = "/admin/user")
-class UserController {
+class AdminUserController {
 
 	@Autowired
 	UserService userService

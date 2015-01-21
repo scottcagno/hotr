@@ -2,6 +2,7 @@ package com.cagnosolutions.starter.app.passwordReset
 
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.user.UserService
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Controller
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
+@CompileStatic
 @Controller
 @RequestMapping(value = "/reset/password")
 class PasswordResetController {
@@ -43,10 +45,10 @@ class PasswordResetController {
 		"redirect:/reset/password"
 	}
 
-	def newPasswordHash = {
+	String newPasswordHash() {
 		def pool = ['a'..'z','A'..'Z',0..9].flatten()
 		Random rand = new Random(System.currentTimeMillis())
 		def passChars = (0..10).collect { pool[rand.nextInt(pool.size())] }
-		return passChars.join('')
+		passChars.join('')
 	}
 }

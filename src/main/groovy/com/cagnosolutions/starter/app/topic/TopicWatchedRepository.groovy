@@ -5,9 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
-/**
- * Created by greg on 12/11/14.
- */
 @CompileStatic
 @Repository
 interface TopicWatchedRepository extends JpaRepository<TopicWatched, String> {

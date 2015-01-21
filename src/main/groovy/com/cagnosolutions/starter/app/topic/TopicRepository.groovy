@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository
 
 import javax.transaction.Transactional
 
-/**
- * Created by greg on 12/11/14.
- */
 @CompileStatic
 @Repository
 interface TopicRepository extends JpaRepository<Topic, Long> {

@@ -11,12 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
-/**
- * Created by greg on 12/12/14.
- */
-
 @CompileStatic
-@Controller("recommendController")
+@Controller
+@RequestMapping("/secure/recommend")
 class RecommendController {
 
 	@Autowired
@@ -28,13 +25,13 @@ class RecommendController {
 	@Autowired
 	EmailService emailService
 
-	@RequestMapping(value = "/secure/recommend", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	String recommend(Model model) {
 		model.addAllAttributes([auth: true])
 		"recommend"
 	}
 
-	@RequestMapping(value = "/secure/recommend", method =RequestMethod.POST)
+	@RequestMapping(method =RequestMethod.POST)
 	String sendRecommend(@RequestParam(value = "emails") List<String> emails, RedirectAttributes attr) {
 		def user = userService.findOne(userSession.id)
 		def map = [:]

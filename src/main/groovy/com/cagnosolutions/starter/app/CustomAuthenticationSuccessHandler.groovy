@@ -26,7 +26,6 @@ class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler
 		SavedRequest savedRequest = requestCache.getRequest(request, response)
 
 		def successUrl = "/login/success"
-
 		authentication.authorities.each { authority ->
 			switch ((authority as GrantedAuthority).authority) {
 				case "ROLE_USER":

@@ -18,12 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 import javax.validation.Valid
 import java.security.Principal
-/**
- * Created by greg on 12/11/14.
- */
 
 @CompileStatic
-@Controller(value = "authController")
+@Controller
 class AuthController {
 
 	@Autowired
@@ -52,7 +49,7 @@ class AuthController {
 		userService.save user
 		userSession.progress = user.progress.size()
 		attr.addFlashAttribute("alert", "Welcome ${user.firstName} ${(user.spouseName == null || user.spouseName == "") ? "" : "and ${user.spouseName} "}${user.lastName}")
-		"redirect:${(redirect == null || redirect == "") ? "/secure/user" : redirect}"
+		"redirect:/secure/user"
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -81,6 +78,7 @@ class AuthController {
 				user.password = new BCryptPasswordEncoder().encode(user.password)
 			user.challenge = false
 			user.monthly = false
+			user.social = false
 			user.progress = new ArrayList<Long>()
 			userService.save user
 			def map = [:]
@@ -111,6 +109,7 @@ class AuthController {
 			user.password = new BCryptPasswordEncoder().encode("social")
 			user.challenge = false
 			user.monthly = false
+			user.social = false
 			user.progress = new ArrayList<Long>()
 			userService.save user
 			def map = [:]

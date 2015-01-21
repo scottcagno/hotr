@@ -17,13 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 import javax.validation.Valid
 
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
-
 @CompileStatic
-@Controller(value = "userController")
+@Controller
 @RequestMapping(value = "/secure/user")
 class UserController {
 

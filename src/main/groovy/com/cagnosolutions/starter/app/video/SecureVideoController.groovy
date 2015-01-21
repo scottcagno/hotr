@@ -4,6 +4,7 @@ import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -11,12 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
 
-@Controller(value = "secureVideoController")
+@CompileStatic
+@Controller
 @RequestMapping(value = "/secure/video")
 class SecureVideoController {
 
@@ -98,17 +96,34 @@ class SecureVideoController {
 	String relatedTo(@PathVariable Long id, Model model) {
 		def topics = topicService.findAllByVideo id
 		def videoIds = topicService.videoIdsByTopics(topics)
-		def m = [:]
+		def relatedMap = [:]
 		videoIds.each { vidId ->
-			m[vidId] = (m[vidId] == null)? 1 : m[vidId]+1
+			relatedMap[vidId] = (relatedMap[vidId] == null)? 1 : (relatedMap[vidId] as Integer) +1
 		}
-		m.remove id
-		m = m.sort { -it.value }
+		relatedMap.remove id
+		// sort related map by value (most related - least related)
+		// create comparator
+		Comparator sortByValue = new Comparator<Map.Entry<Long, Integer>>() {
+			int compare(Map.Entry<Long, Integer> left, Map.Entry<Long, Integer> right) {
+				return left.getValue().compareTo(right.getValue())
+			}
+		}
+		// new list to compare from relatedMap
+		def relatedList = new ArrayList<Map.Entry<Long, Integer>>()
+		relatedList.addAll(relatedMap.entrySet())
+		// compare
+		Collections.sort(relatedList, sortByValue)
+		// empty related map and repopulate with with sorted list
+		relatedMap = [:]
+		relatedMap.putAll(relatedList)
+		// empty videIds List and repopulate with sorted map keys
 		videoIds = null
-		videoIds = m.keySet() as ArrayList
+		videoIds = relatedMap.keySet() as ArrayList<Long>
 		videoIds = (videoIds.size() > 13)? videoIds.subList(0, 10) : videoIds
 		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics,
 								video : videoService.findOne(id), userSession : userSession])
 		"video/related"
 	}
+
+
 }

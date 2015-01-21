@@ -1,11 +1,9 @@
 package com.cagnosolutions.starter.app.eventbriteAPI
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import groovy.transform.CompileStatic
 
-/**
- * Created by greg on 12/12/14.
- */
-
+@CompileStatic
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Ticket {
 

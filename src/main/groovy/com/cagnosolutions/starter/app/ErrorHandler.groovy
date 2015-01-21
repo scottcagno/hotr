@@ -5,11 +5,8 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ExceptionHandler
 
-/**
- * Created by greg on 12/11/14.
- */
 @CompileStatic
-@Controller(value = "errorController")
+@Controller
 class ErrorHandler {
 
 	@ExceptionHandler(value = [Exception.class, RuntimeException.class])

@@ -5,13 +5,9 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
 
 @CompileStatic
-@Service(value = "worksheetService")
+@Service
 class WorksheetService {
 
     @Autowired

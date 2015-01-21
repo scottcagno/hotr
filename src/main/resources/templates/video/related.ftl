@@ -51,14 +51,14 @@
 						<a href="#" onclick="fbShare()"><i class="fa fa-facebook-square fa-2x"></i></a>
 						<a href="#">
 							<span
-									class="g-interactivepost"
-									data-contenturl="${shareLink}"
-									data-clientid="268327735010-6t55rdr44med018rtbbmd0cbbp88b0ga.apps.googleusercontent.com"
-									data-cookiepolicy="single_host_origin"
-									data-prefilltext="I just completed the next step in my Fan The Flame Dates one year challenge!"
-									data-calltoactionlabel="VISIT"
-									data-calltoactionurl="${shareLink}"
-									data-calltoactiondeeplinkid="/pages/create">
+								class="g-interactivepost"
+								data-contenturl="${shareLink}"
+								data-clientid="268327735010-6t55rdr44med018rtbbmd0cbbp88b0ga.apps.googleusercontent.com"
+								data-cookiepolicy="single_host_origin"
+								data-prefilltext="I just completed the next step in my Fan The Flame Dates one year challenge!"
+								data-calltoactionlabel="VISIT"
+								data-calltoactionurl="${shareLink}"
+								data-calltoactiondeeplinkid="/pages/create">
 								<i class="fa fa-google-plus-square fa-2x"></i>
 							</span>
 						</a>

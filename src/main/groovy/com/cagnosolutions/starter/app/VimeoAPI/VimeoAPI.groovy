@@ -13,12 +13,8 @@ import org.aspectj.apache.bcel.classfile.annotation.NameValuePair
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
-/**
- * Created by greg on 9/3/14.
- */
-
 @CompileStatic
-@Service(value = "vimeoApiService")
+@Service
 class VimeoAPI {
 
 	@Autowired

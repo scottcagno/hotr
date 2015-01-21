@@ -1,12 +1,13 @@
 package com.cagnosolutions.starter.app.worksheet
+
+import groovy.transform.CompileStatic
+
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-/**
- * Created by greg on 10/22/14.
- */
 
+@CompileStatic
 @Entity
 class Worksheet {
 

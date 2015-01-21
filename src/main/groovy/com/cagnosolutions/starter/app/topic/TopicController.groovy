@@ -10,13 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
-
 @CompileStatic
-@Controller(value = "topicController")
+@Controller
 @RequestMapping(value = "/topic")
 class TopicController {
 

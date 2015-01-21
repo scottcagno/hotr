@@ -8,12 +8,9 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
-/**
- * Created by greg on 10/21/14.
- */
 
 @CompileStatic
-@Controller("adminController")
+@Controller
 @RequestMapping("/admin")
 class AdminController {
 

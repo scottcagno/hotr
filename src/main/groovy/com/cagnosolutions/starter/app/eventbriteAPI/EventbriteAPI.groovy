@@ -3,12 +3,8 @@ import groovy.transform.CompileStatic
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 
-/**
- * Created by greg on 12/12/14.
- */
-
 @CompileStatic
-@Service(value = "eventbriteApiService")
+@Service
 class EventbriteAPI {
 
 	List<Event> findEvents() {

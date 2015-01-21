@@ -120,38 +120,40 @@
 								</div>
 								<div class="form-group">
 									<label>Email</label>
-									<span class="text-error">${(errors.username)!}</span>
-									<input type="text" id="username" name="username" class="form-control"
-									       placeholder="Email" required="true" value="${user.username}"/>
+									<p>
+										${user.username}
+									</p>
 								</div>
 								<div class="form-group">
 									<label>Spouse's Email (Optional)</label>
 									<input type="text" id="spouseEmail" name="spouseEmail" class="form-control"
 										   placeholder="Spouse's Email" value="${user.spouseEmail!}"/>
 								</div>
-								<div class="text-center">
-									<a data-toggle="collapse" data-parent="#accordion"
-									   href="#changePassword" class="text-primary">
-										Click to change password
-									</a>
-								</div>
-								<br/>
-								<div id="changePassword" class="panel-collapse collapse">
-									<!-- toggle show password input -->
-									<div class="form-group">
-										<div class="input-group">
-											<input type="password" id="toggle-pass" name="password" class="form-control"
-												   placeholder="Password" />
-                                            <span class="input-group-btn">
-                                            	<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
-														title="Click to show/hide your password">
-													<i class="fa fa-eye-slash"></i>
-												</button>
-                                            </span>
-										</div>
+								<#if !user.social>
+									<div class="text-center">
+										<a data-toggle="collapse" data-parent="#accordion"
+										   href="#changePassword" class="text-primary">
+											Click to change password
+										</a>
 									</div>
-									<!-- toggle show password input -->
-								</div>
+									<br/>
+									<div id="changePassword" class="panel-collapse collapse">
+										<!-- toggle show password input -->
+										<div class="form-group">
+											<div class="input-group">
+												<input type="password" id="toggle-pass" name="password" class="form-control"
+													   placeholder="Password" />
+                                	            <span class="input-group-btn">
+                                	            	<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+															title="Click to show/hide your password">
+														<i class="fa fa-eye-slash"></i>
+													</button>
+                                	            </span>
+											</div>
+										</div>
+										<!-- toggle show password input -->
+									</div>
+								</#if>
 								<input type="hidden" name="id" value="${user.id}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>

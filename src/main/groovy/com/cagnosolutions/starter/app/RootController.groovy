@@ -9,13 +9,9 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
 
 @CompileStatic
-@Controller(value = "homeController")
+@Controller
 class RootController {
 
     @Autowired

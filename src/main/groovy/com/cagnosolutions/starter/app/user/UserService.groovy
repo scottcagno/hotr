@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service
 
 @EnableScheduling
 @CompileStatic
-@Service(value = "userService")
+@Service
 class UserService {
 
 	@Autowired
@@ -127,18 +127,27 @@ class UserService {
 	}
 	
 	String createUserFromSocial(UserProfile profile) {
-		def user = new User(
-			firstName: profile.firstName,
-			lastName: profile.lastName,
-			username: profile.email,
-			password: UUID.randomUUID().toString(),
-			creation: new Date(),
-			challenge: false,
-			monthly: false,
-			progress: new ArrayList<Long>(),
-			active: 1 as short,
-			role: "ROLE_USER",
-		)
+		def user
+		if (canUpdate(0L, profile.email)) {
+			user = new User([
+				firstName: profile.firstName,
+				lastName : profile.lastName,
+				username : profile.email,
+				password : UUID.randomUUID().toString(),
+				creation : new Date(),
+				lastSeen : new Date(),
+				challenge: false,
+				monthly  : false,
+				social   : true,
+				progress : new ArrayList<Long>(),
+				active   : 1 as short,
+				role     : "ROLE_USER"
+			])
+		} else {
+			user = repo.findOne profile.email
+			user.social = true
+			user.password = UUID.randomUUID().toString()
+		}
 		repo.saveAndFlush user
 		user.username
 	}

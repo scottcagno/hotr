@@ -1,16 +1,14 @@
 package com.cagnosolutions.starter.app.topic
 
+import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
-/**
- * Created by Scott Cagno.
- * Copyright Cagno Solutions. All rights reserved.
- */
 
-@Service(value = "topicService")
+@CompileStatic
+@Service
 class TopicService {
 
     @Autowired

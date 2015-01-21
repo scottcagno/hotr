@@ -21,8 +21,8 @@ spring:
     generateDdl: true
   social:
     facebook:
-      appId: 1376717522621067
-      appSecret: 71ee47d2c1b4ac76e20af645c336f7ed
+      appId: 384205581749475
+      appSecret: fb5c5710b86ed7b403e8505ec69f1ffa
 
 server:
   port: 8080
