@@ -11,12 +11,6 @@ $(document).ready(function() {
     	}
     });
 
-   /* $('a[id="addSeries"]').click(function() {
-    	$('div[id="seriesInput"]').removeAttr('hidden');
-    	$('input[id="series"]').val('');
-    	$('select[id="seriesSelect"]').val('add');
-    });*/
-
     $('button[id="save"]').click(function() {
 		$('form[id="videoForm"]').submit();
     });

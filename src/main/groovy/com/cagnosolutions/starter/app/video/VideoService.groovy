@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.video
-import com.cagnosolutions.starter.app.topic.TopicService
+
+import com.cagnosolutions.starter.app.validators.VideoValidator
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
@@ -13,9 +14,6 @@ class VideoService {
 
     @Autowired
     VideoRepository repo
-
-	@Autowired
-	TopicService topicService
 
     List<Video> findAll() {
         repo.findAll()
@@ -94,6 +92,12 @@ class VideoService {
 		repo.save video
 	}
 
+	Video generateFromValidator(VideoValidator videoValidator) {
+		def video = new Video()
+		mergeProperties videoValidator, video
+		video
+	}
+	
 	// helper method
 	def mergeProperties(source, target) {
 		source.properties.each { key, value ->

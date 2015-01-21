@@ -2,17 +2,21 @@ package com.cagnosolutions.starter.app.admin
 import com.cagnosolutions.starter.app.VimeoAPI.VimeoAPI
 import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.topic.TopicService
-import com.cagnosolutions.starter.app.video.Video
+import com.cagnosolutions.starter.app.validators.ValidationWrapper
+import com.cagnosolutions.starter.app.validators.VideoValidator
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
+
+import javax.validation.Valid
 
 @CompileStatic
 @Controller
@@ -31,6 +35,9 @@ class AdminVideoController {
 	@Autowired
 	QuestionService questionService
 
+	@Autowired
+	ValidationWrapper validationWrapper
+
 	// GET view all
 	@RequestMapping(method = RequestMethod.GET)
 	String all(Model model) {
@@ -48,16 +55,27 @@ class AdminVideoController {
 	// GET edit
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String edit(@PathVariable Long id, Model model) {
-		model.addAttribute("video", videoService.findOne(id))
-		model.addAttribute("topics", topicService.findAllByVideo(id))
-		model.addAttribute("allSeries", videoService.findAllSeries())
-		model.addAttribute("questions", questionService.findAllByVideo(id))
+		if (!model.containsAttribute("video")) {
+			model.addAttribute("video", videoService.findOne(id))
+		}
+		model.addAllAttributes([topics : topicService.findAllByVideo(id),
+								allSeries : videoService.findAllSeries(),
+								questions : questionService.findAllByVideo(id)])
 		"admin/video/edit"
 	}
 
 	// POST add/edit
 	@RequestMapping(method = RequestMethod.POST)
-	String update(Video video, RedirectAttributes attr, @RequestParam String topics) {
+	String save(@Valid VideoValidator videoValidator, BindingResult bindingResult, RedirectAttributes attr, @RequestParam String topics) {
+		if (bindingResult.hasErrors()) {
+			attr.addFlashAttribute("alertError", "Error in the video form")
+			attr.addFlashAttribute "errors", validationWrapper.bindErrors(bindingResult)
+			attr.addFlashAttribute("video", videoValidator)
+			attr.addFlashAttribute("topics", topics)
+			return "redirect:${(videoValidator.id == null || videoValidator.id == "") ? "/admin/video/add?video_uri=/videos/${videoValidator.vimeoId}" : "/admin/video/${videoValidator.id}"}"
+		}
+		def video = videoService.generateFromValidator videoValidator
+
 		if (video.id == null) {
 			// new video
 			video.watched = 0

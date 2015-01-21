@@ -30,13 +30,21 @@ class AdminQuestionController {
 	// GET edit question
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
  	String edit(@PathVariable Long id, Model model) {
-		model.addAttribute("question", questionService.findOne(id))
+		if (!model.containsAttribute("question")) {
+			model.addAttribute("question", questionService.findOne(id))
+		}
 		"admin/question/edit"
 	}
 
 	// POST save question
 	@RequestMapping(method = RequestMethod.POST)
 	String save(Question question, RedirectAttributes attr) {
+		if (question.ask == null || question.ask == "") {
+			attr.addFlashAttribute("alertError", "Error in question form")
+			attr.addFlashAttribute("error", "Required Field")
+			attr.addFlashAttribute("question", question)
+			return "redirect:${(question.id == null || question.id == "") ? "/admin/question/add?videoId=${question.video_fk}" : "/admin/question/${question.id}"}"
+		}
 		questionService.save(question)
 		attr.addFlashAttribute("alertSuccess", "Successfully saved question")
 		"redirect:/admin/video/${question.video_fk}"

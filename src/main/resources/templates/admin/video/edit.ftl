@@ -76,11 +76,13 @@
 							<form id="videoForm" role="form" method="post" action="/admin/video">
 								<label>Name</label>
 								<div class="form-group">
+									<span class="text-error">${(errors.name)!}</span>
 									<input type="text" id="name" name="name" class="form-control"
 										   placeholder="Name" required="true" value="${video.name}"/>
 								</div>
 								<label>Description</label>
 								<div class="form-group">
+									<span class="text-error">${(errors.description)!}</span>
 									<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
 											  style="resize:none;">${video.description}</textarea>
 								</div>
@@ -137,7 +139,7 @@
 									<tbody>
 										<#list questions as question>
 											<tr>
-												<td>${question.question}</td>
+												<td>${question.ask}</td>
 												<td>${question.inputType?cap_first}</td>
 												<td>${(question.options?size > 0)?string(question.options?join(', '), 'None')}</td>
 												<td>

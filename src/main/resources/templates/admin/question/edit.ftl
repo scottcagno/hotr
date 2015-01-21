@@ -18,8 +18,9 @@
 						<form id="addQuestion" role="form" method="post" action="/admin/question">
 							<div class="form-group">
 								<label>Question</label>
-								<input type="text" id="question" name="question" class="form-control"
-									   placeholder="Question" required="true" value="${question.question}"/>
+								<span class="text-error">${(error)!}</span>
+								<input type="text" id="ask" name="ask" class="form-control"
+									   placeholder="Question" required="true" value="${question.ask}"/>
 							</div>
 							<div id="selectType" class="form-group">
 								<label>Please choose an answer type</label>

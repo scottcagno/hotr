@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app.VimeoAPI
-
 import com.cagnosolutions.starter.app.video.VideoService
 import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.transform.CompileStatic
@@ -9,7 +8,6 @@ import org.apache.http.client.methods.HttpPatch
 import org.apache.http.impl.client.CloseableHttpClient
 import org.apache.http.impl.client.HttpClients
 import org.apache.http.message.BasicNameValuePair
-import org.aspectj.apache.bcel.classfile.annotation.NameValuePair
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -51,11 +49,11 @@ class VimeoAPI {
 		patch.addHeader("User-Agent", "Mozilla/5.0")
 		patch.addHeader("Authorization", "Bearer "+ this.accessToken)
 		patch.addHeader("Accept", "application/vnd.vimeo.*+json;version=3.2")
-		List<NameValuePair> urlParameters = new ArrayList<>()
+		List<BasicNameValuePair> urlParameters = new ArrayList<>()
 		for (String paramKey : params.keySet()) {
-			urlParameters.add(new BasicNameValuePair(paramKey, params.get(paramKey)) as NameValuePair)
+			urlParameters.add(new BasicNameValuePair(paramKey, params.get(paramKey)))
 		}
-		patch.setEntity(new UrlEncodedFormEntity(urlParameters as Iterable<? extends org.apache.http.NameValuePair>))
+		patch.setEntity(new UrlEncodedFormEntity(urlParameters))
 		HttpResponse response = client.execute(patch)
 		ObjectMapper mapper = new ObjectMapper()
 		mapper.readValue(response.getEntity().getContent(), Map.class)

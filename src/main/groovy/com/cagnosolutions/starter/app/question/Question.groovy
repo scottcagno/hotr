@@ -13,7 +13,7 @@ class Question {
 	@GeneratedValue
 	Long id
 	Long video_fk
-	String question
+	String ask
 	String inputType
 	ArrayList<String> options
 }

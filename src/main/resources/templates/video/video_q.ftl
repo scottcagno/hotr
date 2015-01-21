@@ -109,37 +109,37 @@
 							<#list questions as question>
 								<#switch question.inputType>
 									<#case "select one">
-										<label id="question_${i}">${question.question}</label>
+										<label id="question_${i}">${question.ask}</label>
 										<#list question.options as option>
 											<div class="radio">
 												<label>
-													<input id="question_${i}" type="radio" name="${question.question}" id="optionsRadios1" value="${option}">
+													<input id="question_${i}" type="radio" name="${question.ask}" id="optionsRadios1" value="${option}">
 													${option}
 												</label>
 											</div>
 										</#list>
 										<#break/>
 									<#case "select many">
-										<label id="question_${i}">${question.question}</label>
+										<label id="question_${i}">${question.ask}</label>
 										<#list question.options as option>
 											<div class="checkbox">
 												<label>
-													<input name="${question.question}" id="question_${i}" type="checkbox" value="${option}">
+													<input name="${question.ask}" id="question_${i}" type="checkbox" value="${option}">
 													${option}
 												</label>
 											</div>
 										</#list>
 										<#break/>
 									<#case "text box">
-										<label id="question_${i}">${question.question}</label>
+										<label id="question_${i}">${question.ask}</label>
 										<div class="form-group">
-											<textarea name="${question.question}" id="question_${i}" class="form-control" rows="5" style="resize:none;"></textarea>
+											<textarea name="${question.ask}" id="question_${i}" class="form-control" rows="5" style="resize:none;"></textarea>
 										</div>
 										<#break/>
 									<#default>
-										<label id="question_${i}">${question.question}</label>
+										<label id="question_${i}">${question.ask}</label>
 										<div class="form-group">
-											<input name="${question.question}" id="question_${i}" type="${question.inputType}" class="form-control" required="true"/>
+											<input name="${question.ask}" id="question_${i}" type="${question.inputType}" class="form-control" required="true"/>
 										</div>
 								</#switch>
 								<#assign i = i +1 />
