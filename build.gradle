@@ -45,7 +45,6 @@ dependencies {
     compile ("org.springframework.social:spring-social-security")
     compile ("org.springframework.social:spring-social-facebook")
     compile ("org.springframework.social:spring-social-config")
-    //compile ("org.springframework.social:spring-social-spring-data-jpa:1.1.0-SNAPSHOT")
 }
 
 task wrapper(type: Wrapper) {

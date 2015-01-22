@@ -41,7 +41,7 @@
 							<i class="fa fa-facebook-square fa-lg"></i>
 						</button>
 						<input type="hidden" name="scope" value="email"/>
-						<input type="hidden" name="scope" value="public_profile"/>
+						<input type="hidden" name="redirect" value="http://node2.cagnosolutions.com/auth/facebook"/>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					</form>
 					<br/>
