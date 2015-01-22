@@ -25,13 +25,6 @@
 		</div>
 	</#if>
 
-	<#if RequestParameters.formError??>
-		<div class="alert alert-danger alert-dismissable">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			${RequestParameters.formError}
-		</div>
-	</#if>
-
 	<#if userSession?? && userSession.progress == 6>
 		<div class="alert alert-info alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
