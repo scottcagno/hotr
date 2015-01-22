@@ -1,6 +1,5 @@
 package com.cagnosolutions.starter.app
 import com.cagnosolutions.starter.app.email.EmailService
-import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
 import com.cagnosolutions.starter.app.validators.UserRegistrationValidator
@@ -13,7 +12,6 @@ import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 import javax.validation.Valid
@@ -58,6 +56,11 @@ class AuthController {
 		"login"
 	}
 
+	@RequestMapping(value = ["/signin", "/signup"])
+	String socialRedirect() {
+		"redirect:/login"
+	}
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	String register(Model model) {
 		model.addAttribute "register", true
@@ -90,34 +93,5 @@ class AuthController {
 		}
 		attr.addFlashAttribute "alertError", "Unable to register, ${user.username} may already be taken"
 		"redirect:/login"
-	}
-
-	@RequestMapping(value = "/socialisregistered", method = RequestMethod.POST)
-	@ResponseBody
-	Boolean socialMedia(User user) {
-		if (userService.canUpdate(user.id, user.username)) {
-			return false
-		} else {
-			return true
-		}
-	}
-
-	@RequestMapping(value = "/social/register", method = RequestMethod.POST)
-	@ResponseBody
-	Boolean socialRegister(User user) {
-		if (userService.canUpdate(user.id, user.username)) {
-			user.password = new BCryptPasswordEncoder().encode("social")
-			user.challenge = false
-			user.monthly = false
-			user.social = false
-			user.progress = new ArrayList<Long>()
-			userService.save user
-			def map = [:]
-			map.put("name", "${user.firstName} ${user.lastName}")
-			emailService.send("noreply@fantheflamedates.com", user.username, "Registration", "Registration", "email/registration.ftl", map)
-			return true
-		} else {
-			return false
-		}
 	}
 }
