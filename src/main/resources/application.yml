@@ -23,8 +23,6 @@ spring:
     facebook:
       appId: 384205581749475
       appSecret: fb5c5710b86ed7b403e8505ec69f1ffa
-  application:
-    name: 'node2.cagnosolutions.com'
 
 server:
   port: 8080

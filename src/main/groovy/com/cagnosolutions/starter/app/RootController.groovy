@@ -83,11 +83,6 @@ class RootController {
         "challenge"
     }
 
-    @RequestMapping(value = "/social", method = GET)
-    String social() {
-        "social"
-    }
-
 }
 
 

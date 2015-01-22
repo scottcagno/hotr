@@ -20,8 +20,7 @@ class VimeoAPI {
 
 	String accessToken = "42d31cdffcfb6f820c33687faedda08f";
 
-	VimeoAPI() {
-	}
+	VimeoAPI() {}
 
 	// base method for most vimeo api calls
 	HttpURLConnection makeApiCall(String method, String url, String... param) throws Exception {
