@@ -25,12 +25,14 @@ class RecommendController {
 	@Autowired
 	EmailService emailService
 
+	// GET recommend
 	@RequestMapping(method = RequestMethod.GET)
 	String recommend(Model model) {
 		model.addAllAttributes([auth: true])
 		"recommend"
 	}
 
+	// POST recommend fan the flame dates
 	@RequestMapping(method =RequestMethod.POST)
 	String sendRecommend(@RequestParam(value = "emails") List<String> emails, RedirectAttributes attr) {
 		def user = userService.findOne userSession.id

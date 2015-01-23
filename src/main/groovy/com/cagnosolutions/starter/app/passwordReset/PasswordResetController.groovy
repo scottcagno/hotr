@@ -21,12 +21,14 @@ class PasswordResetController {
 
 	@Autowired
 	EmailService emailService
-
+	
+	// GET password page
 	@RequestMapping(method = RequestMethod.GET)
 	String resetPassword() {
 		"password"
 	}
-
+	
+	// POST request password
 	@RequestMapping(method = RequestMethod.POST)
 	String resetPasswordAction(@RequestParam String username, RedirectAttributes attr) {
 		def user = userService.findOne username

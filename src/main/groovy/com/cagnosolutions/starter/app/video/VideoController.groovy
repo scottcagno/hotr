@@ -86,6 +86,7 @@ class VideoController {
 		}
     }
 
+	// GET all series
 	@RequestMapping(value = "/series", method = RequestMethod.GET)
 	String series(Model model) {
 		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : (userSession != null),
@@ -93,6 +94,7 @@ class VideoController {
 		"video/series"
 	}
 
+	// GET all videos related to the one just watched
 	@RequestMapping(value = "/relatedto/{id}", method = RequestMethod.GET)
 	String relatedTo(@PathVariable Long id, Model model) {
 		def topics = topicService.findAllByVideo id
