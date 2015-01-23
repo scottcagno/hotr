@@ -56,18 +56,14 @@
 			<div class="col-sm-8 blog-main">
 
 				<!-- blog post -->
-                <div class="blog-post">
+				<div class="blog-post">
 					<h2 class="blog-post-title">
-                        Sample blog post
-                    </h2>
+						${(blog.title)!}
+					</h2>
 					<p class="blog-post-meta">
-                        January 1, 2014 by <a href="#">Jeff</a>
-                    </p>
-					<p>
-                        This is a sample blog post. There is not really much here yet but eventually this will be hooked
-                        up to a WYSIWYG on the admin side. I don't think this looks too bad.
-                    </p>
-					<hr>
+						${(blog.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}
+					</p>
+					<p>${(blog.body)!}</p>
 				</div>
 				<!-- blog post -->
 
@@ -79,18 +75,15 @@
 				<div class="sidebar-module">
 					<h4>Archives</h4>
 					<ol class="list-unstyled">
-						<li><a href="#">March 2014</a></li>
-						<li><a href="#">February 2014</a></li>
-						<li><a href="#">January 2014</a></li>
-						<li><a href="#">December 2013</a></li>
-						<li><a href="#">November 2013</a></li>
-						<li><a href="#">October 2013</a></li>
-						<li><a href="#">September 2013</a></li>
-						<li><a href="#">August 2013</a></li>
-						<li><a href="#">July 2013</a></li>
-						<li><a href="#">June 2013</a></li>
-						<li><a href="#">May 2013</a></li>
-						<li><a href="#">April 2013</a></li>
+						<#list blogs as blog>
+							<li>
+								<a href="/blog/${(blog.id)?c}"
+								   data-trigger="hover" data-container="body" data-toggle="popover"
+								   	data-placement="left" data-content="${(blog.title)!}...">
+									${(blog.date)?string["MMMM dd, yyyy"]}
+								</a>
+							</li>
+						</#list>
 					</ol>
 				</div>
 			</div>
@@ -100,12 +93,9 @@
     </div>
 	<!-- content -->
 
-	<!-- footer -->
-    <#include "../stubs/footer.ftl"/>
-	<!-- footer -->
-
 	<!-- javascript -->
     <#include "../stubs/scripts.ftl"/>
+	<script>$(function(){$('[data-toggle="popover"]').popover();});</script>
 	<!-- javascript -->
 
 	</body>
