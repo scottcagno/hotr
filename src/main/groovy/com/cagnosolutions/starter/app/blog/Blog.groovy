@@ -17,4 +17,8 @@ class Blog {
 	String title
 	@Column(length = 10000)
 	String body
+
+	String toString() {
+		"$id, $date, $title, $body"
+	}
 }

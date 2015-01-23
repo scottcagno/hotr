@@ -28,4 +28,11 @@ class BlogService {
 		repo.findOne id
 	}
 
+	def save(Blog blog) {
+		repo.save blog
+	}
+
+	def delete(Long id) {
+		repo.delete id
+	}
 }

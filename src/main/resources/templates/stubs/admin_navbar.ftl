@@ -7,12 +7,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="/home" class="navbar-brand">${(glob.home)!Home}</a>
+			<a href="/home" class="navbar-brand">${(glob.home)!}</a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/admin/video">Videos</a></li>
 				<li><a href="/admin/user">Users</a></li>
+				<li><a href="/admin/blog">Blog</a></li>
 				<li><a href="/admin">Admin</a></li>
 				<li><a href="/logout">Logout</a></li>
 			</ul>
