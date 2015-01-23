@@ -74,11 +74,8 @@
 		<div class="container">
 			<br/>
 			<div class="col-sm-7">
-				<div id="videoDiv" class="embed-responsive embed-responsive-16by9 play">
-					<img id="video" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive " alt="Video Thumbnail">
-					<a id="video" href="#">
-						<span class="fa fa-play-circle fa-5x"></span>
-					</a>
+				<div id="videoDiv" class="embed-responsive embed-responsive-16by9">
+					<iframe id="player" src="//player.vimeo.com/video/${video.vimeoId}?api=1&player_id=player&portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
 				<div class="row">
 					<div class="col-lg-6">
@@ -188,13 +185,9 @@
 		<div id="scripts">
 
 			<#include "../stubs/scripts.ftl"/>
-			<script>
-				var iframe = '<iframe id="iFrame" src="//player.vimeo.com/video/${video.vimeoId}?portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-			</script>
+			<script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
 			<script src="/static/js/video_q.js"></script>
 			<script src="/static/js/video.js"></script>
-
-			<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 		</div>
 	</body>
 </html>

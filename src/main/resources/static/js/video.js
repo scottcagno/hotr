@@ -8,22 +8,13 @@ $(document).ready(function() {
 			console.log('POST Sent');
 		});
 	};
+    
+    var iframe = $('iframe[id="player"]')[0];
+    var player = $f(iframe);
 
-	$('img[id="video"]').click(function() {
-		console.log('Video Started');
-		$('div[id="videoDiv"]').removeClass('play');
-		$('div[id="videoDiv"]').html(iframe);
-		setTimeout(function() {
-			watched();
-		}, 300000);
-	});
-
-	$('a[id="video"]').click(function() {
-    	console.log('Video Started');
-    	$('div[id="videoDiv"]').removeClass('play');
-    	$('div[id="videoDiv"]').html(iframe);
-    	setTimeout(function() {
-    		watched();
-    	}, 300000);
+    // When the player is ready, add listeners for pause, finish, and playProgress
+    player.addEvent('ready', function() {
+        player.addEvent('finish', watched);
     });
+
 });
