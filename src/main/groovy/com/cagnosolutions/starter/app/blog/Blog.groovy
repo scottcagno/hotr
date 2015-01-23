@@ -15,10 +15,6 @@ class Blog {
 	Long id
 	Date date
 	String title
-	@Column(length = 10000)
+	@Column(length = 100000)
 	String body
-
-	String toString() {
-		"$id, $date, $title, $body"
-	}
 }

@@ -15,7 +15,7 @@ class Worksheet {
 	@GeneratedValue
 	Long Id
 	Long userId, videoId
-	@Column(length=1000)
+	@Column(length=10000)
 	String htmlData
 	@Column(length = 1000)
 	String videoName
