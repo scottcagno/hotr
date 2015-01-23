@@ -15,7 +15,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="/home" class="navbar-brand">Home</a>
+					<a href="/home" class="navbar-brand">${(glob.home)!Home}</a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">

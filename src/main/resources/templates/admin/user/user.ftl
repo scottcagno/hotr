@@ -109,7 +109,7 @@
 							<#else/>
 								<!-- toggle show password input -->
 								<div class="form-group">
-									<span class="text-error">${(errors.lastName)!}</span>
+									<span class="text-error">${(errors.password)!}</span>
 									<div class="input-group">
 										<input type="password" id="toggle-pass" name="password" class="form-control"
 											   placeholder="Password" required="true"/>

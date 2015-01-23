@@ -1,10 +1,6 @@
 package com.cagnosolutions.starter.app.question
-
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
 
 @CompileStatic
@@ -16,10 +12,6 @@ class QuestionService {
 
     List<Question> findAll() {
         repo.findAll()
-    }
-
-    Page<Question> findAll(int page, int size, String... fields) {
-        repo.findAll(new PageRequest(page, size, Sort.Direction.ASC, fields))
     }
 
 	List<Question> findAllByVideo(Long videoId) {

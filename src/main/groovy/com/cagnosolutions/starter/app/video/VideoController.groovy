@@ -56,7 +56,8 @@ class VideoController {
 
 	@RequestMapping(value = "/series", method = RequestMethod.GET)
 	String series(Model model) {
-		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : false, topics: topicService.popTopics()])
+		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : false, 
+								topics: topicService.popTopics()])
 		"video/series"
 	}
 }

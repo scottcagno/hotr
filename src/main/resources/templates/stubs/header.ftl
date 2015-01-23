@@ -9,3 +9,4 @@
 <link href="/static/css/custom.css" rel="stylesheet" type="text/css"/>
 <link href="/static/css/navbar.css" rel="stylesheet" type="text/css"/>
 <link href="/static/css/carousel.css" rel="stylesheet" type="text/css"/>
+<#import "global.ftl" as glob/>

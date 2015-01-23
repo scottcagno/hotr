@@ -15,7 +15,7 @@ $(document).ready(function() {
 		$('div[id="videoDiv"]').html(iframe);
 		setTimeout(function() {
 			watched();
-		}, 30000);
+		}, 300000);
 	});
 
 	$('a[id="video"]').click(function() {
@@ -24,6 +24,6 @@ $(document).ready(function() {
     	$('div[id="videoDiv"]').html(iframe);
     	setTimeout(function() {
     		watched();
-    	}, 30000);
+    	}, 300000);
     });
 });

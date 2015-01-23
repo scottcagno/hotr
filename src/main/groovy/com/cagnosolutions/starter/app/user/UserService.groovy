@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app.user
-
 import com.cagnosolutions.starter.app.email.EmailService
 import com.cagnosolutions.starter.app.validators.AdminAddUserValidator
 import com.cagnosolutions.starter.app.validators.AdminEditUserValidator
@@ -7,9 +6,6 @@ import com.cagnosolutions.starter.app.validators.UserAccountValidator
 import com.cagnosolutions.starter.app.validators.UserRegistrationValidator
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Sort
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.social.connect.UserProfile
@@ -30,10 +26,6 @@ class UserService {
 		repo.findAll()
 	}
 
-	Page<User> findAll(int page, int size, String... fields) {
-		repo.findAll(new PageRequest(page, size, Sort.Direction.ASC, fields))
-	}
-
 	List<User> findAllByMonthly() {
 		repo.findAllByMonthly()
 	}
@@ -48,10 +40,6 @@ class UserService {
 
 	User findOne(String username) {
 		repo.findOne username
-	}
-
-	User findOneByHashedUsername(String hash) {
-		repo.findOne new String(hash.decodeBase64())
 	}
 
 	User save(User user) {
@@ -70,14 +58,6 @@ class UserService {
 
 	Integer numberOrChallenge() {
 		repo.numberOfChallenge()
-	}
-
-	String getHash(String username) {
-		username.bytes.encodeBase64().toString()
-	}
-
-	String getUsername(String hash) {
-		new String(hash.decodeBase64())
 	}
 
 	@Scheduled(cron = "0 0 12 1 * *")

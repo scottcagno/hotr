@@ -18,12 +18,4 @@ class ValidationWrapper {
 		errors
 	}
 
-	// we are not validating phone numbers on this site
-	Map<String,String> bindErrors(BindingResult bindingResult, Object validator) {
-		errors = new HashMap<String,String>()
-		for(FieldError error : bindingResult.getFieldErrors())
-			errors[error.field] = error.defaultMessage
-		errors
-	}
-
 }

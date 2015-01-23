@@ -11,12 +11,15 @@ class VideoValidator {
 	String name
 
 	String thumb
+	
 	String vimeoId
+	
 	String series
 
 	@NotBlank(message = "Required field")
 	String description
 
 	Date added
+	
 	Integer watched
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 class UserSession {
+	
 	long id
 	String firstName, lastName, spouseName
 	int progress

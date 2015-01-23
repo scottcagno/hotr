@@ -42,7 +42,7 @@ class AdminUserController {
 	String add(@Valid AdminAddUserValidator adminAddUserValidator, BindingResult bindingResult, RedirectAttributes attr) {
 		if (bindingResult.hasErrors()) {
 			attr.addFlashAttribute("alertError", "Error in the user form")
-			attr.addFlashAttribute "errors", validationWrapper.bindErrors(bindingResult)
+			attr.addFlashAttribute("errors", validationWrapper.bindErrors(bindingResult))
 			return "redirect:/admin/user"
 		}
 		def user = userService.generateFromValidator adminAddUserValidator
@@ -50,7 +50,7 @@ class AdminUserController {
 			user.password = new BCryptPasswordEncoder().encode(user.password)
 			user.challenge = false
 			user.monthly = false
-			user.progress = new ArrayList<Long>()
+			user.social = false
 			user.progress = new ArrayList<>()
 			userService.save user
 			attr.addFlashAttribute("alertSuccess", "Updated Successfully")
@@ -72,17 +72,17 @@ class AdminUserController {
 		"admin/user/user"
 	}
 
-	// POST add/edit user
+	// POST edit user
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	String edit(@Valid AdminEditUserValidator adminEditUserValidator, BindingResult bindingResult, RedirectAttributes attr) {
 		if (bindingResult.hasErrors()) {
 			attr.addFlashAttribute("alertError", "Error in the user form")
-			attr.addFlashAttribute "errors", validationWrapper.bindErrors(bindingResult)
+			attr.addFlashAttribute("errors", validationWrapper.bindErrors(bindingResult))
 			return "redirect:/admin/user/${adminEditUserValidator.id}"
 		}
 		def user = userService.generateFromValidator adminEditUserValidator
 		if(userService.canUpdate(user.id, user.username)) {
-			User existingUser = userService.findOne(user.id)
+			User existingUser = userService.findOne user.id
 			user.password = (user.password == '') ? null : user.password
 			user.monthly = (user.monthly == null) ? false : user.monthly
 			userService.mergeProperties(user, existingUser)

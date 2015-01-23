@@ -10,5 +10,4 @@ class Ticket {
 	int quantity_total
 	int quantity_sold
 
-
 }

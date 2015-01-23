@@ -45,15 +45,15 @@ class AdminQuestionController {
 			attr.addFlashAttribute("question", question)
 			return "redirect:${(question.id == null || question.id == "") ? "/admin/question/add?videoId=${question.video_fk}" : "/admin/question/${question.id}"}"
 		}
-		questionService.save(question)
+		questionService.save question
 		attr.addFlashAttribute("alertSuccess", "Successfully saved question")
 		"redirect:/admin/video/${question.video_fk}"
 	}
 
 	// POST delete question
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
-	String delete(@PathVariable Long id, @RequestParam Long videoId, RedirectAttributes attr) {
-		questionService.delete(id)
+	String delete(@PathVariable Long id, Long videoId, RedirectAttributes attr) {
+		questionService.delete id
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted question")
 		"redirect:/admin/video/${videoId}"
 	}

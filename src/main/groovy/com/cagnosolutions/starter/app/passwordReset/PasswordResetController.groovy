@@ -41,7 +41,7 @@ class PasswordResetController {
 				"A password reset has been requested for this account. You may now login using the temporary password " +
 						"listed below:\n\n\t${pass}\n\n" +
 						"After logging in, please make sure you reset your password.")
-		attr.addFlashAttribute "alert", "An email has been sent to ${username} with a new temporary password"
+		attr.addFlashAttribute("alert", "An email has been sent to ${username} with a new temporary password")
 		"redirect:/reset/password"
 	}
 

@@ -33,7 +33,7 @@ class RecommendController {
 
 	@RequestMapping(method =RequestMethod.POST)
 	String sendRecommend(@RequestParam(value = "emails") List<String> emails, RedirectAttributes attr) {
-		def user = userService.findOne(userSession.id)
+		def user = userService.findOne userSession.id
 		def map = [:]
 		def name = (user.spouseName != null && user.spouseName != "") ?
 				"${user.firstName} and ${user.spouseName} ${user.lastName}" :

@@ -10,6 +10,5 @@ class TopicWatched {
 
     @Id
     String topic
-
     Integer watched
 }

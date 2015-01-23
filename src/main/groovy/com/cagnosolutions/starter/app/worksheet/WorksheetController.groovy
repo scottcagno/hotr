@@ -75,7 +75,6 @@ class WorksheetController {
 		}
 		if (email) {
 			// email to user
-
 			def name = (user.spouseName != null || user.spouseName != "") ?
 					"${user.firstName} and ${user.spouseName} ${user.lastName}" :
 					"${user.firstName} ${user.lastName}"

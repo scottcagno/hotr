@@ -1,11 +1,7 @@
 package com.cagnosolutions.starter.app.video
-
 import com.cagnosolutions.starter.app.validators.VideoValidator
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
 
 @CompileStatic
@@ -20,7 +16,7 @@ class VideoService {
     }
 
 	List<Video> findAll(List<Long> ids) {
-		repo.findAll(ids)
+		repo.findAll ids
 	}
 
 	List<Video> findAllByTopic(String topic) {
@@ -30,10 +26,6 @@ class VideoService {
 	List<Video> findAllBySeries(String series) {
 		repo.findAllBySeries(series)
 	}
-
-    Page<Video> findAll(int page, int size, String... fields) {
-        repo.findAll(new PageRequest(page, size, Sort.Direction.ASC, fields))
-    }
 
     Video findOne(Long id) {
         repo.findOne id

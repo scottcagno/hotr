@@ -45,9 +45,9 @@ class UserController {
 		List<Video> recent
 		if (user.progress.size() >= 5) {
 			def ids = user.progress.subList((user.progress.size() - 5), user.progress.size())
-			recent = videoService.findAll(ids)
+			recent = videoService.findAll ids
 		} else {
-			recent = videoService.findAll(user.progress)
+			recent = videoService.findAll user.progress
 		}
         model.addAllAttributes([user: user, worksheets : worksheets, recent : recent, userSession : userSession])
         "user/user"
@@ -58,12 +58,12 @@ class UserController {
 	String update(@Valid UserAccountValidator userAccountValidator, BindingResult bindingResult, RedirectAttributes attr) {
 		if (bindingResult.hasErrors()) {
 			attr.addFlashAttribute("alertError", "Error in the settings form")
-			attr.addFlashAttribute "errors", validationWrapper.bindErrors(bindingResult)
+			attr.addFlashAttribute("errors", validationWrapper.bindErrors(bindingResult))
 			return "redirect:/secure/user"
 		}
 		def user = userService.generateFromValidator userAccountValidator
 		if(userService.canUpdate(user.id, user.username)) {
-			User existingUser = userService.findOne(user.id)
+			User existingUser = userService.findOne user.id
 			user.password = (user.password == "") ? null : user.password
 			user.monthly = (user.monthly == null) ? false : user.monthly
 			userService.mergeProperties(user, existingUser)

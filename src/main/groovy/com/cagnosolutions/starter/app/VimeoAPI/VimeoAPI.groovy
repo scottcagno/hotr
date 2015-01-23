@@ -25,15 +25,15 @@ class VimeoAPI {
 	// base method for most vimeo api calls
 	HttpURLConnection makeApiCall(String method, String url, String... param) throws Exception {
 		HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection()
-		con.setRequestMethod(method)
+		con.setRequestMethod method
 		con.setRequestProperty("User-Agent", "Mozilla/5.0")
 		con.setRequestProperty("Authorization", "Bearer " + this.accessToken)
 		con.setRequestProperty("Accept", "application/vnd.vimeo.*+json;version=3.2")
 		if (param.length > 0) {
 			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5")
-			con.setDoOutput(true)
+			con.setDoOutput true
 			DataOutputStream wr = new DataOutputStream(con.getOutputStream())
-			wr.writeBytes(param[0])
+			wr.writeBytes param[0]
 			wr.flush()
 			wr.close()
 		}
@@ -53,7 +53,7 @@ class VimeoAPI {
 			urlParameters.add(new BasicNameValuePair(paramKey, params.get(paramKey)))
 		}
 		patch.setEntity(new UrlEncodedFormEntity(urlParameters))
-		HttpResponse response = client.execute(patch)
+		HttpResponse response = client.execute patch
 		ObjectMapper mapper = new ObjectMapper()
 		mapper.readValue(response.getEntity().getContent(), Map.class)
 	}

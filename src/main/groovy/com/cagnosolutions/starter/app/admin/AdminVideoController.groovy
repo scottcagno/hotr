@@ -97,12 +97,13 @@ class AdminVideoController {
 	@RequestMapping(value="/upload", method = RequestMethod.GET)
 	String upload(Model model) {
 		def redirect = "redirect_url=node2.cagnosolutions.com/admin/video/add"
-		//def redirect = "redirect_url=localhost:8080/admin/video/add"
 		try {
 			// TODO: change redirect_url when live
 			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", redirect))
 		} catch (all) {
 			all.printStackTrace()
+			model.addAttribute("alertError", "Error contacting Vimeo")
+			return "Redirect:/admin/video"
 		}
 		"admin/video/upload"
 	}
@@ -111,7 +112,13 @@ class AdminVideoController {
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, RedirectAttributes attr) {
 		def video = videoService.findOne id
-		vimeoAPI.deleteVideo video.vimeoId
+		try {
+			vimeoAPI.deleteVideo video.vimeoId
+		} catch(all) {
+			all.printStackTrace()
+			attr.addFlashAttribute("alertError", "Error contacting Vimeo")
+			return "Redirect:/admin/video"
+		}
 		videoService.delete video
 		topicService.deleteAllByVideo id
 		questionService.deleteAllByVideo id
@@ -124,7 +131,7 @@ class AdminVideoController {
 	String thumb(@PathVariable Long id, RedirectAttributes attr) {
 		def video = videoService.findOne id
 		vimeoAPI.settings(video.id, video.vimeoId)
-		attr.addFlashAttribute("alertSuccess", "Successfully sent thumbnail request. Please 5-10 for a thumbnail response")
+		attr.addFlashAttribute("alertSuccess", "Successfully sent thumbnail request. Please wait 5-10 minutes for a thumbnail response")
 		"redirect:/admin/video/${id}"
 	}
 }

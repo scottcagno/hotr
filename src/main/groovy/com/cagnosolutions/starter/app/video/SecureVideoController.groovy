@@ -74,7 +74,6 @@ class SecureVideoController {
 					"again but it will not count towards your challenge progress")
 		}
 		def video = videoService.findOne id
-		video.watched++
 		video = videoService.save video
 		if (!user.challenge) {
 			model.addAttribute("notChallenge", true)
@@ -95,7 +94,7 @@ class SecureVideoController {
 	@RequestMapping(value = "/relatedto/{id}", method = RequestMethod.GET)
 	String relatedTo(@PathVariable Long id, Model model) {
 		def topics = topicService.findAllByVideo id
-		def videoIds = topicService.videoIdsByTopics(topics)
+		def videoIds = topicService.videoIdsByTopics topics
 		def relatedMap = [:]
 		videoIds.each { vidId ->
 			relatedMap[vidId] = (relatedMap[vidId] == null)? 1 : (relatedMap[vidId] as Integer) +1
@@ -119,7 +118,7 @@ class SecureVideoController {
 		// empty videIds List and repopulate with sorted map keys
 		videoIds = null
 		videoIds = relatedMap.keySet() as ArrayList<Long>
-		videoIds = (videoIds.size() > 13)? videoIds.subList(0, 10) : videoIds
+		videoIds = (videoIds.size() > 11)? videoIds.subList(0, 10) : videoIds
 		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics,
 								video : videoService.findOne(id), userSession : userSession])
 		"video/related"

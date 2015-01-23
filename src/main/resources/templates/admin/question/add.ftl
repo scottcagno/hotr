@@ -40,8 +40,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-						<button id="addQuestionButton" class="btn btn-md btn-primary btn-block" type="submit">Add</button>
-						<a href="/admin/video/${videoId}" class="btn btn-default btn-block">Cancel</a>
+							<button id="addQuestionButton" class="btn btn-md btn-primary btn-block" type="submit">Add</button>
+							<a href="/admin/video/${videoId}" class="btn btn-default btn-block">Cancel</a>
+						</div>
 					</div>
 				</div>
 			</div>

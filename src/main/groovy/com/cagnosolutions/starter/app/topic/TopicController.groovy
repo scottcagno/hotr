@@ -30,8 +30,8 @@ class TopicController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     String topicWatched(@RequestParam(value = "topicIds") List<String> topicIds, Long videoId) {
-        topicService.topicWatched(topicIds)
-        videoService.videoWatched(videoId)
+        topicService.topicWatched topicIds
+        videoService.videoWatched videoId
         "DONE"
     }
 
@@ -40,12 +40,6 @@ class TopicController {
         def video = topicService.findOne id
         model.addAllAttributes([video: video, videos: topicService.findAll()])
         "video/topic"
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    String delete(@PathVariable Long id) {
-        topicService.delete id
-        "redirect:/secure/topic"
     }
 
 }

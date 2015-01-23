@@ -1,9 +1,6 @@
 package com.cagnosolutions.starter.app.worksheet
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
 
 @CompileStatic
@@ -15,10 +12,6 @@ class WorksheetService {
 
     List<Worksheet> findAll() {
         repo.findAll()
-    }
-
-    Page<Worksheet> findAll(int page, int size, String... fields) {
-        repo.findAll(new PageRequest(page, size, Sort.Direction.ASC, fields))
     }
 
 	List<Worksheet> findAllByUserId(Long userId) {
