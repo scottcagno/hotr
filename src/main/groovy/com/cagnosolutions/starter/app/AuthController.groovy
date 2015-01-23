@@ -52,7 +52,7 @@ class AuthController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	String login(Model model) {
-		model.addAttribute "login", true
+		model.addAllAttributes([login : true, auth : false])
 		"login"
 	}
 
@@ -63,7 +63,7 @@ class AuthController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	String register(Model model) {
-		model.addAttribute "register", true
+		model.addAllAttributes([register : true, auth : false])
 		"login"
 	}
 

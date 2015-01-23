@@ -49,7 +49,8 @@ class UserController {
 		} else {
 			recent = videoService.findAll user.progress
 		}
-        model.addAllAttributes([user: user, worksheets : worksheets, recent : recent, userSession : userSession])
+        model.addAllAttributes([user: user, worksheets : worksheets, 
+								recent : recent, auth : true])
         "user/user"
     }
 

@@ -37,7 +37,7 @@
 						Add/Edit User <span class="pull-right"><a href="/admin/user">Clear</a></span>
 					</div>
 					<div class="panel-body">
-						<form id="accountForm" role="form" method="post" action="/admin/user/${(user??)?string('edit','add')}" novalidate>
+						<form id="accountForm" role="form" method="post" action="/admin/user/${(user?? && user.id??)?string('edit','add')}" novalidate>
 							<#if user??>
 								<div class="form-group">
 									<label>Created On:</label><span> ${(user.creation?date)!}</span> <br/>

@@ -41,7 +41,7 @@ class WorksheetController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String view(@PathVariable Long id, Model model) {
 		Worksheet worksheet = worksheetService.findOne id
-		model.addAllAttributes([worksheet : worksheet, userSession : userSession])
+		model.addAllAttributes([worksheet : worksheet, auth : true])
 		"worksheet/worksheet"
 	}
 
@@ -86,6 +86,6 @@ class WorksheetController {
 			// email to ffd
 		}
 		attr.addFlashAttribute("worksheet", worksheet)
-		"redirect:/secure/video/relatedto/${worksheet.videoId}"
+		"redirect:/video/relatedto/${worksheet.videoId}"
 	}
 }

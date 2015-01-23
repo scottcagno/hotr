@@ -43,6 +43,7 @@ class AdminUserController {
 		if (bindingResult.hasErrors()) {
 			attr.addFlashAttribute("alertError", "Error in the user form")
 			attr.addFlashAttribute("errors", validationWrapper.bindErrors(bindingResult))
+			attr.addFlashAttribute("user", adminAddUserValidator)
 			return "redirect:/admin/user"
 		}
 		def user = userService.generateFromValidator adminAddUserValidator
@@ -78,6 +79,7 @@ class AdminUserController {
 		if (bindingResult.hasErrors()) {
 			attr.addFlashAttribute("alertError", "Error in the user form")
 			attr.addFlashAttribute("errors", validationWrapper.bindErrors(bindingResult))
+			attr.addFlashAttribute("user", adminEditUserValidator)
 			return "redirect:/admin/user/${adminEditUserValidator.id}"
 		}
 		def user = userService.generateFromValidator adminEditUserValidator
