@@ -38,7 +38,7 @@
 					</div>
 					<div class="panel-body">
 						<form id="accountForm" role="form" method="post" action="/admin/user/${(user?? && user.id??)?string('edit','add')}" novalidate>
-							<#if user??>
+							<#if user?? && user.id??>
 								<div class="form-group">
 									<label>Created On:</label><span> ${(user.creation?date)!}</span> <br/>
 									<label>Last Seen:</label><span> ${(user.lastSeen?date)!}</span> <br/>
@@ -124,6 +124,7 @@
 								<!-- toggle show password input -->
 							</#if>
 							<input type="hidden" name="id" value="${(user.id)!}"/>
+							<input type="hidden" name="active" value="${(user.active)!}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 						</form>

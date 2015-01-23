@@ -69,7 +69,10 @@ class AdminUserController {
 			user.active = (active) ? 1 as short : 0 as short
 			userService.save user
 		}
-		model.addAllAttributes([users : userService.findAll(), user : userService.findOne(id)])
+		if (!model.containsAttribute("user")) {
+			model.addAttribute("user", user)
+		}
+		model.addAllAttributes([users : userService.findAll()])
 		"admin/user/user"
 	}
 
