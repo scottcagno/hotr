@@ -35,7 +35,7 @@
 							</span>
 						</a>
 						<a href="https://twitter.com/share?url=${shareLink}&text=${message}&count=none"
-						   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;"	>
+						   onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;"	>
 							<i class="fa fa-twitter-square fa-2x"></i>
 						</a>
 						<label>
