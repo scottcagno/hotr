@@ -79,9 +79,21 @@
 
 		<!-- javascript -->
 		<#include "stubs/scripts.ftl"/>
-
 		<script src="/static/js/home.js"></script>
-		<!-- javascript -->
+		<script>
+			var windownSize = {
+				width: window.innerWidth || document.body.clientWidth,
+				height: window.innerHeight || document.body.clientHeight
+			};
+            var carouselSize = {
+				width: $(".carousel-inner").width(),
+                height: $(".carousel-inner").height()
+            };
+            for(var i = carouselSize.height; i > windownSize.height; i--) {
+				$(".carousel-inner").height().style.height=i+"px";
+            }
+        </script>
+        <!-- javascript -->
 
 	</body>
 </html>

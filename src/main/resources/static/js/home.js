@@ -1,5 +1,6 @@
-// smooth scroller
 $(document).ready(function(){
+
+	// smooth scroller
     $('a[href^="#"]').on('click',function (e) {
         e.preventDefault();
         var target = this.hash, $target = $(target);
@@ -16,5 +17,6 @@ $(document).ready(function(){
             $('.navbar-collapse').collapse('hide');
         });
     }
+
 });
 
