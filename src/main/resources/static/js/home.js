@@ -20,3 +20,30 @@ $(document).ready(function(){
 
 });
 
+var windowSize = {
+    width: window.innerWidth || document.body.clientWidth,
+    height: window.innerHeight || document.body.clientHeight
+};
+$(".carousel-inner").width(windowSize.width);
+
+if ($(".carousel-inner").height() > windowSize.height) {
+    var h = windowSize.height - 50;
+    var w = (1500 * h) / 845;
+    $(".carousel-inner").width(w);
+}
+$(window).resize(function() {
+
+    var windowSize = {
+        width: window.innerWidth || document.body.clientWidth,
+        height: window.innerHeight || document.body.clientHeight
+    };
+    
+    $(".carousel-inner").width(windowSize.width);
+    
+    if ($(".carousel-inner").height() > windowSize.height) {
+        var h = windowSize.height - 50
+        var w = (1500 * h) / 845;
+        $(".carousel-inner").width(w);
+    }
+});
+

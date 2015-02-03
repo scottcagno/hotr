@@ -1,21 +1,22 @@
 <div id="carousel" class="carousel slide" data-ride="carousel" data-pause="">
-	<div class="carousel-inner">
+	<span class="left carousel-control"></span>
+	<div class="carousel-inner" style="margin-left: auto;margin-right: auto";>
 		<div class="item active">
-			<img src="/static/img/banner/1.jpg">
+			<img class="text-center" src="/static/img/banner/1.jpg">
 			<div class="container">
 			</div>
 		</div>
 		<div class="item">
-			<a href="${(auth?? && auth)?string('/secure/challenge', '/challenge')}">
+			<a href="/challenge">
 				<img src="/static/img/banner/2.jpg">
 			</a>
 		</div>
 		<div class="item">
-			<a href="${(auth?? && auth)?string('/secure/video/all', '/video/all')}">
+			<a href="/video/all">
 				<img src="/static/img/banner/3.jpg">
 			</a>
 		</div>
 	</div>
-	<span class="left carousel-control"></span>
+	
 	<span class="right carousel-control"></span>
 </div>
