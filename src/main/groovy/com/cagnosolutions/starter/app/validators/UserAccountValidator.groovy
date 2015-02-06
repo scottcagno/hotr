@@ -1,6 +1,5 @@
 package com.cagnosolutions.starter.app.validators
 import groovy.transform.CompileStatic
-import org.hibernate.validator.constraints.Email
 import org.hibernate.validator.constraints.NotBlank
 
 @CompileStatic
@@ -16,8 +15,8 @@ class UserAccountValidator {
 	@NotBlank(message = "Required field")
 	String lastName
 
-	@NotBlank(message = "Required field")
-	@Email(message = "Must be a valid email address")
+	//@NotBlank(message = "Required field")
+	//@Email(message = "Must be a valid email address")
 	String username
 
 	String password

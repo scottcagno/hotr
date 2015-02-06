@@ -37,7 +37,7 @@
 				<div class="col-lg-7 text-center">
 					<#if !user.challenge>
 						<div>
-							<a href="/secure/challenge" class="btn btn-md btn-success btn-block">Begin Challenge</a>
+							<a href="/challenge" class="btn btn-md btn-success btn-block">Begin Challenge</a>
 						</div>
 					<#else/>
 						<#assign width = (user.progress?size / 12) * 100/>

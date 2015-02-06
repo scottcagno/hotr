@@ -46,6 +46,7 @@ class RootController {
     @RequestMapping(value = "/challenge", method = GET)
     String challenge(Model model) {
         model.addAttribute("auth", (userSession.id != null))
+		model.addAttribute("userSession", userSession)
         "challenge"
     }
 
