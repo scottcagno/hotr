@@ -44,7 +44,11 @@
 										<div class="form-group">
 											<button class="btn btn-md btn-success btn-block" type="submit">Login</button>
 										</div>
-										<a href="/reset/password">Forgot my password</a>
+                                        <div class="text-center">
+                                            <a href="/reset/password" class="btn btn-md btn-default btn-block">
+                                                Recover Your Password <i class="fa fa-lock" style="color:#777;"></i>
+                                            </a>
+                                        </div>
 									</form>
 								</div>
 							</div>

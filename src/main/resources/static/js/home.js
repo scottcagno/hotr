@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 });
 
-var windowSize = {
+/*var windowSize = {
     width: window.innerWidth || document.body.clientWidth,
     height: window.innerHeight || document.body.clientHeight
 };
@@ -41,9 +41,9 @@ $(window).resize(function() {
     $(".carousel-inner").width(windowSize.width);
     
     if ($(".carousel-inner").height() > windowSize.height) {
-        var h = windowSize.height - 50
+        var h = windowSize.height - 50;
         var w = (1500 * h) / 845;
         $(".carousel-inner").width(w);
     }
-});
+});*/
 

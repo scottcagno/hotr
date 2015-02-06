@@ -35,7 +35,7 @@
 		<!-- navbar -->
 
 		<!-- carousel -->
-		<#include "stubs/carousel.ftl"/>
+        <#include "stubs/carousel.ftl"/>
 		<!-- carousel -->
 
 		<#if alert??>
@@ -81,10 +81,6 @@
 		<!-- javascript -->
 		<#include "stubs/scripts.ftl"/>
 		<script src="/static/js/home.js"></script>
-		<script>
-
-
-        </script>
         <!-- javascript -->
 
 	</body>

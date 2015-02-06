@@ -1,5 +1,21 @@
 .navbar {
-	border-bottom:2px solid #e41e26;
+	border-bottom:3px solid #e41e26;
+}
+
+ul.nav.navbar-nav > li > a {
+	color:#ccc;
+}
+
+ul.nav > li > a {
+	color:#e41e26;
+}
+
+footer > span > a {
+	color:#e41e26;
+}
+
+footer > span > a:hover {
+	color:#999;
 }
 
 span.navbar-brand img {
@@ -12,4 +28,14 @@ span.navbar-brand .bold {
 
 .red {
 	color:#e41e26;
+}
+
+.panel > .panel-heading > a {
+	color:#222;
+	font-weight: 500;
+}
+
+
+blockquote {
+	background-color: #999;
 }
