@@ -50,3 +50,11 @@ a:hover,a:active .text-black {
 	text-decoration: underline;
 	color: #000;
 }
+
+.red-pinstripe {
+	border-bottom:2px solid #e41e26;
+}
+
+.yellow-pinstripe {
+	border-bottom:2px solid #fff100;
+}

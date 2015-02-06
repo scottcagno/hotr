@@ -1,0 +1,15 @@
+.navbar {
+	border-bottom:2px solid #e41e26;
+}
+
+span.navbar-brand img {
+	height: 18px;
+}
+
+span.navbar-brand .bold {
+	font-weight: 800;
+}
+
+.red {
+	color:#e41e26;
+}

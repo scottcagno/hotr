@@ -2,14 +2,15 @@
 <html lang="en">
 	<head>
 		<#include "stubs/header.ftl"/>
-		<title>Home</title>
+		<link rel="stylesheet" href="/static/css/shadows.css"/>
+        <title>Home</title>
 	</head>
 	<body id="top">
 
 		<#assign link = (auth)?string('/secure', '')/>
 
 		<!-- navbar -->
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-bottom:2px solid #e41e26;">
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -18,16 +19,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-
-
-                    <span class="navbar-brand" style="color:#ccc;">
-                        <img src="/static/img/logos/ftfd-flame.png" alt="fire" height="18"/>
-                        <span style="font-weight:800;">FAN</span>the<span style="font-weight:800;color:#e41e26;
-                        ">FLAME</span>DATES
-                    </span>
-
-
-					<#--<a href="#top" class="navbar-brand">${(glob.home)!Home}</a>-->
+					${(glob.home)!Home}
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
