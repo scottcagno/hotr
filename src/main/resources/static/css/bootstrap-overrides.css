@@ -39,3 +39,14 @@ span.navbar-brand .bold {
 blockquote {
 	background-color: #999;
 }
+
+.btn.btn-success {
+	background-color: #999;
+	border: 1px solid #ddd;
+}
+
+.btn.btn-success:hover {
+	background-color: #777;
+	border: 1px solid #fff;
+	color: #fff;
+}

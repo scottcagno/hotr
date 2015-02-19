@@ -11,8 +11,6 @@
 		<#include "stubs/alert.ftl"/>
 		<div id="content" class="container">
 			<div class="row">
-				<div class="text-center">DEVELOPER note: We will spice this up at some point</div>
-				<br/>
 				<div class="col-lg-8 col-lg-offset-2 well well-lg">
 					We like to protect things … we protect our house through home owners insurance … we protect our kids by sheltering them from harmful situations, yet very few of us are actively protecting our marriages from outside threats.
 					<br/><br/>
