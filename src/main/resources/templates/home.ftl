@@ -25,6 +25,7 @@
                         <li><a href="#about">About</a></li>
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
+						<li><a href="/blog">Blog</a></li>
                         <li><a href="/video/all">Videos</a></li>
                         <li><a href="${(auth)?string('/secure/user', '/secure/home')}">${(auth)?string('Account', 'Login')}</a></li>
                     </ul>

@@ -10,7 +10,7 @@
     <#assign link = (auth)?string('/secure', '')/>
 
 	<!-- navbar -->
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -19,15 +19,13 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="#top" class="navbar-brand">
-					${(glob.home)!''}
-				</a>
+				<a href="#top">${(glob.home)!''}</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#about">About</a></li>
-					<li><a href="#events">Events</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="/home#about">About</a></li>
+					<li><a href="/home#events">Events</a></li>
+					<li><a href="/home#contact">Contact</a></li>
 					<li><a href="${link}/video/all">Videos</a></li>
 					<li><a href="${(auth)?string('/secure/user', '/secure/home')}">${(auth)?string('Account', 'Login')}</a></li>
 				</ul>
@@ -45,7 +43,7 @@
 			<h1 class="blog-title">House On The Rock</h1>
 			<p class="lead blog-description">
 				Family Ministries Blog.
-				<em>Building Men, Marriages, Families and Churches.</em>
+				<em><small>Building Men, Marriages, Families and Churches.</small></em>
 			</p>
 		</div>
 		<!-- blog header -->
@@ -80,10 +78,10 @@
 					<ol class="list-unstyled">
 					<#list blogs as blog>
 						<li>
-							<a href="/blog/${(blog.id)?c}"
-							   data-trigger="hover" data-container="body" data-toggle="popover"
-							   data-placement="left" data-content="${(blog.title)!}...">
-							${(blog.date)?string["MMMM dd, yyyy"]}
+							<a href="/blog/${(blog.id)?c}" class="red"
+							    data-trigger="hover" data-container="body" data-toggle="popover"
+							    data-placement="left" data-content="${(blog.title)!}...">
+                                ${(blog.date)?string["MMMM dd, yyyy"]}
 							</a>
 						</li>
 					</#list>
