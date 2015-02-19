@@ -56,13 +56,11 @@
 				<#list blogs as blog>
 					<!-- blog post -->
 					<div class="blog-post">
-						<h2 class="blog-post-title">
-						${(blog.title)!}
-						</h2>
-						<p class="blog-post-meta">
-						${(blog.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}
-						</p>
-						<p>${(blog.body)!}</p>
+						<p class="blog-post-title">${(blog.title)!}</p>
+						<p class="blog-post-meta">${(blog.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
+						<div class="blog-body">
+                            ${(blog.body)!}
+                        </div>
 					</div>
 					<hr/>
 					<!-- blog post -->

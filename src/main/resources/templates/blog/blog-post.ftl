@@ -23,9 +23,9 @@
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#about">About</a></li>
-					<li><a href="#events">Events</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="/home#about">About</a></li>
+					<li><a href="/home#events">Events</a></li>
+					<li><a href="/home#contact">Contact</a></li>
 					<li><a href="${link}/video/all">Videos</a></li>
 					<li><a href="${(auth)?string('/secure/user', '/secure/home')}">${(auth)?string('Account', 'Login')}</a></li>
 				</ul>
@@ -43,7 +43,7 @@
 			<h1 class="blog-title">House On The Rock</h1>
 			<p class="lead blog-description">
 				Family Ministries Blog.
-				<em>Building Men, Marriages, Families and Churches.</em>
+				<em><small>Building Men, Marriages, Families and Churches.</small></em>
 			</p>
 		</div>
 		<!-- blog header -->
@@ -55,13 +55,9 @@
 
 				<!-- blog post -->
 				<div class="blog-post">
-					<h2 class="blog-post-title">
-						${(blog.title)!}
-					</h2>
-					<p class="blog-post-meta">
-						${(blog.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}
-					</p>
-					<p>${(blog.body)!}</p>
+					<p class="blog-post-title">${(blog.title)!}</p>
+					<p class="blog-post-meta">${(blog.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
+					<div class="blog-body">${(blog.body)!}</div>
 				</div>
 				<!-- blog post -->
 
@@ -73,9 +69,10 @@
 				<div class="sidebar-module">
 					<h4>Archives</h4>
 					<ol class="list-unstyled">
+                        <li><a href="/blog" class="red">View All Posts</a></li>
 						<#list blogs as blog>
 							<li>
-								<a href="/blog/${(blog.id)?c}"
+								<a href="/blog/${(blog.id)?c}" class="red"
 								   data-trigger="hover" data-container="body" data-toggle="popover"
 								   	data-placement="left" data-content="${(blog.title)!}...">
 									${(blog.date)?string["MMMM dd, yyyy"]}
