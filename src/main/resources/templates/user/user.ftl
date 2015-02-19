@@ -45,7 +45,7 @@
 							<strong>Challenge Progress</strong>
 						</p>
 						<div class="progress">
-							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${width}%;">
+							<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${width}%;">
 								${user.progress?size}/12
 							</div>
 						</div>
@@ -62,9 +62,9 @@
 				<!-- add/edit -->
 				<div class="col-sm-4">
 					<div class="panel panel-default">
-						<div class="panel-heading">
+						<div class="panel-heading col-xs-12">
 							My Account
-							<a href="/logout" class="btn btn-default btn-xs pull-right">Logout</a>
+							<a href="/logout" class="btn btn-default btn-sm pull-right">Logout</a>
 						</div>
 						<div class="panel-body">
 							<form id="accountForm" role="form" method="post" action="/secure/user">
