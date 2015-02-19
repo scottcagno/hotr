@@ -37,7 +37,7 @@
 						</div>
 					</div>
 					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">Series: ${filter}</h4>', '')}
-					${(RequestParameters.topic??)?string('<h4 class="text-center">Topic ${RequestParameters.topic!}</h4>', '')}
+					${(RequestParameters.topic??)?string('<h4 class="text-center">Topic: ${RequestParameters.topic!}</h4>', '')}
 					<br/>
 					<#list videos as video>
 						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
@@ -61,7 +61,7 @@
 						<div class="panel-body">
 							<#list topics as topic>
 								<a href="/video/all?topic=${topic.topic}" class="btn btn-block red">
-									${topic.topic} <span class="badge pull-right">${topic.watched} Views</span>
+									${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
 								</a>
 							</#list>
 						</div>

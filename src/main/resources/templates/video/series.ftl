@@ -49,7 +49,7 @@
 						<div class="panel-body">
 							<#list topics as topic>
 								<a href="/video/all?topic=${topic.topic}" class="btn btn-block red">
-									${topic.topic} <span class="badge pull-right">${topic.watched} Views</span>
+									${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
 								</a>
 							</#list>
 						</div>

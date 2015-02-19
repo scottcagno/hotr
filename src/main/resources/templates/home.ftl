@@ -7,7 +7,6 @@
 	</head>
 	<body id="top">
 
-		<#assign link = (auth)?string('/secure', '')/>
 
 		<!-- navbar -->
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,7 +25,7 @@
                         <li><a href="#about">About</a></li>
 						<li><a href="#events">Events</a></li>
 						<li><a href="#contact">Contact</a></li>
-                        <li><a href="${link}/video/all">Videos</a></li>
+                        <li><a href="/video/all">Videos</a></li>
                         <li><a href="${(auth)?string('/secure/user', '/secure/home')}">${(auth)?string('Account', 'Login')}</a></li>
                     </ul>
 				</div>

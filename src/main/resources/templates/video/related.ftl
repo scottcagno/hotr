@@ -25,9 +25,9 @@
 							<span
 								class="g-interactivepost"
 								data-contenturl="${shareLink}"
-								data-clientid="268327735010-6t55rdr44med018rtbbmd0cbbp88b0ga.apps.googleusercontent.com"
+								data-clientid="472352253568-brmvt0cpld8fua3qlbj4ssdj6s3ak70c.apps.googleusercontent.com"
 								data-cookiepolicy="single_host_origin"
-								data-prefilltext="I just completed the next step in my Fan The Flame Dates one year challenge!"
+								data-prefilltext="${message}"
 								data-calltoactionlabel="VISIT"
 								data-calltoactionurl="${shareLink}"
 								data-calltoactiondeeplinkid="/pages/create">

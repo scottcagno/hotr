@@ -31,8 +31,13 @@ span.navbar-brand .bold {
 }
 
 .panel > .panel-heading > a {
-	color:#222;
+	/*color:#222;*/
+	color : #e41e26;
 	font-weight: 500;
+}
+
+.panel > .panel-heading > a:hover, a:active {
+    color:#999;
 }
 
 

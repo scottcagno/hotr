@@ -5,10 +5,10 @@
 		<title>Videos</title>
 	</head>
 	<body id="body">
+		<script src="/static/js/facebook_conf.js"></script>
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
-		<script src="/static/js/facebook_conf.js"></script>
 
 		<!-- delete item alert -->
 		<div class="container">
@@ -93,8 +93,6 @@
 		<#include "../../stubs/footer.ftl"/>
 
 		<#include "../../stubs/scripts.ftl"/>
-
-		<script src="/static/js/admin/all-video.js"></script>
 
 		<script src="/static/js/delete-item.js"></script>
 

@@ -26,7 +26,7 @@
 					<div class="panel-group" id="accordion">
 						<div class="panel panel-default">
 							<div class="panel-heading text-center">
-								<a data-toggle="collapse" data-parent="#accordion" href="#login">
+								<a data-toggle="collapse" data-parent="#accordion" href="#login" class="text-red">
 									Login to your account
 								</a>
 							</div>
