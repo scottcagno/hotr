@@ -9,6 +9,10 @@ body {
     margin-top: 75px;
 }
 
+.navbar-margin-sm {
+	margin-top: 45px;
+}
+
 h2 {
     font-size: 40px;
     padding-bottom: 5px;

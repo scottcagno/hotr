@@ -11,8 +11,8 @@
 }
 
 .carousel-inner div.item img {
-    margin: auto;
-    //width: 1024px;
+	margin: auto;
+    /*width: 1024px;*/
 }
 
 .carousel-control {
@@ -40,6 +40,6 @@
         font-size: 12px;
     }
     .carousel-inner div.item img {
-        //width: 415px;
+        width: 415px;
     }
 }

@@ -35,7 +35,87 @@
 		<!-- navbar -->
 
 		<!-- carousel -->
-        <#include "stubs/carousel.ftl"/>
+        <div class="navbar-margin-sm">
+            <div class="container">
+                <div class="col-lg-9">
+                    <#include "stubs/carousel.ftl"/>
+                </div>
+                <div class="col-lg-3 navbar-margin-sm">
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Hot Topics
+							</div>
+							<div class="panel-body style="max-height:725px; overflow-y:scroll;">
+
+								<a href="#" class="btn btn-block red">
+                                    Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+								<a href="#" class="btn btn-block red">
+									Some Topic <span class="badge pull-right">99 Views</span>
+								</a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+							    <a href="#" class="btn btn-block red">
+							    	Some Topic <span class="badge pull-right">99 Views</span>
+							    </a>
+
+                            <#--<#list topics as topic>-->
+								<#--<a href="/video/all?topic=${topic.topic}" class="btn btn-block red">-->
+                                <#--${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>-->
+								<#--</a>-->
+                            <#--</#list>-->
+							</div>
+						</div>
+
+
+                </div>
+            </div>
+        </div>
+
 		<!-- carousel -->
 
 		<#if alert??>
