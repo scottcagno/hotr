@@ -7,11 +7,11 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="/home">${(glob.home)!}</a>
+			<a href="/home">${(glob.home)!}<span class="navbar-brand">Admin Section</span></a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/admin/video">Videos</a></li>
+                <li><a href="/admin/video">Videos</a></li>
 				<li><a href="/admin/user">Users</a></li>
 				<li><a href="/admin/blog">Blog</a></li>
 				<li><a href="/admin">Admin</a></li>
