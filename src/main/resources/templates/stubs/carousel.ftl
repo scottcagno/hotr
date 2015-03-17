@@ -19,15 +19,17 @@
 				</div>
 			</a>
 		</div>
-		<div class="item">
-			<a href="/video/id/${video.id}">
-				<div>
-					<img src="${video.thumb}" class="img-responsive">
-					<div class="middle">
-						<i class="fa fa-play-circle fa-5x"></i>
+		<#if video??>
+			<div class="item">
+				<a href="/video/id/${video.id}">
+					<div>
+						<img src="${video.thumb}" class="img-responsive">
+						<div class="middle">
+							<i class="fa fa-play-circle fa-5x"></i>
+						</div>
 					</div>
-				</div>
-			</a>
-		</div>
+				</a>
+			</div>
+		</#if>
 	</div>
 </div>

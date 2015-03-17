@@ -35,9 +35,10 @@
 						<div class="panel-body">
 							<form action="/admin" method="post">
 								<div class="form-group">
+									<label>Video Slide</label>
 									<select class="form-control" name="slide">
 										<#list vids as vid>
-											<option value="${vid.id?c}">${vid.name}</option>
+											<option value="${vid.id?c}" ${(settings?? && settings.videoId?? && settings.videoId == vid.id)? string('selected', '')}>${vid.name}</option>
 										</#list>
 									</select>
 								</div>

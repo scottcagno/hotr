@@ -34,9 +34,11 @@ class RootController {
 
     @RequestMapping(value = ["/", "/home"], method = GET)
     String index(Model model) {
+		def settings = adminSettingsService.findOne()
+		def vidId = (settings != null) ? settings.videoId : 0L
         model.addAllAttributes([auth : (userSession.id != null),
 								topics: topicService.popTopics(),
-								video: videoService.findOne(adminSettingsService.findOne().videoId)])
+								video: videoService.findOne(vidId)])
         "home"
     }
 

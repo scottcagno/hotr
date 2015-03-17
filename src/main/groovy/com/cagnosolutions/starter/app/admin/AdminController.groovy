@@ -25,7 +25,7 @@ class AdminController {
 	WorksheetService worksheetService
 
 	@Autowired
-	AdminSettingsService settingsService
+	AdminSettingsService adminSettingsService
 
 	// GET landing page
 	@RequestMapping(method = RequestMethod.GET)
@@ -36,7 +36,8 @@ class AdminController {
 				videos : videoService.numberOfVideos(),
 				watched : videoService.numberOfVideosWatched(),
 				worksheets : worksheetService.numberOfWorksheets(),
-				vids: videoService.findAll()
+				vids: videoService.findAll(),
+				settings: adminSettingsService.findOne()
 		])
 		"admin/landing"
 	}
@@ -44,7 +45,7 @@ class AdminController {
 	// POST save settings
 	@RequestMapping(method = RequestMethod.POST)
 	String saveSettings(Long slide, RedirectAttributes attr) {
-		settingsService.save(new AdminSettings(videoId: slide))
+		adminSettingsService.save(new AdminSettings(videoId: slide))
 		attr.addFlashAttribute("alertSuccess", "Successfully saved settings")
 		"redirect:/admin"
 	}
