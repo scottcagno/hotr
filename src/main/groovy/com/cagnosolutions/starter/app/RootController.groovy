@@ -1,6 +1,10 @@
 package com.cagnosolutions.starter.app
+
+import com.cagnosolutions.starter.app.admin.AdminSettingsService
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
+import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.UserSession
+import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -19,9 +23,20 @@ class RootController {
     @Autowired
     UserSession userSession
 
+	@Autowired
+	TopicService topicService
+
+	@Autowired
+	VideoService videoService
+
+	@Autowired
+	AdminSettingsService adminSettingsService
+
     @RequestMapping(value = ["/", "/home"], method = GET)
     String index(Model model) {
-        model.addAllAttributes([auth : (userSession.id != null), events : eventbriteApiService.findEvents()])
+        model.addAllAttributes([auth : (userSession.id != null),
+								topics: topicService.popTopics(),
+								video: videoService.findOne(adminSettingsService.findOne().videoId)])
         "home"
     }
 
@@ -30,6 +45,24 @@ class RootController {
         model.addAttribute("auth", (userSession.id != null))
         "terms"
     }
+
+	@RequestMapping(value = "/about", method = GET)
+	String about(Model model) {
+		model.addAttribute("auth", (userSession.id != null))
+		"about"
+	}
+
+	@RequestMapping(value = "/contact", method = GET)
+	String contact(Model model) {
+		model.addAttribute("auth", (userSession.id != null))
+		"contact"
+	}
+
+	@RequestMapping(value = "/events", method = GET)
+	String events(Model model) {
+		model.addAllAttributes([auth: (userSession.id != null), events : eventbriteApiService.findEvents()])
+		"events"
+	}
 
     @RequestMapping(value = "/donate", method = GET)
     String donate(Model model) {

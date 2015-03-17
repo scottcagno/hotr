@@ -1,4 +1,4 @@
-<div id="events" class="container information">
+<div id="events" class="container">
     <blockquote><h2>Events</h2></blockquote>
     <div class="row">
         <div class="col-lg-2 hidden-xs hidden-sm">

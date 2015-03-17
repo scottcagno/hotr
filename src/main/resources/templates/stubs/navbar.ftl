@@ -16,9 +16,10 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/home#about">About</a></li>
-						<li><a href="/home#events">Events</a></li>
-						<li><a href="/home#contact">Contact</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/events">Events</a></li>
+						<li><a href="/contact">Contact</a></li>
+						<li><a href="/blog">Blog</a></li>
 						<li class="divider"></li>
 						<li><a href="/donate">Donate</a></li>
 					</ul>

@@ -1,4 +1,4 @@
-<div id="contact" class="container information">
+<div id="contact" class="container">
     <blockquote><h2>Contact Us</h2></blockquote>
     <div class="row">
         <div class="col-lg-6 col-md-6 hidden-sm hidden-xs">

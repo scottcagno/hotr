@@ -1,4 +1,4 @@
-<div id="about" class="container information">
+<div id="about" class="container">
 	<blockquote>
 		<h2>About Us</h2>
 	</blockquote>
