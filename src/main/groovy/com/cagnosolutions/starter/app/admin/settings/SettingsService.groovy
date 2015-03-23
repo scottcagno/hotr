@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.admin
+package com.cagnosolutions.starter.app.admin.settings
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -6,20 +6,20 @@ import org.springframework.stereotype.Service
 
 @CompileStatic
 @Service
-class AdminSettingsService {
+class SettingsService {
 
     @Autowired
-    AdminSettingsRepository repo
+    SettingsRepository repo
 
-    List<AdminSettings> findAll() {
+    List<Settings> findAll() {
         repo.findAll()
     }
 
-    AdminSettings findOne() {
+    Settings findOne() {
         repo.findOne 1L
     }
 
-    AdminSettings save(AdminSettings adminSettings) {
+    Settings save(Settings adminSettings) {
         repo.save adminSettings
     }
 

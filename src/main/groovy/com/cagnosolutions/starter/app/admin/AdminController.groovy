@@ -1,4 +1,6 @@
 package com.cagnosolutions.starter.app.admin
+
+import com.cagnosolutions.starter.app.admin.settings.SettingsService
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.video.VideoService
 import com.cagnosolutions.starter.app.worksheet.WorksheetService
@@ -8,7 +10,6 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @CompileStatic
 @Controller
@@ -25,7 +26,7 @@ class AdminController {
 	WorksheetService worksheetService
 
 	@Autowired
-	AdminSettingsService adminSettingsService
+	SettingsService adminSettingsService
 
 	// GET landing page
 	@RequestMapping(method = RequestMethod.GET)
@@ -35,18 +36,8 @@ class AdminController {
 				challenge : userService.numberOrChallenge(),
 				videos : videoService.numberOfVideos(),
 				watched : videoService.numberOfVideosWatched(),
-				worksheets : worksheetService.numberOfWorksheets(),
-				vids: videoService.findAll(),
-				settings: adminSettingsService.findOne()
+				worksheets : worksheetService.numberOfWorksheets()
 		])
 		"admin/landing"
-	}
-
-	// POST save settings
-	@RequestMapping(method = RequestMethod.POST)
-	String saveSettings(Long slide, RedirectAttributes attr) {
-		adminSettingsService.save(new AdminSettings(videoId: slide))
-		attr.addFlashAttribute("alertSuccess", "Successfully saved settings")
-		"redirect:/admin"
 	}
 }

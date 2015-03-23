@@ -25,26 +25,14 @@
 						<div class="panel-body">
 							<p>Number Of Videos: ${videos}</p>
 							<p>Number Of Videos Watched: ${(watched)!}</p>
-							<p>Number Of Worksheets Saved: ${worksheets}</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div id="" class="panel panel-default">
-						<div class="panel-heading">Settings</div>
+						<div class="panel-heading">Worksheets</div>
 						<div class="panel-body">
-							<form action="/admin" method="post">
-								<div class="form-group">
-									<label>Video Slide</label>
-									<select class="form-control" name="slide">
-										<#list vids as vid>
-											<option value="${vid.id?c}" ${(settings?? && settings.videoId?? && settings.videoId == vid.id)? string('selected', '')}>${vid.name}</option>
-										</#list>
-									</select>
-								</div>
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button class="btn btn-primary btn-block">Save</button>
-							</form>
+							<p>Number Of Worksheets Saved: ${worksheets}</p>
 						</div>
 					</div>
 				</div>

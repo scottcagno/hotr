@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app
 
-import com.cagnosolutions.starter.app.admin.AdminSettingsService
+import com.cagnosolutions.starter.app.admin.settings.SettingsService
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.UserSession
@@ -30,7 +30,7 @@ class RootController {
 	VideoService videoService
 
 	@Autowired
-	AdminSettingsService adminSettingsService
+	SettingsService adminSettingsService
 
     @RequestMapping(value = ["/", "/home"], method = GET)
     String index(Model model) {
