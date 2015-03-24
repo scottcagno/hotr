@@ -41,15 +41,15 @@
 									<div class="row">
 										<div class="col-lg-3">
 											<label>Primary</label>
-											<input name="prim" type="color" class="form-control" value="${(settings?? && settings.prim??)? string(settings.prim!, '#428bca')}"/>
+											<input name="prim" type="color" class="form-control" value="${(settings?? && settings.prim??)? string((settings.prim)!, '#428bca')}"/>
 										</div>
 										<div class="col-lg-3">
 											<label>Success</label>
-											<input name="succ" type="color" class="form-control" value="${(settings?? && settings.succ??)? string(settings.succ!, '#5cb85c')}"/>
+											<input name="succ" type="color" class="form-control" value="${(settings?? && settings.succ??)? string((settings.succ)!, '#5cb85c')}"/>
 										</div>
 										<div class="col-lg-3">
 											<label>Info</label>
-											<input name="info" type="color" class="form-control" value="${(settings?? && settings.info??)? string(settings.info!, '#5bc0de')}"/>
+											<input name="info" type="color" class="form-control" value="${(settings?? && settings.info??)? string((settings.info)!, '#5bc0de')}"/>
 										</div>
 										<div class="col-lg-3">
 											<label>Video Slide</label>
@@ -65,15 +65,15 @@
 									<div class="row">
 										<div class="col-lg-3">
 											<label>Warning</label>
-											<input name="warn" type="color" class="form-control" value="${(settings?? && settings.warn??)? string(settings.warn!, '#f0ad4e')}"/>
+											<input name="warn" type="color" class="form-control" value="${(settings?? && settings.warn??)? string((settings.warn)!, '#f0ad4e')}"/>
 										</div>
 										<div class="col-lg-3">
 											<Label>Danger</Label>
-											<input name="dang" type="color" class="form-control" value="${(settings?? && settings.dang??)? string(settings.dang!, '#d9534f')}"/>
+											<input name="dang" type="color" class="form-control" value="${(settings?? && settings.dang??)? string((settings.dang)!, '#d9534f')}"/>
 										</div>
 										<div class="col-lg-3">
 											<label>Default</label>
-											<input name="defa" type="color" class="form-control" value="${(settings?? && settings.defa??)? string(settings.defa!, '#ffffff')}"/>
+											<input name="defa" type="color" class="form-control" value="${(settings?? && settings.defa??)? string((settings.defa)!, '#ffffff')}"/>
 										</div>
 										<div class="col-lg-3">
 											<label>Options</label>
