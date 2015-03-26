@@ -25,22 +25,20 @@
         <ul class="list-group">
             <#setting datetime_format="iso"/>
             <#list events as event>
-                <li class="list-group-item">
-                    <h4>
-                        <strong>${event.name.text}</strong><br/>
-                        ${event.venue.address.city}, ${event.venue.address.region}<br/>
-                        ${(event.start.local?datetime)?date} - ${(event.end.local?datetime)?date}
-                    </h4>
-                    <#assign sold = 0>
-                    <#list event.ticket_classes as ticket>
-                        <#assign sold = sold + ticket.quantity_sold/>
-                    </#list>
-                    <#if event.capacity gt sold>
-                        <p class="text-success">${event.capacity - sold} Spots Open</p>
-                        <p><a href="${event.url}" target="_blank">Sign Up</a></p>
-                    <#else/>
-                            <p class="text-danger">Sold Out</p>
-                    </#if>
+                <li class="list-group-item col-lg-12">
+					<div class="col-lg-3">
+						<img src="${event.logo.url}" class="img-responsive"/>
+					</div>
+					<div class="col-lg-6">
+						<h4>
+                    	    <p><strong>${event.name.text}</strong></p>
+                    	    <p>
+								${event.venue.address.city}, ${event.venue.address.region}<br/>
+                    	    	${(event.start.local?datetime)?date} - ${(event.end.local?datetime)?date}
+							</p>
+                    	</h4>
+						<p><a href="${event.url}" target="_blank">More Info</a></p>
+					</div>
                 </li>
             </#list>
         </ul>

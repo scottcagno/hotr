@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.blog
+package com.cagnosolutions.starter.app.devotional
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestMethod
 
 @CompileStatic
 @Controller
-@RequestMapping(value = "/blog")
-class BlogController {
+@RequestMapping(value = "/devotional")
+class DevotionalController {
 
 	@Autowired
-	BlogService blogService
+	DevotionalService devotionalService
 
 	@RequestMapping(method = RequestMethod.GET)
-	String blog(Model model) {
-		model.addAllAttributes([blogs: blogService.findAll(), auth: false])
-		"blog/blog"
+	String devotional(Model model) {
+		model.addAllAttributes([devotionals: devotionalService.findAll(), auth: false])
+		"devotional/devotional"
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	String blogPost(@PathVariable Long id, Model model) {
-		model.addAllAttributes([blog: blogService.findOne(id), blogs: blogService.findAll(), auth: false])
-		"blog/blog-post"
+	String devotionalPost(@PathVariable Long id, Model model) {
+		model.addAllAttributes([devotional: devotionalService.findOne(id), devotionals: devotionalService.findAll(), auth: false])
+		"devotional/devotional-post"
 	}
 
 }

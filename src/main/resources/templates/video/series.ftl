@@ -31,14 +31,22 @@
 						</div>
 					</div>
 					<br/>
-					<#list allSeries as series>
-						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
-							<a href="/video/${series}">
-								<img src="/static/img/video2.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
-							</a>
-							<p class="video-title"><strong>${series}</strong></p>
-						</div>
-					</#list>
+					<#assign vidInRow = 0/>
+					<div class="row">
+						<#list allSeries as series>
+							<#if vidInRow gt 3>
+								</div><div class="row">
+								<#assign vidInRow = 0/>
+							</#if>
+							<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
+								<a href="/video/${series}">
+									<img src="/static/img/video2.jpg" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+								</a>
+								<p class="video-title"><strong>${series}</strong></p>
+								<#assign vidInRow = vidInRow + 1/>
+							</div>
+						</#list>
+					</div>
 				</div>
 
 				<div class="col-lg-3 col-md-3 col-sm-12">

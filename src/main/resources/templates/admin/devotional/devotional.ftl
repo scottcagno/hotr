@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Blogs</title>
+		<title>Devotionals</title>
 		<#include "../../stubs/header.ftl"/>
 
 		<!-- TINYMCE WYSIWYG -->
@@ -36,7 +36,7 @@
 					</div>
 					<div class="form-group pull-right">
 						<p class="text-danger">
-							Are you sure you want to permanently remove this blog post?
+							Are you sure you want to permanently remove this devotional post?
 						</p>
 					</div>
 				</form>
@@ -50,30 +50,30 @@
 			<div class="col-sm-8">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Add/Edit Blog <span class="pull-right"><a href="/admin/blog">Clear</a></span>
+						Add/Edit Devotional <span class="pull-right"><a href="/admin/devotional">Clear</a></span>
 					</div>
 					<div class="panel-body">
-						<form role="form" method="post" action="/admin/blog/save">
+						<form role="form" method="post" action="/admin/devotional/save">
 							<div class="form-group">
 								<label>Title</label>
 								<span class="text-error">${(errors.title)!}</span>
 								<input type="text" id="title" name="title" class="form-control"
-									   placeholder="Blog title" required="true" value="${(blog.title)!}"/>
+									   placeholder="Devotional title" required="true" value="${(devotional.title)!}"/>
 							</div>
 							<div class="form-group">
 								<label>Body</label>
 								<span class="text-error">${(errors.body)!}</span>
 								<textarea id="body" name="body" class="form-control"
-									   placeholder="Blog body" rows="10" style="resize:none;">${(blog.body)!}</textarea>
+									   placeholder="Devotional body" rows="10" style="resize:none;">${(devotional.body)!}</textarea>
 							</div>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
-							<#if blog??>
+							<#if devotional??>
 								<br/>
-								<input type="hidden" name="id" value="${(blog.id)!}"/>
-								<input type="hidden" name="date" value="${(blog.date)!}"/>
+								<input type="hidden" name="id" value="${(devotional.id)!}"/>
+								<input type="hidden" name="date" value="${(devotional.date)!}"/>
 								<!-- delete item trigger -->
-								<span id="delete-item" data-id="/admin/blog/del/${blog.id}"
+								<span id="delete-item" data-id="/admin/devotional/del/${devotional.id}"
 									  class="btn btn-block btn-danger">
 									Delete Entry
 								</span>
@@ -88,7 +88,7 @@
 			<!-- view all -->
 			<div class="col-sm-4">
 				<div class="panel panel-default">
-					<div class="panel-heading">All Blog Posts</div>
+					<div class="panel-heading">All Devotional Posts</div>
 
 						<div class="table-responsive">
 							<table class="table table-striped">
@@ -99,18 +99,18 @@
 									</tr>
 								</thead>
 								<tbody>
-									<#list blogs as blog>
+									<#list devotionals as devotional>
 										<tr>
 											<td>
-												<a href="/admin/blog/${(blog.id)!}" class="">
-												${(blog.date)?string["MMMM dd, yyyy"]}
+												<a href="/admin/devotional/${(devotional.id)!}" class="">
+												${(devotional.date)?string["MMMM dd, yyyy"]}
 												</a>
 											</td>
 											<td>
-												<#if blog.title?length gt 15>
-                                                        ${blog.title?substring(0,15)+"..."}
+												<#if devotional.title?length gt 15>
+                                                        ${devotional.title?substring(0,15)+"..."}
                                                     <#else>
-													${(blog.title)!}
+													${(devotional.title)!}
 												</#if>
 											</td>
 										</tr>

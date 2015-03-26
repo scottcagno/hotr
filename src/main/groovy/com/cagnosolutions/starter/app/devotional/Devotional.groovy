@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.blog
+package com.cagnosolutions.starter.app.devotional
 
 import groovy.transform.CompileStatic
 import javax.persistence.Column
@@ -8,7 +8,7 @@ import javax.persistence.Id
 
 @CompileStatic
 @Entity
-class Blog {
+class Devotional {
 
 	@Id
 	@GeneratedValue

@@ -11,8 +11,7 @@ class Event {
 	Map <String, Object> venue
 	Map<String, String> start
 	Map<String, String> end
-	List<Ticket> ticket_classes
-	int capacity
+	Map<String, Object> logo
 	String url
 
 }

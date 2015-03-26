@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.blog
+package com.cagnosolutions.starter.app.devotional
 
 import groovy.transform.CompileStatic
 import org.springframework.data.jpa.repository.JpaRepository
@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository
 
 @CompileStatic
 @Repository
-interface BlogRepository extends JpaRepository<Blog, Long>{
+interface DevotionalRepository extends JpaRepository<Devotional, Long>{
 
 }

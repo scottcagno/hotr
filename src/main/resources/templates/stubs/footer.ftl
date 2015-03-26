@@ -7,8 +7,7 @@
         <span class="pull-right">
             <a href="#facebook"><i class="fa fa-facebook"></i></a>
             <a href="#google-plus"><i class="fa fa-google-plus"></i></a>
-            <a href="#twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#pintrist"><i class="fa fa-pinterest"></i></a>&nbsp;|&nbsp;
+            <a href="#twitter"><i class="fa fa-twitter"></i></a>&nbsp;|&nbsp;
             <a href="/donate">Donate</a>&nbsp;|&nbsp;
             <a href="/terms">Terms</a>
         </span>

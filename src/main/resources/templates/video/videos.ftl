@@ -39,18 +39,26 @@
 					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">Series: ${filter}</h4>', '')}
 					${(RequestParameters.topic??)?string('<h4 class="text-center">Topic: ${RequestParameters.topic!}</h4>', '')}
 					<br/>
-					<#list videos as video>
-						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
-							<a href="/video/id/${video.id}" data-toggle="popover"
-								data-trigger="hover"
-								title="${video.name}"
-								data-content="${video.description}"
-								data-placement="bottom">
-								<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
-							</a>
-							<p class="video-title"><strong>${video}</strong></p>
-						</div>
-					</#list>
+					<#assign vidInRow = 0/>
+					<div class="row">
+						<#list videos as video>
+							<#if vidInRow gt 3>
+								</div><div class="row">
+								<#assign vidInRow = 0/>
+							</#if>
+							<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
+								<a href="/video/id/${video.id}" data-toggle="popover"
+									data-trigger="hover"
+									title="${video.name}"
+									data-content="${video.description}"
+									data-placement="bottom">
+									<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+								</a>
+								<p class="video-title"><strong>${video.name}</strong></p>
+								<#assign vidInRow = vidInRow + 1/>
+							</div>
+						</#list>
+					</div>
 				</div>
 
 				<div class="col-md-3 col-lg-3 col-sm-12">

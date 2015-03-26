@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
     <#include "../stubs/header.ftl"/>
-	<link rel="stylesheet" href="/static/css/blog.css"/>
-    <title>Blog Post</title>
+	<link rel="stylesheet" href="/static/css/devotional.css"/>
+    <title>Devotional Post</title>
 	</head>
 	<body id="top">
 
@@ -40,54 +40,54 @@
 	<!-- content -->
 	<div class="container">
 
-		<img style="margin:0 auto;" src="/static/img/blog-header.jpg" class="img-responsive" alt=""/>
+		<img style="margin:0 auto;" src="/static/img/devotional-header.jpg" class="img-responsive" alt=""/>
 		<hr style="border-bottom:2px solid #333;"/>
 
-		<#--<!-- blog header &ndash;&gt;
-		<div class="blog-header">
-			<h1 class="blog-title">House On The Rock</h1>
-			<p class="lead blog-description">
-				Family Ministries Blog.
+		<#--<!-- devotional header &ndash;&gt;
+		<div class="devotional-header">
+			<h1 class="devotional-title">House On The Rock</h1>
+			<p class="lead devotional-description">
+				Family Ministries Devotional.
 				<em><small>Building Men, Marriages, Families and Churches.</small></em>
 			</p>
 		</div>
-		<!-- blog header &ndash;&gt;-->
+		<!-- devotional header &ndash;&gt;-->
 
         <div class="row">
 
-			<!-- blog main -->
-			<div class="col-sm-8 blog-main">
+			<!-- devotional main -->
+			<div class="col-sm-8 devotional-main">
 
-				<!-- blog post -->
-				<div class="blog-post">
-					<p class="blog-post-title">${(blog.title)!}</p>
-					<p class="blog-post-meta">${(blog.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
-					<div class="blog-body">${(blog.body)!}</div>
+				<!-- devotional post -->
+				<div class="devotional-post">
+					<p class="devotional-post-title">${(devotional.title)!}</p>
+					<p class="devotional-post-meta">${(devotional.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
+					<div class="devotional-body">${(devotional.body)!}</div>
 				</div>
-				<!-- blog post -->
+				<!-- devotional post -->
 
 			</div>
-			<!-- blog main -->
+			<!-- devotional main -->
 
-			<!-- blog sidebar / archives -->
-			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+			<!-- devotional sidebar / archives -->
+			<div class="col-sm-3 col-sm-offset-1 devotional-sidebar">
 				<div class="sidebar-module">
 					<h4>Archives</h4>
 					<ol class="list-unstyled">
-                        <li><a href="/blog" class="red">View All Posts</a></li>
-						<#list blogs as blog>
+                        <li><a href="/devotional" class="red">View All Posts</a></li>
+						<#list devotionals as devotional>
 							<li>
-								<a href="/blog/${(blog.id)?c}" class="red"
+								<a href="/devotional/${(devotional.id)?c}" class="red"
 								   data-trigger="hover" data-container="body" data-toggle="popover"
-								   data-placement="left" data-content="${(blog.date)?string["MMMM dd, yyyy"]}...">
-                                ${(blog.title)!}
+								   data-placement="left" data-content="${(devotional.date)?string["MMMM dd, yyyy"]}...">
+                                ${(devotional.title)!}
 								</a>
 							</li>
 						</#list>
 					</ol>
 				</div>
 			</div>
-			<!-- blog sidebar / archives -->
+			<!-- devotional sidebar / archives -->
 
         </div>
     </div>

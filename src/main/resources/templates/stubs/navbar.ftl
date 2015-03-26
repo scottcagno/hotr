@@ -11,7 +11,18 @@
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/video/all"> Videos</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Videos <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/video/all">All</a></li>
+						<li class="divider"></li>
+						<li><a href="/video/popular">Popular</a></li>
+						<li class="divider"></li>
+						<li><a href="/video/recent">Recently Added</a></li>
+						<li class="divider"></li>
+						<li><a href="/video/series">Series</a></li>
+					</ul>
+				</li>
 				<li><a href="/secure/user">${(auth)?string('Account', 'Login')}</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
@@ -22,7 +33,7 @@
 						<li class="divider"></li>
 						<li><a href="/events">Marriage<br/>Intensives</a></li>
 						<li class="divider"></li>
-						<li><a href="/blog">Weekly Marriage<br/>Devotional</a></li>
+						<li><a href="/devotional">Weekly Marriage<br/>Devotional</a></li>
 						<li class="divider"></li>
                         <li><a href="/contact">Contact</a></li>
                         <li class="divider"></li>

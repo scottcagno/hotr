@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.blog
+package com.cagnosolutions.starter.app.devotional
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -6,30 +6,30 @@ import org.springframework.stereotype.Service
 
 @CompileStatic
 @Service
-class BlogService {
+class DevotionalService {
 
 	@Autowired
-	BlogRepository repo
+	DevotionalRepository repo
 
-	List<Blog> findAll() {
-		def blogs = repo.findAll()
-		Collections.sort(blogs, new Comparator<Blog>(){
-			int compare(Blog left, Blog right) {
+	List<Devotional> findAll() {
+		def devotionals = repo.findAll()
+		Collections.sort(devotionals, new Comparator<Devotional>(){
+			int compare(Devotional left, Devotional right) {
 				if(left.id != right.id && left.id != null && right.id != null)
 					return (left.id <= right.id) ? 1 : -1
 				else
 					return 0
 			}
 		});
-		blogs
+		devotionals
 	}
 
-	Blog findOne(Long id) {
+	Devotional findOne(Long id) {
 		repo.findOne id
 	}
 
-	def save(Blog blog) {
-		repo.save blog
+	def save(Devotional devotional) {
+		repo.save devotional
 	}
 
 	def delete(Long id) {

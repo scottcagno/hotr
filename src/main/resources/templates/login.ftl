@@ -15,7 +15,6 @@
 			<div class="row">
 				<div class="col-lg-offset-4 col-lg-4 col-sm-offset-3 col-sm-6">
 					<form action="/auth/facebook" method="post">
-
 						<button class="btn btn-block"><span class="text-primary">Sign in with Facebook</span>
 							<i class="text-primary fa fa-facebook-square fa-lg"></i>
 						</button>

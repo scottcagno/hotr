@@ -1,24 +1,24 @@
-.blog-header {
+.devotional-header {
 	padding-top: 50px;
 	padding-bottom: 20px;
 	background-color: #eee;
 	padding-left: 20px;
 }
-.blog-title {
+.devotional-title {
 	margin-top: 30px;
 	margin-bottom: 0;
 	font-size: 45px;
 	font-weight: normal;
 }
-.blog-description {
+.devotional-description {
 	font-size: 25px;
 	color: #666;
 }
-.blog-description > em {
+.devotional-description > em {
 	color: #999;
 	font-size: 20px;
 }
-.blog-main {
+.devotional-main {
 	font-size: 18px;
 	line-height: 1.5;
 }
@@ -37,24 +37,24 @@
 .sidebar-module-inset ol:last-child {
 	margin-bottom: 0;
 }
-.blog-post {
+.devotional-post {
 	padding-top: 20px;
 	padding-left: 20px;
 	margin-bottom: 60px;
 }
-.blog-post-title {
+.devotional-post-title {
 	margin-bottom: 5px;
 	font-size: 30px;
 }
-.blog-post-meta {
+.devotional-post-meta {
 	margin-bottom: 10px;
 	color: #777;
 	font-size: 15px;
 }
-.blog-body a {
+.devotional-body a {
 	color:#e41e26;
 }
 
-.blog-body a:hover {
+.devotional-body a:hover {
 	color:#999;
 }
