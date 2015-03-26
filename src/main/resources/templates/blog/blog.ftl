@@ -9,10 +9,20 @@
 
 	<#include "../stubs/navbar.ftl"/>
 
+    <#include "../stubs/alert.ftl"/>
+
 	<!-- content -->
 	<div class="container">
+	    <img style="margin:0 auto;" src="/static/img/blog-header.jpg" class="img-responsive" alt=""/>
+		<hr style="border-bottom:2px solid #333;"/>
+		<#--<blockquote>
+            <h2>
+                House On The Rock
+                <em style="font-size: smaller;">Family Ministries Blog</em>
+            </h2>
+        </blockquote>-->
 
-		<!-- blog header -->
+		<#--<!-- blog header &ndash;&gt;
 		<div class="blog-header">
 			<h1 class="blog-title">House On The Rock</h1>
 			<p class="lead blog-description">
@@ -20,7 +30,7 @@
 				<em><small>Building Men, Marriages, Families and Churches.</small></em>
 			</p>
 		</div>
-		<!-- blog header -->
+		<!-- blog header &ndash;&gt;-->
 
         <div class="row">
 
@@ -30,7 +40,7 @@
 				<#list blogs as blog>
 					<!-- blog post -->
 					<div class="blog-post">
-						<p class="blog-post-title">${(blog.title)!}</p>
+						<p class="blog-post-title"><a href="/blog/${(blog.id)?c}">${(blog.title)!}</a></p>
 						<p class="blog-post-meta">${(blog.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
 						<div class="blog-body">
                             ${(blog.body)!}
@@ -46,14 +56,14 @@
 			<!-- blog sidebar / archives -->
 			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 				<div class="sidebar-module">
-					<h4>Archives</h4>
+					<h4>Recent Posts</h4>
 					<ol class="list-unstyled">
 					<#list blogs as blog>
 						<li>
 							<a href="/blog/${(blog.id)?c}" class="red"
 							    data-trigger="hover" data-container="body" data-toggle="popover"
-							    data-placement="left" data-content="${(blog.title)!}...">
-                                ${(blog.date)?string["MMMM dd, yyyy"]}
+							    data-placement="left" data-content="${(blog.date)?string["MMMM dd, yyyy"]}...">
+                                ${(blog.title)!}
 							</a>
 						</li>
 					</#list>
@@ -70,6 +80,8 @@
     <#include "../stubs/scripts.ftl"/>
 	<script>$(function(){$('[data-toggle="popover"]').popover();});</script>
 	<!-- javascript -->
+
+    <#include "../stubs/footer.ftl"/>
 
 	</body>
 </html>

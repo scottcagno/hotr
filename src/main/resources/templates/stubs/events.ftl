@@ -1,5 +1,5 @@
 <div id="events" class="container">
-    <blockquote><h2>Events</h2></blockquote>
+    <blockquote><h2>Marriage Retreats</h2></blockquote>
     <div class="row">
         <div class="col-lg-2 hidden-xs hidden-sm">
             <img src="/static/img/home/brucekaren.jpg" class="img-responsive">
@@ -45,7 +45,7 @@
             </#list>
         </ul>
     </div>
-    <div class="row container">
+    <#--<div class="row container">
         <h1>Marriage Intensives</h1>
         <ul class="list-group">
             <li class="list-group-item">
@@ -83,5 +83,5 @@
                 </p>
             </li>
         </ul>
-    </div>
+    </div>-->
 </div>

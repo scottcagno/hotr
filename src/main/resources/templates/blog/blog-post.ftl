@@ -34,11 +34,16 @@
 	</div>
 	<!-- navbar -->
 
+    <#include "../stubs/alert.ftl"/>
+
 
 	<!-- content -->
 	<div class="container">
 
-		<!-- blog header -->
+		<img style="margin:0 auto;" src="/static/img/blog-header.jpg" class="img-responsive" alt=""/>
+		<hr style="border-bottom:2px solid #333;"/>
+
+		<#--<!-- blog header &ndash;&gt;
 		<div class="blog-header">
 			<h1 class="blog-title">House On The Rock</h1>
 			<p class="lead blog-description">
@@ -46,7 +51,7 @@
 				<em><small>Building Men, Marriages, Families and Churches.</small></em>
 			</p>
 		</div>
-		<!-- blog header -->
+		<!-- blog header &ndash;&gt;-->
 
         <div class="row">
 
@@ -74,8 +79,8 @@
 							<li>
 								<a href="/blog/${(blog.id)?c}" class="red"
 								   data-trigger="hover" data-container="body" data-toggle="popover"
-								   	data-placement="left" data-content="${(blog.title)!}...">
-									${(blog.date)?string["MMMM dd, yyyy"]}
+								   data-placement="left" data-content="${(blog.date)?string["MMMM dd, yyyy"]}...">
+                                ${(blog.title)!}
 								</a>
 							</li>
 						</#list>
@@ -92,6 +97,8 @@
     <#include "../stubs/scripts.ftl"/>
 	<script>$(function(){$('[data-toggle="popover"]').popover();});</script>
 	<!-- javascript -->
+
+    <#include "../stubs/footer.ftl"/>
 
 	</body>
 </html>

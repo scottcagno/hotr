@@ -9,4 +9,5 @@
 <link href="/static/css/navbar.css" rel="stylesheet" type="text/css"/>
 <link href="/static/css/carousel.css" rel="stylesheet" type="text/css"/>
 <link href="/static/css/bootstrap-overrides.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="/static/css/other-overrides.css"/>
 <#import "global.ftl" as glob/>

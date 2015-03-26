@@ -10,14 +10,6 @@ ul.nav > li > a {
 	color:#e41e26;
 }
 
-footer > span > a {
-	color:#e41e26;
-}
-
-footer > span > a:hover {
-	color:#999;
-}
-
 span.navbar-brand img {
 	height: 18px;
 }
@@ -28,14 +20,6 @@ span.navbar-brand .bold {
 
 .red {
 	color:#e41e26;
-}
-
-a.red {
-	color:#e41e26;
-}
-
-a.red:hover {
-	color:#999;
 }
 
 .panel > .panel-heading > a {

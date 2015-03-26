@@ -17,10 +17,15 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="/about">About</a></li>
-						<li><a href="/events">Events</a></li>
-						<li><a href="/contact">Contact</a></li>
-						<li><a href="/blog">Blog</a></li>
 						<li class="divider"></li>
+						<li><a href="/events">Retreats</a></li>
+						<li class="divider"></li>
+						<li><a href="/events">Marriage<br/>Intensives</a></li>
+						<li class="divider"></li>
+						<li><a href="/blog">Weekly Marriage<br/>Devotional</a></li>
+						<li class="divider"></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li class="divider"></li>
 						<li><a href="/donate">Donate</a></li>
 					</ul>
 				</li>
