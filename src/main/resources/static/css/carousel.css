@@ -23,6 +23,10 @@
     opacity: .9;
 }
 
+.carousel-control.left, .carousel-control.right {
+	background-image: none;
+}
+
 .carousel-img {
     width: 1500px;
     height: 725px;
