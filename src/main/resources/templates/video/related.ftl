@@ -6,14 +6,14 @@
 	</head>
 	<body id="body">
 
-		<script src="/static/js/facebook_conf.js"></script>
-
 		<#include "../stubs/navbar.ftl"/>
 
 		<#include "../stubs/alert.ftl"/>
 
+		<#assign caption = 'Challenge accepted'/>
 		<#assign message = 'I just completed the next step in my Fan The Flame Dates one year challenge!'/>
 		<#assign shareLink = '${glob.host}/video/id/${id}'/>
+		<#assign thumb = video.thumb/>
 
 		<#if isChallenged??>
 			<div class="container">
@@ -59,14 +59,22 @@
 							</#list>
 						</p>
 					</div>
-					<#list videos as video>
-						<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
-							<a href="/video/id/${video.id}">
-								<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
-							</a>
-							<p class="video-title"><strong>${video}</strong></p>
-						</div>
-					</#list>
+					<#assign vidInRow = 0/>
+					<div class="row">
+						<#list videos as video>
+							<#if vidInRow gt 3>
+								</div><div class="row">
+								<#assign vidInRow = 0/>
+							</#if>
+							<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
+								<a href="/video/id/${video.id}">
+									<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+								</a>
+								<p class="video-title"><strong>${video.name}</strong></p>
+							</div>
+							<#assign vidInRow = vidInRow + 1/>
+						</#list>
+					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12">
 					<div class="panel panel-default">
@@ -83,17 +91,18 @@
 
 		<#include "../stubs/footer.ftl"/>
 
-		<#include "../stubs/scripts.ftl"/>
-
 		<script>
-			var thumb = '${video.thumb!}';
+			var thumb = '${thumb}';
+			var caption = '${caption}';
 			var message = '${message}';
 			var shareLink = '${shareLink}';
 		</script>
 
-		<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+		<#include "../stubs/scripts.ftl"/>
 
-		<script src="/static/js/social.js"></script>
+		<!--<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+
+		<script src="/static/js/social.js"></script>-->
 
 	</body>
 </html>

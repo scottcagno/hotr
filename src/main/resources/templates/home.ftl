@@ -3,6 +3,7 @@
 	<head>
 		<#include "stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/shadows.css"/>
+		<link href="/static/css/carousel.css" rel="stylesheet" type="text/css"/>
         <title>Home</title>
 	</head>
 	<body>

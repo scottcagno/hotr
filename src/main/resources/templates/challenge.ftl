@@ -19,7 +19,7 @@
                 </div>
 				<div class="col-md-8">
 					<div class="text-center">
-                        <h3>Ready to Fan the Flame of your marriage?<br/> Take the ONE YEAR CHALLENE!</h3>
+                        <h3>Ready to Fan the Flame of your marriage?<br/> Take the ONE YEAR CHALLENGE!</h3>
                         <p>IMAGE GOES HERE</p>
                         <p class="lead">
                             Here's how our free program works. After you create a login:

@@ -56,6 +56,9 @@
 					<p>
 						<strong>Member Since: ${user.creation?date}</strong>
 					</p>
+					<p>
+						<a href="/secure/recommend">Recommend us to your family and friends</a>
+					</p>
 				</div>
 			</div>
 			<div class="row">
@@ -141,10 +144,10 @@
 							<#if recent?has_content>
 								<#list recent as video>
 									<div class="text-center video-margin">
-										<a href="/secure/video/id/${video.id}">
+										<a href="/video/id/${video.id}">
 											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 										</a>
-										<p class="video-title"><strong>${video}</strong></p>
+										<p class="video-title"><strong>${video.name}</strong></p>
 									</div>
 								</#list>
 							<#else/>

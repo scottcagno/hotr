@@ -25,7 +25,7 @@
 		</div>
 	</#if>
 
-	<#if userSession?? && userSession.progress == 6>
+	<#if userSession?? && userSession.progress == 4>
 		<div class="alert alert-info alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			You have hit the half way mark in your challenge.

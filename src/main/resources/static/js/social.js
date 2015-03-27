@@ -5,7 +5,7 @@ function fbShare() {
 		link: shareLink,
 		picture: thumb,
 		name: 'Fan The Flame Dates',
-		caption: 'Challenge Accepted',
+		caption: caption,
 		description: message
 	});
 };

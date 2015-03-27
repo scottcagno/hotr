@@ -64,7 +64,7 @@
 					</p>
 					<p>
 						<#list topics as topic>
-							<a href="/secure/video/all?topic=${topic}" class="btn btn-xs btn-primary">${topic}</a>
+							<a href="/video/all?topic=${topic}" class="btn btn-xs btn-primary">${topic}</a>
 						</#list>
 					</p>
 				</div>

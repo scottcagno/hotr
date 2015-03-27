@@ -46,7 +46,7 @@
 					<div class="col-xs-8 text-center">
 						<div class="form-group">
 							<p>
-								Only request a thumbnail if it has been more than 30 minutes since the video was uploaded.
+								Only request a thumbnail if it has been more than 30 minutes since the video was uploaded or a new thumbnail has been uploaded.
 							</p>
 							<p>
 								After the request is made please allow 5-10 minutes to receive the thumbnail.
@@ -64,13 +64,16 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							Edit Video
-							<#if video.thumb??>
-								<a href="${(video.thumb)!}" class="pull-right" target="_blank">View Thumbnail</a>
-							<#else/>
-								<a id="thumb" href="#" class="pull-right">Retrieve Thumbnail</a>
-							</#if>
+						<div class="panel-heading col-xs-12">
+							<div class="col-xs-4 text-center">
+								Edit Video
+							</div>
+							<div class="col-xs-4 text-center">
+								<a href="${(video.thumb)!}" target="_blank">View Thumbnail</a>
+							</div>
+							<div class="col-xs-4 text-center">
+								<a id="thumb" href="#">Update Thumbnail</a>
+							</div>
 						</div>
 						<div class="panel-body">
 							<form id="videoForm" role="form" method="post" action="/admin/video">
