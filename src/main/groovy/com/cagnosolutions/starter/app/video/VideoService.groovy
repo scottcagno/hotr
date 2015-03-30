@@ -72,7 +72,7 @@ class VideoService {
 		List<Video> allVideos = repo.findAll();
 		for(Video video : allVideos) {
 			if (video.series != "" && video.series != null) {
-				allSeries.add(video.series);
+				allSeries.add video.series;
 			}
 		}
 		new HashSet<String>(allSeries);
