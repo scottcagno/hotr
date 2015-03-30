@@ -55,8 +55,6 @@
 		</div>
         <!-- navbar -->
 
-		<#include "stubs/navbar.ftl"/>
-
 
         <!-- content -->
         <div class="container navbar-margin error-page">
