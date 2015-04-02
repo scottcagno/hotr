@@ -17,40 +17,63 @@ function updateFileInfo(e) {
         }
     }
     if (s) {
-        $('button[id="uploader"]').removeAttr("disabled")
+        $('button.uploader').removeAttr("disabled")
     } else {
-        $('button[id="uploader"]').attr("disabled", "true")
+        $('button.uploader').attr("disabled", "true")
     }
 }
 
 function fileCheck(e) {
-    var t = $('input[id="' + e.id + '"]')[0].files[0].size;
-    var n = $('input[id="' + e.id + '"]')[0].files[0].type;
-    if (t > 4194304) {
-        $('input[id="' + e.id + '"]')[0].type = "text";
-        $('input[id="' + e.id + '"]')[0].type = "file";
-        $('p[id="fileMessage"]').html("File too large. Max file size is 4MB");
-        $('div[id="fileError"]').removeClass("hide");
-        return
-    }
-    switch (n) {
-        case "image/png":
-        case "image/jpeg":
-            $('div[id="fileError"]').addClass("hide");
-            break;
-        default:
+    if ($('input[id="' + e.id + '"]')[0].files.length > 0) {
+        var t = $('input[id="' + e.id + '"]')[0].files[0].size;
+        var n = $('input[id="' + e.id + '"]')[0].files[0].type;
+        if (t > 1048576) {
             $('input[id="' + e.id + '"]')[0].type = "text";
             $('input[id="' + e.id + '"]')[0].type = "file";
-            $('p[id="fileMessage"]').html("Incorrect file type. All files must be a PNG");
-            $('div[id="fileError"]').removeClass("hide")
+            $('p[id="fileMessage"]').html("File too large. Max file size is 1MB");
+            $('div[id="fileError"]').removeClass("hide");
+            return
+        }
+        switch (n) {
+            case "image/png":
+            case "image/jpeg":
+                $('div[id="fileError"]').addClass("hide");
+                break;
+            default:
+                $('input[id="' + e.id + '"]')[0].type = "text";
+                $('input[id="' + e.id + '"]')[0].type = "file";
+                $('p[id="fileMessage"]').html("Incorrect file type. All files must be a PNG");
+                $('div[id="fileError"]').removeClass("hide")
+        }
     }
 }
 
 (function() {
     $('button[id="upload"]').click(function() {
         $('div[id="content"]').addClass("hide");
-        $('div[id="uploadSpinner"]').removeClass("hide")
+        $('div[id="uploadSpinner"]').removeClass("hide");
     });
+    $('button[id="uploadAjax"]').click(function(e){
+        e.preventDefault();
+        $('div[id="content"]').addClass("hide");
+        $('div[id="uploadSpinner"]').removeClass("hide");
+        var formData = new FormData($('form[id="uploader"]')[0]);
+        $.ajax({
+            url: '/admin/image/upload',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $("input.uploader").val('');
+                $('div[id="content"]').removeClass("hide");
+                $('div[id="uploadSpinner"]').addClass("hide");
+                updateFileInfo($('input.uploader')[0]);
+            }
+        });
+    });
+
+
     $("input.uploader").change(function() {
         fileCheck(this)
         updateFileInfo(this)

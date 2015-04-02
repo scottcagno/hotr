@@ -86,14 +86,13 @@ class VideoController {
 			}
 			model.addAllAttributes([questions : questionService.findAllByVideo(id), user : user, auth : true])
 			"video/video_q"
-			
 		}
     }
 
 	// GET all series
 	@RequestMapping(value = "/series", method = RequestMethod.GET)
 	String allSeries(Model model) {
-		model.addAllAttributes([allSeries: seriesService.findAll(), auth : (userSession != null),
+		model.addAllAttributes([allSeries: seriesService.findAll(), auth : (userSession.id != null),
 								topics: topicService.popTopics()])
 		"video/series"
 	}
@@ -103,7 +102,7 @@ class VideoController {
 		def series = seriesService.findOne(id)
 		def videos = videoService.findAll(series.videoIds)
 		model.addAllAttributes([videos: videos,
-								auth : (userSession != null),
+								auth : (userSession.id != null),
 								topics: topicService.popTopics(),
 								filter: "", seriesName: series.name])
 		"video/videos"

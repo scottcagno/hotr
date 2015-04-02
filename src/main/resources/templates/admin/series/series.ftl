@@ -73,7 +73,7 @@
 				</div>
 				<div class="col-lg-offset-3 col-lg-3">
 					<form id="uploader" class="text-center" role="form" method="post"
-						  action="/admin/upload" enctype="multipart/form-data">
+						  action="/admin/image/upload" enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="btn btn-default btn-block uploader" for="file">
 								Add Image
@@ -104,7 +104,7 @@
 				<div id="images" class="col-lg-8">
 					<legend>Series Thumbnail</legend>
 					<#list images as image>
-						<div class="col-lg-2">
+						<div class="col-lg-3">
 							<div class="radio">
 								<label>
 									<input type="radio" class="image" name="image" value="${image}" ${(series?? && series.thumb?? && series.thumb == image)? string('checked', '')}>

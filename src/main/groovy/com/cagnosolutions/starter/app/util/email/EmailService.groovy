@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.email
+package com.cagnosolutions.starter.app.util.email
 import com.sun.jersey.api.client.Client
 import com.sun.jersey.api.client.ClientResponse
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter

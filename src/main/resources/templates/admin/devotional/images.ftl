@@ -1,0 +1,1 @@
+[<#assign i = 1/><#list images as image>{"title":"${image}","value":"/image/${image}"}<#if i lt images?size>,</#if><#assign i = i + 1/></#list>]

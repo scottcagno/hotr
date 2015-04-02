@@ -3,6 +3,7 @@
 	<head id="head">
 		<title>Devotionals</title>
 		<#include "../../stubs/header.ftl"/>
+		<style>input.uploader{position:absolute;left:-9999px;}label.uploader{cursor:pointer;}</style>
 
 		<!-- TINYMCE WYSIWYG -->
 		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
@@ -14,7 +15,8 @@
 					"searchreplace visualblocks code",
 					"insertdatetime media table contextmenu paste"
 				],
-				toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image"
+				toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image",
+				image_list: "/admin/image"
 			});
 		</script>
 		<!-- TINYMCE WYSIWYG -->
@@ -44,6 +46,14 @@
 		</div>
 		<!-- delete item alert -->
 
+		<!-- file error alert -->
+		<div id="fileError" class="container hide">
+			<div class="alert alert-danger">
+				<p id="fileMessage"></p>
+			</div>
+		</div>
+		<!-- file error alert -->
+
 		<!-- content -->
 		<div id="content" class="container">
 			<!-- add/edit -->
@@ -53,7 +63,7 @@
 						Add/Edit Devotional <span class="pull-right"><a href="/admin/devotional">Clear</a></span>
 					</div>
 					<div class="panel-body">
-						<form role="form" method="post" action="/admin/devotional/save">
+						<form role="form" method="post" class="ajaxUpload" action="/admin/devotional/save">
 							<div class="form-group">
 								<label>Title</label>
 								<span class="text-error">${(errors.title)!}</span>
@@ -88,41 +98,70 @@
 			<!-- view all -->
 			<div class="col-sm-4">
 				<div class="panel panel-default">
+					<div class="panel-heading">Add Image</div>
+					<div class="panel-body">
+						<form id="uploader" class="text-center" role="form" method="post"
+							  action="/admin/image/upload" enctype="multipart/form-data">
+							<div class="form-group">
+								<label class="btn btn-default btn-block uploader" for="file">
+									Add Image
+								</label>
+								<input class="uploader" id="file" type="file" name="devotional" required="true">
+							</div>
+							<button class="btn btn-primary uploader btn-block" id="uploadAjax" type="submit"
+									disabled="true">
+								Upload
+							</button>
+							<input type="hidden" name="redirect" value="/admin/devotional/${(id)!}"/>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						</form>
+					</div>
+				</div>
+				<div class="panel panel-default">
 					<div class="panel-heading">All Devotional Posts</div>
-
-						<div class="table-responsive">
-							<table class="table table-striped">
-								<thead>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Title</th>
+								</tr>
+							</thead>
+							<tbody>
+								<#list devotionals as devotional>
 									<tr>
-										<th>Date</th>
-										<th>Title</th>
+										<td>
+											<a href="/admin/devotional/${(devotional.id)!}" class="">
+											${(devotional.date)?string["MMMM dd, yyyy"]}
+											</a>
+										</td>
+										<td>
+											<#if devotional.title?length gt 15>
+												${devotional.title?substring(0,15)+"..."}
+											<#else/>
+												${(devotional.title)!}
+											</#if>
+										</td>
 									</tr>
-								</thead>
-								<tbody>
-									<#list devotionals as devotional>
-										<tr>
-											<td>
-												<a href="/admin/devotional/${(devotional.id)!}" class="">
-												${(devotional.date)?string["MMMM dd, yyyy"]}
-												</a>
-											</td>
-											<td>
-												<#if devotional.title?length gt 15>
-                                                        ${devotional.title?substring(0,15)+"..."}
-                                                    <#else>
-													${(devotional.title)!}
-												</#if>
-											</td>
-										</tr>
-									</#list>
-								</tbody>
-							</table>
-						</div>
+								</#list>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 			<!-- view all -->
 		</div>
 		<!-- content -->
+
+		<!-- upload spinner -->
+		<div id="uploadSpinner" class="text-center hide">
+			<p class="lead">
+				<strong>Uploading your file...</strong><br/>
+			</p>
+			<i class="fa fa-5x fa-circle-o-notch fa-spin"></i>
+			<p class="lead">One moment please.</p>
+		</div>
+		<!-- upload spinner -->
 
 		<!-- footer -->
 		<#include "../../stubs/footer.ftl"/>
@@ -130,8 +169,8 @@
 
 		<!-- scripts -->
 		<#include "../../stubs/scripts.ftl"/>
-		<script src="/static/js/admin/global.js"></script>
 		<script src="/static/js/delete-item.js"></script>
+		<script src="/static/js/admin/image-upload.js"></script>
 		<!-- scripts -->
 
 	</body>

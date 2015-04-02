@@ -1,5 +1,5 @@
 package com.cagnosolutions.starter.app
-import com.cagnosolutions.starter.app.email.EmailService
+import com.cagnosolutions.starter.app.util.email.EmailService
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
 import com.cagnosolutions.starter.app.validators.UserRegistrationValidator
