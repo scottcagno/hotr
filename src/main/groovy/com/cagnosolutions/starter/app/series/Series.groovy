@@ -11,6 +11,6 @@ class Series {
 	@GeneratedValue
 	Long id
 
-	String name, thumbnail
+	String name, thumb
 	ArrayList<Long> videoIds
 }

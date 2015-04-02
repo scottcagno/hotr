@@ -8,7 +8,7 @@ $(document).ready(function() {
     });
 
     $('button[id="save"]').click(function() {
-        var inputs = $('input[type="checkbox"]');
+        var inputs = $('input.videoId');
         var videoIds = [];
         for (var i = 0; i < inputs.length; i++) {
             if (inputs[i].checked) {
@@ -16,7 +16,15 @@ $(document).ready(function() {
                 videoIds.push(id);
             }
         }
+        var images = $('input.image');
+        var thumbnail =  '';
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].checked) {
+                thumbnail = images[i].value;
+            }
+        }
         $('form[id="seriesForm"] input[name="videoIds"]').val(videoIds);
+        $('form[id="seriesForm"] input[name="thumb"]').val(thumbnail);
         $('form[id="seriesForm"]').submit();
     });
 });

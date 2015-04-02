@@ -24,13 +24,13 @@ class AdminSeriesController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	String allSeries(Model model) {
-		model.addAllAttributes([allSeries: seriesService.findAll(), videos: videoService.findAll()])
+		model.addAllAttributes([allSeries: seriesService.findAll(),
+								videos: videoService.findAll(), images: getImages("series_")])
 		"admin/series/series"
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	String save(Series series, RedirectAttributes attr) {
-		println(series.videoIds)
 		if (seriesService.canUpdate(series.id, series.name)) {
 			series = seriesService.save series
 			attr.addFlashAttribute("alertSuccess", "Successfully saved series")
@@ -42,7 +42,9 @@ class AdminSeriesController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String series(Model model, @PathVariable Long id) {
-		model.addAllAttributes([allSeries: seriesService.findAll(), series: seriesService.findOne(id), videos: videoService.findAll()])
+		model.addAllAttributes([allSeries: seriesService.findAll(),
+								series: seriesService.findOne(id),
+								videos: videoService.findAll(), images: getImages("series_")])
 		"admin/series/series"
 	}
 
@@ -51,5 +53,18 @@ class AdminSeriesController {
 		seriesService.delete(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted series")
 		"redirect:/admin/series"
+	}
+
+	List<String> getImages(String prefix) {
+		def names = []
+		File fd = new File("opt/images")
+		for (File file : fd.listFiles()) {
+			if (!file.isHidden() && file.canRead()) {
+				if (file.name.startsWith(prefix)) {
+					names.add(file.name)
+				}
+			}
+		}
+		return names
 	}
 }

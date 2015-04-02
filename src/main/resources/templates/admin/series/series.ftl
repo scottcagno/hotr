@@ -2,6 +2,7 @@
 <html lang="en">
 	<head id="head">
 		<#include "../../stubs/header.ftl"/>
+		<style>input.uploader{position:absolute;left:-9999px;}label.uploader{cursor:pointer;}</style>
 		<title>Admin</title>
 	</head>
 	<body id="body">
@@ -28,6 +29,14 @@
 		</div>
 		<!-- delete item alert -->
 
+		<!-- file error alert -->
+		<div id="fileError" class="container hide">
+			<div class="alert alert-danger">
+				<p id="fileMessage"></p>
+			</div>
+		</div>
+		<!-- file error alert -->
+
 		<!-- content -->
 		<div class="container">
 			<div class="row">
@@ -35,6 +44,8 @@
 					<div class="form-group">
 						<select class="form-control" id="seriesSelect">
 							<option value="none">Choose Series</option>
+							<option value="none">Add Series</option>
+							<option value="none">-----------------</option>
 							<#list allSeries as s>
 								<option value="${s.id}" ${(id?? && id == s.id)? string('selected', '')}>${s.name}</option>
 							</#list>
@@ -55,18 +66,51 @@
 						</div>
 						<input type="hidden" name="id" value="${(series.id)!}"/>
 						<input type="hidden" name="videoIds"/>
+						<input type="hidden" name="thumb"/>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					</form>
 					<button id="save" class="btn btn-primary btn-block">${(series??)?string('Save', 'Add')}</button>
 				</div>
+				<div class="col-lg-offset-3 col-lg-3">
+					<form id="uploader" class="text-center" role="form" method="post"
+						  action="/admin/upload" enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="btn btn-default btn-block uploader" for="file">
+								Add Image
+							</label>
+							<input class="uploader" id="file" type="file" name="series" required="true">
+						</div>
+						<button class="btn btn-primary uploader btn-block" id="uploader" type="submit"
+								disabled="true">
+							Upload
+						</button>
+						<input type="hidden" name="redirect" value="/admin/series/${(id)!}"/>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					</form>
+				</div>
 			</div>
+			<br/>
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-4">
+					<legend>Videos In Series</legend>
 					<#list videos as video>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" value="${video.id}" ${(series?? && series.videoIds?? && series.videoIds?seq_contains(video.id))? string('checked', '')}/> ${video.name}
+								<input type="checkbox" class="videoId" value="${video.id}" ${(series?? && series.videoIds?? && series.videoIds?seq_contains(video.id))? string('checked', '')}/> ${video.name}
 							</label>
+						</div>
+					</#list>
+				</div>
+				<div id="images" class="col-lg-8">
+					<legend>Series Thumbnail</legend>
+					<#list images as image>
+						<div class="col-lg-2">
+							<div class="radio">
+								<label>
+									<input type="radio" class="image" name="image" value="${image}" ${(series?? && series.thumb?? && series.thumb == image)? string('checked', '')}>
+									<img src="/image/${image}" class="img-responsive img-thumbnail"/>
+								</label>
+							</div>
 						</div>
 					</#list>
 				</div>
@@ -82,6 +126,7 @@
 		<#include "../../stubs/scripts.ftl"/>
 		<script src="/static/js/admin/series.js"></script>
 		<script src="/static/js/delete-item.js"></script>
+		<script src="/static/js/admin/image-upload.js"></script>
 		<!-- javascript -->
 
 	</body>

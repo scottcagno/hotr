@@ -36,7 +36,7 @@
 							<a href="/video/series" class="list-group-item ${(filter == 'series')?string('active', '')}">Series</a>
 						</div>
 					</div>
-					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">Series: ${filter}</h4>', '')}
+					${(filter != 'all' && filter != 'popular' && filter!= 'recent' && filter != 'series')?string('<h4 class="text-center">Series: ${(seriesName)!}</h4>', '')}
 					${(RequestParameters.topic??)?string('<h4 class="text-center">Topic: ${RequestParameters.topic!}</h4>', '')}
 					<br/>
 					<#assign vidInRow = 0/>

@@ -1,5 +1,4 @@
 package com.cagnosolutions.starter.app
-
 import com.cagnosolutions.starter.app.admin.settings.SettingsService
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.topic.TopicService
@@ -7,9 +6,12 @@ import com.cagnosolutions.starter.app.user.UserSession
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.core.io.FileSystemResource
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 
@@ -84,6 +86,12 @@ class RootController {
 		model.addAttribute("userSession", userSession)
         "challenge"
     }
+
+	@RequestMapping(value = "/image/{filename}.{type}", method = GET, produces = "image/*")
+	@ResponseBody
+	FileSystemResource file(@PathVariable String filename, @PathVariable String type) {
+		new FileSystemResource(new File("opt/images/${filename}.${type}"))
+	}
 
 }
 

@@ -55,7 +55,6 @@
 		</div>
         <!-- navbar -->
 
-
         <!-- content -->
         <div class="container navbar-margin error-page">
             <div class="jumbotron">

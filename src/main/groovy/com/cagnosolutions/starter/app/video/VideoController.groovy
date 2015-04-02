@@ -1,6 +1,7 @@
 package com.cagnosolutions.starter.app.video
 
 import com.cagnosolutions.starter.app.question.QuestionService
+import com.cagnosolutions.starter.app.series.SeriesService
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
@@ -34,6 +35,9 @@ class VideoController {
 	@Autowired
 	QuestionService questionService
 
+	@Autowired
+	SeriesService seriesService
+
 	@RequestMapping(method = RequestMethod.GET)
 	String video() {
 		"redirect:/video/all"
@@ -55,7 +59,7 @@ class VideoController {
 					model.addAttribute "videos", videoService.findAllRecentlyAdded()
 					break
 				default:
-					model.addAttribute "videos", videoService.findAllBySeries(filter)
+					return "redirect:/video/all"
 					break
 			}
 		} else {
@@ -88,10 +92,21 @@ class VideoController {
 
 	// GET all series
 	@RequestMapping(value = "/series", method = RequestMethod.GET)
-	String series(Model model) {
-		model.addAllAttributes([allSeries: videoService.findAllSeries(), auth : (userSession != null),
+	String allSeries(Model model) {
+		model.addAllAttributes([allSeries: seriesService.findAll(), auth : (userSession != null),
 								topics: topicService.popTopics()])
 		"video/series"
+	}
+
+	@RequestMapping(value = "/series/{id}", method = RequestMethod.GET)
+	String series(@PathVariable Long id, Model model) {
+		def series = seriesService.findOne(id)
+		def videos = videoService.findAll(series.videoIds)
+		model.addAllAttributes([videos: videos,
+								auth : (userSession != null),
+								topics: topicService.popTopics(),
+								filter: "", seriesName: series.name])
+		"video/videos"
 	}
 
 	// GET all videos related to the one just watched

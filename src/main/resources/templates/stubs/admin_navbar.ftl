@@ -13,6 +13,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/admin/settings">Settings</a></li>
                 <li><a href="/admin/video">Videos</a></li>
+				<li><a href="/admin/series">Series</a></li>
 				<li><a href="/admin/user">Users</a></li>
 				<li><a href="/admin/devotional">Devotional</a></li>
 				<li><a href="/admin">Admin</a></li>
