@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Organization">
 	<head>
 		<#include "stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/shadows.css"/>

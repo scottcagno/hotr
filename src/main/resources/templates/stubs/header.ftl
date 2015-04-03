@@ -10,4 +10,10 @@
 <link href="/static/css/bootstrap-overrides.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="/static/css/other-overrides.css"/>
 <script src="/static/js/facebook_conf.js"></script>
+<meta itemprop="name" content="Fan the Flame Dates">
+<meta itemprop="description" content="Fan the Flame Dates Description">
+<style>
+	iframe[src^="https://apis.google.com/u/0/_/widget/oauthflow/toast"] {display: none;}
+</style>
+
 <#import "global.ftl" as glob/>

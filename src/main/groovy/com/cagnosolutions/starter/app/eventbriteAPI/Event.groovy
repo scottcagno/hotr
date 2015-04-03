@@ -12,6 +12,7 @@ class Event {
 	Map<String, String> start
 	Map<String, String> end
 	Map<String, Object> logo
+	String id
 	String url
 
 }

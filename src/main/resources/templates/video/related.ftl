@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Organization">
 	<head id="head">
 		<title>Related Videos</title>
 		<#include "../stubs/header.ftl"/>
@@ -20,7 +20,9 @@
 				<div id="alert">
 					<div class="alert alert-info alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
 						<a href="#" onclick="fbShare()"><i class="fa fa-facebook-square fa-2x"></i></a>
+
 						<a href="#">
 							<span
 								class="g-interactivepost"
@@ -34,10 +36,12 @@
 								<i class="fa fa-google-plus-square fa-2x"></i>
 							</span>
 						</a>
+
 						<a href="https://twitter.com/share?url=${shareLink}&text=${message}&count=none"
 						   onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;"	>
 							<i class="fa fa-twitter-square fa-2x"></i>
 						</a>
+
 						<label>
 							Congratulations on completing the next step in the one year challenge!
 						</label>
@@ -100,9 +104,7 @@
 
 		<#include "../stubs/scripts.ftl"/>
 
-		<!--<script src="https://apis.google.com/js/client:platform.js" async defer></script>
-
-		<script src="/static/js/social.js"></script>-->
-
+		<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+		<script src="/static/js/social.js"></script>
 	</body>
 </html>

@@ -31,7 +31,7 @@
 						<li class="divider"></li>
 						<li><a href="/events">Retreats</a></li>
 						<li class="divider"></li>
-						<li><a href="/events">Marriage<br/>Intensives</a></li>
+						<li><a href="/intensives">Marriage<br/>Intensives</a></li>
 						<li class="divider"></li>
 						<li><a href="/devotional">Weekly Marriage<br/>Devotional</a></li>
 						<li class="divider"></li>

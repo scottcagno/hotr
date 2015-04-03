@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Organization">
 	<head id="head">
 		<title>Account</title>
 		<#include "../stubs/header.ftl"/>

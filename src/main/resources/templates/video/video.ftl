@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head id="head">
+	<head id="head" itemscope itemtype="http://schema.org/Organization">
 		<title>Watch</title>
 		<#include "../stubs/header.ftl"/>
 	</head>
@@ -9,6 +9,11 @@
 		<#include "../stubs/navbar.ftl"/>
 
 		<#include "../stubs/alert.ftl"/>
+
+		<#assign caption = video.name/>
+		<#assign message = video.description/>
+		<#assign shareLink = '${glob.host}/video/id/${id}'/>
+		<#assign thumb = video.thumb/>
 
 		<div class="container">
 			<div id="alert">
@@ -35,6 +40,28 @@
 					<iframe id="player" src="//player.vimeo.com/video/${video.vimeoId}?api=1&player_id=player&portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
 				<div class="row">
+					<div class="col-lg-12">
+						<a href="#" onclick="fbShare()"><i class="fa fa-facebook-square fa-2x"></i></a>
+
+						<a href="#">
+							<span
+									class="g-interactivepost"
+									data-contenturl="${shareLink}"
+									data-clientid="472352253568-brmvt0cpld8fua3qlbj4ssdj6s3ak70c.apps.googleusercontent.com"
+									data-cookiepolicy="single_host_origin"
+									data-prefilltext="${message}"
+									data-calltoactionlabel="VISIT"
+									data-calltoactionurl="${shareLink}"
+									data-calltoactiondeeplinkid="/pages/create">
+								<i class="fa fa-google-plus-square fa-2x"></i>
+							</span>
+						</a>
+
+						<a href="https://twitter.com/share?url=${shareLink}&text=${message}&count=none"
+						   onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;"	>
+							<i class="fa fa-twitter-square fa-2x"></i>
+						</a>
+					</div>
 					<div class="col-lg-6">
 						<h1>${video.name}</h1>
 					</div>
@@ -64,10 +91,17 @@
 
 		<#include "../stubs/footer.ftl"/>
 
-		<#include "../stubs/scripts.ftl"/>
+		<script>
+			var thumb = '${thumb}';
+			var caption = '${caption}';
+			var message = '${message}';
+			var shareLink = '${shareLink}';
+		</script>
 
-		<script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
-		<script src="/static/js/video.js"></script>
+
+		<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+		<script src="/static/js/social.js"></script>
+		<#include "../stubs/scripts.ftl"/>
 
 	</body>
 </html>

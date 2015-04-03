@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" itemscope itemtype="http://schema.org/Organization">
 	<head>
     	<#include "../stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/devotional.css"/>
