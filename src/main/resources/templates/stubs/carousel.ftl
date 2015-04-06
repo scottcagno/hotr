@@ -35,6 +35,10 @@
 						<div class="middle">
 							<i class="fa fa-play-circle fa-5x"></i>
 						</div>
+						<div class="carousel-caption">
+							<h3>${video.name}</h3>
+							<p>Click to Watch</p>
+						</div>
 					</div>
 				</a>
 			</div>
