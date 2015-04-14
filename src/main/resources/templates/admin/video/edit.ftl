@@ -122,45 +122,43 @@
 						</div>
 					</div>
 				</div>
-				<div id="" class="col-sm-8" >
-					<div id="" class="panel panel-default">
+				<div class="col-sm-8">
+					<div class="panel panel-default">
 						<div class="panel-heading col-sm-12">
 							Questions
 							<a href="/admin/question/add?videoId=${video.id}" class="btn btn-default btn-xs pull-right">Add question</a>
 						</div>
-						<div class="panel-body">
-							<div id="" class="table-responsive">
-								<table class="table table-striped">
-									<thead>
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Question</th>
+										<th>Type</th>
+										<th>Options</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<#list questions as question>
 										<tr>
-											<th>Question</th>
-											<th>Type</th>
-											<th>Options</th>
-											<th></th>
+											<td>${question.ask}</td>
+											<td>${question.inputType?cap_first}</td>
+											<td>${(question.options?size > 0)?string(question.options?join(', '), 'None')}</td>
+											<td>
+												<a href="/admin/question/${question.id}" class="btn btn-primary">
+													<i class="fa fa-pencil"></i>
+												</a>
+												<!-- delete item trigger -->
+												<span id="delete-item" data-id="/admin/question/del/${question.id}"
+													  class="btn btn-danger">
+													<i class="fa fa-trash-o"></i>
+												</span>
+												<!-- delete item trigger -->
+											</td>
 										</tr>
-									</thead>
-									<tbody>
-										<#list questions as question>
-											<tr>
-												<td>${question.ask}</td>
-												<td>${question.inputType?cap_first}</td>
-												<td>${(question.options?size > 0)?string(question.options?join(', '), 'None')}</td>
-												<td>
-													<a href="/admin/question/${question.id}" class="btn btn-primary">
-														<i class="fa fa-pencil"></i>
-													</a>
-													<!-- delete item trigger -->
-													<span id="delete-item" data-id="/admin/question/del/${question.id}"
-														  class="btn btn-danger">
-														<i class="fa fa-trash-o"></i>
-													</span>
-													<!-- delete item trigger -->
-												</td>
-											</tr>
-										</#list>
-									</tbody>
-								</table>
-							</div>
+									</#list>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>

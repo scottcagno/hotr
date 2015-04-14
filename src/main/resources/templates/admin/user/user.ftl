@@ -137,41 +137,39 @@
 			<div class="col-sm-8">
 				<div class="panel panel-default">
 					<div class="panel-heading">All Users</div>
-					<div class="panel-body">
-						<div class="table-responsive">
-							<table class="table table-striped">
-								<thead>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Email</th>
+									<th class="hidden-xs hidden-sm">Enabled</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<#list users as user>
 									<tr>
-										<th>First Name</th>
-										<th>Last Name</th>
-										<th>Email</th>
-										<th class="hidden-xs hidden-sm">Enabled</th>
-										<th>Actions</th>
+										<td>${(user.firstName)!}</td>
+										<td>${(user.lastName)!}</td>
+										<td>${(user.username)!}</td>
+										<td class="hidden-xs hidden-sm">${(user.active == 1)?c}</td>
+										<td>
+											<a href="/admin/user/${(user.id)!}" class="btn btn-primary">
+												<i class="fa fa-pencil"></i>
+											</a>
+											<!-- delete item trigger -->
+											<span id="delete-item" data-id="/admin/user/del/${user.id}"
+												  class="btn btn-danger">
+												<i class="fa fa-trash-o"></i>
+											</span>
+											<!-- delete item trigger -->
+										</td>
 									</tr>
-								</thead>
-								<tbody>
-									<#list users as user>
-										<tr>
-											<td>${(user.firstName)!}</td>
-											<td>${(user.lastName)!}</td>
-											<td>${(user.username)!}</td>
-											<td class="hidden-xs hidden-sm">${(user.active == 1)?c}</td>
-											<td>
-												<a href="/admin/user/${(user.id)!}" class="btn btn-primary">
-													<i class="fa fa-pencil"></i>
-												</a>
-												<!-- delete item trigger -->
-												<span id="delete-item" data-id="/admin/user/del/${user.id}"
-													  class="btn btn-danger">
-													<i class="fa fa-trash-o"></i>
-												</span>
-												<!-- delete item trigger -->
-											</td>
-										</tr>
-									</#list>
-								</tbody>
-							</table>
-						</div>
+								</#list>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>

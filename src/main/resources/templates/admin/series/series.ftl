@@ -62,7 +62,8 @@
 				<div class="col-lg-3">
 					<form action="/admin/series/save" method="post" id="seriesForm">
 						<div class="form-group">
-							<input name="name" class="form-control" type="text" placeholder="Name" value="${(series.name)!}"/>
+							<span id="nameError" class="text-error hide">*Name is required</span>
+							<input id="seriesName" name="name" class="form-control" type="text" placeholder="Name" value="${(series.name)!}" required="true"/>
 						</div>
 						<input type="hidden" name="id" value="${(series.id)!}"/>
 						<input type="hidden" name="videoIds"/>

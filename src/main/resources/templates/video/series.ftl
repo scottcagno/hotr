@@ -40,7 +40,7 @@
 							</#if>
 							<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
 								<a href="/video/series/${series.id}">
-									<img src="${(series.thumb??)?string('/image/${(series.thumb!)}', '/static/img/video2.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+									<img src="${(series.thumb?has_content)?string('/image/${(series.thumb!)}', '/static/img/video2.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 								</a>
 								<p class="video-title"><strong>${series.name}</strong></p>
 								<#assign vidInRow = vidInRow + 1/>

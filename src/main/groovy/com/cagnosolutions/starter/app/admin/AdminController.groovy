@@ -26,7 +26,7 @@ class AdminController {
 	WorksheetService worksheetService
 
 	@Autowired
-	SettingsService adminSettingsService
+	SettingsService settingsService
 
 	// GET landing page
 	@RequestMapping(method = RequestMethod.GET)
@@ -36,7 +36,9 @@ class AdminController {
 				challenge : userService.numberOrChallenge(),
 				videos : videoService.numberOfVideos(),
 				watched : videoService.numberOfVideosWatched(),
-				worksheets : worksheetService.numberOfWorksheets()
+				worksheets : worksheetService.numberOfWorksheets(),
+				settings : settingsService.findOne(),
+				vids : videoService.findAll()
 		])
 		"admin/landing"
 	}

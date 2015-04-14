@@ -34,7 +34,7 @@ class AdminSettingsController {
 	String saveSettings(Settings settings, RedirectAttributes attr) {
 		settingsService.save(settings)
 		attr.addFlashAttribute("alertSuccess", "Successfully saved settings")
-		"redirect:/admin/settings"
+		"redirect:/admin"
 	}
 
 	@RequestMapping(value = "/erase", method = RequestMethod.POST)
