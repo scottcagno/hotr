@@ -7,7 +7,7 @@
     	    	    <img src="/static/img/home/brucekaren.jpg" class="img-responsive">
     	    	</div>
     	    	<div class="col-lg-7">
-    	    	    <h2>Dr. Bruce McCracken <span class="text-muted"><br/>and his wife Karen</span></h2>
+    	    	    <h2>Dr. Bruce McCracken <span class="gray-panel"><br/>and his wife Karen</span></h2>
     	    	    <div class="col-xs-6 visible-xs-block visible-sm-block">
     	    	        <img src="/static/img/home/brucekaren.jpg" class="img-responsive">
     	    	    </div>
@@ -34,11 +34,11 @@
 								</h4>
 							</div>
 							<div class="col-lg-6">
-								<h4>
+								<h4 class="black-text">
 									<p><strong>${event.name.text}</strong></p>
 									<p>
-										${event.venue.address.city}, ${event.venue.address.region}<br/>
-										${(event.start.local?datetime)?date} - ${(event.end.local?datetime)?date}
+										${(event.venue.address.city)!}, ${(event.venue.address.region)!}<br/>
+										${((event.start.local?datetime)?date)!} - ${((event.end.local?datetime)?date)!}
 									</p>
 								</h4>
 								<p><a href="${event.url}" target="_blank">More Info</a></p>

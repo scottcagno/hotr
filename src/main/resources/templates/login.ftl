@@ -56,7 +56,7 @@
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading text-center text-primary">
-							<a data-toggle="collapse" data-parent="#accordion" href="#register">
+							<a  class="" data-toggle="collapse" data-parent="#accordion" href="#register">
 								Create a new account
 							</a>
 						</div>

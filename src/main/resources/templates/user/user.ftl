@@ -37,7 +37,7 @@
 				<div class="col-lg-7 text-center">
 					<#if !user.challenge>
 						<div>
-							<a href="/challenge" class="btn btn-md btn-success btn-block">Begin Challenge</a>
+							<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="gray-panel">BEGIN</span><span class="bold-panel red-panel">CHALLENGE</span></a>
 						</div>
 					<#else/>
 						<#assign width = (user.progress?size / 12) * 100/>
@@ -70,9 +70,9 @@
 							<a href="/logout" class="btn btn-default btn-sm pull-right">Logout</a>
 						</div>
 						<div class="panel-body">
-							<form id="accountForm" role="form" method="post" action="/secure/user">
+							<form class="red-panel" id="accountForm" role="form" method="post" action="/secure/user">
 								<div class="checkbox">
-									<label>
+									<label class="black-text">
 										<input name="monthly" type="checkbox" value="true" ${(user.monthly)?string('checked', '')}> Email me monthly challenge reminders
 									</label>
 								</div>
@@ -95,7 +95,7 @@
 								</div>
 								<div class="form-group">
 									<label>Email</label>
-									<p>
+									<p class="black-text">
 										${user.username}
 									</p>
 								</div>
@@ -151,7 +151,7 @@
 									</div>
 								</#list>
 							<#else/>
-								<div class="text-center">You have no recently watched videos.</div>
+								<div class="text-center black-text">You have no recently watched videos.</div>
 							</#if>
 						</div>
 					</div>
@@ -185,7 +185,7 @@
 									</#list>
 								</tbody>
 							<#else/>
-								<div class="text-center">You have no saved worksheets.</div>
+								<div class="text-center black-text">You have no saved worksheets.</div>
 							</#if>
 						</table>
 					</div>

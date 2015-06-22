@@ -32,11 +32,6 @@ span.navbar-brand .bold {
     color:#999;
 }
 
-
-blockquote {
-	background-color: #999;
-}
-
 div.blog-header {
 	background-color: #999;
 	color: #ddd;
@@ -73,4 +68,14 @@ div.error-page {
 	text-align: center;
 	color: #e41e26;
 	font-weight:700;
+}
+
+.nav-tabs>li.active>a,
+ .nav-tabs>li.active>a:hover {
+	color: #e41e26;
+}
+
+button:hover {
+	background-color: #b3d0e9;
+	transition: all .5s;
 }

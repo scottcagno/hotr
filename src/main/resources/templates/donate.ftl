@@ -13,7 +13,7 @@
 		<!-- content -->
 		<div class="container">
 			<div class="well well-lg text-center">
-				<h3>“Fan the Flame Dates” is funded through generous donations from supporters like you!</h3>
+				<h3 class="black-text">“Fan the Flame Dates” is funded through generous donations from supporters like you!</h3>
 				<br/>
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input name="cmd" type="hidden" value="_s-xclick" />

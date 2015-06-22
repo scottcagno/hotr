@@ -26,7 +26,7 @@
 							</div>
 							<form id="password-reset" role="form" method="post" action="/reset/password">
 								<div class="form-group">
-									<label for="username">Account Email</label>
+									<label class="black-text" for="username">Account Email</label>
 									<input id="username" type="email" name="username" class="form-control" placeholder="Email" required="true"/>
 								</div>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

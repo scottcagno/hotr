@@ -19,9 +19,9 @@ h2 {
 }
 
 blockquote {
-    background-color: #ccc;
+    background-color: #FF374D;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     border-left: 0;
     border-right: 0;
     color: #fff;
@@ -107,4 +107,50 @@ vr {
     color: #a94442;
     font-weight: 400;
     font-size: 14px;
+}
+
+.bold-panel {
+	font-weight: 800;
+}
+
+.panel.dark {
+	background-color: rgba(255,255,255,0);
+	border-radius: 0;
+}
+
+.panel-default>.panel-heading.dark {
+	background-color: rgb(34,34,34);
+	border-width: 0 0 2px 0;
+	border-color: #e41e26;
+}
+
+.panel-default>.panel-body.dark {
+	background-color: #ccc;
+}
+
+.panel-default.dark {
+	border-color: black;
+}
+
+.black-text {
+	color: black;
+}
+
+.gray-panel {
+	color: #ccc;
+}
+
+.red-panel {
+	color: #e41e26;
+}
+
+.btn.btn-success.black-border {
+	background-color: #222;
+	border-color: black
+}
+
+.btn.btn-success.black-border:hover {
+	background-color: #555;
+	border-color: black;
+	transition: all .5s;
 }

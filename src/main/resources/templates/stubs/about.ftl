@@ -7,7 +7,7 @@
 			<img src="/static/img/home/happycouple.png" class="img-responsive">
 		</div>
 		<div class="col-lg-8 col-sm-6">
-			<h2>Feed the <span class="text-muted">fire</span></h2>
+			<h2>Feed the <span class="red-panel">fire</span></h2>
 			<p class="lead">
 				Building and maintaining a love relationship is a lot like starting and feeding a
 				fire. You sparked a friendship, added some kindling through flirting, and as you
@@ -19,7 +19,7 @@
 	<hr class="divider">
 	<div class="row">
 		<div class="col-lg-4 col-sm-4">
-		    <h2>You had built a roaring fire <span class="text-muted">and got married</span></h2>
+		    <h2>You had built a roaring fire <span class="red-panel">and got married</span></h2>
 		</div>
 		<div class="col-lg-4 col-sm-4">
 			<img src="/static/img/home/weddingcouple.png" class="img-thumbnail img-responsive">
@@ -36,7 +36,7 @@
 	<hr class="divider">
 	<div class="row">
 		<div class="col-lg-8 col-sm-6">
-			<h2>Healthier <span class="text-muted">marriages</span></h2>
+			<h2>Healthier <span class="red-panel">marriages</span></h2>
 			<p class="lead">
 				We believe strong families build strong churches and communities and that strong families
 				are nurtured by a healthy marriages. That is what Fan the Flame Dates is all about, giving you the
@@ -53,7 +53,7 @@
 			<img src="/static/img/home/leavescouple.png" class="img-responsive">
 		</div>
 		<div class="col-lg-9 col-sm-6">
-			<h2>House on the Rock <span class="text-muted">Family Ministries</span></h2>
+			<h2>House on the Rock <span class="red-panel">Family Ministries</span></h2>
 			<p class="lead">
 				We are a Christian ministry committed to helping the Church start and
 				strengthen her ministries to men, marriages, and families so that they reflect the

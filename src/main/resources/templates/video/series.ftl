@@ -50,11 +50,11 @@
 				</div>
 
 				<div class="col-lg-3 col-md-3 col-sm-12">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Hot Topics
+					<div class="panel panel-default dark">
+						<div class="panel-heading dark">
+							<span class="gray-panel"><span class="bold-panel red-panel">HOT</span>TOPICS</span>
 						</div>
-						<div class="panel-body">
+						<div class="panel-body dark">
 							<#list topics as topic>
 								<a href="/video/all?topic=${topic.topic}" class="btn btn-block red">
 									${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>

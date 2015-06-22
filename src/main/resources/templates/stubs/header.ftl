@@ -7,6 +7,7 @@
 <link href="//fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet" type="text/css"/>
 <link href="/static/css/custom.css" rel="stylesheet" type="text/css"/>
 <link href="/static/css/navbar.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="/static/css/cover.css"/>
 <link href="/static/css/bootstrap-overrides.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="/static/css/other-overrides.css"/>
 <script src="/static/js/facebook_conf.js"></script>
