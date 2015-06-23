@@ -53,25 +53,21 @@
 						<br/>
                         <div class="panel panel-default light">
 							<div class="panel-heading light">
-								Register
+								${(auth)?string('Begin Challenge', 'Register')}
 							</div>
 							<div class="panel-body light">
 								<#if auth>
 									<form id="challengeForm" role="form" method="post" action="/secure/user/challenge">
 										<input type="hidden" name="userId" value="${userSession.id}"/>
 										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-										<div class="form-group row">
-											<div class="col-sm-8">
-												<button class="btn btn-md btn-success btn-block" type="submit">I'm ready to take the challenge</button>
-											</div>
-											<div class="col-sm-4">
+											<div class="form-group">
 												<div class="checkbox">
 													<label>
 														<input name="monthly" type="checkbox" value="true"> Email me monthly reminders
 													</label>
 												</div>
 											</div>
-										</div>
+										<button class="btn btn-md btn-success btn-block" type="submit">I'm ready to take the challenge</button>
 									</form>
 								<#else/>
 									<form role="form" method="post" action="/register">
