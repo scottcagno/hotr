@@ -37,7 +37,7 @@
 				<div class="col-lg-7 text-center">
 					<#if !user.challenge>
 						<div>
-							<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="gray-panel">BEGIN</span><span class="bold-panel red-panel">CHALLENGE</span></a>
+							<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="bold-panel">CLICK</span><span>to</span><span class="gray-panel">BEGIN</span><span class="bold-panel red-panel">CHALLENGE</span></a>
 						</div>
 					<#else/>
 						<#assign width = (user.progress?size / 12) * 100/>
@@ -64,12 +64,12 @@
 			<div class="row">
 				<!-- add/edit -->
 				<div class="col-sm-4">
-					<div class="panel panel-default">
-						<div class="panel-heading col-xs-12">
+					<div class="panel panel-default light">
+						<div class="panel-heading col-xs-12 light">
 							My Account
 							<a href="/logout" class="btn btn-default btn-sm pull-right">Logout</a>
 						</div>
-						<div class="panel-body">
+						<div class="panel-body light">
 							<form class="red-panel" id="accountForm" role="form" method="post" action="/secure/user">
 								<div class="checkbox">
 									<label class="black-text">
@@ -107,7 +107,7 @@
 								<#if !user.social>
 									<div class="text-center">
 										<a data-toggle="collapse" data-parent="#accordion"
-										   href="#changePassword" class="text-primary">
+										   href="#changePassword" class="" style="a:hover: #666;a:focus: #666;">
 											Click to change password
 										</a>
 									</div>
@@ -138,9 +138,9 @@
 				</div>
 				<!-- add/edit -->
 				<div class="col-sm-3">
-					<div class="panel panel-default">
-						<div class="panel-heading">Recently Watched Videos</div>
-						<div class="panel-body">
+					<div class="panel panel-default light">
+						<div class="panel-heading light">Recently Watched Videos</div>
+						<div class="panel-body light">
 							<#if recent?has_content>
 								<#list recent as video>
 									<div class="text-center video-margin">
@@ -157,9 +157,9 @@
 					</div>
 				</div>
 				<div class="col-sm-5">
-					<div id="" class="panel panel-default">
-						<div class="panel-heading">Saved Worksheets</div>
-						<table class="table">
+					<div id="" class="panel panel-default light">
+						<div class="panel-heading light">Saved Worksheets</div>
+						<table class="table light">
 							<#if worksheets?has_content>
 								<thead>
 									<tr>

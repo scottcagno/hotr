@@ -13,7 +13,7 @@
 			<div class="row">
 
                 <div class="col-md-12">
-					<div class="text-center" style="border:1px solid black;height:75px;width:100%;padding:15px;margin:15px;">
+					<div class="text-center border-light">
                         <h1>the<strong><span class="text-danger">ONE YEAR</span>Challenge</strong></h1>
                     </div>
                 </div>
@@ -51,11 +51,11 @@
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						</form>
 						<br/>
-                        <div class="panel panel-default">
-							<div class="panel-heading">
+                        <div class="panel panel-default light">
+							<div class="panel-heading light">
 								Register
 							</div>
-							<div class="panel-body">
+							<div class="panel-body light">
 								<form role="form" method="post" action="/register">
 									<div class="form-group">
 										<span class="text-error">${(errors.firstName)!}</span>
@@ -88,7 +88,7 @@
 									</div>
 									<!-- toggle show password input -->
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-									<button class="btn btn-md btn-success btn-block" type="submit">Create</button>
+									<button class="btn btn-md btn-primary btn-block" type="submit">Create</button>
 								</form>
 							</div>
 						</div>

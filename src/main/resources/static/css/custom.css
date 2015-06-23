@@ -132,6 +132,39 @@ vr {
 	border-color: black;
 }
 
+.panel.light {
+	background-color: #eee;
+	border-radius: 0;
+}
+
+.panel-default>.panel-heading.light {
+	background-color: #555;
+	font-size: 16px;
+	color: #f30;
+	font-weight: 900;
+	border-radius: 0;
+	border-width: 1px;
+    border-color: #000;
+}
+
+.panel-default>.panel-heading.light>a {
+	color: #ff3300;
+	font-weight: 900;
+}
+
+.panel-default>div#login> .panel-body.light,
+.panel-default>div#register> .panel-body.light,
+.panel-default> .panel-body.light,
+.panel-default> table.light {
+	background-color: #eee;
+	border-width: 1px 0 0 0;
+    border-color: #000;
+}
+
+.panel-default.light {
+	border-color: black;
+}
+
 .black-text {
 	color: black;
 }
@@ -153,4 +186,17 @@ vr {
 	background-color: #555;
 	border-color: black;
 	transition: all .5s;
+}
+
+form#accountForm>div>a:focus,
+form#accountForm>div>a:hover,
+div>p>a:focus,
+div>p>a:hover {
+	color: red;
+}
+
+.border-light {
+	border-bottom: 1px solid white;
+	height:55px;
+	margin-bottom:30px;
 }

@@ -14,12 +14,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-offset-4 col-lg-4">
-					<div class="panel panel-default">
-						<div class="panel-heading">
+					<div class="panel panel-default light">
+						<div class="panel-heading light">
 							Recommend
 						</div>
-						<div class="panel-body text-center">
-							<h4>Please provide up to 5 email addresses of friends or family you would like to share Fan the Flame Dates with</h4>
+						<div class="panel-body text-center light">
+							<h4 class="black-text">Please provide up to 5 email addresses of friends or family you would like to share Fan the Flame Dates with</h4>
 							<br/>
 							<div id="recommendDiv">
 								<div class="form-group">
