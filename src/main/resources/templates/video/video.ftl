@@ -63,11 +63,11 @@
 						</a>
 					</div>
 					<div class="col-lg-6">
-						<h1>${video.name}</h1>
+						<h1 class="text-white">${video.name}</h1>
 					</div>
 					<div class="col-lg-6">
 						<br/>
-						<p class="">${video.description}</p>
+						<p class="text-white">${video.description}</p>
 					</div>
 				</div>
 				<div class="row text-center well well-sm">

@@ -7,23 +7,23 @@
     	    	    <img src="/static/img/home/brucekaren.jpg" class="img-responsive">
     	    	</div>
     	    	<div class="col-lg-7">
-    	    	    <h2>Dr. Bruce McCracken <span class="gray-panel"><br/>and his wife Karen</span></h2>
+    	    	    <h2 class="text-white">Dr. Bruce McCracken <span class="gray-panel"><br/>and his wife Karen</span></h2>
     	    	    <div class="col-xs-6 visible-xs-block visible-sm-block">
     	    	        <img src="/static/img/home/brucekaren.jpg" class="img-responsive">
     	    	    </div>
-    	    	    <p class="lead">
+    	    	    <p class="lead text-white">
     	    	        We explore varying topics throughout the year and invite you to join them on a
     	    	        destination weekend to laugh together, learn together and <em>FAN THE FLAME</em>
     	    	        of your marriage.
     	    	    </p>
-    	    	    <em>
+    	    	    <em class="red-panel">
     	    	        “A long lasting marriage is built by two people who believe in, live by and work
     	    	        on the solemn promise they made.” – Darlene Schacht
     	    	    </em>
     	    	</div>
 			</div>
 			<div class="row">
-				<h1>Marriage Retreats</h1>
+				<h1 class="text-white">Marriage Retreats</h1>
 				<ul class="list-group">
 					<#setting datetime_format="iso"/>
 					<#list events as event>

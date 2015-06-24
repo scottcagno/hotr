@@ -96,7 +96,8 @@ class AdminVideoController {
 	// GET upload
 	@RequestMapping(value="/upload", method = RequestMethod.GET)
 	String upload(Model model) {
-		def redirect = "redirect_url=node2.cagnosolutions.com/admin/video/add"
+		/*def redirect = "redirect_url=node2.cagnosolutions.com/admin/video/add"*/
+		def redirect = "redirect_url=localhost:8080/admin/video/add"
 		try {
 			// TODO: change redirect_url when live
 			model.addAttribute("upload", vimeoAPI.postInfo("https://api.vimeo.com/me/videos", redirect))

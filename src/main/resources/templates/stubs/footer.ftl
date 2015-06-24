@@ -5,7 +5,7 @@
 <div class="container">
     <hr/>
 	<footer>
-        <span class="pull-left">
+        <span class="pull-left text-white">
             <i class="fa fa-copyright"></i> 2015 Fan The Flame
         </span>
         <span class="pull-right">

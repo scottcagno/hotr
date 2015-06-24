@@ -37,7 +37,7 @@
 				<div class="col-lg-7 text-center">
 					<#if !user.challenge>
 						<div>
-							<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="bold-panel">CLICK</span><span>to</span><span class="gray-panel">BEGIN</span><span class="bold-panel red-panel">CHALLENGE</span></a>
+							<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="bold-panel">CLICK</span><span>to</span><span class="bold-panel red-panel">BEGIN</span><span class="gray-panel">CHALLENGE</span></a>
 						</div>
 					<#else/>
 						<#assign width = (user.progress?size / 12) * 100/>
@@ -72,7 +72,7 @@
 						<div class="panel-body light">
 							<form class="red-panel" id="accountForm" role="form" method="post" action="/secure/user">
 								<div class="checkbox">
-									<label class="black-text">
+									<label class="text-black">
 										<input name="monthly" type="checkbox" value="true" ${(user.monthly)?string('checked', '')}> Email me monthly challenge reminders
 									</label>
 								</div>
@@ -95,7 +95,7 @@
 								</div>
 								<div class="form-group">
 									<label>Email</label>
-									<p class="black-text">
+									<p class="text-black">
 										${user.username}
 									</p>
 								</div>

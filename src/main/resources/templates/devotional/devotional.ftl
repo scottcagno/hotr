@@ -41,7 +41,7 @@
 					<!-- devotional post -->
 					<div class="devotional-post">
 						<p class="devotional-post-title"><a href="/devotional/${(devotional.id)?c}">${(devotional.title)!}</a></p>
-						<p class="devotional-post-meta">${(devotional.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
+						<p class="devotional-post-meta text-white">${(devotional.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
 						<div class="devotional-body">
                             ${(devotional.body)!}
                         </div>
@@ -56,7 +56,7 @@
 			<!-- devotional sidebar / archives -->
 			<div class="col-sm-3 col-sm-offset-1 devotional-sidebar">
 				<div class="sidebar-module">
-					<h4>Recent Posts</h4>
+					<h4 class="text-white">Recent Posts</h4>
 					<ol class="list-unstyled">
 					<#list devotionals as devotional>
 						<li>

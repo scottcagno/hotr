@@ -29,7 +29,7 @@
 								</p>
 							</div>
 							<div class="form-group">
-								<a href="/secure/challenge" class="btn btn-info btn-xs" type="submit">Learn More!</a>
+								<a href="/challenge" class="btn btn-info btn-xs" type="submit">Learn More!</a>
 							</div>
 						</div>
 					</div>
@@ -77,11 +77,11 @@
 						</a>
 					</div>
 					<div class="col-lg-6">
-						<h1>${video.name}</h1>
+						<h1 class="text-white">${video.name}</h1>
 					</div>
 					<div class="col-lg-6">
 						<br/>
-						<p class="">${video.description}</p>
+						<p class="text-white">${video.description}</p>
 					</div>
 				</div>
 				<div class="row text-center well well-sm">
@@ -163,7 +163,7 @@
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<input type="hidden" name="answers" id="answers">
 						</form>
-						<button id="submitWorksheet" class="btn btn-md btn-success btn-block">Submit</button>
+						<button id="submitWorksheet" class="btn btn-md btn-primary btn-block">Submit</button>
 					</div>
 				</div>
 			</div>

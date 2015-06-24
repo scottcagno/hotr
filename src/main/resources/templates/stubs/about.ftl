@@ -7,8 +7,8 @@
 			<img src="/static/img/home/happycouple.png" class="img-responsive">
 		</div>
 		<div class="col-lg-8 col-sm-6">
-			<h2>Feed the <span class="red-panel">fire</span></h2>
-			<p class="lead">
+			<h2 class="text-white">Feed the <span class="red-panel">fire</span></h2>
+			<p class="lead text-white">
 				Building and maintaining a love relationship is a lot like starting and feeding a
 				fire. You sparked a friendship, added some kindling through flirting, and as you
 				invested more time and energy through dating, you placed larger pieces of wood
@@ -19,13 +19,13 @@
 	<hr class="divider">
 	<div class="row">
 		<div class="col-lg-4 col-sm-4">
-		    <h2>You had built a roaring fire <span class="red-panel">and got married</span></h2>
+		    <h2 class="text-white">You had built a roaring fire <span class="red-panel">and got married</span></h2>
 		</div>
 		<div class="col-lg-4 col-sm-4">
 			<img src="/static/img/home/weddingcouple.png" class="img-thumbnail img-responsive">
 		</div>
 		<div class="col-lg-4 col-sm-4">
-			<p class="lead">
+			<p class="lead text-white">
 				Soon, you had built a roaring fire and
 				got married believing that those fiery feelings of commitment and love would never
 				die down. But then reality hits and you realize that if that fire isn’t tended,
@@ -36,8 +36,8 @@
 	<hr class="divider">
 	<div class="row">
 		<div class="col-lg-8 col-sm-6">
-			<h2>Healthier <span class="red-panel">marriages</span></h2>
-			<p class="lead">
+			<h2 class="text-white">Healthier <span class="red-panel">marriages</span></h2>
+			<p class="lead text-white">
 				We believe strong families build strong churches and communities and that strong families
 				are nurtured by a healthy marriages. That is what Fan the Flame Dates is all about, giving you the
 				tools to help strengthen your marriage.
@@ -53,8 +53,8 @@
 			<img src="/static/img/home/leavescouple.png" class="img-responsive">
 		</div>
 		<div class="col-lg-9 col-sm-6">
-			<h2>House on the Rock <span class="red-panel">Family Ministries</span></h2>
-			<p class="lead">
+			<h2 class="text-white">House on the Rock <span class="red-panel">Family Ministries</span></h2>
+			<p class="lead text-white">
 				We are a Christian ministry committed to helping the Church start and
 				strengthen her ministries to men, marriages, and families so that they reflect the
 				unconditional love of God to the world. We present

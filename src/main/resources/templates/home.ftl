@@ -14,7 +14,7 @@
 
 		<!-- carousel -->
         <div class="">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="col-lg-9">
                     <#include "stubs/carousel.ftl"/>
                 </div>

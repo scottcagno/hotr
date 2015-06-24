@@ -11,7 +11,7 @@
 		<#include "stubs/alert.ftl"/>
 
 		<!-- content -->
-		<div class="container">
+		<div class="container text-white">
 			<h1>Terms and Conditions</h1>
 			<p class="lead">Credit</p>
 			<p>

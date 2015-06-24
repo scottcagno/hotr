@@ -12,7 +12,7 @@
 
         <!-- content -->
         <div class="container">
-            <legend>Promotional Content</legend>
+            <legend class="text-white">Promotional Content</legend>
             <div class="col-sm-6">
                 <div class="well well-sm text-center">
                     <label>Fan the Flame Bulletin insert (pdf format)</label>

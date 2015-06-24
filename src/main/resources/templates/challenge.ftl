@@ -18,7 +18,7 @@
                     </div>
                 </div>
 				<div class="col-md-8">
-					<div class="text-center">
+					<div class="text-center text-white">
                         <h3>Ready to Fan the Flame of your marriage?<br/> Take the ONE YEAR CHALLENGE!</h3>
                         <p>IMAGE GOES HERE</p>
                         <p class="lead">
@@ -43,14 +43,16 @@
                 </div>
 				<div class="col-md-4">
 					<div class="text-center">
-						<form action="/auth/facebook" method="post">
-							<button class="btn btn-block"><span class="text-primary">Sign in with Facebook</span>
-								<i class="text-primary fa fa-facebook-square fa-lg"></i>
-							</button>
-							<input type="hidden" name="scope" value="email"/>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						</form>
-						<br/>
+						<#if !auth>
+							<form action="/auth/facebook" method="post">
+								<button class="btn btn-block"><span class="text-primary">Sign in with Facebook</span>
+									<i class="text-primary fa fa-facebook-square fa-lg"></i>
+								</button>
+								<input type="hidden" name="scope" value="email"/>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							</form>
+							<br/>
+						</#if>
                         <div class="panel panel-default light">
 							<div class="panel-heading light">
 								${(auth)?string('Begin Challenge', 'Register')}

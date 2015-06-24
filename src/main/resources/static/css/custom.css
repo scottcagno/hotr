@@ -20,6 +20,7 @@ h2 {
 
 blockquote {
     background-color: #FF374D;
+    text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
     border-left: 0;
@@ -165,10 +166,6 @@ vr {
 	border-color: black;
 }
 
-.black-text {
-	color: black;
-}
-
 .gray-panel {
 	color: #ccc;
 }
@@ -199,4 +196,14 @@ div>p>a:hover {
 	border-bottom: 1px solid white;
 	height:55px;
 	margin-bottom:30px;
+}
+
+text-white {
+	color: white;
+}
+
+.carousel-control,
+.carousel-inner {
+	margin: 0;
+	padding: 0;
 }

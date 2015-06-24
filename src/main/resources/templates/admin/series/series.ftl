@@ -93,17 +93,17 @@
 			<br/>
 			<div class="row">
 				<div class="col-lg-4">
-					<legend>Videos In Series</legend>
+					<legend class="text-white">Videos In Series</legend>
 					<#list videos as video>
 						<div class="checkbox">
-							<label>
+							<label class="text-white">
 								<input type="checkbox" class="videoId" value="${video.id}" ${(series?? && series.videoIds?? && series.videoIds?seq_contains(video.id))? string('checked', '')}/> ${video.name}
 							</label>
 						</div>
 					</#list>
 				</div>
 				<div id="images" class="col-lg-8">
-					<legend>Series Thumbnail</legend>
+					<legend class="text-white">Series Thumbnail</legend>
 					<#list images as image>
 						<div class="col-lg-3">
 							<div class="radio">
