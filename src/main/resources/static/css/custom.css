@@ -122,6 +122,7 @@ vr {
 .panel-default>.panel-heading.dark {
 	background-color: rgb(34,34,34);
 	border-width: 0 0 2px 0;
+	border-radius: 0;
 	border-color: #e41e26;
 }
 
@@ -206,4 +207,12 @@ text-white {
 .carousel-inner {
 	margin: 0;
 	padding: 0;
+}
+
+.padding-left {
+	padding-right: 0;
+}
+
+.padding-right {
+	padding-left: 0;
 }

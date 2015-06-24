@@ -15,10 +15,10 @@
 		<!-- carousel -->
         <div class="">
             <div class="container">
-                <div class="col-lg-9">
+                <div class="col-lg-9 padding-right">
                     <#include "stubs/carousel.ftl"/>
                 </div>
-                <div class="col-lg-3 side-menu">
+                <div class="col-lg-3 side-menu padding-left">
 					<div class="panel panel-default dark">
 						<div class="panel-heading dark">
 							<span class="gray-panel"><span class="bold-panel red-panel">HOT</span>TOPICS</span>
