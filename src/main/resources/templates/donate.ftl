@@ -8,10 +8,22 @@
 
 		<#include "stubs/navbar.ftl"/>
 
-		<#include "stubs/alert.ftl"/>
+		<!-- begin header -->
+		<section class="colorarea">
+			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
+		</section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 negmtop">
+					<h1 class="pgheadertitle animated fadeInLeft pull-left">Donate</h1>
+				</div>
+			</div>
+		</div>
+		<!-- end header -->
 
 		<!-- content -->
 		<div class="container">
+			<#include "stubs/alert.ftl"/>
 			<div class="well well-lg text-center">
 				<h3 class="black-text">“Fan the Flame Dates” is funded through generous donations from supporters like you!</h3>
 				<br/>

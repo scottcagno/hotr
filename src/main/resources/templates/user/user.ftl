@@ -3,12 +3,50 @@
 	<head id="head">
 		<title>Account</title>
 		<#include "../stubs/header.ftl"/>
+		<link rel="stylesheet" href="/static/css/user.css"/>
 	</head>
 	<body id="body">
-
 		<#include "../stubs/navbar.ftl"/>
 
-		<#include "../stubs/alert.ftl"/>
+		<!-- begin header -->
+		<section class="colorarea">
+			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
+		</section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 negmtop">
+					<span class="row col-lg-7 pgheadertitle animated fadeInLeft pull-left">
+						<div class="text-center">
+							<#if !user.challenge>
+								<div>
+									<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="bold-panel">CLICK</span><span>to</span><span class="bold-panel red-panel">BEGIN</span><span class="gray-panel">CHALLENGE</span></a>
+								</div>
+								<#else/>
+								<#assign width = (user.progress?size / 12) * 100/>
+								<p>
+									<strong>Challenge Progress</strong>
+								</p>
+								<div class="progress" style="color:black; font-size:20px">
+										${user.progress?size}/12
+									<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${width}%;">
+									</div>
+								</div>
+							</#if>
+							<br/>
+						</div>
+					</span>
+					<span class="pagedescrarea text-right animated fadeInRight pull-right">
+						<p>
+							<strong>Member Since: ${user.creation?date}</strong>
+						</p>
+						<p>
+							<a href="/secure/recommend">Recommend us to your family and friends</a>
+						</p>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- end header -->
 
 		<!-- delete item alert -->
 		<div class="container">
@@ -32,44 +70,17 @@
 		<!-- delete item alert -->
 
 		<!-- content -->
-		<div id="content" class="container">
-			<div class="row">
-				<div class="col-lg-7 text-center">
-					<#if !user.challenge>
-						<div>
-							<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="bold-panel">CLICK</span><span>to</span><span class="bold-panel red-panel">BEGIN</span><span class="gray-panel">CHALLENGE</span></a>
-						</div>
-					<#else/>
-						<#assign width = (user.progress?size / 12) * 100/>
-						<p>
-							<strong>Challenge Progress</strong>
-						</p>
-						<div class="progress">
-							<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${width}%;">
-								${user.progress?size}/12
-							</div>
-						</div>
-					</#if>
-					<br/>
-				</div>
-				<div class="col-lg-5 text-center">
-					<p>
-						<strong>Member Since: ${user.creation?date}</strong>
-					</p>
-					<p>
-						<a href="/secure/recommend">Recommend us to your family and friends</a>
-					</p>
-				</div>
-			</div>
+		<div class="container">
+			<#include "../stubs/alert.ftl"/>
 			<div class="row">
 				<!-- add/edit -->
 				<div class="col-sm-4">
-					<div class="panel panel-default light">
-						<div class="panel-heading col-xs-12 light">
+					<div class="panel panel-default panel1">
+						<div class="panel-heading col-xs-12">
 							My Account
 							<a href="/logout" class="btn btn-default btn-sm pull-right">Logout</a>
 						</div>
-						<div class="panel-body light">
+						<div class="panel-body">
 							<form class="red-panel" id="accountForm" role="form" method="post" action="/secure/user">
 								<div class="checkbox">
 									<label class="text-black">
@@ -138,9 +149,9 @@
 				</div>
 				<!-- add/edit -->
 				<div class="col-sm-3">
-					<div class="panel panel-default light">
-						<div class="panel-heading light">Recently Watched Videos</div>
-						<div class="panel-body light">
+					<div class="panel panel-default panel1">
+						<div class="panel-heading">Recently Watched Videos</div>
+						<div class="panel-body">
 							<#if recent?has_content>
 								<#list recent as video>
 									<div class="text-center video-margin">
@@ -157,9 +168,9 @@
 					</div>
 				</div>
 				<div class="col-sm-5">
-					<div id="" class="panel panel-default light">
-						<div class="panel-heading light">Saved Worksheets</div>
-						<table class="table light">
+					<div id="" class="panel panel-default panel1">
+						<div class="panel-heading">Saved Worksheets</div>
+						<table class="table">
 							<#if worksheets?has_content>
 								<thead>
 									<tr>
@@ -195,11 +206,9 @@
 		<!-- content -->
 
 		<#include "../stubs/footer.ftl"/>
-
 		<#include "../stubs/scripts.ftl"/>
 
 		<script src="/static/js/password.js"></script>
-
 		<script src="/static/js/delete-item.js"></script>
 	</body>
 </html>

@@ -1,0 +1,17 @@
+
+.bold-panel {
+	font-weight: 800;
+}
+
+.btn.btn-success.black-border {
+	background-color: #222;
+	border-color: black
+}
+
+.red-panel {
+	color: #e41e26;
+}
+
+.gray-panel {
+	color: #ccc;
+}
