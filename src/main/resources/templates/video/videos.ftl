@@ -51,16 +51,26 @@
 								<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
 								<div class="roll">
 									<div class="wrapcaption">
-										<a href="portfoliosingle"><i class="fa fa-play captionicons"></i></a>
+										<a href="/video/id/${(video.id)!}"><i class="fa fa-play captionicons"></i></a>
 									</div>
 								</div>
-								<h1><a href="portfoliosingle">${(video.name)!}</a></h1>
+								<h1>
+									<a href="portfoliosingle"
+									   data-toggle="popover"
+									   data-trigger="hover"
+									   title="${video.name}"
+									   data-content="This is a longer description. I am writing it to test how it will display on the popover. Hopefully I will be able to see all of it and none will be cut off."
+									   data-placement="top">
+										${(video.name)!}
+									</a>
+								</h1>
 								<p>
 									Swiss city in Jura mountains
 								</p>
 							</div>
 						</div>
 					</#list>
+
 					<!-- -->
 					<!--&lt;!&ndash; box 1 &ndash;&gt;-->
 					<!--<div class="boxportfolio3 item cat2 cat3">-->
@@ -315,6 +325,12 @@
 			<!-- BEGIN SCRIPTS -->
 			<#include "../stubs/scripts.ftl"/>
 			<!-- END SCRIPTS -->
+
+			<script>
+				$(function () {
+					$('[data-toggle="popover"]').popover()
+				})
+			</script>
 
 		</div><!-- end boxedcontent -->
 	</body>
