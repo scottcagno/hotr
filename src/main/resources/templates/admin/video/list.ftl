@@ -2,10 +2,10 @@
 <html lang="en">
 	<head id="head">
 		<#include "../../stubs/header.ftl"/>
+		<script src="/static/js/facebook_conf.js"></script>
 		<title>Videos</title>
 	</head>
 	<body id="body">
-		<script src="/static/js/facebook_conf.js"></script>
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
@@ -65,7 +65,7 @@
 										</#if>
 									</td>
 									<td>
-										<a href="" id="facebook"   data-name="${video.name}"
+										<a href="#" id="facebook"   data-name="${video.name}"
 												data-desc="${video.description}" data-thumb="${video.thumb!}" data-id="${video.id}" data-vimeoId="${video.vimeoId}">
 											<i class="fa fa-facebook-square fa-2x"></i>
 										</a>
@@ -116,7 +116,7 @@
 				});
 			};
 
-			$('button[id="facebook"]').click(function() {
+			$('a[id="facebook"]').click(function() {
 				vidShare(this.getAttribute('data-thumb'), this.getAttribute('data-vimeoId'), this.getAttribute('data-id'), this.getAttribute('data-name'), this.getAttribute('data-desc'))
 			});
 

@@ -2,6 +2,12 @@
 <html lang="en-US">
 	<head>
 		<#include "../stubs/header.ftl"/>
+		<script src="/static/js/facebook_conf.js"></script>
+		<meta itemprop="name" content="Fan the Flame Dates">
+		<meta itemprop="description" content="Fan the Flame Dates Description">
+		<style>
+			iframe[src^="https://apis.google.com/u/0/_/widget/oauthflow/toast"] {display: none;}
+		</style>
 		<title>Watch Video - Fan The Flame Dates</title>
 	</head>
 	<body class="boxedlayout">

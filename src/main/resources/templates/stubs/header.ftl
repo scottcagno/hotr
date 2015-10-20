@@ -34,10 +34,3 @@
 	</style>
 <![endif]-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,500,600,700,700italic&amp;subset=latin,greek-ext,cyrillic,latin-ext,greek,cyrillic-ext,vietnamese' rel='stylesheet' type='text/css'/>
-
-<script src="/static/js/facebook_conf.js"></script>
-<meta itemprop="name" content="Fan the Flame Dates">
-<meta itemprop="description" content="Fan the Flame Dates Description">
-<style>
-	iframe[src^="https://apis.google.com/u/0/_/widget/oauthflow/toast"] {display: none;}
-</style>
