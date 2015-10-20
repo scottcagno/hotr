@@ -1,3 +1,4 @@
+
 <script type='text/javascript' src='/static/asher/js/jquery.js'></script>
 <script type='text/javascript' src='/static/asher/js/bootstrap.js'></script>
 <script type='text/javascript' src='/static/asher/js/jquery.fitvids.js'></script>

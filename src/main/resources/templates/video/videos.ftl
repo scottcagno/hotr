@@ -9,9 +9,9 @@
 	<body class="boxedlayout">
 		<div class="boxedcontent">
 
-			<!-- BEGIN NAVBAR -->
 			<#include "../stubs/navbar.ftl"/>
-			<!-- END NAVBAR -->
+
+			<#include "../stubs/alert.ftl"/>
 
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
@@ -30,308 +30,90 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
-						<div id="filter">
-							<ul>
-								<li><a href="" data-filter="*" class="selected"><i class="icon icon-reorder"></i>&nbsp; All Items</a></li>
-								<li><a href="" data-filter=".cat1"><i class="icon icon-th-large"></i>&nbsp; Landscape</a></li>
-								<li><a href="" data-filter=".cat2"><i class="icon icon-th-list"></i>&nbsp; Overview</a></li>
-								<li><a href="" data-filter=".cat3"><i class="icon icon-th"></i>&nbsp; Green Nature</a></li>
-							</ul>
+					<div class="col-lg-9 col-md-9 col-sm-12">
+						<ul class="nav nav-tabs hidden-xs hidden-sm" role="tablist">
+							<li class="${(filter == 'all' && !RequestParameters.topic??)?string('active', '')}">
+								<a href="/video/all">All Videos</a>
+							</li>
+							<li class="${(filter == 'popular')?string('active', '')}">
+								<a href="/video/popular">Popular</a>
+							</li>
+							<li class="${(filter == 'recent')?string('active', '')}">
+								<a href="/video/recent">Recently Added</a>
+							</li>
+							<li class="${(filter == 'series')?string('active', '')}">
+								<a href="/video/series">Series</a>
+							</li>
+						</ul>
+						<div class="visible-xs visible-sm">
+							<div class="list-group">
+								<a href="/video/all" class="list-group-item ${(filter == 'all' && !RequestParameters.topic??)?string('active', '')}">All Videos</a>
+								<a href="/video/popular" class="list-group-item ${(filter == 'popular')?string('active', '')}">Popular</a>
+								<a href="/video/recent" class="list-group-item ${(filter == 'recent')?string('active', '')}">Recently Added</a>
+								<a href="/video/series" class="list-group-item ${(filter == 'series')?string('active', '')}">Series</a>
+							</div>
+						</div>
+
+						<br/>
+						<#assign vidInRow = 0/>
+						<div class="row">
+							<#list videos as video>
+								<#if vidInRow gt 3>
+									</div><div class="row">
+									<#assign vidInRow = 0/>
+								</#if>
+								<div class="col-lg-3">
+									<div class="boxcontainer">
+										<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
+										<div class="roll">
+											<div class="wrapcaption">
+												<a href="/video/id/${(video.id)!}"><i class="fa fa-play captionicons"></i></a>
+											</div>
+										</div>
+										<h1>
+											<a href="/video/id/${(video.id)!}"
+											   data-toggle="popover"
+											   data-trigger="hover"
+											   title="${video.name}"
+											   data-content="This is a longer description. I am writing it to test how it will display on the popover. Hopefully I will be able to see all of it and none will be cut off."
+											   data-placement="top">
+											${(video.name)!}
+											</a>
+										</h1>
+										<p>TEST</p>
+									</div>
+								</div>
+								<#assign vidInRow = vidInRow + 1/>
+							</#list>
+						</div>
+					</div>
+					<div class="col-md-3 col-lg-3 col-sm-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<span class="gray-panel"><span class="bold-panel red-panel">HOT</span>TOPICS</span>
+							</div>
+							<div class="panel-body">
+							<#list topics as topic>
+								<a href="/video/all?topic=${topic.topic}" class="btn btn-block" style="text-align: left;">
+									${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
+								</a>
+							</#list>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div><!-- end portfolio categories -->
+			</div>
 
-			<div class="container">
-				<div id="content">
-					<#list videos as video>
-						<div class="boxportfolio3 item cat2 cat3">
-							<div class="boxcontainer">
-								<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
-								<div class="roll">
-									<div class="wrapcaption">
-										<a href="/video/id/${(video.id)!}"><i class="fa fa-play captionicons"></i></a>
-									</div>
-								</div>
-								<h1>
-									<a href="portfoliosingle"
-									   data-toggle="popover"
-									   data-trigger="hover"
-									   title="${video.name}"
-									   data-content="This is a longer description. I am writing it to test how it will display on the popover. Hopefully I will be able to see all of it and none will be cut off."
-									   data-placement="top">
-										${(video.name)!}
-									</a>
-								</h1>
-								<p>
-									Swiss city in Jura mountains
-								</p>
-							</div>
-						</div>
-					</#list>
-
-					<!-- -->
-					<!--&lt;!&ndash; box 1 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/1.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/1.jpg" title="La Chaux De Fonds"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">La Chaux De Fonds</a></h1>-->
-							<!--<p>-->
-								<!--Swiss city in Jura mountains-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 2 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat1">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/2.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/2.jpg" title="Taj Mahal"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Taj Mahal</a></h1>-->
-							<!--<p>-->
-								<!--one of the eight wonders-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 3 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/3.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/3.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Versailles, France</a></h1>-->
-							<!--<p>-->
-								<!--Cotelle Gallery-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 4 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat1">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/4.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/4.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">St Petersburg, Russia</a></h1>-->
-							<!--<p>-->
-								<!--water fountain-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 5 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/5.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/5.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Grunge Architecture</a></h1>-->
-							<!--<p>-->
-								<!--ancient style Europe-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 6 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/6.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/6.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">France Building</a></h1>-->
-							<!--<p>-->
-								<!--old towers architecture-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 7 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/7.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/7.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Hall in Tirol</a></h1>-->
-							<!--<p>-->
-								<!--town in Tyrol, Austria-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 8 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat1">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/8.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/8.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Opéra-Théatre de Metz</a></h1>-->
-							<!--<p>-->
-								<!--opera house in France-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 9 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/9.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/9.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">The Palace of Charles V</a></h1>-->
-							<!--<p>-->
-								<!--construction in Granada, Spain-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 10 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/10.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/10.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Hamburg, Germany</a></h1>-->
-							<!--<p>-->
-								<!--City Hall-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 11 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/11.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/11.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Washington Dc</a></h1>-->
-							<!--<p>-->
-								<!--water fountain-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 12 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/12.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/12.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Bas-Rhin</a></h1>-->
-							<!--<p>-->
-								<!--department of France-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 13 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat1">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/13.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/13.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Rome, Italy</a></h1>-->
-							<!--<p>-->
-								<!--Fontana di Trevi-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 14 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat1 cat2">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/14.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/14.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Sacramento, California</a></h1>-->
-							<!--<p>-->
-								<!--tower bridge-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; box 15 &ndash;&gt;-->
-					<!--<div class="boxportfolio3 item cat2 cat3">-->
-						<!--<div class="boxcontainer">-->
-							<!--<img src="http://www.wowthemes.net/demo/serenity/img/temp/masonry/15.jpg" alt="">-->
-							<!--<div class="roll">-->
-								<!--<div class="wrapcaption">-->
-									<!--<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a>-->
-									<!--<a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo/serenity/img/temp/masonry/15.jpg" title="Title Here"><i class="fa fa-search-plus captionicons"></i></a>-->
-								<!--</div>-->
-							<!--</div>-->
-							<!--<h1><a href="portfoliosingle">Haikou, China</a></h1>-->
-							<!--<p>-->
-								<!--Haikou city statue-->
-							<!--</p>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--&lt;!&ndash; next box etc &ndash;&gt;-->
-					<!--&lt;!&ndash; MASONRY ITEMS END &ndash;&gt;-->
-					<!-- -->
-				</div><!-- end content -->
-			</div><!-- end container -->
-
-			<!-- BEGIN FOOTER -->
 			<#include "../stubs/footer.ftl"/>
-			<!-- END FOOTER -->
 
-			<!-- BEGIN SCRIPTS -->
 			<#include "../stubs/scripts.ftl"/>
-			<!-- END SCRIPTS -->
-
+			<script type='text/javascript' src='/static/asher/js/isotope.js'></script>
 			<script>
 				$(function () {
 					$('[data-toggle="popover"]').popover()
 				})
 			</script>
 
-		</div><!-- end boxedcontent -->
+		</div>
 	</body>
 </html>
