@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="/static/asher/img/favicon.png"/>
+<link rel="shortcut icon" href="/static/favicon.ico"/>
 <link href="/static/asher/css/bootstrap.min.css" rel="stylesheet">
 <link href="/static/asher/inc/shortcodes/css/shortcodes.css" rel="stylesheet">
 <link href="/static/asher/css/font-awesome.css" rel="stylesheet">

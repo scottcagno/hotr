@@ -25,7 +25,7 @@ spring:
       appSecret: fb5c5710b86ed7b403e8505ec69f1ffa
 
 server:
-  port: 8888
+  port: 8080
   address: 0.0.0.0
 
 security:
