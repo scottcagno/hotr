@@ -13,9 +13,9 @@
 						“Fan the Flame Dates” is a ministry of
 						House on the Rock Family Ministries
 						<a href="http://www.hotrfm.org" target="_blank" style="color: #e7402f"><strong>www.hotrfm.org</strong></a>.
+						About 75% of our support comes from gifts from our generous supporters like you.
 					</p>
 					<p>
-						About 75% of our support comes from gifts from our generous supporters like you.
 						<#--The additional 25% comes from speaking fees generated from our “live” talks with groups.-->
 					</p>
 					<p>

@@ -11,10 +11,25 @@
 
     <#include "../stubs/alert.ftl"/>
 
+	<!-- begin header -->
+	<section class="colorarea">
+		<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
+	</section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 negmtop">
+				<h1 class="pgheadertitle animated fadeInLeft pull-left">Weekly Marriage Devotional</h1>
+				<span class="pagedescrarea text-right animated fadeInRight pull-right">
+				</span>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+
 	<!-- content -->
 	<div class="container">
-	    <img style="margin:0 auto;" src="/static/img/devotional-header.jpg" class="img-responsive" alt=""/>
-		<hr style="border-bottom:2px solid #333;"/>
+	    <#--<img style="margin:0 auto;" src="/static/img/devotional-header.jpg" class="img-responsive" alt=""/>-->
+		<#--<hr style="border-bottom:2px solid #333;"/>-->
 		<#--<blockquote>
             <h2>
                 House On The Rock
