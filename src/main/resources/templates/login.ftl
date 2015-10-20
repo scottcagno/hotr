@@ -13,18 +13,22 @@
 			<#include "stubs/navbar.ftl"/>
 			<!-- END NAVBAR -->
 
+			<!-- begin header -->
 			<section class="colorarea">
-				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/asher/img/headers/1.jpg);"></div>
+				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
-
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 negmtop">
 						<h1 class="pgheadertitle animated fadeInLeft pull-left">Please Login</h1>
+						<#--<span class="pagedescrarea text-right animated fadeInRight pull-right">-->
+							<#--Fan the Flames-->
+						<#--</span>-->
 					</div>
 				</div>
 			</div>
 			<!-- end header -->
+
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -50,6 +54,18 @@
 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 											<button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button>
 										</div>
+									</form>
+
+									<p class="text-center" style="margin-top:10px">
+										<strong>OR</strong>
+									</p>
+
+									<form action="/auth/facebook" method="post">
+										<button class="btn btn-block"><span class="text-primary">Sign in with Facebook</span>
+											<i class="text-primary fa fa-facebook-square fa-lg"></i>
+										</button>
+										<input type="hidden" name="scope" value="email"/>
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 									</form>
 
 									<span class="boxlink wowhideme "><a href=" " class="defaultbutton mainthemebgcolor"><i class="fa fa-link"></i></a></span>

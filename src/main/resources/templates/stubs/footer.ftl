@@ -5,21 +5,38 @@
 	<div class="container">
 		<div class="row">
 			<!-- col 1 -->
-			<div class="col-md-8 footer-widget">
+			<div class="col-md-4 footer-widget">
 				<aside id="text-2" class="widget widget_text">
 				<h1>Our Company</h1>
 				<div class="textwidget">
 					<p>
-						“Fan the Flame Dates” is a ministry of House on the Rock Family Ministries <a href="http://www.hotrfm.org" target="_blank" style="color: #e7402f"><strong>www.hotrfm.org</strong></a>.
+						“Fan the Flame Dates” is a ministry of
+						House on the Rock Family Ministries
+						<a href="http://www.hotrfm.org" target="_blank" style="color: #e7402f"><strong>www.hotrfm.org</strong></a>.
 					</p>
 					<p>
 						About 75% of our support comes from gifts from our generous supporters like you.
-						The additional 25% comes from speaking fees generated from our “live” talks with groups.
+						<#--The additional 25% comes from speaking fees generated from our “live” talks with groups.-->
 					</p>
 					<p>
-						If you would like to make a contribution to “Fan the Flame Dates” you can <a href="/donate" style="color: #e7402f"><strong>click here</strong></a>.
+						If you would like to make a contribution
+						<#--to “Fan the Flame Dates” you can -->
+						<a href="/donate" style="color: #e7402f"><strong>click here</strong></a>.
 					</p>
 				</div>
+				</aside>
+			</div>
+			<div class="col-md-4 footer-widget">
+				<aside id="text-2" class="widget widget_text">
+					<h1>Our Goal</h1>
+					<div class="textwidget">
+						<p>
+							Our goal for these Fan the Flame Dates is to help you and your spouse “fan the flame” of your marriage!  We’ll give you the tools and encouragement you need to re-kindle those feelings of commitment and passion!
+						</p>
+						<p>
+							Take the leap of faith <a href="/donate" style="color: #e7402f"><strong>here</strong></a>!
+						</p>
+					</div>
 				</aside>
 			</div>
 			<!-- col 2 -->

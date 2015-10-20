@@ -4,12 +4,30 @@
 		<#include "stubs/header.ftl"/>
 		<title>Challenge</title>
 	</head>
-	<body id="top">
+	<body class="boxedlayout" id="top">
+		<div class="boxedcontent">
 
-		<#include "stubs/navbar.ftl"/>
+			<#include "stubs/navbar.ftl"/>
 
-		<#include "stubs/alert.ftl"/>
-		<div id="content" class="container">
+			<#include "stubs/alert.ftl"/>
+
+			<!-- begin header -->
+			<section class="colorarea">
+				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
+			</section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 negmtop">
+						<h1 class="pgheadertitle animated fadeInLeft pull-left">Take the Challenge</h1>
+						<span class="pagedescrarea text-right animated fadeInRight pull-right">
+							Fan the Flames
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- end header -->
+
+			<div class="container">
 			<div class="row">
 
                 <div class="col-md-12">
@@ -142,6 +160,7 @@
 						Simply click the “log in” button at the top of your screen to create an account and get started!
 					</#if>
 				</div>-->
+			</div>
 			</div>
 		</div>
 
