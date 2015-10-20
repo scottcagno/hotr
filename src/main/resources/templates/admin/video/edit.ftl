@@ -8,6 +8,7 @@
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
+		<br/>
 		<!-- delete item alert -->
 		<div class="container">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -32,6 +33,7 @@
 
 		<!-- thumb request alert -->
 		<div class="container">
+			<#include "../../stubs/alert.ftl"/>
 			<div id="thumb-request-confirm" class="hide alert alert-warning alert-dismissible wow fadeIn col-xs-12" role="alert">
 				<form role="form" method="post" class="form-inline" action="/admin/video/thumb/${video.id}">
 					<div class="col-xs-4">
@@ -164,9 +166,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- content -->
-
-		<#include "../../stubs/footer.ftl"/>
 
 		<#include "../../stubs/scripts.ftl"/>
 

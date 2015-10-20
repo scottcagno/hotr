@@ -10,7 +10,9 @@
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
+		<br/>
 		<div class="container">
+			<#include "../../stubs/alert.ftl"/>
 			<div class="col-sm-6 col-sm-offset-3" >
 				<div class="panel panel-default">
 					<div class="panel-heading">Add Question</div>

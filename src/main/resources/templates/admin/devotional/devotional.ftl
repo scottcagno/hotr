@@ -24,7 +24,7 @@
 	</head>
 	<body id="body">
 		<#include "../../stubs/admin_navbar.ftl"/>
-
+		<br/>
 		<!-- delete item alert -->
 		<div class="container">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -55,7 +55,8 @@
 		<!-- file error alert -->
 
 		<!-- content -->
-		<div id="content" class="container">
+		<div class="container">
+			<#include "../../stubs/alert.ftl"/>
 			<!-- add/edit -->
 			<div class="col-sm-8">
 				<div class="panel panel-default">
@@ -162,10 +163,6 @@
 			<p class="lead">One moment please.</p>
 		</div>
 		<!-- upload spinner -->
-
-		<!-- footer -->
-		<#include "../../stubs/footer.ftl"/>
-		<!-- footer -->
 
 		<!-- scripts -->
 		<#include "../../stubs/scripts.ftl"/>

@@ -71,12 +71,7 @@
 											</div>
 										</div>
 										<h1>
-											<a href="/video/id/${(video.id)!}"
-											   data-toggle="popover"
-											   data-trigger="hover"
-											   title="${video.name}"
-											   data-content="This is a longer description. I am writing it to test how it will display on the popover. Hopefully I will be able to see all of it and none will be cut off."
-											   data-placement="top">
+											<a href="/video/id/${(video.id)!}">
 											${(video.name)!}
 											</a>
 										</h1>
@@ -90,14 +85,14 @@
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<span class="gray-panel"><span class="bold-panel red-panel">HOT</span>TOPICS</span>
+								HOT TOPICS
 							</div>
 							<div class="panel-body">
-							<#list topics as topic>
-								<a href="/video/all?topic=${topic.topic}" class="btn btn-block" style="text-align: left;">
-									${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
-								</a>
-							</#list>
+								<#list topics as topic>
+									<a href="/video/all?topic=${topic.topic}" class="btn btn-block" style="text-align: left;">
+										${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
+									</a>
+								</#list>
 							</div>
 						</div>
 					</div>
@@ -108,11 +103,6 @@
 
 			<#include "../stubs/scripts.ftl"/>
 			<script type='text/javascript' src='/static/asher/js/isotope.js'></script>
-			<script>
-				$(function () {
-					$('[data-toggle="popover"]').popover()
-				})
-			</script>
 
 		</div>
 	</body>

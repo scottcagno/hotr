@@ -8,6 +8,7 @@
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
+		<br/>
 		<!-- delete item alert -->
 		<div class="container">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -31,6 +32,7 @@
 
 		<!-- content -->
 		<div class="container">
+			<#include "../../stubs/alert.ftl"/>
 			<div class="row">
 				<form action="/admin/settings" method="post">
 					<div class="col-lg-12">
@@ -96,10 +98,6 @@
 			</div>
 		</div>
 		<!-- content -->
-
-		<!-- footer -->
-		<#include "../../stubs/footer.ftl"/>
-		<!-- footer -->
 
 		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>

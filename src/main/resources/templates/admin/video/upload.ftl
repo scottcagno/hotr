@@ -11,8 +11,10 @@
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
+		<br/>
 		<!-- content -->
 		<div class="container">
+			<#include "../../stubs/alert.ftl"/>
 			<div class="row">
 				<div class="col-sm-offset-4 col-sm-4">
 					<div id="uploadVideoPanel" class="panel panel-default">

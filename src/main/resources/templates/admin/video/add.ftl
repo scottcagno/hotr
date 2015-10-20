@@ -8,8 +8,10 @@
 
 		<#include "../../stubs/admin_navbar.ftl"/>
 
+		<br/>
 		<!-- content -->
 		<div class="container">
+			<#include "../../stubs/alert.ftl"/>
 			<div class="row">
 				<div class="col-sm-offset-4 col-sm-4">
 					<div class="panel panel-default">
@@ -59,9 +61,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- content -->
-
-		<#include "../../stubs/footer.ftl"/>
 
 		<#include "../../stubs/scripts.ftl"/>
 

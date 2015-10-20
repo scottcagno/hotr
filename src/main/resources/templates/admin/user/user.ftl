@@ -7,6 +7,7 @@
 	<body id="body">
 		<#include "../../stubs/admin_navbar.ftl"/>
 
+		<br/>
 		<!-- delete item alert -->
 		<div class="container">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -29,7 +30,8 @@
 		<!-- delete item alert -->
 
 		<!-- content -->
-		<div id="content" class="container">
+		<div class="container">
+			<#include "../../stubs/alert.ftl"/>
 			<!-- add/edit -->
 			<div class="col-sm-4">
 				<div class="panel panel-default">
@@ -176,13 +178,8 @@
 			<!-- view all -->
 		</div>
 
-		<!-- content -->
-
-		<#include "../../stubs/footer.ftl"/>
-
 		<#include "../../stubs/scripts.ftl"/>
 
-		<script src="/static/js/admin/global.js"></script>
 		<script src="/static/js/password.js"></script>
 		<script src="/static/js/delete-item.js"></script>
 

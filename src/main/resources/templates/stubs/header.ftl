@@ -38,5 +38,3 @@
 <style>
 	iframe[src^="https://apis.google.com/u/0/_/widget/oauthflow/toast"] {display: none;}
 </style>
-
-<#import "global.ftl" as glob/>

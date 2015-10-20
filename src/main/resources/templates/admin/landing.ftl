@@ -7,8 +7,10 @@
 	<body id="body">
 		<#include "../stubs/admin_navbar.ftl"/>
 
+		<br/>
 		<!-- content -->
 		<div class="container">
+			<#include "../stubs/alert.ftl"/>
 			<div class="row">
 				<div class="col-lg-4">
 					<div id="" class="panel panel-default">
@@ -50,10 +52,6 @@
 			</div>
 		</div>
 		<!-- content -->
-
-		<!-- footer -->
-		<#include "../stubs/footer.ftl"/>
-		<!-- footer -->
 
 		<!-- javascript -->
 		<#include "../stubs/scripts.ftl"/>
