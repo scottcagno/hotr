@@ -11,7 +11,6 @@
 
 			<#include "../stubs/navbar.ftl"/>
 
-			<#include "../stubs/alert.ftl"/>
 
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
@@ -29,6 +28,8 @@
 			</div>
 
 			<div class="container">
+				<br/>
+				<#include "../stubs/alert.ftl"/>
 				<div class="row">
 					<div class="col-lg-9 col-md-9 col-sm-12">
 						<ul class="nav nav-tabs hidden-xs hidden-sm" role="tablist">
@@ -72,10 +73,10 @@
 										</div>
 										<h1>
 											<a href="/video/id/${(video.id)!}">
-											${(video.name)!}
+												${(video.name)!}
 											</a>
 										</h1>
-										<p>TEST</p>
+										<p>${(video.watched)!} Views</p>
 									</div>
 								</div>
 								<#assign vidInRow = vidInRow + 1/>

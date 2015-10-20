@@ -1,4 +1,4 @@
-<#import "global.ftl" as glob/>
+
 <!-- login error -->
 <#if RequestParameters.error??>
 	<div class="alert alert-danger alert-dismissable">

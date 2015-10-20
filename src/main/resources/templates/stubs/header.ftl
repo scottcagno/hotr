@@ -34,3 +34,5 @@
 	</style>
 <![endif]-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,500,600,700,700italic&amp;subset=latin,greek-ext,cyrillic,latin-ext,greek,cyrillic-ext,vietnamese' rel='stylesheet' type='text/css'/>
+
+<#import "global.ftl" as glob/>
