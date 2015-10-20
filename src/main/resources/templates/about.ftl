@@ -142,7 +142,7 @@
 							</p>
 							<a href="/contact" class="buttonblack">
 								<i class="fa fa-link"></i> Contact Us</a>
-							<a href="#donte" class="buttoncolor mainthemebgcolor">
+							<a href="/donate" class="buttoncolor mainthemebgcolor">
 								<i class="fa fa-money"></i> Donate</a>
 						</div>
 						<!-- end calltoaction -->

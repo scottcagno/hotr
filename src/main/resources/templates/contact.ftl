@@ -22,7 +22,7 @@
 					<div class="col-md-12 negmtop">
 						<h1 class="pgheadertitle animated fadeInLeft pull-left">Contact Us</h1>
 						<span class="pagedescrarea text-right animated fadeInRight pull-right">
-							<i><a href="#promo">Click here</a> to get started with some of our promotional content.</i>
+							<i><a href="/promo">Click here</a> to get started with some of our promotional content.</i>
 						</span>
 					</div>
 				</div>
