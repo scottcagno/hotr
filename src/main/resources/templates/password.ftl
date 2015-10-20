@@ -7,6 +7,22 @@
 	<body>
 		<#include "stubs/navbar.ftl"/>
 		<!-- *** beg content section *** -->
+
+		<!-- begin header -->
+		<section class="colorarea">
+			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
+		</section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 negmtop">
+					<h1 class="pgheadertitle animated fadeInLeft pull-left">Password Recovery</h1>
+					<span class="pagedescrarea text-right animated fadeInRight pull-right">
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- end header -->
+
 		<section class="container">
 			<br/>
 			<#include "stubs/alert.ftl"/>
@@ -14,7 +30,7 @@
 				<div class="col-sm-4 col-sm-offset-4">
 					<div class="panel panel-default translucent">
 						<div class="panel-heading">
-							<span class="lead">Password Reset</span>
+							<span class="lead">Password Recovery</span>
 						</div>
 						<div class="panel-body">
 							<div id="spinner" class="text-center hide">
