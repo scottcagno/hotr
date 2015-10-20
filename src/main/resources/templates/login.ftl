@@ -34,7 +34,7 @@
 					<div class="col-md-12">
 
 						<div class="shortcode row">
-							<div class="col-md-6 col-md-offset-3">
+							<div class="col-md-4 col-md-offset-1">
 								<div class="box1">
 									<div class="striped">
 									</div>
@@ -75,6 +75,60 @@
 									<span style="float: right">Forgot <a href="">Password</a></span>
 								</div>
 							</div>
+
+							<#--new account registration-->
+							<div class="col-md-4 col-md-offset-2">
+								<div class="box1">
+									<div class="striped">
+									</div>
+									<h6><i class=" fa fa-user ">
+									</i> Create New Account </h6>
+									<div style="height: 5px"></div>
+									<div class="done">
+										<div class="alert alert-success">
+											<button type="button" class="close" data-dismiss="alert">×</button>
+											Your message has been sent. Thank you!
+										</div>
+									</div>
+									<form role="form" method="post" action="/register">
+										<div class="form-group">
+											<span class="text-error">${(errors.firstName)!}</span>
+											<input type="text" id="firstName" name="firstName" class="col-sm-12"
+												   placeholder="First Name" required="true" value="${(user.firstName)!}"/>
+										</div>
+										<div class="form-group">
+											<span class="text-error">${(errors.lastName)!}</span>
+											<input type="text" id="lastName" name="lastName" class="col-sm-12"
+												   placeholder="Last Name" required="true" value="${(user.lastName)!}"/>
+										</div>
+										<div class="form-group">
+											<span class="text-error">${(errors.username)!}</span>
+											<input type="email" id="username" name="username" class="col-sm-12"
+												   placeholder="Email" required="true" value="${(user.username)!}"/>
+										</div>
+										<!-- toggle show password input -->
+										<div class="form-group">
+											<div class="">
+												<span class="text-error">${(errors.password)!}</span>
+												<input type="password" id="toggle-pass" name="password" class="col-sm-10"
+													   placeholder="Password" required="true" value="${(user.password)!}"/>
+												<span class="col-sm-1">
+													<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+															title="Click to show/hide your password">
+														<i class="fa fa-eye-slash"></i>
+													</button>
+												</span>
+											</div>
+										</div>
+										<!-- toggle show password input -->
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+										<button class="btn btn-md btn-primary btn-block" type="submit">Create</button>
+									</form>
+									<span class="boxlink wowhideme "><a href=" " class="defaultbutton mainthemebgcolor"><i class="fa fa-link"></i></a></span>
+								</div>
+							</div>
+							<#--registration end-->
+
 						</div>
 					</div>
 				</div>
