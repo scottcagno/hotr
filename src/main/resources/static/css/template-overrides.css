@@ -5,3 +5,8 @@
     background-color: #444;
     border-color: black;
 }
+
+a:hover,
+a:focus {
+    color: #444;
+}
