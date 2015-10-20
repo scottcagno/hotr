@@ -14,6 +14,9 @@
 <!-- CHANGE THEME SKIN COLOR HERE (replace orange with any other color from css/skins/ folder) -->
 <link href="/static/asher/css/skins/red.css" rel="stylesheet">
 
+<#--template and bootstrap overrides-->
+<link href="/static/css/template-overrides.css" rel="stylesheet">
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
 	<script src="/static/asher/js/html5shiv.js"></script>
