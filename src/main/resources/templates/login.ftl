@@ -75,7 +75,7 @@
 									<span class="boxlink wowhideme "><a href=" " class="defaultbutton mainthemebgcolor"><i class="fa fa-link"></i></a></span>
 								</div>
 								<div>
-									<span class="pull-right">Forgot <a href="">Password</a></span>
+									<span class="pull-right">Forgot <a href="/reset/password">Password</a></span>
 								</div>
 							</div>
 

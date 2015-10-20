@@ -3,12 +3,12 @@
 	<head>
 		<title>Home</title>
 		<#include "stubs/header.ftl"/>
-		<style>textarea{resize: none;}</style>
 	</head>
 	<body>
 		<#include "stubs/navbar.ftl"/>
 		<!-- *** beg content section *** -->
-		<section id="content" class="container">
+		<section class="container">
+			<br/>
 			<#include "stubs/alert.ftl"/>
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-4">
