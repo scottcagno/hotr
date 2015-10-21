@@ -27,8 +27,7 @@
 				</div>
 			</div>
 
-			<div class="container">
-				<br/>
+			<div class="container-fluid">
 				<#include "../stubs/alert.ftl"/>
 				<div class="row">
 					<div class="col-lg-9 col-md-9 col-sm-12">

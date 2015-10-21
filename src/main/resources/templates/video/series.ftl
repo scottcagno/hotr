@@ -27,7 +27,7 @@
 				</div>
 			</div>
 
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-9 col-md-9 col-sm-12">
 						<div class="hidden-xs hidden-sm">
@@ -63,12 +63,9 @@
 												<a href="/video/series/${series.id}"><i class="fa fa-play captionicons"></i></a>
 											</div>
 										</div>
-										<h1>
-											<a href="/video/series/${series.id}">
-												${(series.name)!}
-											</a>
-										</h1>
-										<p>TEST</p>
+										<strong>
+											${(series.name)!}
+										</strong>
 									</div>
 								</div>
 								<#assign vidInRow = vidInRow + 1/>

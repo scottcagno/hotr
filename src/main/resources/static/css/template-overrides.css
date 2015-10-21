@@ -18,11 +18,12 @@ a:focus {
 }
 
 .roll {
-	top: 0px;
+	top: 0;
 }
 
 .boxcontainer {
 	border-bottom: 1px solid #eee;
+	margin-bottom: 15px;
 }
 
 .panel-body.topic {
