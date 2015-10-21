@@ -71,11 +71,7 @@
 												<a href="/video/id/${(video.id)!}"><i class="fa fa-play captionicons"></i></a>
 											</div>
 										</div>
-										<h1>
-											<a href="/video/id/${(video.id)!}">
-												${(video.name)!}
-											</a>
-										</h1>
+										<strong>${(video.name)!}</strong>
 										<p>${(video.watched)!} Views</p>
 									</div>
 								</div>
@@ -88,9 +84,9 @@
 							<div class="panel-heading">
 								HOT TOPICS
 							</div>
-							<div class="panel-body">
+							<div class="panel-body topic">
 								<#list topics as topic>
-									<a href="/video/all?topic=${topic.topic}" class="btn btn-block" style="text-align: left;">
+									<a href="/video/all?topic=${topic.topic}" class="btn btn-block">
 										${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
 									</a>
 								</#list>

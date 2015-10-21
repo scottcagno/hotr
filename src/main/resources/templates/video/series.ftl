@@ -77,16 +77,19 @@
 					</div>
 
 					<div class="col-lg-3 col-md-3 col-sm-12">
-						<div class="panel panel-default dark">
-							<div class="panel-heading dark">
+						<div class="panel panel-default">
+							<div class="panel-heading">
 								HOT TOPICS
 							</div>
-							<div class="panel-body dark">
+							<div class="panel-body topic">
 								<#list topics as topic>
 									<a href="/video/all?topic=${topic.topic}" class="btn btn-block red">
 										${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
 									</a>
 								</#list>
+									<a href="/video/all" class="btn btn-block red">
+									Emotional Needs <span class="badge pull-right">0 Views</span>
+									</a>
 							</div>
 						</div>
 					</div>

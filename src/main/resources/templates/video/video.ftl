@@ -29,7 +29,6 @@
 					<div class="col-md-12 negmtop">
 						<h1 class="pgheadertitle animated fadeInLeft pull-left">${(video.name)!}</h1>
 						<span class="pagedescrarea text-right animated fadeInRight pull-right">
-							<i>${(video.description)!}</i>
 						</span>
 					</div>
 				</div>
@@ -65,6 +64,15 @@
 							   onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;"	>
 								<i class="fa fa-twitter-square fa-2x"></i>
 							</a>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<h1 class="text-white">${video.name}</h1>
+							</div>
+							<div class="col-lg-6">
+								<br/>
+								<p class="text-white">${video.description}</p>
+							</div>
 						</div>
 						<div class="row text-center well well-sm">
 							<p>

@@ -10,3 +10,25 @@ a:hover,
 a:focus {
     color: #444;
 }
+
+.wrapcaption {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.roll {
+	top: 0px;
+}
+
+.boxcontainer {
+	border-bottom: 1px solid #eee;
+}
+
+.panel-body.topic {
+	padding: 15px 0 0 0;
+}
+
+.panel-body.topic a.btn {
+	text-align: left;
+}
