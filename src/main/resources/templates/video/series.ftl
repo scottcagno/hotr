@@ -87,9 +87,6 @@
 										${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
 									</a>
 								</#list>
-									<a href="/video/all" class="btn btn-block red">
-									Emotional Needs <span class="badge pull-right">0 Views</span>
-									</a>
 							</div>
 						</div>
 					</div>
