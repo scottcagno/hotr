@@ -153,7 +153,7 @@
 											</div>
 										</li>
 										</#list>
-									<#--	<li>
+									<#--<li>
 											<div class="boxcontainer">
 												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mvyxfkaRb41st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mvyxfkaRb41st5lhmo1_1280"/></a>
 												<div class="roll">
@@ -390,13 +390,10 @@
 							<#list recentDevotionals as devotional>
 								<li class="col-md-3 unstyle">
 									<div class="insidetext">
-										<h2><a href="/devotional/${(devotional.id)!}">${(devotional.title)!}</a></h2>
+										<h2><a href="/devotional/${(devotional.id)!}"><span class="colortext">${(devotional.title)!}</span></a></h2>
 										<div class="meta">
 											<i class="fa fa-clock-o"></i>${(devotional.date)!}
 										</div>
-										<p>
-
-										</p>
 									</div>
 								</li>
 							</#list>
