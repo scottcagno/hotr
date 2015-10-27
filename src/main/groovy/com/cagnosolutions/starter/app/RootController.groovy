@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app
 import com.cagnosolutions.starter.app.admin.settings.SettingsService
+import com.cagnosolutions.starter.app.devotional.DevotionalService
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.UserSession
@@ -34,6 +35,9 @@ class RootController {
 	@Autowired
 	SettingsService adminSettingsService
 
+	@Autowired
+	DevotionalService devotionalService
+
     @RequestMapping(value = ["/", "/home"], method = GET)
     String index(Model model) {
 		def settings = adminSettingsService.findOne()
@@ -41,7 +45,8 @@ class RootController {
         model.addAllAttributes([auth : (userSession.id != null),
 								topics: topicService.popTopics(),
 								video: videoService.findOne(vidId),
-								recentVideos: videoService.findAllRecentlyAdded()])
+								recentVideos: videoService.findAllRecentlyAdded(),
+								recentDevotionals: devotionalService.findAllRecentlyAdded()])
         "home"
     }
 

@@ -35,4 +35,8 @@ class DevotionalService {
 	def delete(Long id) {
 		repo.delete id
 	}
+
+	List<Devotional> findAllRecentlyAdded() {
+		repo.findAllRecent()
+	}
 }

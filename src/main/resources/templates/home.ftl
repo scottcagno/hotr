@@ -142,15 +142,14 @@
 									<ul id="recent-portfolio">
 										<#list recentVideos as video>
 										<li>
-											<div class="boxcontainer">
-												<img src="/static/img/video.jpg" alt="">
-												<div class="roll">
-													<div class="wrapcaption">
-														<a href="#"><i class="fa fa-play captionicons"></i></a>
-													</div>
+											<div class="">
+												<a href="/video/id/${(video.id)!}">
+													<img class="" style="" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
+												</a>
+												<div class="text-center">
+													<strong>${(video.name)!}</strong>
+													<p>${(video.watched)!} Views</p>
 												</div>
-												<strong>hey</strong>
-												<p>3 Views</p>
 											</div>
 										</li>
 										</#list>
@@ -388,7 +387,20 @@
 						<div class="clearfix">
 						</div>
 						<ul class="unstyle">
-							<li class="col-md-3 unstyle"><article><a class="imgOpa" href="#"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_mzzqwktTbR1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mzzqwktTbR1st5lhmo1_1280"/></a>
+							<#list recentDevotionals as devotional>
+								<li class="col-md-3 unstyle">
+									<div class="insidetext">
+										<h2><a href="/devotional/${(devotional.id)!}">${(devotional.title)!}</a></h2>
+										<div class="meta">
+											<i class="fa fa-clock-o"></i>${(devotional.date)!}
+										</div>
+										<p>
+
+										</p>
+									</div>
+								</li>
+							</#list>
+							<#--<li class="col-md-3 unstyle"><article><a class="imgOpa" href="#"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_mzzqwktTbR1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mzzqwktTbR1st5lhmo1_1280"/></a>
 								<div class="insidetext">
 									<h2><a href="blogsingle">WordPress Tuts</a></h2>
 									<div class="meta">
@@ -431,7 +443,7 @@
 										A common goal among experienced web developers is to develop and deploy applications today, tomorrow and always <a href="#"><span class="mute">[...]</span></a>
 									</p>
 								</div>
-							</article></li>
+							</article></li>-->
 						</ul>
 					</div>
 					<div class="clearfix">

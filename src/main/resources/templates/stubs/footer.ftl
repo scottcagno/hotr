@@ -34,7 +34,7 @@
 							Our goal for these Fan the Flame Dates is to help you and your spouse “fan the flame” of your marriage!  We’ll give you the tools and encouragement you need to re-kindle those feelings of commitment and passion!
 						</p>
 						<p>
-							Take the leap of faith <a href="/donate" style="color: #e7402f"><strong>here</strong></a>!
+							Take the leap of faith <a href="/challenge" style="color: #e7402f"><strong>here</strong></a>!
 						</p>
 					</div>
 				</aside>
