@@ -19,9 +19,16 @@
 						<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/asherslider2.jpg" alt=""/></a>
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Powerful & Beautiful <br/> Bootstrap Theme</span></h1>
+								<h1 class="animated fadeInDown"><span class="uppercase">Banner Image Sizes</span></h1>
+								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
+									1920px by 1200px or 1600px by 1000px (Ratio 1.6:1)
+								</p>
+								<p class="animated fadeInLeftBig">
+									<i>The text is separate from the images</i>
+								</p>
+								<#--<h1 class="animated fadeInDown"><span class="uppercase">Powerful & Beautiful <br/> Bootstrap Theme</span></h1>
 								<br/><a href="#" class="buttonsimple animated fadeInLeftBig"><i class="fa fa-download"></i> Download Now</a>
-								<a href="#" class="buttonsimple animated fadeInRightBig"><i class="fa fa-link"></i> Start Tour</a>
+								<a href="#" class="buttonsimple animated fadeInRightBig"><i class="fa fa-link"></i> Start Tour</a>-->
 							</div>
 						</div>
 					</li>
@@ -29,12 +36,12 @@
 						<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/sunny-morning-49393.jpg" alt=""/></a>
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Experience Asher</span></h1>
+								<h1 class="animated fadeInDown"><span class="uppercase">Banner Image Sizes</span></h1>
 								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
-									MultiPurpose Theme with Lots of Options
+									1920px by 1200px or 1600px by 1000px (Ratio 1.6:1)
 								</p>
 								<p class="animated fadeInLeftBig">
-									<i>No advanced knowledge needed!</i>
+									<i>The text is separate from the images</i>
 								</p>
 							</div>
 						</div>
@@ -43,14 +50,21 @@
 						<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/ashers1.jpg" alt=""/></a>
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Need Help building your website?</span></h1>
+								<h1 class="animated fadeInDown"><span class="uppercase">Banner Image Sizes</span></h1>
+								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
+									1920px by 1200px or 1600px by 1000px (Ratio 1.6:1)
+								</p>
+								<p class="animated fadeInLeftBig">
+									<i>The text is separate from the images</i>
+								</p>
+								<#--<h1 class="animated fadeInDown"><span class="uppercase">Need Help building your website?</span></h1>
 								<p class="animated fadeInLeftBig">
 									Bootstrap users may install and switch between themes.
 								</p>
 								<p class="animated fadeInRightBig">
 									They allow users to change the look of a Bootstrap website.
 								</p>
-								<br/><a href="#" class="buttonsimple animated fadeInUpBig"><i class="fa fa-download"></i> Purchase Asher</a>
+								<br/><a href="#" class="buttonsimple animated fadeInUpBig"><i class="fa fa-download"></i> Purchase Asher</a>-->
 							</div>
 						</div>
 					</li>
