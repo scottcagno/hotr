@@ -63,8 +63,10 @@
 					<div class="row">
 						<div class="col-md-12 text-center">
 							<h1>
-								<span class="animated fadeInDown">ASHER, multipurpose, flexible & modern <span class='colortext'>bootstrap</span> theme <br>
-									crafted with you, the user, in mind, for a custom looking website!</span></h1>
+								<span class="animated fadeInDown">
+									Are you READY to <span class='colortext'>FAN the FLAME</span> of your MARRIAGE?
+								</span>
+							</h1>
 						</div>
 					</div>
 				</div>
@@ -76,45 +78,45 @@
 					<div class="row">
 						<div class="col-md-3 text-center">
 							<div class="icon-box-top">
-								<a href="#">
+								<a href="/video/all">
 									<i class="fontawesome-icon medium circle-white center fa fa-microphone"></i>
 								</a>
-								<h1>Powerful & Beautiful</h1>
+								<h1>Watch Now</h1>
 								<p>
-									Full responsive, multipurpose Bootstrap theme, suitable for companies, individuals and professionals.
+									Fan the Flame of your marriage by watching our free online videos with your spouse!
 								</p>
 							</div>
 						</div>
 						<div class="col-md-3 text-center">
 							<div class="icon-box-top active">
-								<a href="#">
+								<a href="/events">
 									<i class="fontawesome-icon medium circle-white center fa fa-rocket"></i>
 								</a>
-								<h1>Easy to Customize</h1>
+								<h1>Marriage Retreats</h1>
 								<p>
-									Asher has user friendly yet powerful admin theme options, great for beginners, time saver for developers.
+									Join us for a live marriage retreat. Click for more details.
 								</p>
 							</div>
 						</div>
 						<div class="col-md-3 text-center">
 							<div class="icon-box-top">
-								<a href="#">
+								<a href="/intensives">
 									<i class="fontawesome-icon medium circle-white center fa fa-code"></i>
 								</a>
-								<h1>Clean Coded</h1>
+								<h1>Marriage Intensives</h1>
 								<p>
-									High standards and practices, proper Bootstrap core implementation of all included features.
+									May we encourage you ...  before you choose to extinguish the flame of your marriage forever, to make at least one more try?
 								</p>
 							</div>
 						</div>
 						<div class="col-md-3 text-center">
 							<div class="icon-box-top">
-								<a href="#">
+								<a href="/challenge">
 									<i class="fontawesome-icon medium circle-white center fa fa-users"></i>
 								</a>
-								<h1>Theme Support</h1>
+								<h1>One Year Challenge</h1>
 								<p>
-									Provides sufficient documentation to explain the use of any custom features or options & support.
+									Are you ready to take your marriage to the next level? Learn about our free One-Year Challenge program!
 								</p>
 							</div>
 						</div>
@@ -128,7 +130,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<h1 class="heading">
-								Latest Work <a href="#">/ View All Portfolio</a>
+								Check out our <a href="/video/recent">latest videos</a>
 							</h1>
 							<div class="recent-portfolio">
 								<div class="list_carousel">
@@ -138,7 +140,21 @@
 									<div class="clearfix">
 									</div>
 									<ul id="recent-portfolio">
+										<#list recentVideos as video>
 										<li>
+											<div class="boxcontainer">
+												<img src="/static/img/video.jpg" alt="">
+												<div class="roll">
+													<div class="wrapcaption">
+														<a href="#"><i class="fa fa-play captionicons"></i></a>
+													</div>
+												</div>
+												<strong>hey</strong>
+												<p>3 Views</p>
+											</div>
+										</li>
+										</#list>
+									<#--	<li>
 											<div class="boxcontainer">
 												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mvyxfkaRb41st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mvyxfkaRb41st5lhmo1_1280"/></a>
 												<div class="roll">
@@ -221,7 +237,7 @@
 													wordpress theme
 												</p>
 											</div>
-										</li>
+										</li>-->
 									</ul>
 								</div>
 							</div>
@@ -233,81 +249,81 @@
 			</section>
 			<!-- end homerecentportfolio -->
 
-			<section class="infoarea whites">
-				<div class="container">
-					<div class="row text-center">
-						<h1 class="maintitle">Need Support with Asher?</h1>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<i class="fa fa-microphone infoareaicon"></i>
-							<div class="infoareawrap">
-								<h1 class="text-center subtitle">General Questions</h1>
-								<p>
-									Want to buy a theme but not sure if it's got all the features you need? Trouble completing the payment? Or just want to say hi? Send us your message and we will answer as soon as possible!
-								</p>
-								<p class='text-center'>
-									<a href='#'>- Get in Touch -</a>
-								</p>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<i class="fa fa-comments infoareaicon"></i>
-							<div class="infoareawrap">
-								<h1 class="text-center subtitle">Theme Support</h1>
-								<p>
-									Theme support issues prevent the theme from working as advertised in the demo. This is a free and guaranteed service offered through our support forum which is found in each theme.
-								</p>
-								<p class='text-center'>
-									<a href='#'>- Select Theme -</a>
-								</p>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<i class="fa fa-bullhorn infoareaicon"></i>
-							<div class="infoareawrap">
-								<h1 class="text-center subtitle">Hire Us</h1>
-								<p>
-									If you wish to change an element to look or function differently than shown in the demo, we will be glad to assist you. This is a paid service due to theme support requests solved with priority.
-								</p>
-								<p class='text-center'>
-									<a href='#'>- Get in Touch -</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			<#--<section class="infoarea whites">-->
+				<#--<div class="container">-->
+					<#--<div class="row text-center">-->
+						<#--<h1 class="maintitle">Need Support with Asher?</h1>-->
+					<#--</div>-->
+					<#--<div class="row">-->
+						<#--<div class="col-md-4">-->
+							<#--<i class="fa fa-microphone infoareaicon"></i>-->
+							<#--<div class="infoareawrap">-->
+								<#--<h1 class="text-center subtitle">General Questions</h1>-->
+								<#--<p>-->
+									<#--Want to buy a theme but not sure if it's got all the features you need? Trouble completing the payment? Or just want to say hi? Send us your message and we will answer as soon as possible!-->
+								<#--</p>-->
+								<#--<p class='text-center'>-->
+									<#--<a href='#'>- Get in Touch -</a>-->
+								<#--</p>-->
+							<#--</div>-->
+						<#--</div>-->
+						<#--<div class="col-md-4">-->
+							<#--<i class="fa fa-comments infoareaicon"></i>-->
+							<#--<div class="infoareawrap">-->
+								<#--<h1 class="text-center subtitle">Theme Support</h1>-->
+								<#--<p>-->
+									<#--Theme support issues prevent the theme from working as advertised in the demo. This is a free and guaranteed service offered through our support forum which is found in each theme.-->
+								<#--</p>-->
+								<#--<p class='text-center'>-->
+									<#--<a href='#'>- Select Theme -</a>-->
+								<#--</p>-->
+							<#--</div>-->
+						<#--</div>-->
+						<#--<div class="col-md-4">-->
+							<#--<i class="fa fa-bullhorn infoareaicon"></i>-->
+							<#--<div class="infoareawrap">-->
+								<#--<h1 class="text-center subtitle">Hire Us</h1>-->
+								<#--<p>-->
+									<#--If you wish to change an element to look or function differently than shown in the demo, we will be glad to assist you. This is a paid service due to theme support requests solved with priority.-->
+								<#--</p>-->
+								<#--<p class='text-center'>-->
+									<#--<a href='#'>- Get in Touch -</a>-->
+								<#--</p>-->
+							<#--</div>-->
+						<#--</div>-->
+					<#--</div>-->
+				<#--</div>-->
+			<#--</section>-->
 			<!-- end infoarea -->
 
-			<section class="videoarea bgsizecover" style="background-image: url(http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mzzqxabKjH1st5lhmo1_1280.jpg); background-attachment: fixed; background-position: relative;">
-				<div class="transp">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6">
-								<iframe src='http://player.vimeo.com/video/40569948' style="width:100%; height:312px; border:0px;">
-								</iframe>
-							</div>
-							<div class="col-md-6 text-center">
-								<h1 class="maintitle">Awesome Videos</h1>
-								<p>
-									Use your imagination, add shortcodes, create something unique!
-								</p>
-								<ul class='unstyle doublearrowlist'>
-									<li>Responsive Design</li>
-									<li>Multiple Layouts Width</li>
-									<li>Unlimited Skin Colors</li>
-									<li>Easy to Customize</li>
-									<li>Over 40 Shortcodes</li>
-								</ul>
-								<p>
-									<a href='#' class='sbutton round noshadow medium blue'><i class='fa fa-shopping-cart'></i> Download Asher</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			<#--<section class="videoarea bgsizecover" style="background-image: url(http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mzzqxabKjH1st5lhmo1_1280.jpg); background-attachment: fixed; background-position: relative;">-->
+				<#--<div class="transp">-->
+					<#--<div class="container">-->
+						<#--<div class="row">-->
+							<#--<div class="col-md-6">-->
+								<#--<iframe src='http://player.vimeo.com/video/40569948' style="width:100%; height:312px; border:0px;">-->
+								<#--</iframe>-->
+							<#--</div>-->
+							<#--<div class="col-md-6 text-center">-->
+								<#--<h1 class="maintitle">Awesome Videos</h1>-->
+								<#--<p>-->
+									<#--Use your imagination, add shortcodes, create something unique!-->
+								<#--</p>-->
+								<#--<ul class='unstyle doublearrowlist'>-->
+									<#--<li>Responsive Design</li>-->
+									<#--<li>Multiple Layouts Width</li>-->
+									<#--<li>Unlimited Skin Colors</li>-->
+									<#--<li>Easy to Customize</li>-->
+									<#--<li>Over 40 Shortcodes</li>-->
+								<#--</ul>-->
+								<#--<p>-->
+									<#--<a href='#' class='sbutton round noshadow medium blue'><i class='fa fa-shopping-cart'></i> Download Asher</a>-->
+								<#--</p>-->
+							<#--</div>-->
+						<#--</div>-->
+					<#--</div>-->
+				<#--</div>-->
+			<#--</section>-->
 			<!-- end videoarea -->
 
 			<section class="whites testimonial fullwidth flexslider" id="testimonials-slider">
@@ -318,36 +334,40 @@
 								<li>
 									<div class="slide-text">
 										<div>
-											<h2 class="animated fadeInDown"><span class="uppercase">Awesome Support</span></h2>
+											<h2 class="animated fadeInDown">
+												<span class="uppercase">
+													Check out our <a href="/devotional">Weekly Marriage Devotional</a>
+												</span>
+											</h2>
 											<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar2.png" alt="">
 											<p>
-												The support... I can only say it's awesome. You make a product and you help people out any way you can even if it means that you have to log in on their dashboard to sort out any problems that customer might have. Simply Outstanding!
+												Each week Dr. Bruce McCracken shares a short 2-minute marriage devotional thought for couples to Fan the Flame of their marriage.
 											</p>
 										</div>
 									</div>
 								</li>
-								<li>
-									<div class="slide-text">
-										<div>
-											<h2 class="animated fadeInDown"><span class="uppercase">Great Themes</span></h2>
-											<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar4.png" alt="">
-											<p>
-												Great themes with equally amazing customer service to go with it. Very prompt responses and very knowledgable staff that truly cares about their customer. I stand 100% behind this website and will make sure to recommend it to my friends.
-											</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="slide-text">
-										<div>
-											<h2 class="animated fadeInDown"><span class="uppercase">Content Slider</span></h2>
-											<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar5.png" alt="">
-											<p>
-												This is a great theme for Bootstrap. Great features, catchy look. Also, I have on a few occasions needed to contact the support team, and they have been extremely helpful. I'm new to navigating these things so this has been invaluable!
-											</p>
-										</div>
-									</div>
-								</li>
+								<#--<li>-->
+									<#--<div class="slide-text">-->
+										<#--<div>-->
+											<#--<h2 class="animated fadeInDown"><span class="uppercase">Great Themes</span></h2>-->
+											<#--<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar4.png" alt="">-->
+											<#--<p>-->
+												<#--Great themes with equally amazing customer service to go with it. Very prompt responses and very knowledgable staff that truly cares about their customer. I stand 100% behind this website and will make sure to recommend it to my friends.-->
+											<#--</p>-->
+										<#--</div>-->
+									<#--</div>-->
+								<#--</li>-->
+								<#--<li>-->
+									<#--<div class="slide-text">-->
+										<#--<div>-->
+											<#--<h2 class="animated fadeInDown"><span class="uppercase">Content Slider</span></h2>-->
+											<#--<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar5.png" alt="">-->
+											<#--<p>-->
+												<#--This is a great theme for Bootstrap. Great features, catchy look. Also, I have on a few occasions needed to contact the support team, and they have been extremely helpful. I'm new to navigating these things so this has been invaluable!-->
+											<#--</p>-->
+										<#--</div>-->
+									<#--</div>-->
+								<#--</li>-->
 							</ul>
 						</div>
 					</div>
@@ -359,7 +379,7 @@
 				<div class="container">
 					<div class="row text-center">
 						<div class="col-md-12">
-							<h1 class="maintitle">Latest Posts<br/>
+							<h1 class="maintitle">Recent Devotionals<br/>
 								<a href="blog" class="colorblack"><i class="fa fa-angle-down"></i></a>
 							</h1>
 						</div>
@@ -420,23 +440,23 @@
 			</section>
 			<!-- end homerecentposts -->
 
-			<section class="whites calltoactionarea">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="text-center">
-								<h1>
-									Praesent <span class='fontpacifico colortext'>WowThemes</span> sapien, a vulputate enim auctor vitae </h1>
-								<p>
-									Duis non lorem porta, adipiscing eros sit amet, tempor sem. Donec nunc arcu, semper a tempus et, consequat
-								</p>
-								<a href='#' class='buttonblack'><i class='fa fa-shopping-cart'></i> get asher</a>
-								<a href='#' class='buttoncolor'><i class='fa fa-link'></i> learn more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			<#--<section class="whites calltoactionarea">-->
+				<#--<div class="container">-->
+					<#--<div class="row">-->
+						<#--<div class="col-md-12">-->
+							<#--<div class="text-center">-->
+								<#--<h1>-->
+									<#--Praesent <span class='fontpacifico colortext'>WowThemes</span> sapien, a vulputate enim auctor vitae </h1>-->
+								<#--<p>-->
+									<#--Duis non lorem porta, adipiscing eros sit amet, tempor sem. Donec nunc arcu, semper a tempus et, consequat-->
+								<#--</p>-->
+								<#--<a href='#' class='buttonblack'><i class='fa fa-shopping-cart'></i> get asher</a>-->
+								<#--<a href='#' class='buttoncolor'><i class='fa fa-link'></i> learn more</a>-->
+							<#--</div>-->
+						<#--</div>-->
+					<#--</div>-->
+				<#--</div>-->
+			<#--</section>-->
 			<!-- end calltoactionarea -->
 
 			<!-- BEGIN FOOTER -->

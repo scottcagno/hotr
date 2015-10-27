@@ -7,7 +7,7 @@
 			<!-- col 1 -->
 			<div class="col-md-4 footer-widget">
 				<aside id="text-2" class="widget widget_text">
-				<h1>Our Company</h1>
+				<h1>Our Ministry</h1>
 				<div class="textwidget">
 					<p>
 						“Fan the Flame Dates” is a ministry of

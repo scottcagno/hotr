@@ -76,7 +76,7 @@
 				<!-- add/edit -->
 				<div class="col-sm-4">
 					<div class="panel panel-default panel1">
-						<div class="panel-heading col-xs-12">
+						<div class="panel-heading clearfix">
 							My Account
 							<a href="/logout" class="btn btn-default btn-sm pull-right">Logout</a>
 						</div>

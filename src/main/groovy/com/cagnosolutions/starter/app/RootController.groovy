@@ -40,7 +40,8 @@ class RootController {
 		def vidId = (settings != null) ? settings.videoId : 0L
         model.addAllAttributes([auth : (userSession.id != null),
 								topics: topicService.popTopics(),
-								video: videoService.findOne(vidId)])
+								video: videoService.findOne(vidId),
+								recentVideos: videoService.findAllRecentlyAdded()])
         "home"
     }
 
