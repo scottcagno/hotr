@@ -23,7 +23,7 @@
 							<a href="/contact">Contact</a>
 						</li>
 						<li>
-							<a href="/secure/user">${(auth)?string('Account', 'Login')}</a>
+							<a href="/secure/user">${(auth?? && auth)?string('Account', 'Login')}</a>
 						</li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>

@@ -49,7 +49,7 @@
 								</p>
 								<p>
 									If you would like more information about how you can get involved and promote Fan the
-									Flame Dates at your church you can <a href="#promo">click here</a> to get started with
+									Flame Dates at your church you can <a href="/promo">click here</a> to get started with
 									some of our promotional content. We would love to serve at your church!
 								</p>
 							</div>

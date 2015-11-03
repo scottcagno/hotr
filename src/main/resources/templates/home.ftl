@@ -102,7 +102,7 @@
 							</div>
 						</div>
 						<div class="col-md-3 text-center">
-							<div class="icon-box-top active">
+							<div class="icon-box-top">
 								<a href="/events">
 									<i class="fontawesome-icon medium circle-white center fa fa-rocket"></i>
 								</a>
@@ -393,7 +393,7 @@
 					<div class="row text-center">
 						<div class="col-md-12">
 							<h1 class="maintitle">Recent Devotionals<br/>
-								<a href="blog" class="colorblack"><i class="fa fa-angle-down"></i></a>
+								<a href="/devotional" class="colorblack"><i class="fa fa-angle-down"></i></a>
 							</h1>
 						</div>
 					</div>

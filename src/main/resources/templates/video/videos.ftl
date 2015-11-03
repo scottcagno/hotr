@@ -71,7 +71,7 @@
 											</div>
 										</div>
 										<strong>${(video.name)!}</strong>
-										<p>${(video.watched)!} Views</p>
+										<#--<p>${(video.watched)!} Views</p>-->
 									</div>
 								</div>
 								<#assign vidInRow = vidInRow + 1/>

@@ -106,6 +106,8 @@
 			<script src="/static/js/social.js"></script>
 
 			<#include "../stubs/scripts.ftl"/>
+			<script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
+			<script src="/static/js/video.js"></script>
 
 		</div><!-- end boxedcontent -->
 	</body>
