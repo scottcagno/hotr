@@ -49,6 +49,10 @@ class UserService {
 	}
 
 	def delete(Long id) {
+		User user = repo.findOne(id)
+		if (user.social) {
+			repo.deleteUserConnection(user.username)
+		}
 		repo.delete id
 	}
 

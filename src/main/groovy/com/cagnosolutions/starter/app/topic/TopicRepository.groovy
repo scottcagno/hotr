@@ -21,8 +21,8 @@ interface TopicRepository extends JpaRepository<Topic, Long> {
 	void deleteTopic(@Param("topicString") String topic, @Param("video_fk") Long video_fk)
 
 	@Modifying
-	@Query("DELETE FROM Topic t WHERE t.video_fk=:video_fk")
 	@Transactional
+	@Query("DELETE FROM Topic t WHERE t.video_fk=:video_fk")
 	void deleteAllByVideo(@Param("video_fk") Long video_fk)
 
 	@Query("SELECT COUNT(t.id) FROM Topic t WHERE t.topic=:topic")
