@@ -35,7 +35,7 @@ class AuthController {
 
 	@RequestMapping(value = "/login/success", method = RequestMethod.GET)
 	String customLoginSuccessHandler(Principal principal, String redirect, String role, RedirectAttributes attr) {
-		if (role == "admin") {
+		if (principal.name == "admin") {
 			return "redirect:/admin"
 		}
 		def user = userService.findOne principal.name
