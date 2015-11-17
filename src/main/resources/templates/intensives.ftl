@@ -85,12 +85,16 @@
 						and 3 great meals a day. Your job &#8230; is to concentrate on yourselves and your marriage
 						&#8230; our mission is to focus on you.
 					</p>
-					<#--<div class="text-white">April 7-9 @ Sandy Cove in Maryland (mid-week)</div>
+
+					<#--
+					<div class="text-white">April 7-9 @ Sandy Cove in Maryland (mid-week)</div>
 					<div class="text-white">May 1-3 @ Lancaster, PA (weekend)</div>
 					<div class="text-white">May 5-7 @ Spruce Lake in Poconos (mid-week)</div>
 					<div class="text-white">May 12-14 @ Sandy Cove in Maryland (mid-week)</div>
 					<div class="text-white">June 5-7 @ Lancaster, PA (weekend)</div>
-					<div class="text-white">July 10-12 @ Lancaster, PA (weekend)</div>-->
+					<div class="text-white">July 10-12 @ Lancaster, PA (weekend)</div>
+					-->
+
 				</div>
 			</div>
 		</div>
