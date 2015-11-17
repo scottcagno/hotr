@@ -98,6 +98,7 @@
 
 			<!-- view all -->
 			<div class="col-sm-4">
+				<p><i>*NOTE: ADD IMAGE THUMBNAIL SELECTOR...</i></p>
 				<div class="panel panel-default">
 					<div class="panel-heading">Add Image</div>
 					<div class="panel-body">
