@@ -31,14 +31,17 @@
 			<div class="row">
 
                 <div class="col-md-12">
-					<div class="text-center border-light">
+				<#--<div class="text-center border-light">
                         <h1>the<strong><span class="text-danger">ONE YEAR</span>Challenge</strong></h1>
-                    </div>
+                    </div>-->
                 </div>
 				<div class="col-md-8">
 					<div class="text-center text-white">
                         <h3>Ready to Fan the Flame of your marriage?<br/> Take the ONE YEAR CHALLENGE!</h3>
-                        <p>IMAGE GOES HERE</p>
+                        <div class="well well-sm row col-md-offset-3 col-md-6">
+							<i>Image Placeholder</i>
+						</div>
+						<br><br><br>
                         <p class="lead">
                             Here's how our free program works. After you create a login:
                         </p>

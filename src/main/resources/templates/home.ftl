@@ -16,16 +16,17 @@
 			<section class="homeslider fullwidth flexslider" id="home-slider" style="height:500px;">
 				<ul class="slides">
 					<li class="text-center">
-						<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/asherslider2.jpg" alt=""/></a>
+						<a href="#"><img src="/static/img/banner/1-updated.jpg" alt=""></a>
+						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/asherslider2.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Banner Image Sizes</span></h1>
+								<h1 class="animated fadeInDown"><span class="uppercase">Welcome To Fan the Flame Dates</span></h1>
 								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
-									1920px by 1200px or 1600px by 1000px (Ratio 1.6:1)
+									Rekindle <i>Romance</i>
 								</p>
-								<p class="animated fadeInLeftBig">
+								<#--<p class="animated fadeInLeftBig">
 									<i>The text is separate from the images</i>
-								</p>
+								</p>-->
 								<#--<h1 class="animated fadeInDown"><span class="uppercase">Powerful & Beautiful <br/> Bootstrap Theme</span></h1>
 								<br/><a href="#" class="buttonsimple animated fadeInLeftBig"><i class="fa fa-download"></i> Download Now</a>
 								<a href="#" class="buttonsimple animated fadeInRightBig"><i class="fa fa-link"></i> Start Tour</a>-->
@@ -33,29 +34,28 @@
 						</div>
 					</li>
 					<li class="text-center">
-						<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/sunny-morning-49393.jpg" alt=""/></a>
+						<a href="#"><img src="/static/img/banner/2-updated.jpg" alt=""></a>
+						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/sunny-morning-49393.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Banner Image Sizes</span></h1>
+								<h1 class="animated fadeInDown"><span class="uppercase">Connect With Your Spouse</span></h1>
 								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
-									1920px by 1200px or 1600px by 1000px (Ratio 1.6:1)
+									Through Meaningful Conversations
 								</p>
-								<p class="animated fadeInLeftBig">
+								<#--<p class="animated fadeInLeftBig">
 									<i>The text is separate from the images</i>
-								</p>
+								</p>-->
 							</div>
 						</div>
 					</li>
 					<li class="text-center">
-						<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/ashers1.jpg" alt=""/></a>
+						<a href="/challenge"><img src="/static/img/banner/3-updated.jpg" alt="Fan The Flame & Take The One Year Challenge"></a>
+						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/ashers1.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Banner Image Sizes</span></h1>
+								<h1 class="animated fadeInDown"><span class="uppercase">Fan The Flame</span></h1>
 								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
-									1920px by 1200px or 1600px by 1000px (Ratio 1.6:1)
-								</p>
-								<p class="animated fadeInLeftBig">
-									<i>The text is separate from the images</i>
+									Take the <strong>ONE YEAR</strong> <i>Challenge</i>
 								</p>
 								<#--<h1 class="animated fadeInDown"><span class="uppercase">Need Help building your website?</span></h1>
 								<p class="animated fadeInLeftBig">
