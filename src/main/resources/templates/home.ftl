@@ -404,6 +404,7 @@
 							<#list recentDevotionals as devotional>
 								<li class="col-md-3 unstyle">
 									<div class="insidetext">
+										<div class="well well-sm">Image Placeholder</div>
 										<h2><a href="/devotional/${(devotional.id)!}"><span class="colortext">${(devotional.title)!}</span></a></h2>
 										<div class="meta">
 											<i class="fa fa-clock-o"></i>${(devotional.date)!}
