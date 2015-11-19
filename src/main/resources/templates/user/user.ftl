@@ -21,14 +21,17 @@
 								<div>
 									<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="bold-panel">CLICK</span><span>to</span><span class="bold-panel red-panel">BEGIN</span><span class="gray-panel">CHALLENGE</span></a>
 								</div>
-								<#else/>
+							<#else/>
 								<#assign width = (user.progress?size / 12) * 100/>
 								<p>
 									<strong>Challenge Progress</strong>
 								</p>
-								<div class="progress" style="color:black; font-size:20px">
+								<div class="progress">
+									<#--<div style="color:black; font-size:20px; background-color: rgba(255, 255, 255, 0); z-index: 1000;">
 										${user.progress?size}/12
-									<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${width}%;">
+									</div>-->
+									<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${width}%;">
+										<span>${user.progress?size}/12</span>
 									</div>
 								</div>
 							</#if>
@@ -80,91 +83,87 @@
 							My Account
 							<a href="/logout" class="btn btn-default btn-sm pull-right">Logout</a>
 						</div>
-						<div class="panel-body">
-							<form class="red-panel" id="accountForm" role="form" method="post" action="/secure/user">
-								<div class="checkbox">
-									<label class="text-black">
-										<input name="monthly" type="checkbox" value="true" ${(user.monthly)?string('checked', '')}> Email me monthly challenge reminders
-									</label>
+						<form class="red-panel" id="accountForm" role="form" method="post" action="/secure/user">
+							<div class="checkbox">
+								<label class="text-black">
+									<input name="monthly" type="checkbox" value="true" ${(user.monthly)?string('checked', '')}> Email me monthly challenge reminders
+								</label>
+							</div>
+							<div class="form-group">
+								<label>First Name</label>
+								<span class="text-error">${(errors.firstName)!}</span>
+								<input type="text" id="firstName" name="firstName" class="form-control"
+									   placeholder="First Name" required="true" value="${user.firstName!}"/>
+							</div>
+							<div class="form-group">
+								<label>Spouse's Name (Optional)</label>
+								<input type="text" id="spouseName" name="spouseName" class="form-control"
+									   placeholder="Spouse's Name" value="${user.spouseName!}"/>
+							</div>
+							<div class="form-group">
+								<label>Last Name</label>
+								<span class="text-error">${(errors.lastName)!}</span>
+								<input type="text" id="lastName" name="lastName" class="form-control"
+									   placeholder="Last Name" required="true" value="${user.lastName!}"/>
+							</div>
+							<div class="form-group">
+								<label>Email</label>
+								<p class="text-black">
+									${user.username}
+								</p>
+							</div>
+							<div class="form-group">
+								<label>Spouse's Email (Optional)</label>
+								<input type="text" id="spouseEmail" name="spouseEmail" class="form-control"
+									   placeholder="Spouse's Email" value="${user.spouseEmail!}"/>
+							</div>
+							<#if !user.social>
+								<div class="text-center">
+									<a data-toggle="collapse" data-parent="#accordion"
+									   href="#changePassword" class="" style="a:hover: #666;a:focus: #666;">
+										Click to change password
+									</a>
 								</div>
-								<div class="form-group">
-									<label>First Name</label>
-									<span class="text-error">${(errors.firstName)!}</span>
-									<input type="text" id="firstName" name="firstName" class="form-control"
-									       placeholder="First Name" required="true" value="${user.firstName!}"/>
-								</div>
-								<div class="form-group">
-									<label>Spouse's Name (Optional)</label>
-									<input type="text" id="spouseName" name="spouseName" class="form-control"
-										   placeholder="Spouse's Name" value="${user.spouseName!}"/>
-								</div>
-								<div class="form-group">
-									<label>Last Name</label>
-									<span class="text-error">${(errors.lastName)!}</span>
-									<input type="text" id="lastName" name="lastName" class="form-control"
-										   placeholder="Last Name" required="true" value="${user.lastName!}"/>
-								</div>
-								<div class="form-group">
-									<label>Email</label>
-									<p class="text-black">
-										${user.username}
-									</p>
-								</div>
-								<div class="form-group">
-									<label>Spouse's Email (Optional)</label>
-									<input type="text" id="spouseEmail" name="spouseEmail" class="form-control"
-										   placeholder="Spouse's Email" value="${user.spouseEmail!}"/>
-								</div>
-								<#if !user.social>
-									<div class="text-center">
-										<a data-toggle="collapse" data-parent="#accordion"
-										   href="#changePassword" class="" style="a:hover: #666;a:focus: #666;">
-											Click to change password
-										</a>
-									</div>
-									<br/>
-									<div id="changePassword" class="panel-collapse collapse">
-										<!-- toggle show password input -->
-										<div class="form-group">
-											<div class="input-group">
-												<input type="password" id="toggle-pass" name="password" class="form-control"
-													   placeholder="Password" />
-                                	            <span class="input-group-btn">
-                                	            	<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
-															title="Click to show/hide your password">
-														<i class="fa fa-eye-slash"></i>
-													</button>
-                                	            </span>
-											</div>
+								<br/>
+								<div id="changePassword" class="panel-collapse collapse">
+									<!-- toggle show password input -->
+									<div class="form-group">
+										<div class="input-group">
+											<input type="password" id="toggle-pass" name="password" class="form-control"
+												   placeholder="Password" />
+											<span class="input-group-btn">
+												<button id="toggle-pass" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right"
+														title="Click to show/hide your password">
+													<i class="fa fa-eye-slash"></i>
+												</button>
+											</span>
 										</div>
-										<!-- toggle show password input -->
 									</div>
-								</#if>
-								<input type="hidden" name="id" value="${user.id}"/>
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
-							</form>
-						</div>
+									<!-- toggle show password input -->
+								</div>
+							</#if>
+							<input type="hidden" name="id" value="${user.id}"/>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
+						</form>
 					</div>
 				</div>
 				<!-- add/edit -->
 				<div class="col-sm-3">
 					<div class="panel panel-default panel1">
 						<div class="panel-heading">Recently Watched Videos</div>
-						<div class="panel-body">
-							<#if recent?has_content>
-								<#list recent as video>
-									<div class="text-center video-margin">
-										<a href="/video/id/${video.id}">
-											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
-										</a>
-										<p class="video-title"><strong>${video.name}</strong></p>
-									</div>
-								</#list>
-							<#else/>
-								<div class="text-center black-text">You have no recently watched videos.</div>
-							</#if>
-						</div>
+						<#if recent?has_content>
+							<#list recent as video>
+								<div class="text-center video-margin">
+									<a href="/video/id/${video.id}">
+										<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
+									</a>
+									<p class="video-title"><strong>${video.name}</strong></p>
+								</div>
+							</#list>
+						<#else/>
+							<div class="text-center black-text">You have no recently watched videos.</div>
+						</#if>
 					</div>
 				</div>
 				<div class="col-sm-5">

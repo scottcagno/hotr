@@ -35,7 +35,7 @@
 									<textarea id="topics" name="topics" class="form-control" rows="5" placeholder="Topics"
 											  style="resize:none;">${(topics)!}</textarea>
 								</div>
-								<!--<label>Series</label>
+								<#--<label>Series</label>
 								<div class="form-group row">
 									<div id="seriesSelectDiv" class="col-sm-12">
 										<select id="seriesSelect" name="seriesSelect" class="form-control">

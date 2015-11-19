@@ -151,23 +151,21 @@
 									<div class="carousel_nav">
 										<a class="prev" id="car_prev" href="#"><span>prev</span></a><a class="next" id="car_next" href="#"><span>next</span></a>
 									</div>
-									<div class="clearfix">
-									</div>
 									<ul id="recent-portfolio">
 										<#list recentVideos as video>
-										<li>
-											<div class="">
-												<a href="/video/id/${(video.id)!}">
-													<img class="" style="" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
-												</a>
-												<div class="text-center">
-													<strong>${(video.name)!}</strong>
-													<p>${(video.watched)!} Views</p>
+											<li>
+												<div>
+													<a href="/video/id/${(video.id)!}">
+														<img class="img-responsive" style="" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
+													</a>
+													<div class="text-center">
+														<strong>${(video.name)!}</strong>
+													</div>
 												</div>
-											</div>
-										</li>
+											</li>
 										</#list>
-									<#--<li>
+
+										<#--<li>
 											<div class="boxcontainer">
 												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mvyxfkaRb41st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mvyxfkaRb41st5lhmo1_1280"/></a>
 												<div class="roll">
@@ -253,8 +251,6 @@
 										</li>-->
 									</ul>
 								</div>
-							</div>
-							<div class="clearfix">
 							</div>
 						</div>
 					</div>
@@ -404,7 +400,7 @@
 							<#list recentDevotionals as devotional>
 								<li class="col-md-3 unstyle">
 									<div class="insidetext">
-										<div class="well well-sm">Image Placeholder</div>
+										<img src="${(devotional.thumb)!}" class="img-responsive">
 										<h2><a href="/devotional/${(devotional.id)!}"><span class="colortext">${(devotional.title)!}</span></a></h2>
 										<div class="meta">
 											<i class="fa fa-clock-o"></i>${(devotional.date)!}

@@ -21,19 +21,19 @@ class AdminDevotionalController {
 	@RequestMapping(method = RequestMethod.GET)
 	String viewAllDevotionalEntries(Model model) {
 		model.addAttribute "devotionals", devotionalService.findAll()
+		model.addAttribute("images", getImages("devotional_"))
 		"admin/devotional/devotional"
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	String saveDevotionalEntry(Devotional devotional, RedirectAttributes attr) {
-
-		println devotional.toString()
-
 		def errors = new HashMap<String,String>()
 		if (devotional.title == null || devotional.title == "") errors.put "title", "Required field"
 		if (devotional.body == null || devotional.body == "") errors.put "body", "Required field"
+		if (devotional.thumb == null || devotional.thumb == "") errors.put "thumb", "Required field"
 		if (errors.size() > 0) {
 			attr.addFlashAttribute "errors", errors
+			attr.addFlashAttribute("devotional", devotional)
 			return "redirect:/admin/devotional"
 		}
 		if(devotional.id == null) devotional.date = new Date()
@@ -45,6 +45,7 @@ class AdminDevotionalController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String findDevotionalEntry(@PathVariable Long id, Model model) {
 		model.addAllAttributes([devotionals : devotionalService.findAll(), devotional : devotionalService.findOne(id)])
+		model.addAttribute("images", getImages("devotional_"))
 		"admin/devotional/devotional"
 	}
 
@@ -53,6 +54,19 @@ class AdminDevotionalController {
 		devotionalService.delete id
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted devotional entry")
 		"redirect:/admin/devotional"
+	}
+
+	List<String> getImages(String prefix) {
+		def names = []
+		File fd = new File("opt/images")
+		for (File file : fd.listFiles()) {
+			if (!file.isHidden() && file.canRead()) {
+				if (file.name.startsWith(prefix)) {
+					names.add(file.name)
+				}
+			}
+		}
+		return names
 	}
 
 }

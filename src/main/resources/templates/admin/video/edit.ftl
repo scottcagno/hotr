@@ -10,7 +10,7 @@
 
 		<br/>
 		<!-- delete item alert -->
-		<div class="container">
+		<div class="container-fluid">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
 				<form role="form" method="post" class="form-inline" action="">
 					<div class="form-group">
@@ -32,7 +32,7 @@
 		<!-- delete item alert -->
 
 		<!-- thumb request alert -->
-		<div class="container">
+		<div class="container-fluid">
 			<#include "../../stubs/alert.ftl"/>
 			<div id="thumb-request-confirm" class="hide alert alert-warning alert-dismissible wow fadeIn col-xs-12" role="alert">
 				<form role="form" method="post" class="form-inline" action="/admin/video/thumb/${video.id}">
@@ -62,7 +62,7 @@
 		<!-- thumb request alert -->
 
 		<!-- content -->
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="panel panel-default">
@@ -77,51 +77,49 @@
 								<a id="thumb" href="#">Update Thumbnail</a>
 							</div>
 						</div>
-						<div class="panel-body">
-							<form id="videoForm" role="form" method="post" action="/admin/video">
-								<label>Name</label>
-								<div class="form-group">
-									<span class="text-error">${(errors.name)!}</span>
-									<input type="text" id="name" name="name" class="form-control"
-										   placeholder="Name" required="true" value="${video.name}"/>
+						<form id="videoForm" role="form" method="post" action="/admin/video">
+							<label>Name</label>
+							<div class="form-group">
+								<span class="text-error">${(errors.name)!}</span>
+								<input type="text" id="name" name="name" class="form-control"
+									   placeholder="Name" required="true" value="${video.name}"/>
+							</div>
+							<label>Description</label>
+							<div class="form-group">
+								<span class="text-error">${(errors.description)!}</span>
+								<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
+										  style="resize:none;">${video.description}</textarea>
+							</div>
+							<label>Topics separated by commas</label>
+							<div class="form-group">
+								<textarea id="topics" name="topics" class="form-control" rows="5" placeholder="Topics"
+										  style="resize:none;">${topics?join(", ")}</textarea>
+							</div>
+							<!--<label>Series</label>
+							<div class="form-group row">
+								<div id="seriesSelectDiv" class="col-xs-12">
+									<select id="seriesSelect" name="seriesSelect" class="form-control">
+										<option ${(video.series?? && video.series == '')?string('selected', '')} value="">None</option>
+										<option value="add">Add Series</option>
+										<hr/>
+										<#if allSeries?has_content>
+											<#list allSeries as series>
+												<option value="${series}" ${(video.series?? && video.series == series)?string('selected', '')}>${series}</option>
+											</#list>
+										</#if>
+									</select>
 								</div>
-								<label>Description</label>
-								<div class="form-group">
-									<span class="text-error">${(errors.description)!}</span>
-									<textarea id="description" name="description" class="form-control" rows="5" placeholder="Description"
-											  style="resize:none;">${video.description}</textarea>
-								</div>
-								<label>Topics separated by commas</label>
-								<div class="form-group">
-									<textarea id="topics" name="topics" class="form-control" rows="5" placeholder="Topics"
-											  style="resize:none;">${topics?join(", ")}</textarea>
-								</div>
-								<!--<label>Series</label>
-								<div class="form-group row">
-									<div id="seriesSelectDiv" class="col-xs-12">
-										<select id="seriesSelect" name="seriesSelect" class="form-control">
-											<option ${(video.series?? && video.series == '')?string('selected', '')} value="">None</option>
-											<option value="add">Add Series</option>
-											<hr/>
-											<#if allSeries?has_content>
-												<#list allSeries as series>
-													<option value="${series}" ${(video.series?? && video.series == series)?string('selected', '')}>${series}</option>
-												</#list>
-											</#if>
-										</select>
-									</div>
-								</div>-->
-								<div id="seriesInput" class="form-group" hidden="hidden">
-									<input class="form-control" id="series" name="series" type="text"
-										   placeholder="Add Series" value="${video.series}"/>
-								</div>
-								<input type="hidden" name="id" value="${video.id}"/>
-								<input type="hidden" name="thumb" value="${video.thumb!}"/>
-								<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							</form>
-							<button id="save" class="btn btn-md btn-primary btn-block" type="submit">Save</button>
-						</div>
+							</div>-->
+							<div id="seriesInput" class="form-group" hidden="hidden">
+								<input class="form-control" id="series" name="series" type="text"
+									   placeholder="Add Series" value="${video.series}"/>
+							</div>
+							<input type="hidden" name="id" value="${video.id}"/>
+							<input type="hidden" name="thumb" value="${video.thumb!}"/>
+							<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						</form>
+						<button id="save" class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 					</div>
 				</div>
 				<div class="col-sm-8">

@@ -63,61 +63,72 @@
 					<div class="panel-heading">
 						Add/Edit Devotional <span class="pull-right"><a href="/admin/devotional">Clear</a></span>
 					</div>
-					<div class="panel-body">
-						<form role="form" method="post" class="ajaxUpload" action="/admin/devotional/save">
-							<div class="form-group">
-								<label>Title</label>
-								<span class="text-error">${(errors.title)!}</span>
-								<input type="text" id="title" name="title" class="form-control"
-									   placeholder="Devotional title" required="true" value="${(devotional.title)!}"/>
+					<form role="form" method="post" class="ajaxUpload" action="/admin/devotional/save">
+						<div class="form-group">
+							<label>Title</label>
+							<span style="color: red;">${(errors.title)!}</span>
+							<input type="text" id="title" name="title" class="form-control"
+								   placeholder="Devotional title" required="true" value="${(devotional.title)!}"/>
+						</div>
+						<div class="form-group">
+							<label>Body</label>
+							<span style="color: red;">${(errors.body)!}</span>
+							<textarea id="body" name="body" class="form-control"
+								   placeholder="Devotional body" rows="10" style="resize:none;">${(devotional.body)!}</textarea>
+						</div>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="row form-horizontal">
+									<div class="col-lg-4">
+										<label class="control-label">Thumbnail</label><br>
+										<span style="color:red;">${(errors.thumb)!}</span>
+									</div>
+									<div class="col-lg-8">
+										<select id="thumb-select" class="form-control" name="thumb" id="thumb"></select>
+									</div>
+								</div>
 							</div>
-							<div class="form-group">
-								<label>Body</label>
-								<span class="text-error">${(errors.body)!}</span>
-								<textarea id="body" name="body" class="form-control"
-									   placeholder="Devotional body" rows="10" style="resize:none;">${(devotional.body)!}</textarea>
+							<div class="col-lg-5">
+								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 							</div>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
-							<#if devotional??>
-								<br/>
-								<input type="hidden" name="id" value="${(devotional.id)!}"/>
-								<input type="hidden" name="date" value="${(devotional.date)!}"/>
-								<!-- delete item trigger -->
-								<span id="delete-item" data-id="/admin/devotional/del/${devotional.id}"
-									  class="btn btn-block btn-danger">
-									Delete Entry
-								</span>
-								<!-- delete item trigger -->
-							</#if>
-						</form>
-					</div>
+						</div>
+
+						<#if devotional?? && devotional.id??>
+							<br/>
+							<input type="hidden" name="id" value="${(devotional.id)!}"/>
+							<input type="hidden" name="date" value="${(devotional.date?datetime)!}"/>
+							<!-- delete item trigger -->
+							<span id="delete-item" data-id="/admin/devotional/del/${(devotional.id)!}"
+								  class="btn btn-block btn-danger">
+								Delete Entry
+							</span>
+							<!-- delete item trigger -->
+						</#if>
+					</form>
 				</div>
 			</div>
 			<!-- add/edit -->
 
 			<!-- view all -->
 			<div class="col-sm-4">
-				<p><i>*NOTE: ADD IMAGE THUMBNAIL SELECTOR...</i></p>
 				<div class="panel panel-default">
 					<div class="panel-heading">Add Image</div>
-					<div class="panel-body">
-						<form id="uploader" class="text-center" role="form" method="post"
-							  action="/admin/image/upload" enctype="multipart/form-data">
-							<div class="form-group">
-								<label class="btn btn-default btn-block uploader" for="file">
-									Add Image
-								</label>
-								<input class="uploader" id="file" type="file" name="devotional" required="true">
-							</div>
-							<button class="btn btn-primary uploader btn-block" id="uploadAjax" type="submit"
-									disabled="true">
-								Upload
-							</button>
-							<input type="hidden" name="redirect" value="/admin/devotional/${(id)!}"/>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						</form>
-					</div>
+					<form id="uploader" class="text-center" role="form" method="post"
+						  action="/admin/image/upload" enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="btn btn-default btn-block uploader" for="file">
+								Add Image
+							</label>
+							<input class="uploader" id="file" type="file" name="devotional" required="true">
+						</div>
+						<button class="btn btn-primary uploader btn-block" id="uploadAjax" type="submit"
+								disabled="true">
+							Upload
+						</button>
+						<input type="hidden" name="redirect" value="/admin/devotional/${(id)!}"/>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					</form>
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">All Devotional Posts</div>
@@ -169,6 +180,32 @@
 		<#include "../../stubs/scripts.ftl"/>
 		<script src="/static/js/delete-item.js"></script>
 		<script src="/static/js/admin/image-upload.js"></script>
+		<script>
+			var thumb = '${(devotional.thumb)!}';
+			function getImages() {
+				$.ajax({
+					url: "/admin/image",
+					success: function(data) {
+						$('#thumb-select').html('');
+						$('#thumb-select').append('<option value=""></option>');
+						for (var i = 0; i < data.length; i++) {
+							var option = $('<option value="' + data[i].value + '">' + data[i].title + '</option>');
+							if (thumb === data[i].value) {
+								option.attr('selected', 'selected');
+							}
+							$('#thumb-select').append(option);
+						}
+					}
+				})
+			}
+			fn = function() {
+				getImages();
+			};
+
+			$(document).ready(function() {
+				getImages();
+			});
+		</script>
 		<!-- scripts -->
 
 	</body>

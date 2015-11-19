@@ -48,6 +48,8 @@ function fileCheck(e) {
     }
 }
 
+var fn;
+
 (function() {
     $('button[id="upload"]').click(function() {
         $('div[id="content"]').addClass("hide");
@@ -69,6 +71,9 @@ function fileCheck(e) {
                 $('div[id="content"]').removeClass("hide");
                 $('div[id="uploadSpinner"]').addClass("hide");
                 updateFileInfo($('input.uploader')[0]);
+				if ($.isFunction(fn)) {
+					fn();
+				}
             }
         });
     });

@@ -30,6 +30,7 @@
 			<!-- end header -->
 
 			<div class="container">
+				<#include "stubs/alert.ftl"/>
 				<div class="row">
 					<div class="col-md-12">
 
