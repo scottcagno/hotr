@@ -81,7 +81,7 @@
 							<div class="col-lg-7">
 								<div class="row form-horizontal">
 									<div class="col-lg-4">
-										<label class="control-label">Thumbnail</label><br>
+										<label class="control-label">Featured Image</label><br>
 										<span style="color:red;">${(errors.thumb)!}</span>
 									</div>
 									<div class="col-lg-8">

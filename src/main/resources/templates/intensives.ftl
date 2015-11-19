@@ -71,19 +71,21 @@
 						sessions because they keep you both focused on your issues for an extended period of time.
 						You will receive over 20 hours of personalized counseling, coaching and marriage building
 						exercises that will fan the flame of your marriage back to life.
-						<br/>
+						<#--<br/>
 						<a href="/static/marriage-intensives.pdf" target="_blank">
 							<em>(download our informational packet here)</em>
-						</a>
+						</a>-->
 					</p>
 					<br>
 					<strong><h4>Where are these intensives held?</h4></strong>
-					<p class="text-white">We want you to get away from the distractions and daily routines that complicate your life
-						so you can focus on yourselves and your marriage. You will be our guests at Sandy Cover
-						(in Maryland), Spruce Lake Retreat (in the Pocono region) or in Lancaster County, PA &#8230;
-						enjoying your own private room and bath with all your linens and towels provided &#8230;
-						and 3 great meals a day. Your job &#8230; is to concentrate on yourselves and your marriage
-						&#8230; our mission is to focus on you.
+					<p class="text-white">We want you to get away from the distractions and daily routines that
+						complicate your life so you can focus on you﻿﻿rselve﻿﻿s and your marriage.  You will be our
+						guests in You will be our guests at either Sandy Cove Retreat Center in Maryland
+						(<a href="http://www.sandycove.org">www.sandycove.org</a>), Black Rock Retreat in Southern
+						Lancaster County (<a href="http://www.blackrockretreat.com">www.blackrockretreat.com</a>)
+						or our guests at our  office area in Lancaster County, PA... enjoying your own private room and
+						bath with all your linens and towels provided... and 3 great meals a day. Your job... is to
+						concentrate on yourselves and your marriage... our mission is to focus on you.
 					</p>
 
 					<#--
