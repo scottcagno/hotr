@@ -74,12 +74,6 @@ class RootController {
 		"events"
 	}
 
-	@RequestMapping(value = "/intensives", method = GET)
-	String intensives(Model model) {
-		model.addAllAttributes([auth: (userSession.id != null)])
-		"intensives"
-	}
-
     @RequestMapping(value = "/donate", method = GET)
     String donate(Model model) {
         model.addAttribute("auth", (userSession.id != null))
