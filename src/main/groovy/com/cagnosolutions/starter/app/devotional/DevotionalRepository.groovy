@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface DevotionalRepository extends JpaRepository<Devotional, Long>{
 
-	@Query(nativeQuery = true, value = "SELECT * FROM hotr.devotional ORDER BY hotr.devotional.id DESC limit 4")
+	@Query(nativeQuery = true, value = "SELECT * FROM hotr.devotional ORDER BY hotr.devotional.date DESC limit 4")
 	List<Devotional> findAllRecent()
 
 }

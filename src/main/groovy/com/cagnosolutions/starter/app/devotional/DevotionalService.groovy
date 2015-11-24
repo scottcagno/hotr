@@ -15,8 +15,8 @@ class DevotionalService {
 		def devotionals = repo.findAll()
 		Collections.sort(devotionals, new Comparator<Devotional>(){
 			int compare(Devotional left, Devotional right) {
-				if(left.id != right.id && left.id != null && right.id != null)
-					return (left.id <= right.id) ? 1 : -1
+				if(left.date != right.date && left.date != null && right.date != null)
+					return (left.date <= right.date) ? 1 : -1
 				else
 					return 0
 			}
