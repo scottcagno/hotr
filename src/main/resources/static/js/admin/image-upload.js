@@ -27,10 +27,12 @@ function fileCheck(e) {
     if ($('input[id="' + e.id + '"]')[0].files.length > 0) {
         var t = $('input[id="' + e.id + '"]')[0].files[0].size;
         var n = $('input[id="' + e.id + '"]')[0].files[0].type;
-        if (t > 1048576) {
+        var mb = (1 << 20);
+        var size = 4*mb;
+        if (t > size) {
             $('input[id="' + e.id + '"]')[0].type = "text";
             $('input[id="' + e.id + '"]')[0].type = "file";
-            $('p[id="fileMessage"]').html("File too large. Max file size is 1MB");
+            $('p[id="fileMessage"]').html("File too large. Max file size is "+size/(mb)+"MB");
             $('div[id="fileError"]').removeClass("hide");
             return
         }
