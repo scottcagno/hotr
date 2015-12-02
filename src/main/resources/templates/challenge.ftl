@@ -38,10 +38,12 @@
 				<div class="col-md-8">
 					<div class="text-center text-white">
                         <h3>Ready to Fan the Flame of your marriage?<br/> Take the ONE YEAR CHALLENGE!</h3>
-                        <div class="well well-sm row col-md-offset-3 col-md-6">
-							<i>Image Placeholder</i>
+						<div class="row">
+                        	<div class="well well-sm row col-md-offset-3 col-md-6">
+								<img src="/static/img/One_Year_Challenge.png" class="img-responsive" alt="">
+							</div>
 						</div>
-						<br><br><br>
+						<br>
                         <p class="lead">
                             Here's how our free program works. After you create a login:
                         </p>
