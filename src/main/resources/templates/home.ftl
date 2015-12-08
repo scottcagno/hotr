@@ -91,48 +91,48 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3 text-center">
-							<div class="row">
-								<a href="/video/all" class=" col-lg-offset-3 col-lg-6">
-									<img src="/static/img/WatchNow_circle.png" class="img-responsive"  alt="">
+							<div class="icon-box-top">
+								<a href="/video/all">
+									<i class="fontawesome-icon medium circle-white center fa fa-film"></i>
 								</a>
+								<h1>Watch Now</h1>
+								<p>
+									Fan the Flame of your marriage by watching our free online videos with your spouse!
+								</p>
 							</div>
-							<h1>Watch Now</h1>
-							<p>
-								Fan the Flame of your marriage by watching our free online videos with your spouse!
-							</p>
 						</div>
 						<div class="col-md-3 text-center">
-							<div class="row">
-								<a href="/events" class="col-lg-offset-3 col-lg-6">
-									<img src="/static/img/MarriageIntRetreat_Circle.png" class="img-responsive" alt="">
+							<div class="icon-box-top">
+								<a href="/events">
+									<i class="fontawesome-icon medium circle-white center fa fa-suitcase"></i>
 								</a>
+								<h1>Marriage Retreats</h1>
+								<p>
+									Join us for a live marriage retreat. Click for more details.
+								</p>
 							</div>
-							<h1>Marriage Retreats</h1>
-							<p>
-								Join us for a live marriage retreat. Click for more details.
-							</p>
 						</div>
 						<div class="col-md-3 text-center">
-							<div class="row">
-								<a href="/intensives" class="col-lg-offset-3 col-lg-6">
-									<img src="/static/img/MarriageInt_Circle.png" class="img-responsive" alt="">
+							<div class="icon-box-top">
+								<a href="/intensives">
+									<i class="fontawesome-icon medium circle-white center fa fa-heart"></i>
 								</a>
+								<h1>Marriage Intensives</h1>
+								<p>
+									May we encourage you ...  before you choose to extinguish the flame of your marriage forever, to make at least one more try?
+								</p>
 							</div>
-							<h1>Marriage Intensives</h1>
-							<p>
-								May we encourage you ...  before you choose to extinguish the flame of your marriage forever, to make at least one more try?
-							</p>
 						</div>
 						<div class="col-md-3 text-center">
-							<div class="row">
-								<a href="/challenge" class="col-lg-offset-3 col-lg-6">
-									<img src="/static/img/OneYear_Circle.png" class="img-responsive" alt="">
+							<div class="icon-box-top">
+								<a href="/challenge">
+									<i class="fontawesome-icon medium circle-white center fa fa-calendar"></i>
 								</a>
+								<h1>One Year Challenge</h1>
+								<p>
+									Are you ready to take your marriage to the next level? Learn about our free One-Year Challenge program!
+								</p>
 							</div>
-							<h1>One Year Challenge</h1>
-							<p>
-								Are you ready to take your marriage to the next level? Learn about our free One-Year Challenge program!
-							</p>
 						</div>
 					</div>
 				</div>
