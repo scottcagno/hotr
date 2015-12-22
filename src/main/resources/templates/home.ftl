@@ -40,8 +40,8 @@
 						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/sunny-morning-49393.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase" style="color: black">Connect With Your Spouse</span></h1>
-								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;border-bottom-color: black;border-top-color: black; color: black">
+								<h1 class="animated fadeInDown"><span class="uppercase">Connect With Your Spouse</span></h1>
+								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
 									Through Meaningful Conversations
 								</p>
 								<#--<p class="animated fadeInLeftBig">
