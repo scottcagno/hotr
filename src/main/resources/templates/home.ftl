@@ -13,11 +13,11 @@
 			<#include "stubs/navbar.ftl"/>
 			<!-- END NAVBAR -->
 
-			<section class="homeslider fullwidth flexslider" id="home-slider" style="height:500px;">
+			<section class="homeslider fullwidth flexslider" id="home-slider">
 				<ul class="slides">
 					<li class="text-center">
-						<#--<a href="#"><img src="/static/img/banner/1-updated.jpg" alt=""></a>-->
-						<a href="#"><img src="/static/img/banner/hotr-supplied-images/Couple_feet_Resize.png" alt=""></a>
+						<a href="#"><img src="/static/img/banner/1-updated.jpg" alt=""></a>
+						<#--<a href="#"><img src="/static/img/banner/hotr-supplied-images/Couple_feet_Resize.png" alt=""></a>-->
 						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/asherslider2.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
@@ -35,8 +35,8 @@
 						</div>
 					</li>
 					<li class="text-center">
-						<#--<a href="#"><img src="/static/img/banner/2-updated.jpg" alt=""></a>-->
-						<a href="#"><img src="/static/img/banner/hotr-supplied-images/hand_holding_resize.png" alt=""></a>
+						<a href="#"><img src="/static/img/banner/2-updated.jpg" alt=""></a>
+						<#--<a href="#"><img src="/static/img/banner/hotr-supplied-images/hand_holding_resize.png" alt=""></a>-->
 						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/sunny-morning-49393.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
@@ -51,8 +51,8 @@
 						</div>
 					</li>
 					<li class="text-center">
-						<#--<a href="/challenge"><img src="/static/img/banner/3-updated.jpg" alt="Fan The Flame & Take The One Year Challenge"></a>-->
-						<a href="#"><img src="/static/img/banner/hotr-supplied-images/Couple_sunset_Resize.png" alt=""></a>
+						<a href="/challenge"><img src="/static/img/banner/3-updated.jpg" alt="Fan The Flame & Take The One Year Challenge"></a>
+						<#--<a href="#"><img src="/static/img/banner/hotr-supplied-images/Couple_sunset_Resize.png" alt=""></a>-->
 						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/ashers1.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
@@ -489,7 +489,9 @@
 			<!-- BEGIN SCRIPTS -->
 			<#include "stubs/scripts.ftl"/>
 			<!-- END SCRIPTS -->
-
+			<script>
+				$('.homeslider.fullwidth.flexslider').css('height', window.innerHeight - 79);
+			</script>
 		</div><!-- end boxedcontent -->
 	</body>
 </html>
