@@ -71,7 +71,7 @@
 					<a href="/intensives/reservation">
 						make your reservation...
 					</a>
-					</div>
+				</div>
 			</div>
 		</div>
 

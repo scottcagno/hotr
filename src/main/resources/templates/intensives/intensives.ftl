@@ -79,34 +79,170 @@
 						<p class="text-white">We want you to get away from the distractions and daily routines that
 							complicate your life so you can focus on you﻿﻿rselve﻿﻿s and your marriage.  You will be our
 							guests in You will be our guests at either Sandy Cove Retreat Center in Maryland
-							(<a href="http://www.sandycove.org">www.sandycove.org</a>), Black Rock Retreat in Southern
-							Lancaster County (<a href="http://www.blackrockretreat.com">www.blackrockretreat.com</a>)
+							(<a href="http://www.sandycove.org" target="_blank">www.sandycove.org</a>), Black Rock Retreat in Southern
+							Lancaster County (<a href="http://www.blackrockretreat.com" target="_blank">www.blackrockretreat.com</a>)
 							or our guests at our  office area in Lancaster County, PA... enjoying your own private room and
 							bath with all your linens and towels provided... and 3 great meals a day. Your job... is to
 							concentrate on yourselves and your marriage... our mission is to focus on you.
 						</p>
 						<br>
-						<a href="/intensives">
-							what is an intensive?
-						</a>
-						<br>
-						<a href="/intensives/divorce">
-							are you considering divorce... read this...
-						</a>
-						<br/>
-						<a href="/intensives/schedule">
-							see what our schedule looks like...
-						</a>
-						<br/>
-						<a href="/intensives/testimonies">
-							read some testimonies...
-						</a>
-						<br/>
-						<a href="/intensives/reservation">
-							make your reservation...
-						</a>
 					</div>
 				</div>
+				<#-- ###### Schedule ###### -->
+				<div class="row">
+					<div class="col-lg-12">
+						<strong><h4>
+							<p>
+								You will receive approximately 20 hours of personalized coaching, counseling and attention
+								in a small group setting over your 3 days in our very accommodating and all inclusive marriage
+								counseling retreat experience.
+							</p>
+							<p>
+								Most people have apprehensions about marriage counseling in a group format ... yet we've found that
+								couples can't stop talking about how helpful it was for them. Also, independent research shows that
+								men show higher levels of satisfaction in a group format than individual settings.
+							</p>
+						</h4></strong>
+
+						<strong><h4><u>Program Details</u></h4></strong>
+						<div class="row">
+							<div class="col-lg-offset-1 col-lg-10">
+								<ul>
+									<li>You will receive approximately 20 hours of attention from</li>
+									<li>1 coaching / counseling couple per group</li>
+									<li>2 nights of lodging</li>
+									<li>All your meals included</li>
+									<li>15 week follow up program</li>
+									<li>Limit of 4 married couples per intensive</li>
+								</ul>
+							</div>
+						</div>
+						<strong>
+							<h4>
+								<u>Program Schedule</u>
+								<small> (we can do both weekday or weekend intensives)</small>
+							</h4>
+						</strong>
+						<br>
+
+						<strong><h4>Friday Night</h4></strong>
+						<div class="row">
+							<div class="col-lg-offset-1 col-lg-10">
+								<ul>
+									<li>Arrive for first night ... check in time is after 6 pm.</li>
+									<li>Get acquainted time with your coaches</li>
+									<li>Retire for evening</li>
+								</ul>
+							</div>
+						</div>
+
+						<strong><h4>Saturday</h4></strong>
+						<div class="row">
+							<div class="col-lg-offset-1 col-lg-10">
+								<ul>
+									<li>Breakfast</li>
+									<li>Morning sessions with break</li>
+									<li>Lunch</li>
+									<li>Afternoon sessions with breaks and projects</li>
+									<li>Dinner</li>
+									<li>Evening session with couple's project</li>
+									<li>Retire for evening</li>
+								</ul>
+							</div>
+						</div>
+
+						<strong><h4>Sunday</h4></strong>
+						<div class="row">
+							<div class="col-lg-offset-1 col-lg-10">
+								<ul>
+									<li>Breakfast</li>
+									<li>Morning session with break</li>
+									<li>Lunch</li>
+									<li>Afternoon sessions with breaks and projects</li>
+									<li>Dinner</li>
+									<li>closing</li>
+								</ul>
+							</div>
+						</div>
+
+						<strong><h4><u>Price</u></h4></strong>
+						<strong><h4>$3,000 (Paid up front)</h4></strong>
+						<strong><h4>$3,600 (Via payment plan)</h4></strong>
+						<strong><h4>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $500 deposit up front with the additional balance coming after the
+							intensive in monthly payments
+						</h4></strong>
+						<p>
+							- Includes all accommodations, materials and coaching. (Scholarships and payment plans are
+							available, call or email for details)
+						</p>
+						<br>
+						<strong><h4><u>Upcoming Schedule</u></h4></strong>
+						<div class="row">
+							<div class="col-lg-offset-1 col-lg-10">
+								<ul>
+									<li>November 6-8, 2015 @ Sandy Cove</li>
+									<li>December 4-6, 2015 @ Sandy Cove</li>
+									<li>January 15-17, 2016 @ Black Rock Retreat</li>
+									<li>February 26-28, 2016 @ Sandy Cove</li>
+									<li>March 18-20, 2016 @ Sandy Cove</li>
+									<li>April 1-3, 2016 @ Lancaster, PA</li>
+									<li>April 15 - 17, 2016 @ Black Rock Retreat</li>
+								</ul>
+							</div>
+						</div>
+						<br>
+					</div>
+				</div>
+
+				<#-- ###### Testimonies ###### -->
+				<div class="row">
+					<div class="col-lg-12">
+						<strong><h4>Hear what some of our couples are saying about our marriage events:</h4></strong>
+						<br>
+						<p>
+							"It was a pleasure to be with them (Bruce and Karen) during our sessions.  They have an
+							authentic and true desire to see our marriage thrive.  Their concern for helping us through the
+							areas of our relationship that have been road blocks comes through during the sessions and
+							afterwards during the down times of the intensive.  They navigated us through some heated and
+							tough discussions to bring us back to the reality that our marriage relationship and covenant
+							is for a lifetime.  Let’s focus on the good that can come of out of it.  Enjoyed them and
+							continue to appreciate and support their ministry."  - D & A
+						</p>
+						<br>
+						<p>
+							"All I can say is make your reservation today ... my life was changed and yours can be too!!" - J & D
+						</p>
+						<br>
+						<p>
+							"Since the intensive, we have been working very hard to "date" each other. There have been
+							almost no arguments, which has been divine. My husband has been calling every night before
+							leaving work, so that I know what time to expect him and I am letting him know how much I
+							appreciate this. Our plan has included writing scripture on index cards and putting them where
+							we can see them. We have been reading the Bible as much as possible, treating each other with
+							extra kindness, offering more grace." - G & L
+						</p>
+
+						<br>
+					</div>
+				</div>
+
+				<#-- ###### Reservation ###### -->
+				<div class="row">
+					<div class="col-lg-12">
+						<h3>
+							Phone: 717-299-8969
+						</h3>
+						<h3>
+							Email: <a href="mailto:jeff@hotrfm.com">info@hotrfm.org</a>
+						</h3>
+						<p>
+							You can also visit our contact page <a href="/contact">here</a>.
+						</p>
+						<br>
+					</div>
+				</div>
+
 			</div>
 		</div>
 

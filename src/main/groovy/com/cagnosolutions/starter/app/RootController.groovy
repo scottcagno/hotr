@@ -1,7 +1,8 @@
 package com.cagnosolutions.starter.app
+
 import com.cagnosolutions.starter.app.admin.settings.SettingsService
 import com.cagnosolutions.starter.app.devotional.DevotionalService
-import com.cagnosolutions.starter.app.eventbriteAPI._EventbriteAPI
+import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.UserSession
 import com.cagnosolutions.starter.app.video.VideoService
@@ -12,16 +13,15 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET
 
 @CompileStatic
 @Controller
 class RootController {
 
     @Autowired
-    _EventbriteAPI eventbriteApiService
+    EventbriteAPI eventbriteApiService
 
     @Autowired
     UserSession userSession
@@ -38,7 +38,7 @@ class RootController {
 	@Autowired
 	DevotionalService devotionalService
 
-    @RequestMapping(value = ["/", "/home"], method = GET)
+    @RequestMapping(value = ["/", "/home"], method = RequestMethod.GET)
     String index(Model model) {
 		def settings = adminSettingsService.findOne()
 		def vidId = (settings != null) ? settings.videoId : 0L
@@ -50,50 +50,50 @@ class RootController {
         "home"
     }
 
-    @RequestMapping(value = "/terms", method = GET)
+    @RequestMapping(value = "/terms", method = RequestMethod.GET)
     String terms(Model model) {
         model.addAttribute("auth", (userSession.id != null))
         "terms"
     }
 
-	@RequestMapping(value = "/about", method = GET)
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
 	String about(Model model) {
 		model.addAttribute("auth", (userSession.id != null))
 		"about"
 	}
 
-	@RequestMapping(value = "/contact", method = GET)
+	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	String contact(Model model) {
 		model.addAttribute("auth", (userSession.id != null))
 		"contact"
 	}
 
-	@RequestMapping(value = "/events", method = GET)
+	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	String events(Model model) {
 		model.addAllAttributes([auth: (userSession.id != null), events : eventbriteApiService.findEvents()])
 		"events"
 	}
 
-    @RequestMapping(value = "/donate", method = GET)
+    @RequestMapping(value = "/donate", method = RequestMethod.GET)
     String donate(Model model) {
         model.addAttribute("auth", (userSession.id != null))
         "donate"
     }
 
-    @RequestMapping(value = "/promo", method = GET)
+    @RequestMapping(value = "/promo", method = RequestMethod.GET)
     String promo(Model model) {
         model.addAttribute("auth", (userSession.id != null))
         "promo"
     }
 
-    @RequestMapping(value = "/challenge", method = GET)
+    @RequestMapping(value = "/challenge", method = RequestMethod.GET)
     String challenge(Model model) {
         model.addAttribute("auth", (userSession.id != null))
 		model.addAttribute("userSession", userSession)
         "challenge"
     }
 
-	@RequestMapping(value = "/image/{filename}.{type}", method = GET, produces = "image/*")
+	@RequestMapping(value = "/image/{filename}.{type}", method = RequestMethod.GET, produces = "image/*")
 	@ResponseBody
 	FileSystemResource file(@PathVariable String filename, @PathVariable String type) {
 		new FileSystemResource(new File("opt/images/${filename}.${type}"))
