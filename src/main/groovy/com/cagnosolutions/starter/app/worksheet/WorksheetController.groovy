@@ -88,4 +88,5 @@ class WorksheetController {
 		attr.addFlashAttribute("worksheet", worksheet)
 		"redirect:/video/relatedto/${worksheet.videoId}"
 	}
+
 }

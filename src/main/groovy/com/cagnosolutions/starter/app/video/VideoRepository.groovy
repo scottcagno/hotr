@@ -27,4 +27,5 @@ interface VideoRepository extends JpaRepository<Video, Long> {
 
 	@Query(nativeQuery = true, value = "SELECT * FROM hotr.video ORDER BY hotr.video.watched DESC limit 10")
 	List<Video> findAllPopular()
+
 }

@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.config
+
 import com.cagnosolutions.starter.app.CustomAuthenticationSuccessHandler
 import com.cagnosolutions.starter.app.social.SimpleSocialUsersDetailService
 import com.cagnosolutions.starter.app.user.UserService
@@ -15,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 import org.springframework.social.security.SocialUserDetailsService
 import org.springframework.social.security.SpringSocialConfigurer
-
 import javax.sql.DataSource
 
 @CompileStatic

@@ -13,4 +13,5 @@ class UserSession {
 	Long id
 	String firstName, lastName, spouseName
 	int progress
+
 }

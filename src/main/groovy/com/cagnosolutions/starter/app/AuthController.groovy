@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app
+
 import com.cagnosolutions.starter.app.util.email.EmailService
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
@@ -13,7 +14,6 @@ import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
-
 import javax.validation.Valid
 import java.security.Principal
 
@@ -33,8 +33,9 @@ class AuthController {
 	@Autowired
 	ValidationWrapper validationWrapper
 
+	// GET fill out user session and redirect on successful login
 	@RequestMapping(value = "/login/success", method = RequestMethod.GET)
-	String customLoginSuccessHandler(Principal principal, String redirect, String role, RedirectAttributes attr) {
+	String customLoginSuccessHandler(Principal principal, RedirectAttributes attr) {
 		if (principal.name == "admin") {
 			return "redirect:/admin"
 		}
@@ -50,23 +51,27 @@ class AuthController {
 		"redirect:/secure/user"
 	}
 
+	// GET view login
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	String login(Model model) {
 		model.addAllAttributes([login : true, auth : false])
 		"login"
 	}
 
+	// social redirect
 	@RequestMapping(value = ["/signin", "/signup"])
 	String socialRedirect() {
 		"redirect:/login"
 	}
 
+	// GET register redirect
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	String register(Model model) {
 		model.addAllAttributes([register : true, auth : false])
 		"login"
 	}
 
+	// POST register new user
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	String register(@Valid UserRegistrationValidator userRegistrationValidator, BindingResult bindingResult, RedirectAttributes attr) {
 		if (bindingResult.hasErrors()) {
@@ -94,4 +99,5 @@ class AuthController {
 		attr.addFlashAttribute "alertError", "Unable to register, ${user.username} may already be taken"
 		"redirect:/login"
 	}
+
 }

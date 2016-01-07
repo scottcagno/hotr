@@ -13,4 +13,5 @@ class Series {
 
 	String name, thumb
 	ArrayList<Long> videoIds
+
 }

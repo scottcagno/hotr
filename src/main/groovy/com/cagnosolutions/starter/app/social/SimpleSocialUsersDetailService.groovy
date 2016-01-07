@@ -21,4 +21,5 @@ class SimpleSocialUsersDetailService implements SocialUserDetailsService {
 		def userDetails = userDetailsService.loadUserByUsername userId
 		new SocialUser(userDetails.username, userDetails.password, userDetails.authorities)
 	}
+
 }

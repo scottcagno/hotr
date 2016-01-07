@@ -18,4 +18,5 @@ class Devotional {
 	@Column(length = 100000)
 	String body
 	String thumb
+
 }

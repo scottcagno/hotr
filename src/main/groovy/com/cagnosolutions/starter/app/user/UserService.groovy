@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.user
+
 import com.cagnosolutions.starter.app.util.email.EmailService
 import com.cagnosolutions.starter.app.validators.AdminAddUserValidator
 import com.cagnosolutions.starter.app.validators.AdminEditUserValidator
@@ -135,5 +136,6 @@ class UserService {
 		repo.saveAndFlush user
 		user.username
 	}
+
 }
 

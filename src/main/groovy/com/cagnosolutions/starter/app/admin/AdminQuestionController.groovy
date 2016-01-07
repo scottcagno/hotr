@@ -57,4 +57,5 @@ class AdminQuestionController {
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted question")
 		"redirect:/admin/video/${videoId}"
 	}
+
 }

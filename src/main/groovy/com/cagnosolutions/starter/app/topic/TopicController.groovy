@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.topic
+
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired

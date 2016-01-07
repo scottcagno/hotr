@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.recommend
+
 import com.cagnosolutions.starter.app.util.email.EmailService
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
@@ -49,4 +50,5 @@ class RecommendController {
 		attr.addFlashAttribute("alertSuccess", "Thanks for recommending us!")
 		"redirect:/home"
 	}
+
 }

@@ -42,4 +42,5 @@ class AdminController {
 		])
 		"admin/landing"
 	}
+
 }

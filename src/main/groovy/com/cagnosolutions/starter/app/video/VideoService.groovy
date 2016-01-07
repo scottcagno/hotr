@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.video
+
 import com.cagnosolutions.starter.app.validators.VideoValidator
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired

@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.topic
+
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -88,6 +89,7 @@ class TopicService {
 		}
 		videoIds
 	}
+
 }
 
 

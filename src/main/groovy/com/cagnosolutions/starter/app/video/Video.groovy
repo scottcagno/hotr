@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app.video
-import groovy.transform.CompileStatic
 
+import groovy.transform.CompileStatic
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -24,4 +24,5 @@ class Video {
 			return name.substring(0, 14) + "..."
 		name
 	}
+
 }

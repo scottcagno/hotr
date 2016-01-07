@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
-
 import org.springframework.transaction.annotation.Transactional
 
 @CompileStatic
@@ -32,4 +31,5 @@ interface UserRepository extends JpaRepository<User, Long> {
 	@Query(nativeQuery = true, value = "DELETE from hotr.UserConnection where hotr.UserConnection.userId=:username")
 	@Transactional
 	void deleteUserConnection(@Param("username") String username)
+
 }

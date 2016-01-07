@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.admin
+
 import com.cagnosolutions.starter.app.VimeoAPI.VimeoAPI
 import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.topic.TopicService
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
-
 import javax.validation.Valid
 
 @CompileStatic
@@ -135,4 +135,5 @@ class AdminVideoController {
 		attr.addFlashAttribute("alertSuccess", "Successfully sent thumbnail request. Please wait 5-10 minutes for a thumbnail response")
 		"redirect:/admin/video/${id}"
 	}
+
 }

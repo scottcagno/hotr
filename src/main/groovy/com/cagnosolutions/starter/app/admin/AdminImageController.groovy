@@ -20,6 +20,7 @@ class AdminImageController {
 	@Autowired
 	Configuration config
 
+	// POST upload images for devotional or series
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	String upload(@RequestParam(required = false) MultipartFile series,
 				  @RequestParam(required = false) MultipartFile devotional,
@@ -56,6 +57,7 @@ class AdminImageController {
 		"redirect:${redirect}"
 	}
 
+	// GET retrieve json list of  available images
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	String imageList() {
@@ -64,6 +66,7 @@ class AdminImageController {
 		FreeMarkerTemplateUtils.processTemplateIntoString(config.getTemplate("admin/devotional/images.ftl"), data)
 	}
 
+	// helper get images
 	List<String> getImages(String prefix) {
 		def names = []
 		File fd = new File("opt/images")

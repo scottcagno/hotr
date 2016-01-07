@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
-
 import javax.validation.Valid
 
 @CompileStatic
@@ -37,7 +36,7 @@ class UserController {
 	@Autowired
 	ValidationWrapper validationWrapper
 
-	// GET user
+	// GET view user
     @RequestMapping(method = RequestMethod.GET)
     String view(Model model) {
 		User user = userService.findOne userSession.id
@@ -54,7 +53,7 @@ class UserController {
         "user/user"
     }
 
-	// POST update
+	// POST update user
 	@RequestMapping(method = RequestMethod.POST)
 	String update(@Valid UserAccountValidator userAccountValidator, BindingResult bindingResult, RedirectAttributes attr) {
 		if (bindingResult.hasErrors()) {

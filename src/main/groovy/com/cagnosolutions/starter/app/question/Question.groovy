@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app.question
-import groovy.transform.CompileStatic
 
+import groovy.transform.CompileStatic
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
@@ -16,4 +16,5 @@ class Question {
 	String ask
 	String inputType
 	ArrayList<String> options
+
 }

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
-
 import javax.validation.Valid
 
 @CompileStatic
@@ -102,7 +101,6 @@ class AdminUserController {
 		"redirect:/admin/user"
 	}
 
-
 	// POST delete user
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, RedirectAttributes attr) {
@@ -110,4 +108,5 @@ class AdminUserController {
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted user")
 		"redirect:/admin/user"
 	}
+
 }

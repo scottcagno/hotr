@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.admin
+
 import com.cagnosolutions.starter.app.series.Series
 import com.cagnosolutions.starter.app.series.SeriesService
 import com.cagnosolutions.starter.app.video.VideoService
@@ -22,6 +23,7 @@ class AdminSeriesController {
 	@Autowired
 	VideoService videoService
 
+	// GET view all series
 	@RequestMapping(method = RequestMethod.GET)
 	String allSeries(Model model) {
 		model.addAllAttributes([allSeries: seriesService.findAll(),
@@ -29,6 +31,7 @@ class AdminSeriesController {
 		"admin/series/series"
 	}
 
+	// POST save series
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	String save(Series series, RedirectAttributes attr) {
 		if (seriesService.canUpdate(series.id, series.name)) {
@@ -40,6 +43,7 @@ class AdminSeriesController {
 		"redirect:/admin/series/${(series.id !=null) ? series.id : ""}"
 	}
 
+	// GET view one series
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String series(Model model, @PathVariable Long id) {
 		model.addAllAttributes([allSeries: seriesService.findAll(),
@@ -48,6 +52,7 @@ class AdminSeriesController {
 		"admin/series/series"
 	}
 
+	// POST delete one series
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
 	String deleteSeries(@PathVariable Long id, RedirectAttributes attr) {
 		seriesService.delete(id)
@@ -55,6 +60,7 @@ class AdminSeriesController {
 		"redirect:/admin/series"
 	}
 
+	// helper get images
 	List<String> getImages(String prefix) {
 		def names = []
 		File fd = new File("opt/images")
@@ -67,4 +73,5 @@ class AdminSeriesController {
 		}
 		return names
 	}
+
 }

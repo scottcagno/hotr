@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.admin
+
 import com.cagnosolutions.starter.app.devotional.Devotional
 import com.cagnosolutions.starter.app.devotional.DevotionalService
 import groovy.transform.CompileStatic
@@ -18,6 +19,7 @@ class AdminDevotionalController {
 	@Autowired
 	DevotionalService devotionalService
 
+	// GET view all devotionals
 	@RequestMapping(method = RequestMethod.GET)
 	String viewAllDevotionalEntries(Model model) {
 		model.addAttribute "devotionals", devotionalService.findAll()
@@ -25,6 +27,7 @@ class AdminDevotionalController {
 		"admin/devotional/devotional"
 	}
 
+	// POST save devotional
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	String saveDevotionalEntry(Devotional devotional, RedirectAttributes attr) {
 		def errors = new HashMap<String,String>()
@@ -41,7 +44,8 @@ class AdminDevotionalController {
 		attr.addFlashAttribute("alertSuccess", "Successfully saved devotional entry")
 		"redirect:/admin/devotional"
 	}
-	
+
+	// GET view one devotional
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String findDevotionalEntry(@PathVariable Long id, Model model) {
 		model.addAllAttributes([devotionals : devotionalService.findAll(), devotional : devotionalService.findOne(id)])
@@ -49,6 +53,7 @@ class AdminDevotionalController {
 		"admin/devotional/devotional"
 	}
 
+	// POST delete 1 devotional
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.POST)
 	String delete(@PathVariable Long id, RedirectAttributes attr) {
 		devotionalService.delete id
@@ -56,6 +61,7 @@ class AdminDevotionalController {
 		"redirect:/admin/devotional"
 	}
 
+	// helper to get images
 	List<String> getImages(String prefix) {
 		def names = []
 		File fd = new File("opt/images")

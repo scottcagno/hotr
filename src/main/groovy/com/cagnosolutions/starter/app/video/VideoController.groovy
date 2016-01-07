@@ -43,7 +43,7 @@ class VideoController {
 		"redirect:/video/all"
 	}
 
-	// GET all videos
+	// GET view all videos
     @RequestMapping(value = "/{filter}", method = RequestMethod.GET)
     String viewAll(@RequestParam(required = false) String topic, @PathVariable String filter, Model model) {
 		model.addAllAttributes([auth: (userSession.id != null), topics: topicService.popTopics()])
@@ -68,7 +68,7 @@ class VideoController {
         "video/videos"
     }
 
-	// GET video
+	// GET view one video
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     String view(@PathVariable Long id, Model model) {
         model.addAllAttributes([video: videoService.findOne(id), topics : topicService.findAllByVideo(id)])
@@ -89,7 +89,7 @@ class VideoController {
 		}
     }
 
-	// GET all series
+	// GET view all series
 	@RequestMapping(value = "/series", method = RequestMethod.GET)
 	String allSeries(Model model) {
 		model.addAllAttributes([allSeries: seriesService.findAll(), auth : (userSession.id != null),
@@ -97,6 +97,7 @@ class VideoController {
 		"video/series"
 	}
 
+	// GET view one series
 	@RequestMapping(value = "/series/{id}", method = RequestMethod.GET)
 	String series(@PathVariable Long id, Model model) {
 		def series = seriesService.findOne(id)
@@ -108,7 +109,7 @@ class VideoController {
 		"video/videos"
 	}
 
-	// GET all videos related to the one just watched
+	// GET view all videos related to the one just watched
 	@RequestMapping(value = "/relatedto/{id}", method = RequestMethod.GET)
 	String relatedTo(@PathVariable Long id, Model model) {
 		def topics = topicService.findAllByVideo id
@@ -141,4 +142,5 @@ class VideoController {
 								video : videoService.findOne(id), userSession : userSession])
 		"video/related"
 	}
+
 }

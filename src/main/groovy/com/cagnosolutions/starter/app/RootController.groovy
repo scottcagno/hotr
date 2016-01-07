@@ -1,7 +1,7 @@
 package com.cagnosolutions.starter.app
 import com.cagnosolutions.starter.app.admin.settings.SettingsService
 import com.cagnosolutions.starter.app.devotional.DevotionalService
-import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
+import com.cagnosolutions.starter.app.eventbriteAPI._EventbriteAPI
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.UserSession
 import com.cagnosolutions.starter.app.video.VideoService
@@ -21,7 +21,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET
 class RootController {
 
     @Autowired
-    EventbriteAPI eventbriteApiService
+    _EventbriteAPI eventbriteApiService
 
     @Autowired
     UserSession userSession

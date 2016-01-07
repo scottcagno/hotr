@@ -6,12 +6,12 @@ import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
-
 import javax.transaction.Transactional
 
 @CompileStatic
 @Repository
 interface QuestionRepository extends JpaRepository<Question, Long> {
+
 	@Query("SELECT q FROM Question q WHERE q.video_fk=:videoId")
 	List<Question> findAllByVideo(@Param("videoId") Long videoId);
 

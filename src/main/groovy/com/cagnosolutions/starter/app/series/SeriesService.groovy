@@ -40,5 +40,6 @@ class SeriesService {
 				target[key as String] = value
 		}
 	}
+
 }
 

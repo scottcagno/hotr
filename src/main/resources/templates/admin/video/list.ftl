@@ -11,7 +11,7 @@
 
 		<br/>
 		<!-- delete item alert -->
-		<div class="container">
+		<div class="container-fluid">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
 				<form role="form" method="post" class="form-inline" action="">
 					<div class="form-group">
@@ -32,7 +32,7 @@
 		<!-- delete item alert -->
 
 		<!-- content -->
-		<div class="container">
+		<div class="container-fluid">
 			<#include "../../stubs/alert.ftl"/>
 			<div id="videoTableDiv" class="panel panel-default">
 				<div class="panel-heading col-sm-12">

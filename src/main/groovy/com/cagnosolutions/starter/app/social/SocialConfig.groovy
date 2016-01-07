@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.social
+
 import com.cagnosolutions.starter.app.user.UserService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -37,4 +38,5 @@ class SocialConfig implements SocialConfigurer {
 		repo.connectionSignUp = new UserSocialSignUp(userService: userService)
 		repo
 	}
+
 }

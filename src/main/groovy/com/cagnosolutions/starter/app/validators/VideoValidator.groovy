@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.validators
+
 import groovy.transform.CompileStatic
 import org.hibernate.validator.constraints.NotBlank
 
@@ -22,4 +23,5 @@ class VideoValidator {
 	Date added
 	
 	Integer watched
+
 }

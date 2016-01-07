@@ -53,10 +53,12 @@ class PasswordResetController {
 		"redirect:/reset/password"
 	}
 
+	// helper gen password hash
 	String newPasswordHash() {
 		def pool = ['a'..'z','A'..'Z',0..9].flatten()
 		Random rand = new Random(System.currentTimeMillis())
 		def passChars = (0..10).collect { pool[rand.nextInt(pool.size())] }
 		passChars.join('')
 	}
+
 }

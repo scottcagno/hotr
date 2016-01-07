@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app
+
 import groovy.transform.CompileStatic
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.GrantedAuthority
@@ -8,7 +9,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache
 import org.springframework.security.web.savedrequest.RequestCache
 import org.springframework.security.web.savedrequest.SavedRequest
-
 import javax.servlet.ServletException
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -42,4 +42,5 @@ class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler
 		def redirect = (savedRequest == null) ? "/secure/user" : savedRequest.redirectUrl
 		redirectStrategy.sendRedirect request, response, "${successUrl}&redirect=${redirect}"
 	}
+
 }

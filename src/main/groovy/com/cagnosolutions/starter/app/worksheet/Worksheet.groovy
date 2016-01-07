@@ -1,7 +1,6 @@
 package com.cagnosolutions.starter.app.worksheet
 
 import groovy.transform.CompileStatic
-
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

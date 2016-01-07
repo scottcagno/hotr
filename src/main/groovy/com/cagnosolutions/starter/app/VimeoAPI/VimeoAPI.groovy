@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.VimeoAPI
+
 import com.cagnosolutions.starter.app.video.VideoService
 import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.transform.CompileStatic
@@ -100,5 +101,6 @@ class VimeoAPI {
 			}
 		}
 	}
+
 }
 

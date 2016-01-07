@@ -13,4 +13,5 @@ class UserSocialSignUp implements ConnectionSignUp {
 	String execute(Connection<?> connection) {
 		userService.createUserFromSocial connection.fetchUserProfile()
 	}
+
 }

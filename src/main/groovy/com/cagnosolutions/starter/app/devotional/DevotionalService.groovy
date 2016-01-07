@@ -39,4 +39,5 @@ class DevotionalService {
 	List<Devotional> findAllRecentlyAdded() {
 		repo.findAllRecent()
 	}
+
 }

@@ -16,12 +16,14 @@ class DevotionalController {
 	@Autowired
 	DevotionalService devotionalService
 
+	// GET view all devotionals
 	@RequestMapping(method = RequestMethod.GET)
 	String devotional(Model model) {
 		model.addAllAttributes([devotionals: devotionalService.findAll(), auth: false])
 		"devotional/devotional"
 	}
 
+	// GET view one devotional
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String devotionalPost(@PathVariable Long id, Model model) {
 		model.addAllAttributes([devotional: devotionalService.findOne(id), devotionals: devotionalService.findAll(), auth: false])
