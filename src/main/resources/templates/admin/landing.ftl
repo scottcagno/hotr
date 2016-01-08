@@ -12,7 +12,7 @@
 		<div class="container">
 			<#include "../stubs/alert.ftl"/>
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-offset-1 col-lg-4">
 					<div id="" class="panel panel-default">
 						<div class="panel-heading"><a href="/admin/user">Users</a></div>
 						<div class="panel-body">
@@ -21,7 +21,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4">
+				<div class="col-lg-offset-2 col-lg-4">
 					<div id="" class="panel panel-default">
 						<div class="panel-heading"><a href="/admin/video">Videos</a></div>
 						<div class="panel-body">
@@ -31,6 +31,7 @@
 						</div>
 					</div>
 				</div>
+				<#--
 				<div class="col-lg-4">
 					<div id="" class="panel panel-default">
 						<div class="panel-heading">Slide Setting</div>
@@ -49,6 +50,7 @@
 						</div>
 					</div>
 				</div>
+				-->
 			</div>
 		</div>
 		<!-- content -->
