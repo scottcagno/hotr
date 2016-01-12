@@ -1,0 +1,29 @@
+
+.bold-panel {
+	font-weight: 800;
+}
+
+.btn.btn-success.black-border {
+	background-color: #222;
+	border-color: black
+}
+
+.red-panel {
+	color: #e41e26;
+}
+
+.gray-panel {
+	color: #ccc;
+}
+
+.progress {
+	position: relative;
+}
+
+.progress span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	color: black;
+	font-size: 18px;
+}

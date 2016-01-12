@@ -1,0 +1,35 @@
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.open>.dropdown-toggle.btn-primary {
+    background-color: #444;
+    border-color: black;
+}
+
+a:hover,
+a:focus {
+    color: #444;
+}
+
+.wrapcaption {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.roll {
+	top: 0;
+}
+
+.boxcontainer {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 15px;
+}
+
+.panel-body.topic {
+	padding: 15px 0 0 0;
+}
+
+.panel-body.topic a.btn {
+	text-align: left;
+}

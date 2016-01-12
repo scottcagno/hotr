@@ -1,0 +1,27 @@
+
+strong, a {
+	color: #ff3300;
+}
+
+a:hover {
+	color: #666;
+}
+
+h2.text-white,
+div.text-white,
+p.text-white,
+span.text-white,
+h1.text-white,
+h4.text-white,
+body label.text-white,
+legend.text-white,
+h3.text-white {
+	color: white;
+}
+
+h2.text-black,
+div.text-black,
+p.text-black,
+label.text-black {
+	color: black;
+}

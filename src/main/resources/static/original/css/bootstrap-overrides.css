@@ -1,0 +1,81 @@
+.navbar {
+	border-bottom:3px solid #e41e26;
+}
+
+ul.nav.navbar-nav > li > a {
+	color:#ccc;
+}
+
+ul.nav > li > a {
+	color:#e41e26;
+}
+
+span.navbar-brand img {
+	height: 18px;
+}
+
+span.navbar-brand .bold {
+	font-weight: 800;
+}
+
+.red {
+	color:#e41e26;
+}
+
+.panel > .panel-heading > a {
+	/*color:#222;*/
+	color : #e41e26;
+	font-weight: 500;
+}
+
+.panel > .panel-heading > a:hover, a:active {
+    color:#999;
+}
+
+div.blog-header {
+	background-color: #999;
+	color: #ddd;
+}
+
+p.blog-description {
+	color: #fff;
+}
+
+p.blog-description > em {
+	color: #e41e26;
+}
+
+.btn-danger {
+	background-color: #e41e26;
+}
+
+.progress-bar-danger {
+	background-color : #e41e26;
+}
+
+.btn.btn-success {
+	background-color: #999;
+	border: 1px solid #ddd;
+}
+
+.btn.btn-success:hover {
+	background-color: #777;
+	border: 1px solid #fff;
+	color: #fff;
+}
+
+div.error-page {
+	text-align: center;
+	color: #e41e26;
+	font-weight:700;
+}
+
+.nav-tabs>li.active>a,
+ .nav-tabs>li.active>a:hover {
+	color: #e41e26;
+}
+
+button:hover {
+	background-color: #b3d0e9;
+	transition: all .5s;
+}
