@@ -1,4 +1,5 @@
 package com.cagnosolutions.starter.app.validators
+
 import groovy.transform.CompileStatic
 import org.hibernate.validator.constraints.Email
 import org.hibernate.validator.constraints.NotBlank
@@ -29,4 +30,5 @@ class AdminEditUserValidator {
 	String spouseName
 
 	String spouseEmail
+
 }

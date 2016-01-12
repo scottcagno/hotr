@@ -20,33 +20,5 @@ class IntensivesController {
 		model.addAllAttributes([auth: (userSession.id != null)])
 		"intensives/intensives"
 	}
-	/*
-	// GET view marriage intensives divorce
-	@RequestMapping(value = "/divorce", method = RequestMethod.GET)
-	String divorce(Model model) {
-		model.addAllAttributes([auth: (userSession.id != null)])
-		"intensives/divorce"
-	}
 
-	// GET view marriage intensives schedule
-	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
-	String schedule(Model model) {
-		model.addAllAttributes([auth: (userSession.id != null)])
-		"intensives/schedule"
-	}
-
-	// GET view marriage intensives testimonies
-	@RequestMapping(value = "/testimonies", method = RequestMethod.GET)
-	String testimonies(Model model) {
-		model.addAllAttributes([auth: (userSession.id != null)])
-		"intensives/testimonies"
-	}
-
-	// GET view marriage intensives reservation
-	@RequestMapping(value = "/reservation", method = RequestMethod.GET)
-	String reservation(Model model) {
-		model.addAllAttributes([auth: (userSession.id != null)])
-		"intensives/reservation"
-	}
-	*/
 }

@@ -16,8 +16,6 @@ class UserAccountValidator {
 	@NotBlank(message = "Required field")
 	String lastName
 
-	//@NotBlank(message = "Required field")
-	//@Email(message = "Must be a valid email address")
 	String username
 
 	String password

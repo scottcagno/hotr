@@ -38,6 +38,7 @@ class RootController {
 	@Autowired
 	DevotionalService devotionalService
 
+	// GET home
     @RequestMapping(value = ["/", "/home"], method = RequestMethod.GET)
     String index(Model model) {
 		def settings = adminSettingsService.findOne()
@@ -50,42 +51,49 @@ class RootController {
         "home"
     }
 
+	// GET terms
     @RequestMapping(value = "/terms", method = RequestMethod.GET)
     String terms(Model model) {
         model.addAttribute("auth", (userSession.id != null))
         "terms"
     }
 
+	// GET about
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
 	String about(Model model) {
 		model.addAttribute("auth", (userSession.id != null))
 		"about"
 	}
 
+	// GET contact
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	String contact(Model model) {
 		model.addAttribute("auth", (userSession.id != null))
 		"contact"
 	}
 
+	// GET events
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	String events(Model model) {
 		model.addAllAttributes([auth: (userSession.id != null), events : eventbriteApiService.findEvents()])
 		"events"
 	}
 
+	// GET donate
     @RequestMapping(value = "/donate", method = RequestMethod.GET)
     String donate(Model model) {
         model.addAttribute("auth", (userSession.id != null))
         "donate"
     }
 
+	// GET promo
     @RequestMapping(value = "/promo", method = RequestMethod.GET)
     String promo(Model model) {
         model.addAttribute("auth", (userSession.id != null))
         "promo"
     }
 
+	// GET
     @RequestMapping(value = "/challenge", method = RequestMethod.GET)
     String challenge(Model model) {
         model.addAttribute("auth", (userSession.id != null))
@@ -93,6 +101,7 @@ class RootController {
         "challenge"
     }
 
+	// GET uploaded images
 	@RequestMapping(value = "/image/{filename}.{type}", method = RequestMethod.GET, produces = "image/*")
 	@ResponseBody
 	FileSystemResource file(@PathVariable String filename, @PathVariable String type) {

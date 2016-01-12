@@ -58,7 +58,7 @@ class AuthController {
 		"login"
 	}
 
-	// social redirect
+	// GET social redirect
 	@RequestMapping(value = ["/signin", "/signup"])
 	String socialRedirect() {
 		"redirect:/login"

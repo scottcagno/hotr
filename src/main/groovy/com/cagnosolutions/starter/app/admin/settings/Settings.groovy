@@ -11,4 +11,5 @@ class Settings {
 
 	Long videoId
 	String prim, dang, succ, warn, info, defa
+
 }
