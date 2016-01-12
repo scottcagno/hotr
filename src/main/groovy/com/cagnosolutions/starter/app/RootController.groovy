@@ -93,7 +93,7 @@ class RootController {
         "promo"
     }
 
-	// GET
+	// GET challenge
     @RequestMapping(value = "/challenge", method = RequestMethod.GET)
     String challenge(Model model) {
         model.addAttribute("auth", (userSession.id != null))
