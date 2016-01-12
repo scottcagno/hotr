@@ -1,10 +1,1 @@
-// carousel	resizing
-$(window).resize(function() {
-	var winWidth = $(window).width();
-	var winHeight = $(window).height();
-	var carousel = $(".carousel-inner div.item img");
-	if (winWidth >= 900 && carousel.height() <= winHeight) {
-		console.log("RESIZING: " + carousel.height() + "px X " + carousel.width() + "px");
-		$(carousel).css("width", winWidth);
-	}
-});
+$(window).resize(function(){var i=$(window).width(),e=$(window).height(),h=$(".carousel-inner div.item img");i>=900&&h.height()<=e&&(console.log("RESIZING: "+h.height()+"px X "+h.width()+"px"),$(h).css("width",i))});

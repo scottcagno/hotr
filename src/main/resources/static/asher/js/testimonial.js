@@ -1,8 +1,1 @@
-// jQuery Quovolver v1.0 - http://sandbox.sebnitu.com/jquery/quovolver
-// By Sebastian Nitu - Copyright 2009 - All rights reserved
-(function($) { $.fn.quovolver = function(speed, delay) {if (!speed) speed = 10;if (!delay) delay = 10000;var quaSpd = (speed*4);if (quaSpd > (delay)) delay = quaSpd;var	quote = $(this),firstQuo = $(this).filter(':first'),lastQuo = $(this).filter(':last'),wrapElem = '<div id="quote_wrap"></div>';$(this).wrapAll(wrapElem);$(this).hide();$(firstQuo).show();$(this).parent().css({height: $(firstQuo).height()});		setInterval(function(){if($(lastQuo).is(':visible')) {var nextElem = $(firstQuo);var wrapHeight = $(nextElem).height();} else {var nextElem = $(quote).filter(':visible').next();var wrapHeight = $(nextElem).height();}$(quote).filter(':visible').fadeOut(speed);setTimeout(function() {$(quote).parent().animate({height: wrapHeight}, speed);}, speed);if($(lastQuo).is(':visible')) {setTimeout(function() {$(firstQuo).fadeIn(speed*2);}, speed*2);} else {setTimeout(function() {$(nextElem).fadeIn(speed);}, speed*2);}}, delay); }; })(jQuery);
-
-//////----TEXT ROTATOR---////////
-jQuery(document).ready(function ($) {
-$('.textItem').quovolver();
-});
+!function(i){i.fn.quovolver=function(t,e){t||(t=10),e||(e=1e4);var n=4*t;n>e&&(e=n);var s=i(this),r=i(this).filter(":first"),h=i(this).filter(":last"),f='<div id="quote_wrap"></div>';i(this).wrapAll(f),i(this).hide(),i(r).show(),i(this).parent().css({height:i(r).height()}),setInterval(function(){if(i(h).is(":visible"))var e=i(r),n=i(e).height();else var e=i(s).filter(":visible").next(),n=i(e).height();i(s).filter(":visible").fadeOut(t),setTimeout(function(){i(s).parent().animate({height:n},t)},t),i(h).is(":visible")?setTimeout(function(){i(r).fadeIn(2*t)},2*t):setTimeout(function(){i(e).fadeIn(t)},2*t)},e)}}(jQuery),jQuery(document).ready(function(i){i(".textItem").quovolver()});

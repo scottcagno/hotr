@@ -1,16 +1,1 @@
-// place at beginning of body
-window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '384205581749475',
-		xfbml      : true,
-		version    : 'v2.2'
-	});
-};
-
-(function(d, s, id){
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) {return;}
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+window.fbAsyncInit=function(){FB.init({appId:"384205581749475",xfbml:!0,version:"v2.2"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");window.fbAsyncInit=function(){FB.init({appId:"384205581749475",xfbml:!0,version:"v2.2"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");
