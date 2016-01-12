@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
 		<#include "../stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/shadows.css"/>
         <title>Intensives</title>
+
 	</head>
 	<body id="top">
 
+		<!-- navbar -->
 		<#include "../stubs/navbar.ftl"/>
+		<!-- navbar -->
 
-		<!-- begin header -->
+		<!-- header -->
 		<section class="colorarea">
 			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 		</section>
@@ -20,11 +24,15 @@
 				</div>
 			</div>
 		</div>
-		<!-- end header -->
+		<!-- header -->
 
 		<div class="container">
+
 			<#include "../stubs/alert.ftl"/>
+
 			<div class="col-lg-offset-1 col-lg-10">
+
+				<!-- promo video -->
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="well well-sm text-center">
@@ -34,6 +42,9 @@
 						</div>
 					</div>
 				</div>
+				<!-- promo video -->
+
+				<!-- about -->
 				<div class="row">
 					<div class="col-lg-12">
 						<strong><h4>We’re glad you’re here!</h4></strong>
@@ -88,7 +99,9 @@
 						<br>
 					</div>
 				</div>
-				<#-- ###### Schedule ###### -->
+				<!-- about -->
+
+				<!-- schedule -->
 				<div class="row">
 					<div class="col-lg-12">
 						<strong><h4>
@@ -194,8 +207,9 @@
 						<br>
 					</div>
 				</div>
+				<!-- schedule -->
 
-				<#-- ###### Testimonies ###### -->
+				<!-- testimonies -->
 				<div class="row">
 					<div class="col-lg-12">
 						<strong><h4>Hear what some of our couples are saying about our marriage events:</h4></strong>
@@ -226,8 +240,9 @@
 						<br>
 					</div>
 				</div>
+				<!-- testimonies -->
 
-				<#-- ###### Reservation ###### -->
+				<!-- reservations -->
 				<div class="row">
 					<div class="col-lg-12">
 						<h3>
@@ -242,6 +257,7 @@
 						<br>
 					</div>
 				</div>
+				<!-- reservations -->
 
 			</div>
 		</div>

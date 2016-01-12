@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
+
 		<#include "../stubs/header.ftl"/>
 		<script src="/static/js/facebook_conf.js"></script>
 		<meta itemprop="name" content="Fan the Flame Dates">
 		<meta itemprop="description" content="Fan the Flame Dates Description">
-		<style>
-			iframe[src^="https://apis.google.com/u/0/_/widget/oauthflow/toast"] {display: none;}
-		</style>
+		<style>iframe[src^="https://apis.google.com/u/0/_/widget/oauthflow/toast"] {display: none;}</style>
 		<title>Watch Video - Fan The Flame Dates</title>
+
 	</head>
 	<body class="boxedlayout">
 		<div class="boxedcontent">
+
+			<!-- navbar -->
 			<#include "../stubs/navbar.ftl"/>
+			<!-- navbar -->
 
 			<#include "../stubs/alert.ftl"/>
 
@@ -21,6 +24,7 @@
 			<#assign shareLink = '${glob.host}/video/id/${id}'/>
 			<#assign thumb = video.thumb/>
 
+			<!-- header -->
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
@@ -34,13 +38,17 @@
 					</div>
 				</div>
 			</div>
+			<!-- header -->
 
 			<div class="container">
-
 				<div class="shortcode row">
+
+					<!-- worksheet -->
 					<div class="col-md-6">
 						<div class="panel1">
-						<#assign i = 0 />
+
+							<!-- video questions -->
+							<#assign i = 0 />
 							<form id="worksheet">
 								<#list questions as question>
 									<#switch question.inputType>
@@ -49,7 +57,7 @@
 											<#list question.options as option>
 												<div class="radio">
 													<label>
-														<input id="question_${i}" type="radio" name="${question.ask}" id="optionsRadios1" value="${option}">
+														<input id="question_${i}" type="radio" name="${question.ask}" value="${option}">
 													${option}
 													</label>
 												</div>
@@ -82,7 +90,9 @@
 								</#list>
 								<br>
 							</form>
-							</form>
+							<!-- video questions -->
+
+							<!-- save/email -->
 							<form id="submitForm" action="/secure/worksheet" role="form" method="post">
 								<div class="checkbox">
 									<label>
@@ -105,15 +115,24 @@
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<input type="hidden" name="answers" id="answers">
 							</form>
+							<!-- save/email -->
+
 							<button id="submitWorksheet" class="btn btn-md btn-primary btn-block">Submit</button>
 						</div>
 					</div>
+					<!-- worksheet -->
+
 					<div class="col-md-6">
+
+						<!-- video player -->
 						<div class="row">
 							<div id="videoDiv" class="embed-responsive embed-responsive-16by9">
 								<iframe id="player" src="//player.vimeo.com/video/${video.vimeoId}?api=1&player_id=player&portrait=0&title=0&byline=0&badge=0&color=eeeeee&&amp;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
 						</div>
+						<!-- video player -->
+
+						<!-- social media -->
 						<div class="row">
 							<a href="#" onclick="fbShare()"><i class="fa fa-facebook-square fa-2x"></i></a>
 							<a href="#">
@@ -135,6 +154,9 @@
 								<i class="fa fa-twitter-square fa-2x"></i>
 							</a>
 						</div>
+						<!-- social media -->
+
+						<!-- details -->
 						<div class="row">
 							<div class="col-lg-6">
 								<h1 class="text-white">${video.name}</h1>
@@ -154,20 +176,29 @@
 								</#list>
 							</p>
 						</div>
+						<!-- details -->
+
 					</div>
 				</div>
 			</div>
 
+			<!-- html/javascript regex -->
 			<div id="regEx" hidden>(<(?:"[^"]*"['"]*|'[^']*\'['"]*|[^'">])+>)|((function)|\(|\)|\;|([a-z]\.[a-z])|\{|\})</div>
+			<!-- html/javascript regex -->
 
+			<!-- watched form -->
 			<form id="watched" hidden>
 				<input type="text" name="topicIds" value="${topics?join(',')}"/>
 				<input type="text" name="videoId" value="${video.id}"/>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>
+			<!-- watched form -->
 
+			<!-- footer -->
 			<#include "../stubs/footer.ftl"/>
+			<!-- footer -->
 
+			<!-- javascript -->
 			<script>
 				var thumb = '${thumb}';
 				var caption = '${caption}';
@@ -182,7 +213,8 @@
 			<script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
 			<script src="/static/js/video_q.js"></script>
 			<script src="/static/js/video.js"></script>
+			<!-- javascript -->
 
-		</div><!-- end boxedcontent -->
+		</div>
 	</body>
 </html>

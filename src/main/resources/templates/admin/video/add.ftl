@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<#include "../../stubs/header.ftl"/>
 		<title>Add Video</title>
+
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
-		<!-- content -->
+
 		<div class="container">
+
 			<#include "../../stubs/alert.ftl"/>
+
 			<div class="row">
+
+				<!-- add -->
 				<div class="col-sm-offset-4 col-sm-4">
 					<div class="panel panel-default">
 						<div class="panel-heading">Add Video</div>
@@ -35,20 +43,6 @@
 									<textarea id="topics" name="topics" class="form-control" rows="5" placeholder="Topics"
 											  style="resize:none;">${(topics)!}</textarea>
 								</div>
-								<#--<label>Series</label>
-								<div class="form-group row">
-									<div id="seriesSelectDiv" class="col-sm-12">
-										<select id="seriesSelect" name="seriesSelect" class="form-control">
-											<option value="">None</option>
-											<option value="add">Add Series</option>
-											<#if allSeries?has_content>
-												<#list allSeries as series>
-													<option value="${series}">${series}</option>
-												</#list>
-											</#if>
-										</select>
-									</div>
-								</div>-->
 								<div id="seriesInput" class="form-group" hidden="hidden">
 									<input class="form-control" id="series" name="series" type="text" placeholder="Add Series"/>
 								</div>
@@ -59,11 +53,15 @@
 						</div>
 					</div>
 				</div>
+				<!-- add -->
+
 			</div>
 		</div>
 
+		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>
-
 		<script src="/static/js/admin/video.js"></script>
+		<!-- javascript -->
+
 	</body>
 </html>

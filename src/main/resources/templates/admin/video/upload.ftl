@@ -4,18 +4,24 @@
 
 		<#include "../../stubs/header.ftl"/>
 		<title>Upload Video</title>
-
 		<style>input.uploader{position:absolute;left:-9999px;}label.uploader{cursor:pointer;}</style>
+
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
-		<!-- content -->
+
 		<div class="container">
+
 			<#include "../../stubs/alert.ftl"/>
+
 			<div class="row">
+
+				<!-- upload -->
 				<div class="col-sm-offset-4 col-sm-4">
 					<div id="uploadVideoPanel" class="panel panel-default">
 						<div class="panel-heading">Upload Video</div>
@@ -31,6 +37,8 @@
 						</div>
 					</div>
 				</div>
+				<!-- upload -->
+
 			</div>
 		</div>
 
@@ -50,14 +58,10 @@
 		</div>
 		<!-- wait modal -->
 
-		<!-- scripts -->
-		<div id="scripts">
-
-			<#include "../../stubs/scripts.ftl"/>
-
-			<script src="/static/js/admin/upload.js"></script>
-		</div>
+		<!-- javascript -->
+		<#include "../../stubs/scripts.ftl"/>
+		<script src="/static/js/admin/upload.js"></script>
+		<!-- javascript -->
 
 	</body>
-
 </html>

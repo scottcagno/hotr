@@ -8,11 +8,16 @@
 	</head>
 	<body>
 
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
 		<div class="container">
+
 			<#include "../../stubs/alert.ftl"/>
+
+			<!-- add -->
 			<div class="col-sm-6 col-sm-offset-3" >
 				<div class="panel panel-default">
 					<div class="panel-heading">Add Question</div>
@@ -48,8 +53,10 @@
 					</div>
 				</div>
 			</div>
+			<!-- add -->
 		</div>
 
+		<!-- duplicates -->
 		<div id="nextOptionInput" hidden="true">
 			<div class="input-group">
 				<input name="option" type="text" placeHolder="Add Option" class="form-control">
@@ -69,8 +76,9 @@
 				<a class="btn btn-success" id="addOptionButton">Add Option</a>
 			</div>
 		</div>
+		<!-- duplicates -->
 
-		<!-- scripts -->
+		<!-- javascript -->
 		<div id="scripts">
 
 			<#include "../../stubs/scripts.ftl"/>
@@ -81,5 +89,7 @@
 			</script>
 			<script src="/static/js/admin/question.js"></script>
 		</div>
+		<!-- javascript -->
+
 	</body>
 </html>

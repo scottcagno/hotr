@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-		<!-- HEADER IMPORT -->
+
 		<#include "../stubs/header.ftl"/>
 		<title>All Videos - Fan The Flame Dates</title>
+
 	</head>
 
 	<body class="boxedlayout">
 		<div class="boxedcontent">
 
+			<!-- navbar -->
 			<#include "../stubs/navbar.ftl"/>
+			<!-- navbar -->
 
-
+			<!-- header -->
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
-
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 negmtop">
@@ -26,11 +28,16 @@
 					</div>
 				</div>
 			</div>
+			<!-- header -->
 
 			<div class="container-fluid">
+
 				<#include "../stubs/alert.ftl"/>
+
 				<div class="row">
 					<div class="col-lg-9 col-md-9 col-sm-12">
+
+						<!-- categories -->
 						<ul class="nav nav-tabs hidden-xs hidden-sm" role="tablist">
 							<li class="${(filter == 'all' && !RequestParameters.topic??)?string('active', '')}">
 								<a href="/video/all">All Videos</a>
@@ -53,8 +60,10 @@
 								<a href="/video/series" class="list-group-item ${(filter == 'series')?string('active', '')}">Series</a>
 							</div>
 						</div>
-
 						<br/>
+						<!-- categories -->
+
+						<!-- videos -->
 						<#assign vidInRow = 0/>
 						<div class="row">
 							<#list videos as video>
@@ -77,7 +86,11 @@
 								<#assign vidInRow = vidInRow + 1/>
 							</#list>
 						</div>
+						<!-- videos -->
+
 					</div>
+
+					<!-- hot topics -->
 					<div class="col-md-3 col-lg-3 col-sm-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -92,13 +105,20 @@
 							</div>
 						</div>
 					</div>
+					<!-- hot topics -->
+
 				</div>
 			</div>
 
+			<!-- footer -->
 			<#include "../stubs/footer.ftl"/>
+			<!-- footer -->
 
+			<!-- javascript -->
 			<#include "../stubs/scripts.ftl"/>
+
 			<script type='text/javascript' src='/static/asher/js/isotope.js'></script>
+			<!-- javascript -->
 
 		</div>
 	</body>

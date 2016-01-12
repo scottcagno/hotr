@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Donate</title>
+
 		<#include "../stubs/header.ftl"/>
+		<title>Worksheet</title>
+
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "../stubs/navbar.ftl"/>
+		<!-- navbar -->
 
+		<!-- header -->
 		<section class="colorarea">
 			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 		</section>
@@ -21,6 +26,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- header -->
 
 		<!-- content -->
 		<div class="container">

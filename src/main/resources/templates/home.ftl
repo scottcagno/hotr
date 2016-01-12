@@ -1,80 +1,60 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-		<!-- HEADER IMPORT -->
+
 		<#include "stubs/header.ftl"/>
 		<title>Home - Fan The Flame Dates</title>
+
 	</head>
 
 	<body class="boxedlayout">
 		<div class="boxedcontent">
 
-			<!-- BEGIN NAVBAR -->
+			<!-- navbar -->
 			<#include "stubs/navbar.ftl"/>
-			<!-- END NAVBAR -->
+			<!-- navbar -->
 
+			<!-- carousel -->
 			<section class="homeslider fullwidth flexslider" id="home-slider">
 				<ul class="slides">
 					<li class="text-center">
 						<a href="/challenge"><img src="/static/img/banner/1-updated.jpg" alt=""></a>
-						<#--<a href="#"><img src="/static/img/banner/hotr-supplied-images/Couple_feet_Resize.png" alt=""></a>-->
-						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/asherslider2.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
 								<h1 class="animated fadeInDown"><span class="uppercase">Welcome To Fan the Flame Dates</span></h1>
 								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
 									Rekindle <i>Romance</i>
 								</p>
-								<#--<p class="animated fadeInLeftBig">
-									<i>The text is separate from the images</i>
-								</p>-->
-								<#--<h1 class="animated fadeInDown"><span class="uppercase">Powerful & Beautiful <br/> Bootstrap Theme</span></h1>
-								<br/><a href="#" class="buttonsimple animated fadeInLeftBig"><i class="fa fa-download"></i> Download Now</a>
-								<a href="#" class="buttonsimple animated fadeInRightBig"><i class="fa fa-link"></i> Start Tour</a>-->
 							</div>
 						</div>
 					</li>
 					<li class="text-center">
 						<a href="#"><img src="/static/img/banner/2-updated.jpg" alt=""></a>
-						<#--<a href="#"><img src="/static/img/banner/hotr-supplied-images/hand_holding_resize.png" alt=""></a>-->
-						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/sunny-morning-49393.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
 								<h1 class="animated fadeInDown"><span class="uppercase">Connect With Your Spouse</span></h1>
 								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
 									Through Meaningful Conversations
 								</p>
-								<#--<p class="animated fadeInLeftBig">
-									<i>The text is separate from the images</i>
-								</p>-->
 							</div>
 						</div>
 					</li>
 					<li class="text-center">
 						<a href="/challenge"><img src="/static/img/banner/3-updated.jpg" alt="Fan The Flame & Take The One Year Challenge"></a>
-						<#--<a href="#"><img src="/static/img/banner/hotr-supplied-images/Couple_sunset_Resize.png" alt=""></a>-->
-						<#--<a href="#"><img src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/ashers1.jpg" alt=""/></a>-->
 						<div class="flex-caption transparent light-font center" style="top:17%;">
 							<div>
 								<h1 class="animated fadeInDown"><span class="uppercase">Fan The Flame</span></h1>
 								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
 									Take the <strong>ONE YEAR</strong> <i>Challenge</i>
 								</p>
-								<#--<h1 class="animated fadeInDown"><span class="uppercase">Need Help building your website?</span></h1>
-								<p class="animated fadeInLeftBig">
-									Bootstrap users may install and switch between themes.
-								</p>
-								<p class="animated fadeInRightBig">
-									They allow users to change the look of a Bootstrap website.
-								</p>
-								<br/><a href="#" class="buttonsimple animated fadeInUpBig"><i class="fa fa-download"></i> Purchase Asher</a>-->
 							</div>
 						</div>
 					</li>
 				</ul>
 			</section>
-			<!-- end homeslider -->
+			<!-- carousel -->
 
+			<!-- ready -->
 			<section class="introblock whites">
 				<div class="container">
 					<div class="row">
@@ -88,8 +68,9 @@
 					</div>
 				</div>
 			</section>
-			<!-- end introblock -->
+			<!-- ready -->
 
+			<!-- spinners -->
 			<section class="service-box whites">
 				<div class="container">
 					<div class="row">
@@ -140,8 +121,9 @@
 					</div>
 				</div>
 			</section>
-			<!-- end servicesbox -->
+			<!-- spinners -->
 
+			<!-- recent videos -->
 			<section class="homerecentportfolio grays">
 				<div class="container">
 					<div class="row">
@@ -167,91 +149,6 @@
 												</div>
 											</li>
 										</#list>
-
-										<#--<li>
-											<div class="boxcontainer">
-												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mvyxfkaRb41st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mvyxfkaRb41st5lhmo1_1280"/></a>
-												<div class="roll">
-													<div class="wrapcaption">
-														<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a><a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mvyxfkaRb41st5lhmo1_1280.jpg" title="Asher Theme"><i class="fa fa-search-plus captionicons"></i></a>
-													</div>
-												</div>
-												<h1><a href="portfoliosingle">Asher Theme</a></h1>
-												<p>
-													multipurpose theme
-												</p>
-											</div>
-										</li>
-										<li>
-											<div class="boxcontainer">
-												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mvyxgqpNHE1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mvyxgqpNHE1st5lhmo1_1280"/></a>
-												<div class="roll">
-													<div class="wrapcaption">
-														<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a><a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mvyxgqpNHE1st5lhmo1_1280.jpg" title="WowThemes"><i class="fa fa-search-plus captionicons"></i></a>
-													</div>
-												</div>
-												<h1><a href="portfoliosingle">WowThemes</a></h1>
-												<p>
-													biscaya author
-												</p>
-											</div>
-										</li>
-										<li>
-											<div class="boxcontainer">
-												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/post1-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="post1"/></a>
-												<div class="roll">
-													<div class="wrapcaption">
-														<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a><a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/post1.jpg" title="Salique"><i class="fa fa-search-plus captionicons"></i></a>
-													</div>
-												</div>
-												<h1><a href="portfoliosingle">Salique</a></h1>
-												<p>
-													multipurpose template
-												</p>
-											</div>
-										</li>
-										<li>
-											<div class="boxcontainer">
-												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_mzzr7n7idZ1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mzzr7n7idZ1st5lhmo1_1280"/></a>
-												<div class="roll">
-													<div class="wrapcaption">
-														<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a><a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_mzzr7n7idZ1st5lhmo1_1280.jpg" title="Serenity"><i class="fa fa-search-plus captionicons"></i></a>
-													</div>
-												</div>
-												<h1><a href="portfoliosingle">Serenity</a></h1>
-												<p>
-													wordpress portfolio
-												</p>
-											</div>
-										</li>
-										<li>
-											<div class="boxcontainer">
-												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_mzzqwktTbR1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mzzqwktTbR1st5lhmo1_1280"/></a>
-												<div class="roll">
-													<div class="wrapcaption">
-														<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a><a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_mzzqwktTbR1st5lhmo1_1280.jpg" title="BizLeaders"><i class="fa fa-search-plus captionicons"></i></a>
-													</div>
-												</div>
-												<h1><a href="portfoliosingle">BizLeaders</a></h1>
-												<p>
-													business html
-												</p>
-											</div>
-										</li>
-										<li>
-											<div class="boxcontainer">
-												<a class="imgOpa imgproject" href="portfoliosingle"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_myp9dgyhJ71st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_myp9dgyhJ71st5lhmo1_1280"/></a>
-												<div class="roll">
-													<div class="wrapcaption">
-														<a href="portfoliosingle"><i class="fa fa-link captionicons"></i></a><a data-gal="prettyPhoto[gallery1]" href="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_myp9dgyhJ71st5lhmo1_1280.jpg" title="Studio"><i class="fa fa-search-plus captionicons"></i></a>
-													</div>
-												</div>
-												<h1><a href="portfoliosingle">Vesta</a></h1>
-												<p>
-													wordpress theme
-												</p>
-											</div>
-										</li>-->
 									</ul>
 								</div>
 							</div>
@@ -259,85 +156,9 @@
 					</div>
 				</div>
 			</section>
-			<!-- end homerecentportfolio -->
+			<!-- recent videos -->
 
-			<#--<section class="infoarea whites">-->
-				<#--<div class="container">-->
-					<#--<div class="row text-center">-->
-						<#--<h1 class="maintitle">Need Support with Asher?</h1>-->
-					<#--</div>-->
-					<#--<div class="row">-->
-						<#--<div class="col-md-4">-->
-							<#--<i class="fa fa-microphone infoareaicon"></i>-->
-							<#--<div class="infoareawrap">-->
-								<#--<h1 class="text-center subtitle">General Questions</h1>-->
-								<#--<p>-->
-									<#--Want to buy a theme but not sure if it's got all the features you need? Trouble completing the payment? Or just want to say hi? Send us your message and we will answer as soon as possible!-->
-								<#--</p>-->
-								<#--<p class='text-center'>-->
-									<#--<a href='#'>- Get in Touch -</a>-->
-								<#--</p>-->
-							<#--</div>-->
-						<#--</div>-->
-						<#--<div class="col-md-4">-->
-							<#--<i class="fa fa-comments infoareaicon"></i>-->
-							<#--<div class="infoareawrap">-->
-								<#--<h1 class="text-center subtitle">Theme Support</h1>-->
-								<#--<p>-->
-									<#--Theme support issues prevent the theme from working as advertised in the demo. This is a free and guaranteed service offered through our support forum which is found in each theme.-->
-								<#--</p>-->
-								<#--<p class='text-center'>-->
-									<#--<a href='#'>- Select Theme -</a>-->
-								<#--</p>-->
-							<#--</div>-->
-						<#--</div>-->
-						<#--<div class="col-md-4">-->
-							<#--<i class="fa fa-bullhorn infoareaicon"></i>-->
-							<#--<div class="infoareawrap">-->
-								<#--<h1 class="text-center subtitle">Hire Us</h1>-->
-								<#--<p>-->
-									<#--If you wish to change an element to look or function differently than shown in the demo, we will be glad to assist you. This is a paid service due to theme support requests solved with priority.-->
-								<#--</p>-->
-								<#--<p class='text-center'>-->
-									<#--<a href='#'>- Get in Touch -</a>-->
-								<#--</p>-->
-							<#--</div>-->
-						<#--</div>-->
-					<#--</div>-->
-				<#--</div>-->
-			<#--</section>-->
-			<!-- end infoarea -->
-
-			<#--<section class="videoarea bgsizecover" style="background-image: url(http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mzzqxabKjH1st5lhmo1_1280.jpg); background-attachment: fixed; background-position: relative;">-->
-				<#--<div class="transp">-->
-					<#--<div class="container">-->
-						<#--<div class="row">-->
-							<#--<div class="col-md-6">-->
-								<#--<iframe src='http://player.vimeo.com/video/40569948' style="width:100%; height:312px; border:0px;">-->
-								<#--</iframe>-->
-							<#--</div>-->
-							<#--<div class="col-md-6 text-center">-->
-								<#--<h1 class="maintitle">Awesome Videos</h1>-->
-								<#--<p>-->
-									<#--Use your imagination, add shortcodes, create something unique!-->
-								<#--</p>-->
-								<#--<ul class='unstyle doublearrowlist'>-->
-									<#--<li>Responsive Design</li>-->
-									<#--<li>Multiple Layouts Width</li>-->
-									<#--<li>Unlimited Skin Colors</li>-->
-									<#--<li>Easy to Customize</li>-->
-									<#--<li>Over 40 Shortcodes</li>-->
-								<#--</ul>-->
-								<#--<p>-->
-									<#--<a href='#' class='sbutton round noshadow medium blue'><i class='fa fa-shopping-cart'></i> Download Asher</a>-->
-								<#--</p>-->
-							<#--</div>-->
-						<#--</div>-->
-					<#--</div>-->
-				<#--</div>-->
-			<#--</section>-->
-			<!-- end videoarea -->
-
+			<!-- devotional -->
 			<section class="whites testimonial fullwidth flexslider" id="testimonials-slider">
 				<div class="container">
 					<div class="row">
@@ -358,35 +179,14 @@
 										</div>
 									</div>
 								</li>
-								<#--<li>-->
-									<#--<div class="slide-text">-->
-										<#--<div>-->
-											<#--<h2 class="animated fadeInDown"><span class="uppercase">Great Themes</span></h2>-->
-											<#--<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar4.png" alt="">-->
-											<#--<p>-->
-												<#--Great themes with equally amazing customer service to go with it. Very prompt responses and very knowledgable staff that truly cares about their customer. I stand 100% behind this website and will make sure to recommend it to my friends.-->
-											<#--</p>-->
-										<#--</div>-->
-									<#--</div>-->
-								<#--</li>-->
-								<#--<li>-->
-									<#--<div class="slide-text">-->
-										<#--<div>-->
-											<#--<h2 class="animated fadeInDown"><span class="uppercase">Content Slider</span></h2>-->
-											<#--<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar5.png" alt="">-->
-											<#--<p>-->
-												<#--This is a great theme for Bootstrap. Great features, catchy look. Also, I have on a few occasions needed to contact the support team, and they have been extremely helpful. I'm new to navigating these things so this has been invaluable!-->
-											<#--</p>-->
-										<#--</div>-->
-									<#--</div>-->
-								<#--</li>-->
 							</ul>
 						</div>
 					</div>
 				</div>
 			</section>
-			<!-- end testimonial -->
+			<!-- devotional -->
 
+			<!-- recent devotional -->
 			<section class="grays homerecentposts">
 				<div class="container">
 					<div class="row text-center">
@@ -411,87 +211,23 @@
 									</div>
 								</li>
 							</#list>
-							<#--<li class="col-md-3 unstyle"><article><a class="imgOpa" href="#"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2013/08/tumblr_mzzqwktTbR1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mzzqwktTbR1st5lhmo1_1280"/></a>
-								<div class="insidetext">
-									<h2><a href="blogsingle">WordPress Tuts</a></h2>
-									<div class="meta">
-										<i class="fa fa-clock-o"></i><span class="day">02</span> / <span class="month">02</span> / <span class="year">2014</span>
-									</div>
-									<p>
-										WordPress is web software you can use to create a beautiful website or blog. We like to say that WordPress is both free <a href="#"><span class="mute">[...]</span></a>
-									</p>
-								</div>
-							</article></li>
-							<li class="col-md-3 unstyle"><article><a class="imgOpa" href="#/"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/post1-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="post1"/></a>
-								<div class="insidetext">
-									<h2><a href="blogsingle">Language Files</a></h2>
-									<div class="meta">
-										<i class="fa fa-clock-o"></i><span class="day">02</span> / <span class="month">02</span> / <span class="year">2014</span>
-									</div>
-									<p>
-										A WordPress Theme is a collection of files that work together to produce a graphical interface with an underlying unifying <a href="#"><span class="mute">[...]</span></a>
-									</p>
-								</div>
-							</article></li>
-							<li class="col-md-3 unstyle"><article><a class="imgOpa" href="#"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_mzzqxabKjH1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_mzzqxabKjH1st5lhmo1_1280"/></a>
-								<div class="insidetext">
-									<h2><a href="blogsingle">Operating Systems</a></h2>
-									<div class="meta">
-										<i class="fa fa-clock-o"></i><span class="day">01</span> / <span class="month">02</span> / <span class="year">2014</span>
-									</div>
-									<p>
-										Themes are often used to change the look and feel of a wide range of things at once, which makes them much <a href="#"><span class="mute">[...]</span></a>
-									</p>
-								</div>
-							</article></li>
-							<li class="col-md-3 unstyle"><article><a class="imgOpa" href="#"><img width="600" height="350" src="http://www.wowthemes.net/demo-asher/wp-content/uploads/sites/9/2014/02/tumblr_muuig0890N1st5lhmo1_1280-600x350.jpg" class="attachment-recentprojects-thumb wp-post-image" alt="tumblr_muuig0890N1st5lhmo1_1280"/></a>
-								<div class="insidetext">
-									<h2><a href="blogsingle">Web Concerns</a></h2>
-									<div class="meta">
-										<i class="fa fa-clock-o"></i><span class="day">01</span> / <span class="month">02</span> / <span class="year">2014</span>
-									</div>
-									<p>
-										A common goal among experienced web developers is to develop and deploy applications today, tomorrow and always <a href="#"><span class="mute">[...]</span></a>
-									</p>
-								</div>
-							</article></li>-->
 						</ul>
-					</div>
-					<div class="clearfix">
 					</div>
 				</div>
 			</section>
-			<!-- end homerecentposts -->
+			<!-- recent devotional -->
 
-			<#--<section class="whites calltoactionarea">-->
-				<#--<div class="container">-->
-					<#--<div class="row">-->
-						<#--<div class="col-md-12">-->
-							<#--<div class="text-center">-->
-								<#--<h1>-->
-									<#--Praesent <span class='fontpacifico colortext'>WowThemes</span> sapien, a vulputate enim auctor vitae </h1>-->
-								<#--<p>-->
-									<#--Duis non lorem porta, adipiscing eros sit amet, tempor sem. Donec nunc arcu, semper a tempus et, consequat-->
-								<#--</p>-->
-								<#--<a href='#' class='buttonblack'><i class='fa fa-shopping-cart'></i> get asher</a>-->
-								<#--<a href='#' class='buttoncolor'><i class='fa fa-link'></i> learn more</a>-->
-							<#--</div>-->
-						<#--</div>-->
-					<#--</div>-->
-				<#--</div>-->
-			<#--</section>-->
-			<!-- end calltoactionarea -->
-
-			<!-- BEGIN FOOTER -->
+			<!-- footer -->
 			<#include "stubs/footer.ftl"/>
-			<!-- END FOOTER -->
+			<!-- footer -->
 
-			<!-- BEGIN SCRIPTS -->
+			<!-- javascript -->
 			<#include "stubs/scripts.ftl"/>
-			<!-- END SCRIPTS -->
 			<script>
 				$('.homeslider.fullwidth.flexslider').css('height', window.innerHeight - 79);
 			</script>
-		</div><!-- end boxedcontent -->
+			<!-- javascript -->
+
+		</div>
 	</body>
 </html>

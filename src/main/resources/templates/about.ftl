@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-		<!-- HEADER IMPORT -->
+
 		<#include "stubs/header.ftl"/>
 		<title>About Us - Fan The Flame Dates</title>
+
 	</head>
 
 	<body class="boxedlayout">
 		<div class="boxedcontent">
 
-			<!-- BEGIN NAVBAR -->
+			<!-- navbar -->
 			<#include "stubs/navbar.ftl"/>
-			<!-- END NAVBAR -->
+			<!-- navbar -->
 
-			<!-- begin header -->
+			<!-- header -->
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
@@ -27,14 +28,14 @@
 					</div>
 				</div>
 			</div>
-			<!-- end header -->
+			<!-- header -->
 
-			<!-- begin container area -->
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="shortcode row">
-							<!-- begin welcome column -->
+
+							<!-- welcome -->
 							<div class="col-md-6">
 								<div class="titleborder left">
 									<div>
@@ -53,9 +54,9 @@
 									some of our promotional content. We would love to serve at your church!
 								</p>
 							</div>
-							<!-- end welcome column -->
+							<!-- welcome -->
 
-							<!-- begin why choose us column-->
+							<!-- why choose us-->
 							<div class="col-md-6">
 								<div class="titleborder left">
 									<div>
@@ -75,13 +76,12 @@
 									that fire isn’t tended, those flames will falter.
 								</p>
 							</div>
-							<!-- end why choose us column -->
+							<!-- why choose us -->
 
-						</div><!-- end row -->
+						</div>
 
+						<!-- mission -->
 						<div class="shortcode row">
-
-							<!-- begin mission column-->
 							<div class="col-md-12">
 								<div class="box effect2">
 									<h4>
@@ -93,15 +93,11 @@
 									</h4>
 								</div>
 							</div>
-							<!-- end mission column-->
+						</div>
+						<!-- mission -->
 
-						</div><!-- end row -->
-
-						<!-- begin team -->
+						<!-- team -->
 						<div class="shortcode row">
-							<div class="col-md-12">
-
-							</div>
 							<div class="col-md-6">
 								<div class="thumbnail">
 									<br/>
@@ -131,8 +127,9 @@
 								</div>
 							</div>
 						</div>
-						<!-- end team -->
+						<!-- team -->
 
+						<!-- support -->
 						<div class="calltoactionarea text-center" style="padding-top:30px;">
 							<h1>"Fan the Flame Dates" is a ministry of <a href="http://www.hotrfm.org">hotrfm.org</a></h1>
 							<p>
@@ -145,23 +142,20 @@
 							<a href="/donate" class="buttoncolor mainthemebgcolor">
 								<i class="fa fa-money"></i> Donate</a>
 						</div>
-						<!-- end calltoaction -->
+						<!-- support -->
 
-					</div><!-- end col-md-12 -->
-
-				</div><!-- end row -->
-
+					</div>
+				</div>
 			</div>
-			<!-- end container area -->
 
-			<!-- BEGIN FOOTER -->
+			<!-- footer -->
 			<#include "stubs/footer.ftl"/>
-			<!-- END FOOTER -->
+			<!-- footer -->
 
-			<!-- BEGIN SCRIPTS -->
+			<!-- scripts -->
 			<#include "stubs/scripts.ftl"/>
-			<!-- END SCRIPTS -->
+			<!-- scripts -->
 
-		</div><!-- end boxedcontent -->
+		</div>
 	</body>
 </html>

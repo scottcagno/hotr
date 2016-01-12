@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
-		<title>Users</title>
+
 		<#include "../../stubs/header.ftl"/>
+		<title>Users</title>
+
 	</head>
 	<body id="body">
+
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
 		<!-- delete item alert -->
@@ -29,9 +34,10 @@
 		</div>
 		<!-- delete item alert -->
 
-		<!-- content -->
 		<div class="container-fluid">
+
 			<#include "../../stubs/alert.ftl"/>
+
 			<!-- add/edit -->
 			<div class="col-sm-4">
 				<div class="panel panel-default">
@@ -92,6 +98,7 @@
 							</div>
 							<br/>
 							<div id="changePassword" class="panel-collapse collapse">
+
 								<!-- toggle show password input -->
 								<div class="form-group">
 									<div class="input-group">
@@ -106,8 +113,10 @@
 									</div>
 								</div>
 								<!-- toggle show password input -->
+
 							</div>
-						<#else/>
+						<#else>
+
 							<!-- toggle show password input -->
 							<div class="form-group">
 								<span class="text-error">${(errors.password)!}</span>
@@ -123,6 +132,7 @@
 								</div>
 							</div>
 							<!-- toggle show password input -->
+
 						</#if>
 						<input type="hidden" name="id" value="${(user.id)!}"/>
 						<input type="hidden" name="active" value="${(user.active)!}"/>
@@ -159,12 +169,14 @@
 											<a href="/admin/user/${(user.id)!}" class="btn btn-primary">
 												<i class="fa fa-pencil"></i>
 											</a>
+
 											<!-- delete item trigger -->
 											<span id="delete-item" data-id="/admin/user/del/${user.id}"
 												  class="btn btn-danger">
 												<i class="fa fa-trash-o"></i>
 											</span>
 											<!-- delete item trigger -->
+
 										</td>
 									</tr>
 								</#list>
@@ -174,12 +186,14 @@
 				</div>
 			</div>
 			<!-- view all -->
+
 		</div>
 
+		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>
-
 		<script src="/static/js/password.js"></script>
 		<script src="/static/js/delete-item.js"></script>
+		<!-- javascript -->
 
 	</body>
 </html>

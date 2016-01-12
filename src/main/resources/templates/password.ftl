@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
 		<title>Home</title>
 		<#include "stubs/header.ftl"/>
+
 	</head>
 	<body>
-		<#include "stubs/navbar.ftl"/>
-		<!-- *** beg content section *** -->
 
-		<!-- begin header -->
+		<!-- navbar -->
+		<#include "stubs/navbar.ftl"/>
+		<!-- navbar -->
+
+		<!-- header -->
 		<section class="colorarea">
 			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 		</section>
@@ -21,8 +25,9 @@
 				</div>
 			</div>
 		</div>
-		<!-- end header -->
+		<!-- header -->
 
+		<!-- content -->
 		<section class="container">
 			<br/>
 			<#include "stubs/alert.ftl"/>
@@ -53,16 +58,23 @@
 				</div>
 			</div>
 		</section>
-		<!-- *** end content section *** -->
-		<#include "stubs/scripts.ftl"/>
+		<!-- content -->
+
+		<!-- footer -->
 		<#include "stubs/footer.ftl"/>
+		<!-- footer -->
+
+		<!-- javascript -->
+		<#include "stubs/scripts.ftl"/>
 		<script>
-        (function(){
-			$('form[id="password-reset"]').on('submit',function(){
-				$(this).addClass('hide');
-				$('div[id="spinner"]').removeClass('hide');
-			});
-        })();
-    </script>
+			(function(){
+				$('form[id="password-reset"]').on('submit',function(){
+					$(this).addClass('hide');
+					$('div[id="spinner"]').removeClass('hide');
+				});
+			})();
+		</script>
+		<!-- javascript -->
+
 	</body>
 </html>

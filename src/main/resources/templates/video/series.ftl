@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<#include "../stubs/header.ftl"/>
 		<title>Video Series</title>
+
 	</head>
 
 	<body class="boxedlayout">
 		<div class="boxedcontent">
 
+			<!-- navbar -->
 			<#include "../stubs/navbar.ftl"/>
+			<!-- navbar -->
 
 			<#include "../stubs/alert.ftl"/>
 
+			<!-- header -->
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
-
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 negmtop">
@@ -26,9 +30,12 @@
 					</div>
 				</div>
 			</div>
+			<!-- header -->
 
 			<div class="container-fluid">
 				<div class="row">
+
+					<!-- categories -->
 					<div class="col-lg-9 col-md-9 col-sm-12">
 						<div class="hidden-xs hidden-sm">
 							<ul class="nav nav-tabs" role="tablist">
@@ -47,7 +54,9 @@
 							</div>
 						</div>
 						<br/>
+						<!-- categories -->
 
+						<!-- videos -->
 						<#assign vidInRow = 0/>
 						<div class="row">
 							<#list allSeries as series>
@@ -71,8 +80,11 @@
 								<#assign vidInRow = vidInRow + 1/>
 							</#list>
 						</div>
+						<!-- videos -->
+
 					</div>
 
+					<!-- hot topics -->
 					<div class="col-lg-3 col-md-3 col-sm-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -87,13 +99,20 @@
 							</div>
 						</div>
 					</div>
+					<!-- hot topics -->
+					
 				</div>
 			</div>
 
+			<!-- footer -->
 			<#include "../stubs/footer.ftl"/>
+			<!-- footer -->
 
+			<!-- javascript -->
 			<#include "../stubs/scripts.ftl"/>
 			<script type='text/javascript' src='/static/asher/js/isotope.js'></script>
+			<!-- javascript -->
+
 		</div>
 	</body>
 </html>

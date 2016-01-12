@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<title>Devotionals</title>
 		<#include "../../stubs/header.ftl"/>
 		<style>input.uploader{position:absolute;left:-9999px;}label.uploader{cursor:pointer;}</style>
 
-		<!-- TINYMCE WYSIWYG -->
+		<!-- tinymce wysiwyg -->
 		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
 		<script>
 			tinymce.init({
@@ -19,12 +20,17 @@
 				image_list: "/admin/image"
 			});
 		</script>
-		<!-- TINYMCE WYSIWYG -->
+		<!-- tinymce wysiwyg -->
 
 	</head>
 	<body id="body">
+
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
+
 		<br/>
+
 		<!-- delete item alert -->
 		<div class="container">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -54,9 +60,10 @@
 		</div>
 		<!-- file error alert -->
 
-		<!-- content -->
 		<div class="container">
+
 			<#include "../../stubs/alert.ftl"/>
+
 			<!-- add/edit -->
 			<div class="col-sm-8">
 				<div class="panel panel-default">
@@ -93,17 +100,18 @@
 								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 							</div>
 						</div>
-
 						<#if devotional?? && devotional.id??>
 							<br/>
 							<input type="hidden" name="id" value="${(devotional.id)!}"/>
 							<input type="hidden" name="date" value="${(devotional.date?datetime)!}"/>
+
 							<!-- delete item trigger -->
 							<span id="delete-item" data-id="/admin/devotional/del/${(devotional.id)!}"
 								  class="btn btn-block btn-danger">
 								Delete Entry
 							</span>
 							<!-- delete item trigger -->
+
 						</#if>
 					</form>
 				</div>
@@ -164,7 +172,6 @@
 			</div>
 			<!-- view all -->
 		</div>
-		<!-- content -->
 
 		<!-- upload spinner -->
 		<div id="uploadSpinner" class="text-center hide">
@@ -176,7 +183,7 @@
 		</div>
 		<!-- upload spinner -->
 
-		<!-- scripts -->
+		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>
 		<script src="/static/js/delete-item.js"></script>
 		<script src="/static/js/admin/image-upload.js"></script>
@@ -206,7 +213,7 @@
 				getImages();
 			});
 		</script>
-		<!-- scripts -->
+		<!-- javascript -->
 
 	</body>
 </html>

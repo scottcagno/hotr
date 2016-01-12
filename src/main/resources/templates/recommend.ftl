@@ -6,9 +6,11 @@
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "stubs/navbar.ftl"/>
+		<!-- navbar -->
 
-		<!-- begin header -->
+		<!-- header -->
 		<section class="colorarea">
 			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 		</section>
@@ -19,14 +21,17 @@
 				</div>
 			</div>
 		</div>
-		<!-- end header -->
+		<!-- header -->
 
-		<!-- content -->
 		<div class="container">
+
 			<#include "stubs/alert.ftl"/>
+
 			<div class="row">
 				<div class="col-lg-offset-3 col-lg-6">
 					<div class="panel panel-default panel1">
+
+						<!-- emails -->
 						<div class="panel-body text-center">
 							<h4 class="black-text">Please provide up to 6 email addresses of friends or family you would like to share Fan the Flame Dates with</h4>
 							<br/>
@@ -51,23 +56,27 @@
 											<input class="form-control" type="email" name="email5" placeholder="Email"/>
 										</div>
 										<div class="form-group">
-											<input class="form-control" type="email" name="email5" placeholder="Email"/>
+											<input class="form-control" type="email" name="email6" placeholder="Email"/>
 										</div>
 									</div>
 								</div>
 								<button id="recommend" class="btn btn-block btn-primary">Recommend</button>
 							</div>
-
 						</div>
+						<!-- emails -->
+
 					</div>
 				</div>
+
+				<!-- submit -->
 				<form id="recommendForm" action="/secure/recommend" method="post" hidden="hidden">
 					<input id="emails" name="emails"/>
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				</form>
+				<!-- submit -->
+
 			</div>
 		</div>
-		<!-- content -->
 
 		<!-- footer -->
 		<#include "stubs/footer.ftl"/>

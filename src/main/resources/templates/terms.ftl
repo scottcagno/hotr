@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<#include "stubs/header.ftl"/>
 		<title>Terms and Conditions</title>
+
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "stubs/navbar.ftl"/>
+		<!-- navbar -->
 
 		<#include "stubs/alert.ftl"/>
 

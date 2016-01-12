@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-		<!-- HEADER IMPORT -->
+
 		<#include "stubs/header.ftl"/>
 		<title>Contact Us - Fan The Flame Dates</title>
+
 	</head>
 
 	<body class="boxedlayout">
 		<div class="boxedcontent">
 
-			<!-- BEGIN NAVBAR -->
+			<!-- navbar-->
 			<#include "stubs/navbar.ftl"/>
-			<!-- END NAVBAR -->
+			<!-- navbar -->
 
+			<!-- header -->
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
-
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 negmtop">
@@ -27,20 +28,19 @@
 					</div>
 				</div>
 			</div>
-			<!-- end header -->
+			<!-- header -->
+
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-
 						<div class="shortcode row">
+
+							<!-- email -->
 							<div class="col-md-6">
 								<div class="box1">
-									<div class="striped">
-									</div>
+									<div class="striped"></div>
 									<h6><i class=" fa fa-envelope "></i> Get in Touch </h6>
-									<div style="height: 5px">
-									</div>
-
+									<div style="height: 5px"></div>
 									<div class="done">
 										<div class="alert alert-success">
 											<button type="button" class="close" data-dismiss="alert">×</button>
@@ -59,6 +59,9 @@
 									<span class="boxlink wowhideme "><a href=" " class="defaultbutton mainthemebgcolor"><i class="fa fa-link"></i></a></span>
 								</div>
 							</div>
+							<!-- email -->
+
+							<!-- map -->
 							<div class="col-md-6">
 								<div class="box1">
 									<div class="striped">
@@ -68,20 +71,21 @@
 									<br/><br/>
 								</div>
 							</div>
+							<!-- map -->
+
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- end container -->
 
-			<!-- BEGIN FOOTER -->
+			<!-- footer -->
 			<#include "stubs/footer.ftl"/>
-			<!-- END FOOTER -->
+			<!-- footer -->
 
-			<!-- BEGIN SCRIPTS -->
+			<!-- javascript -->
 			<#include "stubs/scripts.ftl"/>
-			<!-- END SCRIPTS -->
+			<!-- javascript -->
 
-		</div><!-- end boxedcontent -->
+		</div>
 	</body>
 </html>

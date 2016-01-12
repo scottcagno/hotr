@@ -11,8 +11,10 @@
 					<p>Hello ${name},</p><br/>
 					<p>Thank you for registering with Fame the Flame Dates.</p><br/>
 					<p>
-						<em>**If you received this email in error, please delete it;
-						we apologize for the inconvenience.</em>
+						<em>
+							**If you received this email in error, please delete it;
+							we apologize for the inconvenience.
+						</em>
 					</p>
 				</div>
 			</div>

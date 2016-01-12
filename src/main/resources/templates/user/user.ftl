@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/Organization">
 	<head id="head">
-		<title>Account</title>
+
 		<#include "../stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/user.css"/>
+		<title>Account</title>
+
 	</head>
 	<body id="body">
-		<#include "../stubs/navbar.ftl"/>
 
-		<!-- begin header -->
+		<!-- navbar -->
+		<#include "../stubs/navbar.ftl"/>
+		<!-- navbar -->
+
+		<!-- header -->
 		<section class="colorarea">
 			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 		</section>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 negmtop">
+
+					<!-- progress/challenge -->
 					<span class="row col-lg-7 pgheadertitle animated fadeInLeft pull-left">
 						<div class="text-center">
 							<#if !user.challenge>
 								<div>
 									<a href="/challenge" class="btn btn-md btn-success btn-block black-border"><span class="bold-panel">CLICK</span><span>to</span><span class="bold-panel red-panel">BEGIN</span><span class="gray-panel">CHALLENGE</span></a>
 								</div>
-							<#else/>
+							<#else>
 								<#assign width = (user.progress?size / 12) * 100/>
 								<p>
 									<strong>Challenge Progress</strong>
 								</p>
 								<div class="progress">
-									<#--<div style="color:black; font-size:20px; background-color: rgba(255, 255, 255, 0); z-index: 1000;">
-										${user.progress?size}/12
-									</div>-->
 									<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${width}%;">
 										<span>${user.progress?size}/12</span>
 									</div>
@@ -38,6 +42,9 @@
 							<br/>
 						</div>
 					</span>
+					<!-- progress/challenge -->
+
+					<!-- recommend -->
 					<span class="pagedescrarea text-right animated fadeInRight pull-right">
 						<p>
 							<strong>Member Since: ${user.creation?date}</strong>
@@ -46,10 +53,12 @@
 							<a href="/secure/recommend">Recommend us to your family and friends</a>
 						</p>
 					</span>
+					<!-- recommend -->
+
 				</div>
 			</div>
 		</div>
-		<!-- end header -->
+		<!-- header -->
 
 		<!-- delete item alert -->
 		<div class="container">
@@ -72,11 +81,13 @@
 		</div>
 		<!-- delete item alert -->
 
-		<!-- content -->
 		<div class="container">
+
 			<#include "../stubs/alert.ftl"/>
+
 			<div class="row">
-				<!-- add/edit -->
+
+				<!-- edit -->
 				<div class="col-sm-4">
 					<div class="panel panel-default panel1">
 						<div class="panel-heading clearfix">
@@ -126,6 +137,7 @@
 								</div>
 								<br/>
 								<div id="changePassword" class="panel-collapse collapse">
+
 									<!-- toggle show password input -->
 									<div class="form-group">
 										<div class="input-group">
@@ -140,6 +152,7 @@
 										</div>
 									</div>
 									<!-- toggle show password input -->
+
 								</div>
 							</#if>
 							<input type="hidden" name="id" value="${user.id}"/>
@@ -148,7 +161,9 @@
 						</form>
 					</div>
 				</div>
-				<!-- add/edit -->
+				<!-- add -->
+
+				<!-- recently watched -->
 				<div class="col-sm-3">
 					<div class="panel panel-default panel1">
 						<div class="panel-heading">Recently Watched Videos</div>
@@ -161,11 +176,14 @@
 									<p class="video-title"><strong>${video.name}</strong></p>
 								</div>
 							</#list>
-						<#else/>
+						<#else>
 							<div class="text-center black-text">You have no recently watched videos.</div>
 						</#if>
 					</div>
 				</div>
+				<!-- recently watched -->
+
+				<!-- saved worksheets -->
 				<div class="col-sm-5">
 					<div id="" class="panel panel-default panel1">
 						<div class="panel-heading">Saved Worksheets</div>
@@ -184,30 +202,38 @@
 											<td><strong>${worksheet.videoName}: </strong><a href="/secure/worksheet/${worksheet.id}"> View</a></td>
 											<td>${(worksheet.completed?date)!}</td>
 											<td>
+
 												<!-- delete item trigger -->
 												<span id="delete-item" data-id="/secure/worksheet/del/${worksheet.id}"
 													  class="label label-danger" style="cursor:pointer;">
 													<i class="fa fa-trash-o"></i> Delete
 												</span>
 												<!-- delete item trigger -->
+
 											</td>
 										</tr>
 									</#list>
 								</tbody>
-							<#else/>
+							<#else>
 								<div class="text-center black-text">You have no saved worksheets.</div>
 							</#if>
 						</table>
 					</div>
 				</div>
+				<!-- saved worksheets -->
+
 			</div>
 		</div>
-		<!-- content -->
 
+		<!-- footer -->
 		<#include "../stubs/footer.ftl"/>
-		<#include "../stubs/scripts.ftl"/>
+		<!-- footer -->
 
+		<!-- javascript -->
+		<#include "../stubs/scripts.ftl"/>
 		<script src="/static/js/password.js"></script>
 		<script src="/static/js/delete-item.js"></script>
+		<!-- javascript -->
+
 	</body>
 </html>

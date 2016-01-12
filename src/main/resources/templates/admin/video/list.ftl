@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<#include "../../stubs/header.ftl"/>
 		<script src="/static/js/facebook_conf.js"></script>
 		<title>Videos</title>
+
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
+
 		<!-- delete item alert -->
 		<div class="container-fluid">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -31,9 +36,11 @@
 		</div>
 		<!-- delete item alert -->
 
-		<!-- content -->
 		<div class="container-fluid">
+
 			<#include "../../stubs/alert.ftl"/>
+
+			<!-- all videos -->
 			<div id="videoTableDiv" class="panel panel-default">
 				<div class="panel-heading col-sm-12">
 					Videos
@@ -72,12 +79,14 @@
 										<a href="/admin/video/${video.id}" class="btn btn-primary">
 											<i class="fa fa-pencil"></i>
 										</a>
+
 										<!-- delete item trigger -->
 										<span id="delete-item" data-id="/admin/video/del/${video.id}"
 											  class="btn btn-danger">
 											<i class="fa fa-trash-o"></i>
 										</span>
 										<!-- delete item trigger -->
+
 									</td>
 								</tr>
 							</#list>
@@ -85,16 +94,16 @@
 					</table>
 				</div>
 			</div>
+			<!-- all videos -->
+
 		</div>
-		<!-- content -->
 
+		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>
-
 		<script src="/static/js/delete-item.js"></script>
-
 		<script>
 
-			var link = '${glob.host}/video/id/'
+			var link = '${glob.host}/video/id/';
 
 			function vidShare(thumb, vimeoId, id, name, desc) {
 				FB.ui({
@@ -119,6 +128,7 @@
 			});
 
 		</script>
+		<!-- javascript -->
 
 	</body>
 </html>

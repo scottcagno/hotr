@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
         <#include "stubs/header.ftl"/>
 		<title>Error Page</title>
+
 	</head>
 	<body id="body" class="boxedlayout">
 		<div class="boxedcontent">
 
-			<!-- BEGIN NAVBAR -->
+			<!-- navbar -->
 			<#include "stubs/navbar.ftl"/>
-			<!-- END NAVBAR -->
+			<!-- navbar -->
 
-			<!-- begin header -->
+			<!-- header -->
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
@@ -19,13 +21,10 @@
 				<div class="row">
 					<div class="col-md-12 negmtop">
 						<h1 class="pgheadertitle animated fadeInLeft pull-left">Sorry For The Inconvenience</h1>
-						<span class="pagedescrarea text-right animated fadeInRight pull-right">
-							<#--<i class=" fa fa-phone"></i>-->
-						</span>
 					</div>
 				</div>
 			</div>
-			<!-- end header -->
+			<!-- header -->
 
 			<!-- content -->
 			<div class="container navbar-margin error-page">
@@ -37,7 +36,9 @@
 			</div>
 			<!-- content -->
 
+			<!-- footer -->
 			<#include "stubs/footer.ftl"/>
+			<!-- footer -->
 
 		</div>
 	</body>

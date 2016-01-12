@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<#include "../../stubs/header.ftl"/>
 		<title>Settings</title>
+		
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
 		<!-- delete item alert -->
@@ -30,7 +34,6 @@
 		</div>
 		<!-- delete item alert -->
 
-		<!-- content -->
 		<div class="container">
 			<#include "../../stubs/alert.ftl"/>
 			<div class="row">

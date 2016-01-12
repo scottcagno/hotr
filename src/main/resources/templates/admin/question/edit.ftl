@@ -8,11 +8,15 @@
 	</head>
 	<body>
 
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
 		<div class="container">
+
 			<#include "../../stubs/alert.ftl"/>
+			<!-- edit -->
 			<div class="col-sm-6 col-sm-offset-3" >
 				<div class="panel panel-default">
 					<div class="panel-heading">Edit Question</div>
@@ -68,8 +72,10 @@
 					</div>
 				</div>
 			</div>
+			<!-- edit -->
 		</div>
 
+		<!-- duplicates -->
 		<div id="nextOptionInput" hidden="true">
 			<div class="input-group">
 				<input name="option" type="text" placeHolder="Add Option" class="form-control">
@@ -89,18 +95,18 @@
 				<a class="btn btn-success" id="addOptionButton">Add Option</a>
 			</div>
 		</div>
+		<!-- duplicates -->
 
-		<!-- scripts -->
-		<div id="scripts">
+		<!-- javascript -->
+		<#include "../../stubs/scripts.ftl"/>
+		<script>
+			// set js variable from freemarker
+			var i = ${i};
+			var multi = ${(question.inputType == "select many" || question.inputType == "select one") ? string('true', 'false')}
+		</script>
+		<script src="/static/js/admin/question.js"></script>
+		<script src="/static/js/admin/edit-question.js"></script>
+		<!-- javascript -->
 
-			<#include "../../stubs/scripts.ftl"/>
-			<script>
-				// set js variable from freemarker
-				var i = ${i};
-				var multi = ${(question.inputType == "select many" || question.inputType == "select one") ? string('true', 'false')}
-			</script>
-			<script src="/static/js/admin/question.js"></script>
-			<script src="/static/js/admin/edit-question.js"></script>
-		</div>
 	</body>
 </html>

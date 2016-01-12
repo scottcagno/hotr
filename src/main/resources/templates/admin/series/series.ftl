@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<#include "../../stubs/header.ftl"/>
 		<style>input.uploader{position:absolute;left:-9999px;}label.uploader{cursor:pointer;}</style>
 		<title>Admin</title>
+
 	</head>
 	<body id="body">
+
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
+
 		<br/>
 
 		<!-- delete item alert -->
@@ -38,12 +44,14 @@
 		</div>
 		<!-- file error alert -->
 
-		<!-- content -->
 		<div class="container">
+
 			<#include "../../stubs/alert.ftl"/>
+
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="form-group">
+						<!-- all series -->
 						<select class="form-control" id="seriesSelect">
 							<option value="none">Choose Series</option>
 							<option value="none">Add Series</option>
@@ -52,15 +60,20 @@
 								<option value="${s.id}" ${(id?? && id == s.id)? string('selected', '')}>${s.name}</option>
 							</#list>
 						</select>
+						<!-- all series -->
 					</div>
 					<#if series??>
+
 						<!-- delete item trigger -->
 						<span id="delete-item" data-id="/admin/series/del/${series.id}"
 							  class="btn btn-danger btn-block">Delete
 						</span>
 						<!-- delete item trigger -->
+
 					</#if>
 				</div>
+
+				<!-- series name -->
 				<div class="col-lg-3">
 					<form action="/admin/series/save" method="post" id="seriesForm">
 						<div class="form-group">
@@ -74,6 +87,9 @@
 					</form>
 					<button id="save" class="btn btn-primary btn-block">${(series??)?string('Save', 'Add')}</button>
 				</div>
+				<!-- series name -->
+
+				<!-- upload image -->
 				<div class="col-lg-offset-3 col-lg-3">
 					<form id="uploader" class="text-center" role="form" method="post"
 						  action="/admin/image/upload" enctype="multipart/form-data">
@@ -91,9 +107,13 @@
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					</form>
 				</div>
+				<!-- upload image -->
+
 			</div>
 			<br/>
 			<div class="row">
+
+				<!-- all  videos -->
 				<div class="col-lg-4">
 					<legend class="text-white">Videos In Series</legend>
 					<#list videos as video>
@@ -104,6 +124,9 @@
 						</div>
 					</#list>
 				</div>
+				<!-- all  videos -->
+
+				<!-- thumbnails -->
 				<div id="images" class="col-lg-8">
 					<legend class="text-white">Series Thumbnail</legend>
 					<#list images as image>
@@ -117,9 +140,10 @@
 						</div>
 					</#list>
 				</div>
+				<!-- thumbnails -->
+
 			</div>
 		</div>
-		<!-- content -->
 
 		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
-		<!-- HEADER IMPORT -->
+
 		<#include "stubs/header.ftl"/>
 		<title>Login - Fan The Flame Dates</title>
+
 	</head>
 
 	<body class="boxedlayout">
 		<div class="boxedcontent">
 
-			<!-- BEGIN NAVBAR -->
+			<!-- navbar -->
 			<#include "stubs/navbar.ftl"/>
-			<!-- END NAVBAR -->
+			<!-- navbar -->
 
-			<!-- begin header -->
+			<!-- header -->
 			<section class="colorarea">
 				<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 			</section>
@@ -21,20 +22,20 @@
 				<div class="row">
 					<div class="col-md-12 negmtop">
 						<h1 class="pgheadertitle animated fadeInLeft pull-left">Please Login</h1>
-						<#--<span class="pagedescrarea text-right animated fadeInRight pull-right">-->
-							<#--Fan the Flames-->
-						<#--</span>-->
 					</div>
 				</div>
 			</div>
-			<!-- end header -->
+			<!-- header -->
 
 			<div class="container">
+
 				<#include "stubs/alert.ftl"/>
+
 				<div class="row">
 					<div class="col-md-12">
-
 						<div class="shortcode row">
+
+							<!-- login -->
 							<div class="col-md-5">
 								<div class="box1">
 									<div class="striped"></div>
@@ -60,11 +61,11 @@
 											<button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button>
 										</div>
 									</form>
-
 									<p class="text-center" style="margin-top:10px">
 										<strong>OR</strong>
 									</p>
 
+									<!-- facebook -->
 									<form action="/auth/facebook" method="post">
 										<button class="btn btn-block"><span class="text-primary">Sign in with Facebook</span>
 											<i class="text-primary fa fa-facebook-square fa-lg"></i>
@@ -72,6 +73,7 @@
 										<input type="hidden" name="scope" value="email"/>
 										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 									</form>
+									<!-- facebook -->
 
 									<span class="boxlink wowhideme "><a href=" " class="defaultbutton mainthemebgcolor"><i class="fa fa-link"></i></a></span>
 								</div>
@@ -79,7 +81,9 @@
 									<span class="pull-right">Forgot <a href="/reset/password">Password</a></span>
 								</div>
 							</div>
+							<!-- login -->
 
+							<!-- register -->
 							<div class="col-md-5 col-md-offset-2">
 								<div class="box1">
 									<div class="striped"></div>
@@ -117,23 +121,22 @@
 									<span class="boxlink wowhideme "><a href=" " class="defaultbutton mainthemebgcolor"><i class="fa fa-link"></i></a></span>
 								</div>
 							</div>
-							<#--registration end-->
+							<!-- register -->
 
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- end container -->
 
-			<!-- BEGIN FOOTER -->
+			<!-- footer -->
 			<#include "stubs/footer.ftl"/>
-			<!-- END FOOTER -->
+			<!-- footer -->
 
-			<!-- BEGIN SCRIPTS -->
+			<!-- javascript -->
 			<#include "stubs/scripts.ftl"/>
 			<script src="/static/js/password.js"></script>
-			<!-- END SCRIPTS -->
+			<!-- javascript -->
 
-		</div><!-- end boxedcontent -->
+		</div>
 	</body>
 </html>

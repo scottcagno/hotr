@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head id="head">
+
 		<#include "../../stubs/header.ftl"/>
 		<title>Edit Video</title>
+
 	</head>
 	<body id="body">
 
+		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
+		<!-- navbar -->
 
 		<br/>
+
 		<!-- delete item alert -->
 		<div class="container-fluid">
 			<div id="delete-item-confirm" class="hide alert alert-danger alert-dismissible wow fadeIn" role="alert">
@@ -33,7 +38,9 @@
 
 		<!-- thumb request alert -->
 		<div class="container-fluid">
+
 			<#include "../../stubs/alert.ftl"/>
+
 			<div id="thumb-request-confirm" class="hide alert alert-warning alert-dismissible wow fadeIn col-xs-12" role="alert">
 				<form role="form" method="post" class="form-inline" action="/admin/video/thumb/${video.id}">
 					<div class="col-xs-4">
@@ -61,9 +68,10 @@
 		</div>
 		<!-- thumb request alert -->
 
-		<!-- content -->
 		<div class="container-fluid">
 			<div class="row">
+
+				<!-- edit -->
 				<div class="col-sm-4">
 					<div class="panel panel-default">
 						<div class="panel-heading col-xs-12">
@@ -95,21 +103,6 @@
 								<textarea id="topics" name="topics" class="form-control" rows="5" placeholder="Topics"
 										  style="resize:none;">${topics?join(", ")}</textarea>
 							</div>
-							<!--<label>Series</label>
-							<div class="form-group row">
-								<div id="seriesSelectDiv" class="col-xs-12">
-									<select id="seriesSelect" name="seriesSelect" class="form-control">
-										<option ${(video.series?? && video.series == '')?string('selected', '')} value="">None</option>
-										<option value="add">Add Series</option>
-										<hr/>
-										<#if allSeries?has_content>
-											<#list allSeries as series>
-												<option value="${series}" ${(video.series?? && video.series == series)?string('selected', '')}>${series}</option>
-											</#list>
-										</#if>
-									</select>
-								</div>
-							</div>-->
 							<div id="seriesInput" class="form-group" hidden="hidden">
 								<input class="form-control" id="series" name="series" type="text"
 									   placeholder="Add Series" value="${video.series}"/>
@@ -122,6 +115,9 @@
 						<button id="save" class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 					</div>
 				</div>
+				<!-- edit -->
+
+				<!-- all questions -->
 				<div class="col-sm-8">
 					<div class="panel panel-default">
 						<div class="panel-heading col-sm-12">
@@ -148,12 +144,14 @@
 												<a href="/admin/question/${question.id}" class="btn btn-primary">
 													<i class="fa fa-pencil"></i>
 												</a>
+
 												<!-- delete item trigger -->
 												<span id="delete-item" data-id="/admin/question/del/${question.id}"
 													  class="btn btn-danger">
 													<i class="fa fa-trash-o"></i>
 												</span>
 												<!-- delete item trigger -->
+
 											</td>
 										</tr>
 									</#list>
@@ -162,13 +160,16 @@
 						</div>
 					</div>
 				</div>
+				<!-- all questions -->
+
 			</div>
 		</div>
 
+		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>
-
 		<script src="/static/js/admin/video.js"></script>
 		<script src="/static/js/delete-item.js"></script>
+		<!-- javascript -->
 
 	</body>
 </html>

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
 		<#include "stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/shadows.css"/>
         <title>Events</title>
+
 	</head>
 	<body id="top">
 
+		<!-- navbar -->
 		<#include "stubs/navbar.ftl"/>
+		<!-- navbar -->
 
-		<!-- begin header -->
+		<!-- header -->
 		<section class="colorarea">
 			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 		</section>
@@ -20,12 +24,17 @@
 				</div>
 			</div>
 		</div>
-		<!-- end header -->
+		<!-- header -->
 
 		<div id="events" class="container">
+
 			<#include "stubs/alert.ftl"/>
+
 			<div class="row">
+
 				<div class="col-lg-9">
+
+					<!-- about -->
 					<div class="row">
 						<div class="col-lg-4 hidden-xs hidden-sm">
 							<img src="/static/img/home/brucekaren.jpg" class="img-responsive">
@@ -46,6 +55,9 @@
 							</em>
 						</div>
 					</div>
+					<!-- about -->
+
+					<!-- events -->
 					<div class="row">
 						<h1 class="text-white">Marriage Retreats</h1>
 						<ul class="list-group">
@@ -71,7 +83,11 @@
 							</#list>
 						</ul>
 					</div>
+					<!-- events -->
+
 				</div>
+
+				<!-- eventbrite calendar -->
 				<div class="col-lg-3">
 					<#if events?has_content>
 						<br/>
@@ -81,6 +97,8 @@
 						<br/><br/><br/><br/>
 					</#if>
 				</div>
+				<!-- eventbrite calendar -->
+
 			</div>
 		</div>
 

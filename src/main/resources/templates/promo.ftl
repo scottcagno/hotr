@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head id="head">
+
         <#include "stubs/header.ftl"/>
         <title>Promotional</title>
+
     </head>
     <body>
 
+		<!-- navbar -->
         <#include "stubs/navbar.ftl"/>
+		<!-- navbar -->
 
         <#include "stubs/alert.ftl"/>
 
-		<!-- begin header -->
+		<!-- header -->
 		<section class="colorarea">
 			<div class="bgsizecover headeropacity" style="background-image:url(/static/asher/img/headers/1.jpg);"></div>
 		</section>
@@ -24,11 +28,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- end header -->
+		<!-- header -->
 
-        <!-- content -->
         <div class="container">
 			<div class="row">
+
+				<!-- bulletin PDF -->
 				<div class="col-sm-6">
 					<div class="well well-sm text-center">
 						<label>Fan the Flame Bulletin insert (pdf format)</label>
@@ -37,6 +42,9 @@
 						</a>
 					</div>
 				</div>
+				<!-- bulletin PDF -->
+
+				<!-- funny promo video -->
 				<div class="col-sm-6">
 					<div class="well well-sm text-center">
 						<label>Research Says... (Funny Promo Video)</label>
@@ -45,8 +53,12 @@
 						</div>
 					</div>
 				</div>
+				<!-- funny promo video -->
+
 			</div>
 			<div class="row">
+
+				<!-- never say promo video -->
 				<div class="col-sm-6">
 					<div class="well well-sm text-center">
 						<label>Thing You Should Never Say To Your Wife (Promo video)</label>
@@ -55,6 +67,9 @@
 						</div>
 					</div>
 				</div>
+				<!-- never say promo video -->
+
+				<!-- live action promo video -->
 				<div class="col-sm-6">
 					<div class="well well-sm text-center">
 						<label>Promotional Video</label>
@@ -63,10 +78,10 @@
 						</div>
 					</div>
 				</div>
-			</div>
+				<!-- live action promo video -->
 
+			</div>
         </div>
-        <!-- content -->
 
         <!-- footer -->
         <#include "stubs/footer.ftl"/>
