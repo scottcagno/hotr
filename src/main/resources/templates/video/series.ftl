@@ -72,9 +72,9 @@
 												<a href="/video/series/${series.id}"><i class="fa fa-play captionicons"></i></a>
 											</div>
 										</div>
-										<strong>
+										<p><strong>
 											${(series.name)!}
-										</strong>
+										</strong></p>
 									</div>
 								</div>
 								<#assign vidInRow = vidInRow + 1/>
