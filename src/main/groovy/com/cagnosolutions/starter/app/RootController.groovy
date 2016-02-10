@@ -5,6 +5,7 @@ import com.cagnosolutions.starter.app.devotional.DevotionalService
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.user.UserSession
+import com.cagnosolutions.starter.app.util.email.EmailService
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @CompileStatic
 @Controller
@@ -37,6 +39,9 @@ class RootController {
 
 	@Autowired
 	DevotionalService devotionalService
+
+	@Autowired
+	EmailService emailService
 
 	// GET home
     @RequestMapping(value = ["/", "/home"], method = RequestMethod.GET)
@@ -70,6 +75,19 @@ class RootController {
 	String contact(Model model) {
 		model.addAttribute("auth", (userSession.id != null))
 		"contact"
+	}
+
+	// POST contect
+	@RequestMapping(value = "/contact", method = RequestMethod.POST)
+	String sendContact(String name, String email, String comment, RedirectAttributes attr) {
+		def dat = new HashMap<String, Object>(){{
+			put("email", email)
+			put("name", name)
+			put("comment", comment)
+		}}
+		emailService.send("contact@fantheflamedates.com", "gregpechiro@yahoo.com", "Contact Us Page", comment, "email/contact.ftl", dat)
+		attr.addFlashAttribute("alertSuccess", "Thank you for reaching out to us.")
+		"redirect:/contact"
 	}
 
 	// GET events

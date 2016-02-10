@@ -47,6 +47,9 @@ class AuthController {
 		user.lastSeen = new Date()
 		userService.save user
 		userSession.progress = user.progress.size()
+		if (user.role == "ROLE_ADMIN") {
+			return "redirect:/admin"
+		}
 		attr.addFlashAttribute("alert", "Welcome ${user.firstName} ${(user.spouseName == null || user.spouseName == "") ? "" : "and ${user.spouseName} "}${user.lastName}")
 		"redirect:/secure/user"
 	}

@@ -19,36 +19,42 @@
 				<ul class="slides">
 					<li class="text-center">
 						<a href="/challenge"><img src="/static/img/banner/1-updated.jpg" alt=""></a>
-						<div class="flex-caption transparent light-font center" style="top:17%;">
-							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Welcome To Fan the Flame Dates</span></h1>
-								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
-									Rekindle <i>Romance</i>
-								</p>
+						<a href="/challenge">
+							<div class="flex-caption transparent light-font center" style="top:17%;">
+								<div>
+									<h1 class="animated fadeInDown"><span class="uppercase">Welcome To Fan the Flame Dates</span></h1>
+									<p class="lead ib animated fadeInUp" style="margin-bottom:30px; color:white;">
+										Rekindle <i>Romance</i>
+									</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</li>
 					<li class="text-center">
 						<a href="#"><img src="/static/img/banner/2-updated.jpg" alt=""></a>
-						<div class="flex-caption transparent light-font center" style="top:17%;">
-							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Connect With Your Spouse</span></h1>
-								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
-									Through Meaningful Conversations
-								</p>
+						<a href="#">
+							<div class="flex-caption transparent light-font center" style="top:17%;">
+								<div>
+									<h1 class="animated fadeInDown"><span class="uppercase">Connect With Your Spouse</span></h1>
+									<p class="lead ib animated fadeInUp" style="margin-bottom:30px; color:white;">
+										Through Meaningful Conversations
+									</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</li>
 					<li class="text-center">
 						<a href="/challenge"><img src="/static/img/banner/3-updated.jpg" alt="Fan The Flame & Take The One Year Challenge"></a>
-						<div class="flex-caption transparent light-font center" style="top:17%;">
-							<div>
-								<h1 class="animated fadeInDown"><span class="uppercase">Fan The Flame</span></h1>
-								<p class="lead ib animated fadeInUp" style="margin-bottom:30px;">
-									Take the <strong>ONE YEAR</strong> <i>Challenge</i>
-								</p>
+						<a href="/challenge">
+							<div class="flex-caption transparent light-font center" style="top:17%;">
+								<div>
+									<h1 class="animated fadeInDown"><span class="uppercase">Fan The Flame</span></h1>
+									<p class="lead ib animated fadeInUp" style="margin-bottom:30px; color: white;">
+										Take the <strong>ONE YEAR</strong> <i>Challenge</i>
+									</p>
+								</div>
 							</div>
-						</div>
+						</a>
 					</li>
 				</ul>
 			</section>
@@ -224,7 +230,7 @@
 			<!-- javascript -->
 			<#include "stubs/scripts.ftl"/>
 			<script>
-				$('.homeslider.fullwidth.flexslider').css('height', window.innerHeight - 79);
+				$('.homeslider.fullwidth.flexslider').css('height', Math.round(window.innerHeight*.72));
 			</script>
 			<!-- javascript -->
 

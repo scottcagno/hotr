@@ -31,6 +31,9 @@
 			<!-- header -->
 
 			<div class="container">
+
+				<#include "stubs/alert.ftl"/>
+
 				<div class="row">
 					<div class="col-md-12">
 						<div class="shortcode row">
@@ -47,16 +50,15 @@
 											Your message has been sent. Thank you!
 										</div>
 									</div>
-									<form method="post" action="contact.php" id="contactform">
+									<form id="contactform" action="/contact" method="post">
 										<div class="form">
 											<input class="col-md-6" type="text" name="name" placeholder="Name">
 											<input class="col-md-6" type="text" name="email" placeholder="E-mail">
-											<textarea class="col-md-12" name="comment" rows="7" placeholder="Message"></textarea>
-											<input type="submit" id="submit" class="btn btn-primary" value="Submit">
+											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+											<textarea class="col-md-12" name="comment" rows="7" placeholder="Message" style="resize: none;"></textarea>
+											<button class="btn btn-primary">Submit</button>
 										</div>
 									</form>
-
-									<span class="boxlink wowhideme "><a href=" " class="defaultbutton mainthemebgcolor"><i class="fa fa-link"></i></a></span>
 								</div>
 							</div>
 							<!-- email -->

@@ -73,7 +73,9 @@
 										<h4 class="black-text">
 											<p><strong>${event.name.text}</strong></p>
 											<p>
-												${(event.venue.address.city)!}, ${(event.venue.address.region)!}<br/>
+												<#if event.venue??>
+													${(event.venue.address.city)!}, ${(event.venue.address.region)!}<br/>
+												</#if>
 												${((event.start.local?datetime)?date)!} - ${((event.end.local?datetime)?date)!}
 											</p>
 										</h4>
