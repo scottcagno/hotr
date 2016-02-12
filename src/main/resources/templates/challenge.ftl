@@ -20,7 +20,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 negmtop">
-						<h1 class="pgheadertitle animated fadeInLeft pull-left">Take the Challenge</h1>
+						<h2 class="pgheadertitle animated fadeInLeft pull-left hidden-xs">Take the Challenge</h2>
+						<h2 class="pgheadertitle animated fadeInLeft pull-left visible-xs-block">Challenge</h2>
 						<span class="pagedescrarea text-right animated fadeInRight pull-right">
 							Fan the Flames
 						</span>

@@ -230,7 +230,12 @@
 			<!-- javascript -->
 			<#include "stubs/scripts.ftl"/>
 			<script>
-				$('.homeslider.fullwidth.flexslider').css('height', Math.round(window.innerHeight*.72));
+				if (window.innerWidth > 750) {
+					$('.homeslider.fullwidth.flexslider').css('height', Math.round(window.innerHeight-188));
+				} else {
+					$('.homeslider.fullwidth.flexslider').css('height', '100%');
+				}
+
 			</script>
 			<!-- javascript -->
 
