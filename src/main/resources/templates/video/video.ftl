@@ -127,6 +127,17 @@
 			<#include "../stubs/scripts.ftl"/>
 			<script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
 			<script src="/static/js/video.js"></script>
+			<script type="application/ld+json">
+				{
+					"@context": "http://schema.org",
+					"@type": "VideoObject",
+					"name": "${(video.name)!}",
+					"description": "${(video.description)!}",
+					"thumbnailUrl": "${(video.thumb)!}",
+					"uploadDate": "${(video.added)!}",
+					"interactionCount": "${(video.watched)!}"
+				}
+			</script>
 			<!-- javascript -->
 
 		</div>

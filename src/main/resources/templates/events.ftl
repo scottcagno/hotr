@@ -4,7 +4,7 @@
 
 		<#include "stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/shadows.css"/>
-        <title>Events</title>
+        <title>Retreats</title>
 
 	</head>
 	<body class="boxedlayout">
@@ -83,6 +83,24 @@
 											<p><a href="${event.url}" target="_blank">More Info</a></p>
 										</div>
 									</li>
+
+									<script type="application/ld+json">
+										{
+											"@context": "http://schema.org",
+											"@type": "Event",
+											"name": "${(event.name.text)!}",
+											"url": "${(event.url)!}",
+											"location": {
+												"@type": "Place",
+												"name": "${(event.venue.name)!}",
+												"address": "${(event.venue.address.address_1)!}, ${(event.venue.address.city)!}, ${(event.venue.address.region)!} ${(event.venue.address.postal_code)!}"
+											},
+											"startDate": "${(event.start.local)!}",
+											"offers.price": ${(event.ticket_classes[0].cost)!},
+											"offers.priceCurrency": "${(event.currency)!}"
+										}
+									</script>
+
 								</#list>
 							</ul>
 						</div>

@@ -9,6 +9,7 @@ class Event {
 
 	Map<String, String> name
 	Map <String, Object> venue
+	Map <String, Object> ticket_classes
 	Map<String, String> start
 	Map<String, String> end
 	Map<String, Object> logo
