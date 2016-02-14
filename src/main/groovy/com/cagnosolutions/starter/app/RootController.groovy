@@ -85,7 +85,7 @@ class RootController {
 			put("name", name)
 			put("comment", comment)
 		}}
-		emailService.send("contact@fantheflamedates.com", "gregpechiro@yahoo.com", "Contact Us Page", comment, "email/contact.ftl", dat)
+		emailService.send("contact@fantheflamedates.com", "jeffreykime@gmail.com", "Contact Us Page", comment, "email/contact.ftl", dat)
 		attr.addFlashAttribute("alertSuccess", "Thank you for reaching out to us.")
 		"redirect:/contact"
 	}
