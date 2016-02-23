@@ -114,4 +114,15 @@ class AdminUserController {
 		"redirect:/admin/user"
 	}
 
+	@RequestMapping(value = "/set/monthly", method = RequestMethod.GET)
+	String setMonthly(RedirectAttributes attr) {
+		def users = userService.findAll()
+		for (User user : users) {
+			user.monthly = true
+		}
+		userService.save(users)
+		attr.addFlashAttribute("alertSuccess", "Successfully enabled monthly reminders on all users")
+		"redirect:/admin/user"
+	}
+
 }

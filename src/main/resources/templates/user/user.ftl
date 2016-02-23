@@ -96,11 +96,13 @@
 								<a href="/logout" class="btn btn-default btn-sm pull-right">Logout</a>
 							</div>
 							<form class="red-panel" id="accountForm" role="form" method="post" action="/secure/user">
+								<#--
 								<div class="checkbox">
 									<label class="text-black">
 										<input name="monthly" type="checkbox" value="true" ${(user.monthly)?string('checked', '')}> Email me monthly challenge reminders
 									</label>
 								</div>
+								-->
 								<div class="form-group">
 									<label>First Name</label>
 									<span class="text-error">${(errors.firstName)!}</span>

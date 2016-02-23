@@ -15,7 +15,8 @@ class User {
 
 	String firstName, lastName, spouseName, spouseEmail, username, password, role = "ROLE_USER"
 	Date creation, lastSeen, lastWatched
-	Boolean challenge, monthly, social
+	Boolean challenge, social
+	Boolean monthly = true
 	ArrayList<Long> progress
 	short active = 1
 

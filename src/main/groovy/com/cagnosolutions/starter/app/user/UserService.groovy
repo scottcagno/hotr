@@ -49,6 +49,10 @@ class UserService {
 		repo.save user
 	}
 
+	def save(List<User> users) {
+		repo.save(users)
+	}
+
 	def delete(Long id) {
 		User user = repo.findOne(id)
 		if (user.social) {
