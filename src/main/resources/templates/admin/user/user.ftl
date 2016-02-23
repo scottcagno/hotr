@@ -51,7 +51,7 @@
 								<label>Created On:</label><span> ${(user.creation?date)!}</span> <br/>
 								<label>Last Seen:</label><span> ${(user.lastSeen?date)!}</span> <br/>
 								<label>Account: </label>
-								<a href="/admin/user/${(user.id)!}${(user.active==1)?string('?active=false','?active=true')}">
+								<a href="/admin/user/${(user.id?c)!}${(user.active==1)?string('?active=false','?active=true')}">
 									${(user.active==1)?string('Enabled (click to disable)','Disabled (click to enable)')}
 								</a> <br/>
 							</div>
@@ -139,7 +139,7 @@
 
 							</#if>
 						</div>
-						<input type="hidden" name="id" value="${(user.id)!}"/>
+						<input type="hidden" name="id" value="${(user.id?c)!}"/>
 						<input type="hidden" name="active" value="${(user.active)!}"/>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>

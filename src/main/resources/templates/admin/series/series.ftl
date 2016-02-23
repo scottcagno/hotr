@@ -57,7 +57,7 @@
 							<option value="none">Add Series</option>
 							<option value="none">-----------------</option>
 							<#list allSeries as s>
-								<option value="${s.id?c}" ${(id?? && id == s.id)? string('selected', '')}>${s.name}</option>
+								<option value="${s.id?c}" ${(id?? && id == s.id?c)? string('selected', '')}>${s.name}</option>
 							</#list>
 						</select>
 						<!-- all series -->
@@ -80,7 +80,7 @@
 							<span id="nameError" class="text-error hide">*Name is required</span>
 							<input id="seriesName" name="name" class="form-control" type="text" placeholder="Name" value="${(series.name)!}" required="true"/>
 						</div>
-						<input type="hidden" name="id" value="${(series.id)!}"/>
+						<input type="hidden" name="id" value="${(series.id?c)!}"/>
 						<input type="hidden" name="videoIds"/>
 						<input type="hidden" name="thumb"/>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -103,7 +103,7 @@
 								disabled="true">
 							Upload
 						</button>
-						<input type="hidden" name="redirect" value="/admin/series/${(id)!}"/>
+						<input type="hidden" name="redirect" value="/admin/series/${(id?c)!}"/>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					</form>
 				</div>
@@ -119,7 +119,7 @@
 					<#list videos as video>
 						<div class="checkbox">
 							<label class="text-white">
-								<input type="checkbox" class="videoId" value="${video.id?c}" ${(series?? && series.videoIds?? && series.videoIds?seq_contains(video.id))? string('checked', '')}/> ${video.name}
+								<input type="checkbox" class="videoId" value="${video.id?c}" ${(series?? && series.videoIds?? && series.videoIds?seq_contains(video.id?c))? string('checked', '')}/> ${video.name}
 							</label>
 						</div>
 					</#list>

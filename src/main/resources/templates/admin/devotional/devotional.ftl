@@ -102,11 +102,11 @@
 						</div>
 						<#if devotional?? && devotional.id??>
 							<br/>
-							<input type="hidden" name="id" value="${(devotional.id)!}"/>
+							<input type="hidden" name="id" value="${(devotional.id?c)!}"/>
 							<input type="hidden" name="date" value="${(devotional.date?datetime)!}"/>
 
 							<!-- delete item trigger -->
-							<span id="delete-item" data-id="/admin/devotional/del/${(devotional.id)!}"
+							<span id="delete-item" data-id="/admin/devotional/del/${(devotional.id?c)!}"
 								  class="btn btn-block btn-danger">
 								Delete Entry
 							</span>
@@ -134,7 +134,7 @@
 								disabled="true">
 							Upload
 						</button>
-						<input type="hidden" name="redirect" value="/admin/devotional/${(id)!}"/>
+						<input type="hidden" name="redirect" value="/admin/devotional/${(id?c)!}"/>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					</form>
 				</div>
@@ -152,7 +152,7 @@
 								<#list devotionals as devotional>
 									<tr>
 										<td>
-											<a href="/admin/devotional/${(devotional.id)!}" class="">
+											<a href="/admin/devotional/${(devotional.id?c)!}" class="">
 											${(devotional.date)?string["MMMM dd, yyyy"]}
 											</a>
 										</td>
