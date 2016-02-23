@@ -13,7 +13,7 @@ class Video {
 	@Id
 	@GeneratedValue
 	Long id
-    String name, thumb, vimeoId, series
+    String name, thumb, vimeoId, series, slug
 	@Column(length = 1000)
 	String description
 	Date added
@@ -23,6 +23,10 @@ class Video {
 		if (name.length() > 15)
 			return name.substring(0, 14) + "..."
 		name
+	}
+
+	def createSlug() {
+		slug = name.replace(' ', '_').toLowerCase()
 	}
 
 }

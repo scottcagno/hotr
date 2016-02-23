@@ -38,7 +38,7 @@
 						<#list devotionals as devotional>
 							<!-- devotional post -->
 							<div class="devotional-post">
-								<p class="devotional-post-title"><a href="/devotional/${(devotional.id)?c}">${(devotional.title)!}</a></p>
+								<p class="devotional-post-title"><a href="/devotional/${(devotional.slug)!}">${(devotional.title)!}</a></p>
 								<p class="devotional-post-meta text-white">${(devotional.date)?string["MMMM dd, yyyy hh:mm a (EEEE)"]}</p>
 								<div class="devotional-body">
 									${(devotional.body)!}
@@ -57,7 +57,7 @@
 							<ol class="list-unstyled">
 							<#list devotionals as devotional>
 								<li>
-									<a href="/devotional/${(devotional.id)?c}" class="red"
+									<a href="/devotional/${(devotional.slug)}" class="red"
 										data-trigger="hover" data-container="body" data-toggle="popover"
 										data-placement="left" data-content="${(devotional.date)?string["MMMM dd, yyyy"]}...">
 										${(devotional.title)!}

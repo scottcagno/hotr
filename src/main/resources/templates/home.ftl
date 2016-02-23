@@ -146,7 +146,7 @@
 										<#list recentVideos as video>
 											<li>
 												<div>
-													<a href="/video/id/${(video.id)!}">
+													<a href="/video/name/${(video.slug)!}">
 														<img class="img-responsive" style="" src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
 													</a>
 													<div class="text-center">
@@ -210,7 +210,7 @@
 								<li class="col-md-3 unstyle">
 									<div class="insidetext">
 										<img src="${(devotional.thumb)!}" class="img-responsive">
-										<h2><a href="/devotional/${(devotional.id)!}"><span class="colortext">${(devotional.title)!}</span></a></h2>
+										<h2><a href="/devotional/${(devotional.slug)!}"><span class="colortext">${(devotional.title)!}</span></a></h2>
 										<div class="meta">
 											<i class="fa fa-clock-o"></i>${(devotional.date)!}
 										</div>
@@ -229,8 +229,13 @@
 
 			<!-- javascript -->
 			<#include "stubs/scripts.ftl"/>
+
+			<script type='text/javascript' src='/static/asher/js/carouselrecentportfolio.js'></script>
+			<script type='text/javascript' src='/static/asher/js/carousel.js'></script>
 			<script>
-				if (window.innerWidth > 750) {
+				if (window.innerWidth > 1920) {
+					$('.homeslider.fullwidth.flexslider').css('height', Math.round(window.innerHeight-457));
+				} else if (window.innerWidth > 750) {
 					$('.homeslider.fullwidth.flexslider').css('height', Math.round(window.innerHeight-188));
 				} else {
 					$('.homeslider.fullwidth.flexslider').css('height', '100%');

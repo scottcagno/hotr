@@ -40,6 +40,7 @@ class AdminDevotionalController {
 			return "redirect:/admin/devotional"
 		}
 		if(devotional.id == null) devotional.date = new Date()
+		devotional.createSlug()
 		devotionalService.save devotional
 		attr.addFlashAttribute("alertSuccess", "Successfully saved devotional entry")
 		"redirect:/admin/devotional"
@@ -58,6 +59,17 @@ class AdminDevotionalController {
 	String delete(@PathVariable Long id, RedirectAttributes attr) {
 		devotionalService.delete id
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted devotional entry")
+		"redirect:/admin/devotional"
+	}
+
+	@RequestMapping(value = "/create/slugs", method = RequestMethod.GET)
+	String createSlugs(RedirectAttributes attr) {
+		def devotionals = devotionalService.findAll()
+		for (Devotional devotional : devotionals) {
+			devotional.createSlug()
+		}
+		devotionalService.save(devotionals)
+		attr.addFlashAttribute("alertSuccess", "Successfully created slugs for all devotionals")
 		"redirect:/admin/devotional"
 	}
 

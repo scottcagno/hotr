@@ -28,8 +28,16 @@ class DevotionalService {
 		repo.findOne id
 	}
 
+	Devotional findOneBySlug(String slug) {
+		repo.findOneBySlug(slug)
+	}
+
 	def save(Devotional devotional) {
 		repo.save devotional
+	}
+
+	def save(List<Devotional> devotionals) {
+		repo.save(devotionals)
 	}
 
 	def delete(Long id) {

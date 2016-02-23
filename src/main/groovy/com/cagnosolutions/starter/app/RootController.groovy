@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app
 
-import com.cagnosolutions.starter.app.admin.settings.SettingsService
+import com.cagnosolutions.starter.app.intensive.IntensiveService
 import com.cagnosolutions.starter.app.devotional.DevotionalService
 import com.cagnosolutions.starter.app.eventbriteAPI.EventbriteAPI
 import com.cagnosolutions.starter.app.topic.TopicService
@@ -35,7 +35,7 @@ class RootController {
 	VideoService videoService
 
 	@Autowired
-	SettingsService adminSettingsService
+	IntensiveService adminSettingsService
 
 	@Autowired
 	DevotionalService devotionalService
@@ -46,11 +46,8 @@ class RootController {
 	// GET home
     @RequestMapping(value = ["/", "/home"], method = RequestMethod.GET)
     String index(Model model) {
-		def settings = adminSettingsService.findOne()
-		def vidId = (settings != null) ? settings.videoId : 0L
         model.addAllAttributes([auth : (userSession.id != null),
 								topics: topicService.popTopics(),
-								video: videoService.findOne(vidId),
 								recentVideos: videoService.findAllRecentlyAdded(),
 								recentDevotionals: devotionalService.findAllRecentlyAdded()])
         "home"
@@ -85,7 +82,7 @@ class RootController {
 			put("name", name)
 			put("comment", comment)
 		}}
-		emailService.send("contact@fantheflamedates.com", "jeffreykime@gmail.com", "Contact Us Page", comment, "email/contact.ftl", dat)
+		emailService.send("contact@fantheflamedates.com", "info@hotr.org", "Contact Us Page", comment, "email/contact.ftl", dat)
 		attr.addFlashAttribute("alertSuccess", "Thank you for reaching out to us.")
 		"redirect:/contact"
 	}

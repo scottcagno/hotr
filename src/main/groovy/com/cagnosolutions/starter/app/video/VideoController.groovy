@@ -69,22 +69,23 @@ class VideoController {
     }
 
 	// GET view one video
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
-    String view(@PathVariable Long id, Model model) {
-        model.addAllAttributes([video: videoService.findOne(id), topics : topicService.findAllByVideo(id)])
+    @RequestMapping(value = "/name/{slug}", method = RequestMethod.GET)
+    String view(@PathVariable String slug, Model model) {
+		def video = videoService.findOneBySlug(slug)
+        model.addAllAttributes([video: video, topics : topicService.findAllByVideo(video.id)])
 		if (userSession.id == null) {
 			model.addAttribute("auth", false)
 			return "video/video"
 		} else {
 			User user = userService.findOne userSession.id
-			if (id in user.progress) {
+			if (video.id in user.progress) {
 				model.addAttribute("alertWarning", "You have already watched this video. You can watch it " +
 						"again but it will not count towards your challenge progress")
 			}
 			if (!user.challenge) {
 				model.addAttribute("notChallenge", true)
 			}
-			model.addAllAttributes([questions : questionService.findAllByVideo(id), user : user, auth : true])
+			model.addAllAttributes([questions : questionService.findAllByVideo(video.id), user : user, auth : true])
 			"video/video_q"
 		}
     }
@@ -98,9 +99,9 @@ class VideoController {
 	}
 
 	// GET view one series
-	@RequestMapping(value = "/series/{id}", method = RequestMethod.GET)
-	String series(@PathVariable Long id, Model model) {
-		def series = seriesService.findOne(id)
+	@RequestMapping(value = "/series/{slug}", method = RequestMethod.GET)
+	String series(@PathVariable String slug, Model model) {
+		def series = seriesService.findOneBySlug(slug)
 		def videos = videoService.findAll(series.videoIds)
 		model.addAllAttributes([videos: videos,
 								auth : (userSession.id != null),
@@ -110,15 +111,16 @@ class VideoController {
 	}
 
 	// GET view all videos related to the one just watched
-	@RequestMapping(value = "/relatedto/{id}", method = RequestMethod.GET)
-	String relatedTo(@PathVariable Long id, Model model) {
-		def topics = topicService.findAllByVideo id
+	@RequestMapping(value = "/relatedto/{slug}", method = RequestMethod.GET)
+	String relatedTo(@PathVariable String slug, Model model) {
+		def video = videoService.findOneBySlug(slug)
+		def topics = topicService.findAllByVideo video.id
 		def videoIds = topicService.videoIdsByTopics topics
 		def relatedMap = [:]
 		videoIds.each { vidId ->
 			relatedMap[vidId] = (relatedMap[vidId] == null)? 1 : (relatedMap[vidId] as Integer) +1
 		}
-		relatedMap.remove id
+		relatedMap.remove video.id
 		// sort related map by value (most related - least related)
 		// create comparator
 		Comparator sortByValue = new Comparator<Map.Entry<Long, Integer>>() {
@@ -139,7 +141,7 @@ class VideoController {
 		videoIds = relatedMap.keySet() as ArrayList<Long>
 		videoIds = (videoIds.size() > 11)? videoIds.subList(0, 10) : videoIds
 		model.addAllAttributes([videos : videoService.findAll(videoIds), auth : true, topics : topics,
-								video : videoService.findOne(id), userSession : userSession])
+								video : video, userSession : userSession])
 		"video/related"
 	}
 

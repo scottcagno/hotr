@@ -4,6 +4,7 @@
 
 		<#include "../../stubs/header.ftl"/>
 		<script src="/static/js/facebook_conf.js"></script>
+		<link rel="stylesheet" href="/static/css/data-table-bootstrap.css">
 		<title>Videos</title>
 
 	</head>
@@ -46,8 +47,9 @@
 					Videos
 					<a href="/admin/video/upload" id="" class="btn btn-default btn-xs pull-right"><i class="fa fa-upload"></i> Upload Video</a>
 				</div>
+				<br><br><br>
 				<div id="videoTable" class="table-responsive">
-					<table class="table table-striped">
+					<table id="videos" class="table table-striped">
 						<thead>
 							<tr>
 								<th>Name</th>
@@ -65,24 +67,24 @@
 									<td class="hidden-xs hidden-sm">
 										<#if video.thumb??>
 											<a href="${(video.thumb)!}" target="_blank">View</a>
-										<#else/>
+										<#else>
 											Not Ready
 										</#if>
 									</td>
 									<td>
 										<a href="#" id="facebook"   data-name="${video.name}"
-												data-desc="${video.description}" data-thumb="${video.thumb!}" data-id="${video.id}" data-vimeoId="${video.vimeoId}">
+												data-desc="${video.description}" data-thumb="${video.thumb!}" data-slug="${video.slug}" data-vimeoId="${video.vimeoId}">
 											<i class="fa fa-facebook-square fa-2x"></i>
 										</a>
 									</td>
 									<td>
-										<a href="/admin/video/${video.id}" class="btn btn-primary">
+										<a href="/admin/video/${video.id?c}" class="btn btn-primary btn-xs">
 											<i class="fa fa-pencil"></i>
 										</a>
 
 										<!-- delete item trigger -->
-										<span id="delete-item" data-id="/admin/video/del/${video.id}"
-											  class="btn btn-danger">
+										<span id="delete-item" data-id="/admin/video/del/${video.id?c}"
+											  class="btn btn-danger btn-xs">
 											<i class="fa fa-trash-o"></i>
 										</span>
 										<!-- delete item trigger -->
@@ -101,9 +103,21 @@
 		<!-- javascript -->
 		<#include "../../stubs/scripts.ftl"/>
 		<script src="/static/js/delete-item.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.7/js/jquery.dataTables.min.js"></script>
+		<script src="/static/js/data-table-bootstrap.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#videos').DataTable({
+					lengthMenu:[10,15,20],
+					"columnDefs": [
+						{ "orderable": false, "targets": [1,2,3,4] }
+					]
+				});
+			});
+		</script>
 		<script>
 
-			var link = '${glob.host}/video/id/';
+			var link = '${glob.host}/video/name/';
 
 			function vidShare(thumb, vimeoId, id, name, desc) {
 				FB.ui({
@@ -124,7 +138,7 @@
 			};
 
 			$('a[id="facebook"]').click(function() {
-				vidShare(this.getAttribute('data-thumb'), this.getAttribute('data-vimeoId'), this.getAttribute('data-id'), this.getAttribute('data-name'), this.getAttribute('data-desc'))
+				vidShare(this.getAttribute('data-thumb'), this.getAttribute('data-vimeoId'), this.getAttribute('data-slug'), this.getAttribute('data-name'), this.getAttribute('data-desc'))
 			});
 
 		</script>

@@ -35,6 +35,7 @@ class AdminSeriesController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	String save(Series series, RedirectAttributes attr) {
 		if (seriesService.canUpdate(series.id, series.name)) {
+			series.createSlug()
 			series = seriesService.save series
 			attr.addFlashAttribute("alertSuccess", "Successfully saved series")
 		} else {
@@ -57,6 +58,17 @@ class AdminSeriesController {
 	String deleteSeries(@PathVariable Long id, RedirectAttributes attr) {
 		seriesService.delete(id)
 		attr.addFlashAttribute("alertSuccess", "Successfully deleted series")
+		"redirect:/admin/series"
+	}
+
+	@RequestMapping(value="/create/slugs", method = RequestMethod.GET)
+	String createSlugs(RedirectAttributes attr) {
+		def series = seriesService.findAll()
+		for (Series s : series) {
+			s.createSlug()
+		}
+		seriesService.save(series)
+		attr.addFlashAttribute("alertSuccess", "Successfully created slugs for all series")
 		"redirect:/admin/series"
 	}
 

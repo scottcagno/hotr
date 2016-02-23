@@ -5,6 +5,7 @@ import com.cagnosolutions.starter.app.question.QuestionService
 import com.cagnosolutions.starter.app.topic.TopicService
 import com.cagnosolutions.starter.app.validators.ValidationWrapper
 import com.cagnosolutions.starter.app.validators.VideoValidator
+import com.cagnosolutions.starter.app.video.Video
 import com.cagnosolutions.starter.app.video.VideoService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
+
 import javax.validation.Valid
 
 @CompileStatic
@@ -75,7 +77,7 @@ class AdminVideoController {
 			return "redirect:${(videoValidator.id == null || videoValidator.id == "") ? "/admin/video/add?video_uri=/videos/${videoValidator.vimeoId}" : "/admin/video/${videoValidator.id}"}"
 		}
 		def video = videoService.generateFromValidator videoValidator
-
+		video.createSlug()
 		if (video.id == null) {
 			// new video
 			video.watched = 0
@@ -135,6 +137,17 @@ class AdminVideoController {
 		vimeoAPI.settings(video.id, video.vimeoId)
 		attr.addFlashAttribute("alertSuccess", "Successfully sent thumbnail request. Please wait 5-10 minutes for a thumbnail response")
 		"redirect:/admin/video/${id}"
+	}
+
+	@RequestMapping(value = "/create/slugs", method = RequestMethod.GET)
+	String slug(RedirectAttributes attr) {
+		def videos = videoService.findAll()
+		for (Video video : videos) {
+			video.createSlug()
+		}
+		videoService.save(videos)
+		attr.addFlashAttribute("alertSuccess", "Successfully created slugs for all videos")
+		"redirect:/admin/video"
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.cagnosolutions.starter.app.admin
 
-import com.cagnosolutions.starter.app.admin.settings.SettingsService
+import com.cagnosolutions.starter.app.intensive.IntensiveService
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.video.VideoService
 import com.cagnosolutions.starter.app.worksheet.WorksheetService
@@ -26,7 +26,7 @@ class AdminController {
 	WorksheetService worksheetService
 
 	@Autowired
-	SettingsService settingsService
+	IntensiveService settingsService
 
 	// GET landing page
 	@RequestMapping(method = RequestMethod.GET)

@@ -76,7 +76,7 @@
 										<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
 										<div class="roll">
 											<div class="wrapcaption">
-												<a href="/video/id/${(video.id)!}"><i class="fa fa-play captionicons"></i></a>
+												<a href="/video/name/${(video.slug)!}"><i class="fa fa-play captionicons"></i></a>
 											</div>
 										</div>
 										<strong>${(video.name)!}</strong>

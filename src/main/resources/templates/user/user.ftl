@@ -156,7 +156,7 @@
 
 									</div>
 								</#if>
-								<input type="hidden" name="id" value="${user.id}"/>
+								<input type="hidden" name="id" value="${user.id?c}"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<button class="btn btn-md btn-primary btn-block" type="submit">Save</button>
 							</form>
@@ -171,7 +171,7 @@
 							<#if recent?has_content>
 								<#list recent as video>
 									<div class="text-center video-margin">
-										<a href="/video/id/${video.id}">
+										<a href="/video/name/${video.slug}">
 											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.png')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 										</a>
 										<p class="video-title"><strong>${video.name}</strong></p>
@@ -200,12 +200,12 @@
 									<tbody>
 										<#list worksheets as worksheet>
 											<tr>
-												<td><strong>${worksheet.videoName}: </strong><a href="/secure/worksheet/${worksheet.id}"> View</a></td>
+												<td><strong>${worksheet.videoName}: </strong><a href="/secure/worksheet/${worksheet.id?c}"> View</a></td>
 												<td>${(worksheet.completed?date)!}</td>
 												<td>
 
 													<!-- delete item trigger -->
-													<span id="delete-item" data-id="/secure/worksheet/del/${worksheet.id}"
+													<span id="delete-item" data-id="/secure/worksheet/del/${worksheet.id?c}"
 														  class="label label-danger" style="cursor:pointer;">
 														<i class="fa fa-trash-o"></i> Delete
 													</span>

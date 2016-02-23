@@ -1,1 +1,1 @@
-$(document).ready(function(){function n(){$.ajax({type:"post",url:"/topic",data:$('form[id="watched"]').serializeArray()}).done(function(){console.log("POST Sent")})}var a=$('iframe[id="player"]')[0],e=$f(a);e.addEvent("ready",function(){e.addEvent("finish",n)})});
+$(document).ready(function(){function a(){$.ajax({type:"post",url:"/topic",data:$('form[id="watched"]').serializeArray()})}var t=!1,d=$('iframe[id="player"]')[0],e=$f(d);e.addEvent("ready",function(){e.addEvent("play",function(){t||(a(),t=!0)})})});

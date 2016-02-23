@@ -25,8 +25,16 @@ class SeriesService {
 		repo.findOne id
 	}
 
+	Series findOneBySlug(String slug) {
+		repo.fineOneBySlug(slug)
+	}
+
 	Series save(Series series) {
 		repo.save series
+	}
+
+	def save(List<Series> series) {
+		repo.save(series)
 	}
 
 	def delete(Long id) {

@@ -8,7 +8,8 @@ import groovy.transform.CompileStatic
 class Event {
 
 	Map<String, String> name
-	Map <String, Object> venue
+	String venue_id
+	Venue venue
 	Map <String, Object> ticket_classes
 	Map<String, String> start
 	Map<String, String> end

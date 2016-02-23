@@ -31,7 +31,7 @@
 
 			<#assign caption = 'Challenge accepted'/>
 			<#assign message = 'I just completed the next step in my Fan The Flame Dates one year challenge!'/>
-			<#assign shareLink = '${glob.host}/video/id/${id}'/>
+			<#assign shareLink = '${glob.host}/video/name/${(video.slug)}'/>
 			<#assign thumb = video.thumb/>
 
 			<!-- challenge congrats/post -->
@@ -93,7 +93,7 @@
 									<#assign vidInRow = 0/>
 								</#if>
 								<div class="col-sm-6 col-md-4 col-lg-3 text-center video-margin">
-									<a href="/video/id/${video.id}">
+									<a href="/video/name/${(video.slug)!}">
 										<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" class="img-responsive img-thumbnail" alt="Video Thumbnail">
 									</a>
 									<p class="video-title"><strong>${video.name}</strong></p>

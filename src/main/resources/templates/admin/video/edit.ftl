@@ -42,7 +42,7 @@
 			<#include "../../stubs/alert.ftl"/>
 
 			<div id="thumb-request-confirm" class="hide alert alert-warning alert-dismissible wow fadeIn col-xs-12" role="alert">
-				<form role="form" method="post" class="form-inline" action="/admin/video/thumb/${video.id}">
+				<form role="form" method="post" class="form-inline" action="/admin/video/thumb/${video.id?c}">
 					<div class="col-xs-4">
 						<div class="form-group">
 							<button class="btn btn btn-warning" type="submit">Yes, make request</button>
@@ -107,7 +107,7 @@
 								<input class="form-control" id="series" name="series" type="text"
 									   placeholder="Add Series" value="${video.series}"/>
 							</div>
-							<input type="hidden" name="id" value="${video.id}"/>
+							<input type="hidden" name="id" value="${video.id?c}"/>
 							<input type="hidden" name="thumb" value="${video.thumb!}"/>
 							<input type="hidden" name="vimeoId" value="${video.vimeoId}"/>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -122,7 +122,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading col-sm-12">
 							Questions
-							<a href="/admin/question/add?videoId=${video.id}" class="btn btn-default btn-xs pull-right">Add question</a>
+							<a href="/admin/question/add?videoId=${video.id?c}" class="btn btn-default btn-xs pull-right">Add question</a>
 						</div>
 						<div class="table-responsive">
 							<table class="table table-striped">
@@ -141,12 +141,12 @@
 											<td>${question.inputType?cap_first}</td>
 											<td>${(question.options?size > 0)?string(question.options?join(', '), 'None')}</td>
 											<td>
-												<a href="/admin/question/${question.id}" class="btn btn-primary">
+												<a href="/admin/question/${question.id?c}" class="btn btn-primary">
 													<i class="fa fa-pencil"></i>
 												</a>
 
 												<!-- delete item trigger -->
-												<span id="delete-item" data-id="/admin/question/del/${question.id}"
+												<span id="delete-item" data-id="/admin/question/del/${question.id?c}"
 													  class="btn btn-danger">
 													<i class="fa fa-trash-o"></i>
 												</span>

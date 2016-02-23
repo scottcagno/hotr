@@ -33,6 +33,11 @@ class AdminUserController {
 	@RequestMapping(method = RequestMethod.GET)
 	String view(Model model) {
 		model.addAttribute("users", userService.findAll())
+		"admin/user/users"
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	String addView(Model model) {
 		"admin/user/user"
 	}
 
@@ -43,10 +48,10 @@ class AdminUserController {
 			attr.addFlashAttribute("alertError", "Error in the user form")
 			attr.addFlashAttribute("errors", validationWrapper.bindErrors(bindingResult))
 			attr.addFlashAttribute("user", adminAddUserValidator)
-			return "redirect:/admin/user"
+			return "redirect:/admin/user/add"
 		}
 		def user = userService.generateFromValidator adminAddUserValidator
-		if(userService.canUpdate(user.id, user.username)) {
+		if (userService.canUpdate(user.id, user.username)) {
 			user.password = new BCryptPasswordEncoder().encode(user.password)
 			user.challenge = false
 			user.monthly = false
@@ -54,17 +59,17 @@ class AdminUserController {
 			user.progress = new ArrayList<>()
 			userService.save user
 			attr.addFlashAttribute("alertSuccess", "Updated Successfully")
-		} else {
-			attr.addFlashAttribute "alertError", "Unable to save user ${user.firstName} ${user.lastName}"
+			return "redirect:/admin/user"
 		}
-		"redirect:/admin/user"
+		attr.addFlashAttribute "alertError", "Unable to save user ${user.firstName} ${user.lastName}. Email is already in use."
+		"redirect:/admin/user/add"
 	}
 
 	// GET one user and display all users
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	String edit(@PathVariable Long id, @RequestParam(required = false) Boolean active, Model model) {
 		def user = userService.findOne id
-		if(active != null) {
+		if (active != null) {
 			user.active = (active) ? 1 as short : 0 as short
 			userService.save user
 		}
@@ -85,7 +90,7 @@ class AdminUserController {
 			return "redirect:/admin/user/${adminEditUserValidator.id}"
 		}
 		def user = userService.generateFromValidator adminEditUserValidator
-		if(userService.canUpdate(user.id, user.username)) {
+		if (userService.canUpdate(user.id, user.username)) {
 			User existingUser = userService.findOne user.id
 			user.password = (user.password == '') ? null : user.password
 			user.monthly = (user.monthly == null) ? false : user.monthly
@@ -95,10 +100,10 @@ class AdminUserController {
 			}
 			userService.save existingUser
 			attr.addFlashAttribute("alertSuccess", "Updated Successfully")
-		} else {
-			attr.addFlashAttribute "alertError", "Unable to save user ${user.firstName} ${user.lastName}"
+			return "redirect:/admin/user"
 		}
-		"redirect:/admin/user"
+		attr.addFlashAttribute "alertError", "Unable to save user ${user.firstName} ${user.lastName}. Email is already in use."
+		return "redirect:/admin/user/${adminEditUserValidator.id}"
 	}
 
 	// POST delete user

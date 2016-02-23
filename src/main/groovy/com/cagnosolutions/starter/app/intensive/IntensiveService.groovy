@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app.admin.settings
+package com.cagnosolutions.starter.app.intensive
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -6,21 +6,22 @@ import org.springframework.stereotype.Service
 
 @CompileStatic
 @Service
-class SettingsService {
+class IntensiveService {
 
     @Autowired
-    SettingsRepository repo
+    IntensiveRepository repo
 
-    List<Settings> findAll() {
+    List<Intensive> findAll() {
         repo.findAll()
     }
 
-    Settings findOne() {
+    Intensive findOne() {
         repo.findOne 1L
     }
 
-    Settings save(Settings adminSettings) {
-        repo.save adminSettings
+    Intensive save(Intensive intensive) {
+		intensive.id = 1L
+        repo.save intensive
     }
 
     def delete(Long id) {

@@ -69,7 +69,7 @@
 										<img src="${(series.thumb?has_content)?string('/image/${(series.thumb!)}', '/static/img/video2.jpg')}" alt="">
 										<div class="roll">
 											<div class="wrapcaption">
-												<a href="/video/series/${series.id}"><i class="fa fa-play captionicons"></i></a>
+												<a href="/video/series/${series.slug}"><i class="fa fa-play captionicons"></i></a>
 											</div>
 										</div>
 										<p><strong>

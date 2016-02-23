@@ -32,6 +32,10 @@ class VideoService {
         repo.findOne id
     }
 
+	Video findOneBySlug(String slug) {
+		repo.findOneBySlug(slug)
+	}
+
 	List<Video> findAllRecentlyAdded() {
 		repo.findAllRecentlyAdded()
 	}
@@ -45,6 +49,10 @@ class VideoService {
 		    video.added = new Date()
         repo.save video
     }
+
+	def save(List<Video> videos) {
+		repo.save(videos)
+	}
 
 	Video saveAndFlush(Video video) {
 		if (video.id == null)

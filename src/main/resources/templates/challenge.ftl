@@ -91,7 +91,7 @@
 
 										<!-- start -->
 										<form id="challengeForm" role="form" method="post" action="/secure/user/challenge">
-											<input type="hidden" name="userId" value="${userSession.id}"/>
+											<input type="hidden" name="userId" value="${(userSession.id?c)}"/>
 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 												<div class="form-group">
 													<div class="checkbox">

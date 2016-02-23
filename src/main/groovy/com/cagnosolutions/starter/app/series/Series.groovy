@@ -11,7 +11,11 @@ class Series {
 	@GeneratedValue
 	Long id
 
-	String name, thumb
+	String name, thumb, slug
 	ArrayList<Long> videoIds
+
+	def createSlug() {
+		slug = name.replace(' ', '_').toLowerCase()
+	}
 
 }

@@ -37,7 +37,7 @@
 									<option value="select many" <#if question.inputType == "select many">selected="true"</#if>>Select Many</option>
 								</select>
 							</div>
-							<input type="hidden" name="id" value="${question.id}">
+							<input type="hidden" name="id" value="${(question.id?c)!}">
 							<input type="hidden" name="video_fk" value="${question.video_fk}">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 							<input type="hidden" name="options" value=""/>

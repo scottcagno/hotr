@@ -1,9 +1,9 @@
 package com.cagnosolutions.starter.app.worksheet
-
-import com.cagnosolutions.starter.app.util.email.EmailService
 import com.cagnosolutions.starter.app.user.User
 import com.cagnosolutions.starter.app.user.UserService
 import com.cagnosolutions.starter.app.user.UserSession
+import com.cagnosolutions.starter.app.util.email.EmailService
+import com.cagnosolutions.starter.app.video.VideoService
 import com.fasterxml.jackson.databind.ObjectMapper
 import freemarker.template.Configuration
 import freemarker.template.Template
@@ -36,6 +36,9 @@ class WorksheetController {
 
 	@Autowired
 	UserSession userSession
+
+	@Autowired
+	VideoService videoService
 
 	// GET worksheet
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -83,10 +86,12 @@ class WorksheetController {
 			emailService.send("noreply@fantheflamedates.com", user.username ,"Worksheet", "Worksheet", "email/worksheet.ftl", map)
 		}
 		if (send) {
-			// email to ffd
+			// anonymously email to ffd
+			emailService.send("noreply@fantheflamedates.com", "info@fantheflamedates.com" ,"Worksheet", "Worksheet", "email/anonWorksheet.ftl", map)
 		}
 		attr.addFlashAttribute("worksheet", worksheet)
-		"redirect:/video/relatedto/${worksheet.videoId}"
+		def slug = videoService.findOne(worksheet.videoId).slug
+		"redirect:/video/relatedto/${slug}"
 	}
 
 }

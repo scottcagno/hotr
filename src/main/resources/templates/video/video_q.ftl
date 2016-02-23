@@ -21,7 +21,7 @@
 
 			<#assign caption = video.name/>
 			<#assign message = video.description/>
-			<#assign shareLink = '${glob.host}/video/id/${id}'/>
+			<#assign shareLink = '${glob.host}/video/name/${video.slug}'/>
 			<#assign thumb = video.thumb/>
 
 			<!-- header -->
@@ -109,8 +109,8 @@
 										<input type="checkbox" name="send" value="true"> Anonymously submit my completed worksheet to Fan the Flame Dates.
 									</label>
 								</div>
-								<input type="hidden" name="videoId" value="${video.id}">
-								<input type="hidden" name="userId" value="${user.id}">
+								<input type="hidden" name="videoId" value="${video.id?c}">
+								<input type="hidden" name="userId" value="${user.id?c}">
 								<input type="hidden" name="videoName" value="${video.name}">
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<input type="hidden" name="answers" id="answers">
@@ -189,7 +189,7 @@
 			<!-- watched form -->
 			<form id="watched" hidden>
 				<input type="text" name="topicIds" value="${topics?join(',')}"/>
-				<input type="text" name="videoId" value="${video.id}"/>
+				<input type="text" name="videoId" value="${video.id?c}"/>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>
 			<!-- watched form -->

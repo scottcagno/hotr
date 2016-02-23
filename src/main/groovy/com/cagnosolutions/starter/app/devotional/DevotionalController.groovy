@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.devotional
 
+import com.cagnosolutions.starter.app.user.UserSession
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -16,17 +17,20 @@ class DevotionalController {
 	@Autowired
 	DevotionalService devotionalService
 
+	@Autowired
+	UserSession userSession
+
 	// GET view all devotionals
 	@RequestMapping(method = RequestMethod.GET)
 	String devotional(Model model) {
-		model.addAllAttributes([devotionals: devotionalService.findAll(), auth: false])
+		model.addAllAttributes([devotionals: devotionalService.findAll(), auth: (userSession.id != null)])
 		"devotional/devotional"
 	}
 
 	// GET view one devotional
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	String devotionalPost(@PathVariable Long id, Model model) {
-		model.addAllAttributes([devotional: devotionalService.findOne(id), devotionals: devotionalService.findAll(), auth: false])
+	@RequestMapping(value = "/{slug}", method = RequestMethod.GET)
+	String devotionalPost(@PathVariable String slug, Model model) {
+		model.addAllAttributes([devotional: devotionalService.findOneBySlug(slug), devotionals: devotionalService.findAll(), auth: (userSession.id != null)])
 		"devotional/devotional-post"
 	}
 

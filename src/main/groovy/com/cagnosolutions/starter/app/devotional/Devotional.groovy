@@ -18,5 +18,10 @@ class Devotional {
 	@Column(length = 100000)
 	String body
 	String thumb
+	String slug
 
+	def createSlug() {
+		slug = title.replace(' ', '_').toLowerCase()
+	}
 }
+

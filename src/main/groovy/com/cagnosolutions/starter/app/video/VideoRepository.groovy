@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository
 @Repository
 interface VideoRepository extends JpaRepository<Video, Long> {
 
+	@Query("SELECT v FROM Video v WHERE v.slug=:slug")
+	Video findOneBySlug(@Param("slug") String slug)
+
 	@Query(nativeQuery = true, value = "select * from hotr.video where hotr.video.id in (select hotr.topic.video_fk from hotr.topic where hotr.topic.topic=:topic)")
 	List<Video> findAllVideoByTopic(@Param("topic") String topic)
 

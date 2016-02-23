@@ -1,4 +1,4 @@
-package com.cagnosolutions.starter.app
+package com.cagnosolutions.starter.app.intensive
 
 import com.cagnosolutions.starter.app.user.UserSession
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,11 +14,14 @@ class IntensivesController {
 	@Autowired
 	UserSession userSession
 
+	@Autowired
+	IntensiveService intensiveService
+
 	// GET view marriage intensives main
 	@RequestMapping(method = RequestMethod.GET)
 	String intensives(Model model) {
-		model.addAllAttributes([auth: (userSession.id != null)])
-		"intensives/intensives"
+		model.addAllAttributes([auth: (userSession.id != null), intensive:intensiveService.findOne()])
+		"intensive/intensive"
 	}
 
 }

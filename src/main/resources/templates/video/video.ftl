@@ -19,7 +19,7 @@
 
 			<#assign caption = video.name/>
 			<#assign message = video.description/>
-			<#assign shareLink = '${glob.host}/video/id/${id}'/>
+			<#assign shareLink = '${glob.host}/video/name/${(video.slug)!}'/>
 			<#assign thumb = video.thumb/>
 
 			<!-- header -->
@@ -104,7 +104,7 @@
 			<!-- watched form -->
 			<form id="watched" hidden>
 				<input type="text" name="topicIds" value="${topics?join(',')}"/>
-				<input type="text" name="videoId" value="${video.id}"/>
+				<input type="text" name="videoId" value="${video.id?c}"/>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			</form>
 			<!-- watched form -->
@@ -117,7 +117,7 @@
 			<script>
 				var thumb = '${thumb}';
 				var caption = '${caption}';
-				var message = '${message}';
+				var message = "${message}";
 				var shareLink = '${shareLink}';
 			</script>
 

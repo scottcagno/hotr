@@ -57,7 +57,7 @@
 							<option value="none">Add Series</option>
 							<option value="none">-----------------</option>
 							<#list allSeries as s>
-								<option value="${s.id}" ${(id?? && id == s.id)? string('selected', '')}>${s.name}</option>
+								<option value="${s.id?c}" ${(id?? && id == s.id)? string('selected', '')}>${s.name}</option>
 							</#list>
 						</select>
 						<!-- all series -->
@@ -65,7 +65,7 @@
 					<#if series??>
 
 						<!-- delete item trigger -->
-						<span id="delete-item" data-id="/admin/series/del/${series.id}"
+						<span id="delete-item" data-id="/admin/series/del/${series.id?c}"
 							  class="btn btn-danger btn-block">Delete
 						</span>
 						<!-- delete item trigger -->
@@ -119,7 +119,7 @@
 					<#list videos as video>
 						<div class="checkbox">
 							<label class="text-white">
-								<input type="checkbox" class="videoId" value="${video.id}" ${(series?? && series.videoIds?? && series.videoIds?seq_contains(video.id))? string('checked', '')}/> ${video.name}
+								<input type="checkbox" class="videoId" value="${video.id?c}" ${(series?? && series.videoIds?? && series.videoIds?seq_contains(video.id))? string('checked', '')}/> ${video.name}
 							</label>
 						</div>
 					</#list>

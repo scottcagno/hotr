@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository
 @Repository
 interface SeriesRepository extends JpaRepository<Series, Long> {
 
+	@Query("SELECT s FROM Series s WHERE s.slug=:slug")
+	Series fineOneBySlug(@Param("slug") String slug)
+
 	@Query("SELECT COUNT(s.id) FROM Series s WHERE s.id<>:id AND s.name=:name")
 	int canUpdate(@Param("id") Long id, @Param("name") String name)
 
