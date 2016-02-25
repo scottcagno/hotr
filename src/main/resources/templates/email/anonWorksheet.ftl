@@ -9,10 +9,10 @@
 				<div style="padding-left: 27px;padding-right: 27px; padding-bottom: 27px;">
 					<br/>
 					<p>Hello.</p><br/>
-					<p>Below is a copy of a worksheet a user anonymously submitted. This worksheet was completed for video ${worksheet.videoName}</p><br/>
+					<p>Below is a copy of a worksheet a user anonymously submitted. This worksheet was completed for video ${(worksheet.videoName)! 'Video Name'}</p><br/>
 					<div style="padding:5px;border:1px solid #5a5a5a;">
 						<p>
-							${worksheet.htmlData}
+							${(worksheet.htmlData)! 'Worksheet Data'}
 						</p>
 					</div>
 					<p>

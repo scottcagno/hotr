@@ -16,9 +16,9 @@ public class EventbriteAPI {
 		EventBrite eventbrite = DefaultGroovyMethods.asType(template.getForObject("https://www.eventbriteapi.com/v3/users/8985290817/owned_events/?status=live&order_by=start_desc&token=552J7G7UP6ECQQQD4DF7", EventBrite.class), EventBrite.class);
 		List<Event> eventsSorted = new ArrayList<>(eventbrite.getEvents().size());
 		eventbrite.getEvents().stream().sorted((e1, e2) -> e1.getStart().get("local").compareTo(e2.getStart().get("local"))).forEach(eventsSorted::add);
-		for (Event event: eventsSorted) {
+		/*for (Event event: eventsSorted) {
 			event.setVenue(findVenue(event.getVenue_id()));
-		}
+		}*/
 
 		return eventsSorted;
 	}

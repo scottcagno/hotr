@@ -90,6 +90,22 @@ class TopicService {
 		videoIds
 	}
 
+	def resetWatched() {
+		def topics = watchedRepo.findAll()
+		topics.each {
+			it.watched = 0
+		}
+		watchedRepo.save topics
+	}
+
+	def updateWatched(List<String> topicsIds, Integer watched) {
+		def topics = watchedRepo.findAll topicsIds
+		topics.each {
+			it.watched += watched
+		}
+		watchedRepo.save topics
+	}
+
 }
 
 

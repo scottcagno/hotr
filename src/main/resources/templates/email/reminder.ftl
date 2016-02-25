@@ -9,7 +9,7 @@
 				<div style="padding-left: 27px;padding-right: 27px; padding-bottom: 27px;">
 					<br/>
 					<p>
-						Hello ${name}, We are emailing you to remind you to watch this month's Fan the Flame Date's video.
+						Hello ${(name)! 'John Doe'}, We are emailing you to remind you to watch this month's Fan the Flame Date's video.
 					</p>
 				</div>
 			</div>

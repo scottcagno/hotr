@@ -150,4 +150,16 @@ class AdminVideoController {
 		"redirect:/admin/video"
 	}
 
+	@RequestMapping(value = "/update/watched", method = RequestMethod.GET)
+	String updateWatched(RedirectAttributes attr) {
+		topicService.resetWatched()
+		def videos = videoService.findAll()
+		videos.each {video ->
+			def topics = topicService.findAllByVideo(video.id)
+			topicService.updateWatched(topics, video.watched)
+		}
+		attr.addFlashAttribute("alertSuccess", "Successfully updated topics watched")
+		"redirect:/admin"
+	}
+
 }

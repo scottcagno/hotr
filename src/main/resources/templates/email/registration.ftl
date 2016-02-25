@@ -8,7 +8,7 @@
 			<div style="width: 600px;margin: 0px auto;background-color: #f5f6f5;border:1px solid #dddddd;-moz-border-radius: 3px;-webkit-border-radius: 3px;">
 				<div style="padding-left: 27px;padding-right: 27px; padding-bottom: 27px;">
 					<br/>
-					<p>Hello ${name},</p><br/>
+					<p>Hello ${(name)! 'John Doe'},</p><br/>
 					<p>Thank you for registering with Fame the Flame Dates.</p><br/>
 					<p>
 						<em>
