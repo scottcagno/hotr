@@ -26,7 +26,7 @@ class Video {
 	}
 
 	def createSlug() {
-		slug = name.replace(' ', '_').toLowerCase()
+		slug = name.replaceAll("[;/?:@&=+\\\$,\\{\\}\\|\\\\^\\[\\]`]", "").trim().replace(' ', '_').toLowerCase()
 	}
 
 }

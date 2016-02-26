@@ -21,7 +21,7 @@ class Devotional {
 	String slug
 
 	def createSlug() {
-		slug = title.replace(' ', '_').toLowerCase()
+		slug = title.replaceAll("[;/?:@&=+\\\$,\\{\\}\\|\\\\^\\[\\]`]", "").trim().replace(' ', '_').toLowerCase()
 	}
 }
 
