@@ -19,6 +19,10 @@
 							If you would like to make a contribution
 							<a href="/donate" style="color: #e7402f"><strong>click here</strong></a>.
 						</p>
+						<p>
+							Sign up for our weekly marriage devotional
+							<a href="http://fantheflamedates.us8.list-manage.com/subscribe?u=bc1041e78521c2da693b0b42a&id=3c7a78612d" target="_blank" style="color: #e7402f">here</a>!
+						</p>
 					</div>
 					</aside>
 				</div>

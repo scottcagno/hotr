@@ -25,6 +25,7 @@
 					<div class="col-md-12 negmtop">
 						<h1 class="pgheadertitle animated fadeInLeft pull-left">Weekly Marriage Devotional</h1>
 						<span class="pagedescrarea text-right animated fadeInRight pull-right">
+							<a href="http://fantheflamedates.us8.list-manage.com/subscribe?u=bc1041e78521c2da693b0b42a&id=3c7a78612d" target="_blank">Sign up for our weekly marriage devotional here!</a>
 						</span>
 					</div>
 				</div>

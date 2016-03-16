@@ -64,28 +64,105 @@
 						<!-- categories -->
 
 						<!-- videos -->
-						<#assign vidInRow = 0/>
-						<div class="row">
-							<#list videos as video>
-								<#if vidInRow gt 3>
-									</div><div class="row">
-									<#assign vidInRow = 0/>
-								</#if>
-								<div class="col-lg-3">
-									<div class="boxcontainer">
-										<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
-										<div class="roll">
-											<div class="wrapcaption">
-												<a href="/video/name/${(video.slug)!}"><i class="fa fa-play captionicons"></i></a>
+
+						<!-- large view -->
+						<div class="visible-lg-block">
+							<#assign vidInRow = 0/>
+							<div class="row">
+								<#list videos as video>
+									<#if vidInRow gt 3>
+										</div><div class="row">
+										<#assign vidInRow = 0/>
+									</#if>
+									<div class="col-lg-3">
+										<div class="boxcontainer">
+											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
+											<div class="roll">
+												<div class="wrapcaption">
+													<a href="/video/name/${(video.slug)!}"><i class="fa fa-play captionicons"></i></a>
+												</div>
 											</div>
+											<strong>${(video.name)!}</strong>
 										</div>
-										<strong>${(video.name)!}</strong>
-										<#--<p>${(video.watched)!} Views</p>-->
 									</div>
-								</div>
-								<#assign vidInRow = vidInRow + 1/>
-							</#list>
+									<#assign vidInRow = vidInRow + 1/>
+								</#list>
+							</div>
 						</div>
+						<!-- large view -->
+
+						<!-- medium view -->
+						<div class="visible-md-block">
+							<#assign vidInRow = 0/>
+							<div class="row">
+								<#list videos as video>
+									<#if vidInRow gt 2>
+										</div><div class="row">
+										<#assign vidInRow = 0/>
+									</#if>
+									<div class="col-md-4">
+										<div class="boxcontainer">
+											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
+											<div class="roll">
+												<div class="wrapcaption">
+													<a href="/video/name/${(video.slug)!}"><i class="fa fa-play captionicons"></i></a>
+												</div>
+											</div>
+											<strong>${(video.name)!}</strong>
+										</div>
+									</div>
+									<#assign vidInRow = vidInRow + 1/>
+								</#list>
+							</div>
+						</div>
+						<!-- medium view -->
+
+						<!-- large view -->
+						<div class="visible-sm-block">
+							<#assign vidInRow = 0/>
+							<div class="row">
+								<#list videos as video>
+									<#if vidInRow gt 1>
+										</div><div class="row">
+										<#assign vidInRow = 0/>
+									</#if>
+									<div class="col-sm-6">
+										<div class="boxcontainer">
+											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
+											<div class="roll">
+												<div class="wrapcaption">
+													<a href="/video/name/${(video.slug)!}"><i class="fa fa-play captionicons"></i></a>
+												</div>
+											</div>
+											<strong>${(video.name)!}</strong>
+										</div>
+									</div>
+									<#assign vidInRow = vidInRow + 1/>
+								</#list>
+							</div>
+						</div>
+						<!-- large view -->
+
+						<!-- extra small view -->
+						<div class="visible-xs-block">
+							<div class="row">
+								<#list videos as video>
+									<div class="col-xs-12">
+										<div class="boxcontainer">
+											<img src="${(video.thumb??)?string((video.thumb)!, '/static/img/video.jpg')}" alt="">
+											<div class="roll">
+												<div class="wrapcaption">
+													<a href="/video/name/${(video.slug)!}"><i class="fa fa-play captionicons"></i></a>
+												</div>
+											</div>
+											<strong>${(video.name)!}</strong>
+										</div>
+									</div>
+								</#list>
+							</div>
+						</div>
+						<!-- extra small view -->
+
 						<!-- videos -->
 
 					</div>
@@ -99,7 +176,7 @@
 							<div class="panel-body topic">
 								<#list topics as topic>
 									<a href="/video/all?topic=${topic.topic}" class="btn btn-block">
-										${topic.topic?cap_first} <span class="badge pull-right">${topic.watched} Views</span>
+										${topic.topic?cap_first} <span class="badge pull-right visible-lg-block">${topic.watched} Views</span>
 									</a>
 								</#list>
 							</div>

@@ -28,6 +28,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+								<li><a href="/challenge">Challenge</a></li>
 								<li><a href="/events">Retreats</a></li>
 								<li><a href="/intensives">Marriage<br/>Intensives</a></li>
 								<li><a href="/devotional">Weekly Marriage<br/>Devotional</a></li>
