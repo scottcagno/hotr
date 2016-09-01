@@ -43,7 +43,7 @@
 		</div>
 
 		<!-- wait modal -->
-		<div class="modal fade" id="wait" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+		<div class="modal fade" id="wait" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" style="margin-top:100px;">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-body text-center">

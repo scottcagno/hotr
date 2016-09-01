@@ -73,9 +73,10 @@ class VideoController {
     String view(@PathVariable String slug, Model model) {
 		def video = videoService.findOneBySlug(slug)
         model.addAllAttributes([video: video, topics : topicService.findAllByVideo(video.id)])
+		model.addAttribute("questions", questionService.findAllByVideo(video.id))
 		if (userSession.id == null) {
+			model.addAllAttributes([questions : questionService.findAllByVideo(video.id), auth : false])
 			model.addAttribute("auth", false)
-			return "video/video"
 		} else {
 			User user = userService.findOne userSession.id
 			if (video.id in user.progress) {
@@ -85,9 +86,9 @@ class VideoController {
 			if (!user.challenge) {
 				model.addAttribute("notChallenge", true)
 			}
-			model.addAllAttributes([questions : questionService.findAllByVideo(video.id), user : user, auth : true])
-			"video/video_q"
+			model.addAllAttributes([user : user, auth : true])
 		}
+		"video/video_q"
     }
 
 	// GET view all series
