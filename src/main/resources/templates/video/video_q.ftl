@@ -221,7 +221,7 @@
 			<script>
 				var thumb = '${thumb}';
 				var caption = '${caption}';
-				var message = '${message}';
+				var message = "${message}";
 				var shareLink = '${shareLink}';
 			</script>
 
