@@ -3,6 +3,7 @@ package com.cagnosolutions.starter.app.devotional
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.CrossOrigin
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
@@ -17,5 +18,13 @@ class DevotionalRestController {
 	DevotionalService devotionalService
 
 	@RequestMapping(method = RequestMethod.GET)
+	List<Devotional> devotionalAll(Integer page, Integer count) {
+		devotionalService.findAll((page? page-1 : 0), (count? count : 20))
+	}
+
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
+	Devotional devotional(@PathVariable Long id) {
+		devotionalService.findOne id
+	}
 
 }

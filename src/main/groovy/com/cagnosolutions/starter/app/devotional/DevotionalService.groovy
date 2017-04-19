@@ -2,6 +2,8 @@ package com.cagnosolutions.starter.app.devotional
 
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Sort.Direction
 import org.springframework.stereotype.Service
 
 @CompileStatic
@@ -20,8 +22,12 @@ class DevotionalService {
 				else
 					return 0
 			}
-		});
+		})
 		devotionals
+	}
+
+	List<Devotional> findAll(int page, int size) {
+		repo.findAll(new PageRequest(page, size, Direction.DESC, "date")).content
 	}
 
 	Devotional findOne(Long id) {
