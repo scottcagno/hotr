@@ -1,5 +1,6 @@
 package com.cagnosolutions.starter.app.counselor
 
+import com.cagnosolutions.starter.app.restLog.RestLogService
 import com.cagnosolutions.starter.app.zipCodeAPI.ZipCode
 import com.cagnosolutions.starter.app.zipCodeAPI.ZipCodeAPI
 import groovy.transform.CompileStatic
@@ -21,8 +22,12 @@ class CounselorRestController {
 	@Autowired
 	ZipCodeAPI zipCodeAPI
 
+	@Autowired
+	RestLogService restLogService
+
 	@RequestMapping(method = RequestMethod.GET)
 	List<Counselor> counselorAll(String zip, Integer radius) {
+		restLogService.save("counselor")
 		if (zip == null || radius == null) {
 			return []
 		}
@@ -41,6 +46,7 @@ class CounselorRestController {
 
 	@RequestMapping(value = "/zipcodes", method = RequestMethod.GET)
 	List<ZipCode> zipCodeTest(String zip, Integer radius) {
+		restLogService.save("zip-codes")
 		if (zip == null || radius == null) {
 			return []
 		}
