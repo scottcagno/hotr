@@ -4,7 +4,7 @@
 
 		<#include "../../stubs/header.ftl"/>
 		<link rel="stylesheet" href="/static/css/data-table-bootstrap.css">
-		<title>Users</title>
+		<title>Counselors</title>
 
 	</head>
 	<body id="body">
@@ -27,7 +27,7 @@
 					</div>
 					<div class="form-group pull-right">
 						<p class="lead text-danger">
-							Are you sure you want to permanently remove this user?
+							Are you sure you want to permanently remove this counselor?
 						</p>
 					</div>
 				</form>
@@ -37,40 +37,48 @@
 
 		<div class="container-fluid">
 
-			<#include "../../stubs/alert.ftl"/>
 
 			<!-- view all -->
 			<div class="col-sm-12">
+				<#include "../../stubs/alert.ftl"/>
 				<div class="panel panel-default">
 					<div class="panel-heading clearfix">
-						All Users
-						<a href="/admin/user/add" class="btn btn-primary pull-right">Add</a>
+						All Counselors
+						<a href="/admin/counselor/add" class="btn btn-primary pull-right">Add</a>
 					</div>
 					<div class="table-responsive">
-						<table id="users" class="table table-striped">
+						<table id="counselors" class="table table-striped">
 							<thead>
 								<tr>
-									<th>First Name</th>
-									<th>Last Name</th>
+									<th>Name</th>
+									<th>Contact</th>
+									<th>Phone</th>
 									<th>Email</th>
-									<th class="hidden-xs hidden-sm">Enabled</th>
+									<th>Street</th>
+									<th>City</th>
+									<th>State</th>
+									<th>Zip</th>
 									<th>Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-								<#list users as user>
+								<#list counselors as counselor>
 									<tr>
-										<td>${(user.firstName)!}</td>
-										<td>${(user.lastName)!}</td>
-										<td>${(user.username)!}</td>
-										<td class="hidden-xs hidden-sm">${(user.active == 1)?c}</td>
+										<td>${(counselor.name)}</td>
+										<td>${(counselor.contactName)}</td>
+										<td>${(counselor.phone)}</td>
+										<td>${(counselor.email)}</td>
+										<td>${(counselor.street)}</td>
+										<td>${(counselor.city)}</td>
+										<td>${(counselor.state)}</td>
+										<td>${(counselor.zip)}</td>
 										<td>
-											<a href="/admin/user/${(user.id?c)!}" class="btn btn-primary">
+											<a href="/admin/counselor/${(counselor.id?c)!}" class="btn btn-primary">
 												<i class="fa fa-pencil"></i>
 											</a>
 
 											<!-- delete item trigger -->
-											<span id="delete-item" data-id="/admin/user/del/${user.id?c}"
+											<span id="delete-item" data-id="/admin/counselor/del/${counselor.id?c}"
 												  class="btn btn-danger">
 												<i class="fa fa-trash-o"></i>
 											</span>
@@ -91,17 +99,15 @@
 		<!-- javascript -->
 
 		<#include "../../stubs/scripts.ftl"/>
-
-		<script src="/static/js/password.js"></script>
 		<script src="/static/js/delete-item.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.7/js/jquery.dataTables.min.js"></script>
 		<script src="/static/js/data-table-bootstrap.js"></script>
 		<script>
 			$(document).ready(function() {
-				$('#users').DataTable({
+				$('#counselors').DataTable({
 					lengthMenu:[10,15,20],
 					"columnDefs": [
-						{ "orderable": false, "targets": [3,4] }
+						{ "orderable": false, "targets": [8] }
 					]
 				});
 			});

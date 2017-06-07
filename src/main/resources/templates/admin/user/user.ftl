@@ -43,7 +43,12 @@
 			<div class="col-sm-offset-2 col-sm-8">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Add/Edit User <span class="pull-right"><a href="/admin/user/${(user?? && user.id??)?string('${user.id?c}','add')}">Clear</a></span>
+						<#if user?? && user.id??>
+							Edit User <span class="pull-right"><a href="/admin/user/${user.id?c}">Clear</a></span>
+						<#else>
+							Add User <span class="pull-right"><a href="/admin/user/add">Clear</a></span>
+						</#if>
+
 					</div>
 					<form id="accountForm" role="form" method="post" action="/admin/user/${(user?? && user.id??)?string('edit','add')}" novalidate>
 						<#if user?? && user.id??>

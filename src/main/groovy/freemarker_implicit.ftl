@@ -1,4 +1,5 @@
 [#ftl]
 [#-- @implicitly included --]
-[#-- @ftlvariable name="video" type="com.cagnosolutions.starter.app.video.Video" --]
 [#-- @ftlvariable name="user" type="com.cagnosolutions.starter.app.user.User" --]
+[#-- @ftlvariable name="video" type="com.cagnosolutions.starter.app.video.Video" --]
+[#-- @ftlvariable name="counselor" type="com.cagnosolutions.starter.app.counselor.Counselor" --]

@@ -10,6 +10,7 @@
 						<li><a href="/admin/video">Videos</a></li>
 						<li><a href="/admin/series">Series</a></li>
 						<li><a href="/admin/user">Users</a></li>
+						<li><a href="/admin/counselor">Counselors</a></li>
 						<li><a href="/admin/devotional">Devotional</a></li>
 						<li><a href="/admin/intensive">Intensives</a></li>
 						<li class="dropdown">
