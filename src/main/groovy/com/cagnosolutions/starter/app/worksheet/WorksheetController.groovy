@@ -83,11 +83,11 @@ class WorksheetController {
 					"${user.firstName} ${user.lastName}"
 			map.put("name", name)
 			map.put("worksheet", worksheet)
-			emailService.send("noreply@fantheflamedates.com", user.username ,"Worksheet", "Worksheet", "email/worksheet.ftl", map)
+			emailService.send("noreply@fantheflamedates.com", user.username ,"Worksheet", "Worksheet", "email/worksheet.ftl", map, ["hotr", "ftfd"])
 		}
 		if (send) {
 			// anonymously email to ffd
-			emailService.send("noreply@fantheflamedates.com", "info@fantheflamedates.com" ,"Worksheet", "Worksheet", "email/anonWorksheet.ftl", map)
+			emailService.send("noreply@fantheflamedates.com", "info@fantheflamedates.com" ,"Worksheet", "Worksheet", "email/anonWorksheet.ftl", map, ["hotr", "ftfd"])
 		}
 		attr.addFlashAttribute("worksheet", worksheet)
 		def slug = videoService.findOne(worksheet.videoId).slug

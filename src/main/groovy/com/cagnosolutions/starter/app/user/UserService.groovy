@@ -79,7 +79,7 @@ class UserService {
 					"${user.firstName} and ${user.spouseName} ${user.lastName}" :
 					"${user.firstName} ${user.lastName}"
 			map.put("name", name)
-			emailService.send("noreply@fantheflamedates.com", user.username, "Monthly Reminder", "Monthly Reminder", "email/reminder.ftl", map)
+			emailService.send("noreply@fantheflamedates.com", user.username, "Monthly Reminder", "Monthly Reminder", "email/reminder.ftl", map, ["hotr", "ftfd"])
 		}
 	}
 

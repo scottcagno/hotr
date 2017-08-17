@@ -94,7 +94,7 @@ class AuthController {
 			userService.save user
 			def map = [:]
 			map.put("name", "${user.firstName} ${user.lastName}")
-			emailService.send("noreply@fantheflamedates.com", user.username, "Registration", "Registration", "email/registration.ftl", map)
+			emailService.send("noreply@fantheflamedates.com", user.username, "Registration", "Registration", "email/registration.ftl", map, ["hotr", "ftfd"])
 			attr.addFlashAttribute "alertSuccess", "${user.firstName} ${user.lastName} has successfully been registered, please login"
 			attr.addFlashAttribute("username", user.username)
 			return "redirect:/login"

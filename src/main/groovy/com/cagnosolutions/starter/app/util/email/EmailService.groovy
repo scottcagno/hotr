@@ -15,9 +15,9 @@ import javax.ws.rs.core.MediaType
 class EmailService {
 
 	static String AUTH_KEY = "key-173701b40541299bd3b7d40c3ac6fd43"
-	static String BASE_URI = "https://api.mailgun.net/v3/sandbox73d66ccb60f948708fcaf2e2d1b3cd4c.mailgun.org"
+	static String BASE_URI = "https://api.mailgun.net/v3/mg.cagnosolutions.com"
 
-	def send(String from, String to, String subject, String text, String html) {
+	def send(String from, String to, String subject, String text, String html, List<String> tags) {
 		def client = Client.create()
 		def resource = client.resource BASE_URI + "/messages"
 		def data = new MultivaluedMapImpl()
@@ -27,10 +27,12 @@ class EmailService {
 		data.add "subject", subject
 		data.add "text", text
 		data.add "html", html
+		tags.each {data.add "o:tag", it}
+
 		resource.type(MediaType.APPLICATION_FORM_URLENCODED).post(data)
 	}
 
-	def send(String from, String to, List<String> bcc, String subject, String text, String html) {
+	def send(String from, String to, List<String> bcc, String subject, String text, String html, List<String> tags) {
 		def client = Client.create()
 		def resource = client.resource BASE_URI + "/messages"
 		def data = new MultivaluedMapImpl()
@@ -41,26 +43,28 @@ class EmailService {
 		data.add "subject", subject
 		data.add "text", text
 		data.add "html", html
+		tags.each {data.add "o:tag", it}
+
 		resource.type(MediaType.APPLICATION_FORM_URLENCODED).post(data)
 	}
 
-	def send(String from, String to, String subject, String text) {
-		send from, to, subject, text, text
+	def send(String from, String to, String subject, String text, List<String> tags) {
+		send from, to, subject, text, text, tags
 	}
 
 	/** FREEMARKER TEMPLATE SUPPORT **/
 
 	@Autowired
-	Configuration config // template configuation class
+	Configuration config // template configuration class
 
-	def send(String from, String to, String subject, String text, String template, Map data) {
+	def send(String from, String to, String subject, String text, String template, Map data, List<String> tags) {
 		def body = FreeMarkerTemplateUtils.processTemplateIntoString config.getTemplate(template), data
-		send from, to, subject, text, body
+		send from, to, subject, text, body, tags
 	}
 
-	def send(String from, String to, List<String> bcc, String subject, String text, String template, Map data) {
+	def send(String from, String to, List<String> bcc, String subject, String text, String template, Map data, List<String> tags) {
 		def body = FreeMarkerTemplateUtils.processTemplateIntoString config.getTemplate(template), data
-		send from, to, bcc, subject, text, body
+		send from, to, bcc, subject, text, body, tags
 	}
 
 	/** FREEMARKER TEMPLATE SUPPORT **/
