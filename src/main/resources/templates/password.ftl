@@ -7,7 +7,7 @@
 
 	</head>
 	<body>
-
+		<#include "stubs/google-tag-manager-body.ftl"/>
 		<!-- navbar -->
 		<#include "stubs/navbar.ftl"/>
 		<!-- navbar -->

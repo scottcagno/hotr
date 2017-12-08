@@ -7,6 +7,7 @@
     	<title>Devotional Post</title>
 	</head>
 	<body class="boxedlayout">
+		<#include "../stubs/google-tag-manager-body.ftl"/>
 		<div class="boxedcontent">
 
 			<#assign link = (auth)?string('/secure', '')/>

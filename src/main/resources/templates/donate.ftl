@@ -7,6 +7,7 @@
 
 	</head>
 	<body class="boxedlayout">
+		<#include "stubs/google-tag-manager-body.ftl"/>
 		<div class="boxedcontent">
 
 			<!-- navbar -->

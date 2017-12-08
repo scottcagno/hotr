@@ -21,7 +21,7 @@
 		
 	</head>
 	<body id="body">
-
+		<#include "../../stubs/google-tag-manager-body.ftl"/>
 		<!-- navbar -->
 		<#include "../../stubs/admin_navbar.ftl"/>
 		<!-- navbar -->
