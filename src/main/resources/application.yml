@@ -7,17 +7,17 @@ spring:
     #url: jdbc:mysql://192.168.0.77:3306/hotr?createDatabaseIfNotExist=true
     username: root
     password: root
-    maxActive: 150
-    maxIdle: 5
-    minIdle: 5
-    initialSize: 5
-    minEvictableIdleTimeMillis: 1800000
-    timeBetweenEvictionRunsMillis: 1800000
-    maxWait: 10000
-    validationQuery: SELECT 1
-    testOnBorrow: true
-    testOnReturn: true
-    testWhileIdle: true
+    #maxActive: 150
+    #maxIdle: 5
+    #minIdle: 5
+    #initialSize: 5
+    #minEvictableIdleTimeMillis: 1800000
+    #timeBetweenEvictionRunsMillis: 1800000
+    #maxWait: 10000
+    #validationQuery: SELECT 1
+    #testOnBorrow: true
+    #testOnReturn: true
+    #testWhileIdle: true
   jpa:
     generateDdl: true
   social:

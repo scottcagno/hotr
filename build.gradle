@@ -37,7 +37,7 @@ dependencies {
     compile	"org.codehaus.groovy:groovy-all"
     compile	"mysql:mysql-connector-java"
 	compile	"org.apache.httpcomponents:httpclient:4.3.4"
-    compile	"org.springframework.boot:spring-boot-starter-actuator"
+//    compile	"org.springframework.boot:spring-boot-starter-actuator"
 	compile "org.springframework.boot:spring-boot-starter-amqp"
 
     // emailer dependencies
