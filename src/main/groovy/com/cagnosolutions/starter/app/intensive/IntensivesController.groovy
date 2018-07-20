@@ -20,8 +20,7 @@ class IntensivesController {
 	// GET view marriage intensives main
 	@RequestMapping(method = RequestMethod.GET)
 	String intensives(Model model) {
-		model.addAllAttributes([auth: (userSession.id != null), intensive:intensiveService.findOne()])
-		"intensive/intensive"
+		"redirect:https://www.themarriagehub.com/"
 	}
 
 }
